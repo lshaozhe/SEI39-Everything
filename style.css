@@ -35,7 +35,8 @@ div {
   background-color: lavender;
 }
 
-textarea {
+#display {
   width: 200px;
-  height: 410px;
+  height: 420px;
+  background-color: aliceblue;
 }
