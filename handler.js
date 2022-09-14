@@ -49,7 +49,7 @@ function fGenerateRandomBoard() {
   getDisplay.append(createLines);
 
   initialiseArrs();
-  boardGenerator(n, depth, true);
+  boardGenerator(n, dimension, true);
   populateInitialValues();
   writeToBoard(initialArr);
 }
@@ -61,9 +61,8 @@ function fGetFromBoard() {
   getDisplay.append(createLines);
 
   initialiseArrs();
-  boardGenerator(n, depth, false);
+  boardGenerator(n, dimension, false);
   populateInitialValues();
-  console.log(initialArr, solnArr, errArr);
 }
 
 function fCheckBoard() {

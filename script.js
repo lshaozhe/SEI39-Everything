@@ -4,18 +4,23 @@ let initialArr = [],
   solnArr = [],
   errArr = [],
   n = 9,
-  depth = 2;
+  dimension = 2;
+
+// initialiseArrs(n, dimension);
+// boardGenerator(n, dimension, true);
+// populateInitialValues();
+// generateSolutionsforHTML();
 
 function generateSolutionsforHTML() {
-  if (autoSolver()) {
-    return "Solve Puzzle was clicked => Solutions generated.";
+  if (dimension === 2){
+    return autoSolver() ? "Solve Puzzle was clicked => Solutions generated." : "Solve Puzzle was clicked => However, no solution exists";
   } else {
-    return "Solve Puzzle was clicked => However, no solution exists";
+    return autoSolver3D() ? "Solve Puzzle was clicked => Solutions generated." : "Solve Puzzle was clicked => However, no solution exists";
   }
 }
 function autoSolver(row = 0, col = 0) {
   //write base case first to stop recussion => in this case condition where board is solved
-  if (checkComplete(row, col)) {
+  if (row === solnArr[0].length - 1 && col === solnArr.length) {
     return true;
   }
   //Manual nested i, j loop => if col > max index then increment row and reset col
@@ -25,7 +30,7 @@ function autoSolver(row = 0, col = 0) {
   //search for the first element to be solved => i.e element == 0
   if (solnArr[row][col] !== 0) {
     //console.log("increament performed");
-    return autoSolver(row, col + 1); //cannot ++ no assignment*
+    return autoSolver(row, col + 1);
   }
   //when element == 0 is found, try to fit the possible solutions into it.
   for (const element of errArr[row][col]) {
@@ -34,7 +39,6 @@ function autoSolver(row = 0, col = 0) {
       //console.log(`element ${element} was input at row:${row}, col:${col}`);
       //then solve all remaning 0 in the board, if there are elements that cannot be solved, it will not pass the previous if loop
       if (autoSolver(row, col + 1)) {
-        //cannot ++ no assignment*
         return true; //return true when all elements solved => a valid soln is found
       } else {
         //console.log("increment from r performed");
@@ -47,10 +51,27 @@ function autoSolver(row = 0, col = 0) {
   //console.log("false is returned");
   return false;
 }
-function checkComplete(row, col) {
-  //if the current row is index 8 and col is index 9 means 8 : 8 had been solved
-  if (row === solnArr[0].length - 1 && col === solnArr.length) {
+function autoSolver3D(y = 0, x = 0, z = 0) {
+  if (x === n - 1 && y === n - 1 && z === n) {
     return true;
+  }
+  if (x === n) {
+    y++, (x = 0);
+    if (y === n){
+      z++, (y = 0);
+    }
+  }
+  if (solnArr[y][x][z] !== 0) {
+    return autoSolver3D(y, x + 1, z);
+  }
+  for (const element of errArr[y][x][z]) {
+    if (isNotConstrained(element, x, y, z) && element !== 0) {
+      solnArr[y][x][z] = element;
+      if (autoSolver3D(y, x + 1, z)) {
+        return true; 
+      }
+    }
+    solnArr[y][x][z] = 0;
   }
   return false;
 }
@@ -61,12 +82,13 @@ function checkComplete(row, col) {
 //Commit 1: Sets up the 3 array for a fixed array defined within JS.
 //Commit 4: Created boardGenerator function that allows for generation of 9x9 boards.
 //Commit 5: resolved boardGenerator not receiving user input due to incorrect array reference.
+//Branch 1: Allowed nxnxn solver to initialise
 //Note: Only for 9x9 board for now. Code is NOT READY for nxn where n is any number and NOT READY for use in 3D (nxnxn) boards. though some features for n and depths are considered below.
 //Note: by default uses a pre-generated board
 
 //Returns 3 initiallised arrays for errArr (nxnxn), solnArr (nxn) and initialArr. Input the gridlength and dimension of selected board
-function initialiseArrs(n = 9, depth = 2) {
-  (n = parseInt(n)), (depth = parseInt(depth));
+function initialiseArrs(n = 9, dimension = 2) {
+  (n = parseInt(n)), (dimension = parseInt(dimension));
 
   //generate all soln on errArr depending on n length first
   let tempArr = new Array(n);
@@ -75,7 +97,7 @@ function initialiseArrs(n = 9, depth = 2) {
   }
 
   //Generates dimensions dimensions next
-  if (depth === 2) {
+  if (dimension === 2) {
     solnArr = new Array(n).fill(new Array(n).fill(-1));
     initialArr = new Array(n).fill(new Array(n).fill(0));
     errArr = new Array(n).fill(new Array(n).fill(-1));
@@ -85,7 +107,7 @@ function initialiseArrs(n = 9, depth = 2) {
       }
     }
   }
-  if (depth === 3) {
+  if (dimension === 3) {
     solnArr = new Array(n).fill(new Array(n).fill(new Array(n).fill(-1)));
     initialArr = new Array(n).fill(new Array(n).fill(new Array(n).fill(0)));
     errArr = new Array(n).fill(new Array(n).fill(new Array(n).fill(-1)));
@@ -102,106 +124,131 @@ function initialiseArrs(n = 9, depth = 2) {
   solnArr = JSON.parse(JSON.stringify(solnArr));
   initialArr = JSON.parse(JSON.stringify(initialArr));
   errArr = JSON.parse(JSON.stringify(errArr));
-console.log(initialArr,solnArr,errArr);
 }
 
-//Either generate a 9x9 board or use a default 9x9 board depending on user selection
-function boardGenerator(n = 9, depth = 2, isGenerateTrue = false) {
+//Either generate a 9x9 board or use a default 9x9 board depending on user selection. i.e filling initialArr only
+function boardGenerator(n = 9, dimension = 2, isGenerateTrue = false) {
   let count = 0;
   if (isGenerateTrue) {
-    while (count < n * depth) {
+    while (count < n*dimension) {//initial numbers of populated elements on generated grid
       let num = Math.ceil(Math.random() * n);
       let x = Math.floor(Math.random() * n);
       let y = Math.floor(Math.random() * n);
-      if (depth === 3) {
-        let z = Math.floor(Math.random() * n);
-      }
-      if (isNotConstrained(num, x, y, initialArr) && depth === 2) {
+      let z = Math.floor(Math.random() * n);
+      if (isNotConstrained(num, x, y, 0, initialArr) && dimension === 2) {
         initialArr[x][y] = num;
         count++;
       }
-      //   if (isNotConstrained(num, x, y, z, initialArr) && depth === 3) {
-      //     initialArr[x][y][z] = num;
-      //     count++;
-      //   }
-    }
-  } else {
-    // initialArr = [
-    //   [0, 6, 0, 0, 0, 0, 0, 1, 0],
-    //   [7, 0, 1, 0, 0, 0, 0, 0, 4],
-    //   [0, 0, 3, 9, 0, 0, 0, 0, 0],
-    //   [6, 0, 9, 0, 0, 0, 0, 0, 5],
-    //   [0, 5, 0, 0, 0, 9, 7, 2, 0],
-    //   [0, 7, 0, 2, 0, 6, 0, 0, 0],
-    //   [0, 0, 6, 0, 3, 0, 0, 0, 0],
-    //   [9, 0, 0, 7, 0, 0, 5, 3, 0],
-    //   [0, 0, 0, 0, 9, 0, 1, 0, 0],
-    // ];
-    let count = 0;
-    for (let i = 0; i < n; i++) {
-      for (let j = 0; j < n; j++) {
-        if (
-          document.querySelectorAll(".gridElement")[count].value > 0 &&
-          document.querySelectorAll(".gridElement")[count].value < 10
-        ) {
-          initialArr[i][j] = parseInt(
-            document.querySelectorAll(".gridElement")[count].value
-          );
-        } else {
-          initialArr[i][j] = 0;
+      if (dimension === 3){
+        if (isNotConstrained(num, x, y, z, initialArr)) {
+          initialArr[x][y][z] = num;
+          count++;
         }
-        count++;
       }
     }
-    console.log(initialArr);
+  } else {
+    let count = 0;
+    if (dimension === 2){
+      for (let i = 0; i < n; i++) {
+        for (let j = 0; j < n; j++) {
+          if (
+            document.querySelectorAll(".gridElement")[count].value > 0 &&
+            document.querySelectorAll(".gridElement")[count].value < 10
+          ) {
+            initialArr[i][j] = parseInt(
+              document.querySelectorAll(".gridElement")[count].value
+            );
+          } else {
+            initialArr[i][j] = 0;
+          }
+          count++;
+        }
+      }
+    }
+    if (dimension === 3){
+      //TO BE DEVELOPED WITH FRONTEND
+    }
   }
 }
 
 //Creating a working board: SolnArr, and error board: ErrArr for working of solutions in solver, and errArr to generate hints later
-function populateInitialValues() {
   //limiting the error array to register the solved/ default puzzle input to be the only right answer at the grid
   //Also copies valid entries from initialArr to solnArr such that solnArr can be run by solver later.
+function populateInitialValues() {
   for (let i = 0; i < initialArr.length; i++) {
     for (let j = 0; j < initialArr[i].length; j++) {
-      if (initialArr[i][j] !== 0) {
-        
-        //errArr[i][j] = JSON.parse(JSON.stringify(Array(9).fill(0)));
-        errArr[i][j][initialArr[i][j] - 1] = initialArr[i][j];
-        solnArr[i][j] = initialArr[i][j];
-      } else {
-        solnArr[i][j] = initialArr[i][j];
+      if (dimension === 2) {
+        if (initialArr[i][j] !== 0) {
+          removeElement(initialArr[i][j], i, j); //taking z = 0 default value when function is invoked
+          errArr[i][j] = JSON.parse(JSON.stringify(Array(n).fill(0)));
+          errArr[i][j][initialArr[i][j] - 1] = initialArr[i][j];
+        }
+        solnArr[i][j] = initialArr[i][j]; 
+      }
+      if (dimension === 3) {
+        for (let k = 0; k < initialArr[i][j].length; k++) {
+          if (initialArr[i][j][k] !== 0) {
+            removeElement(initialArr[i][j][k], i, j, k);
+            errArr[i][j][k] = JSON.parse(JSON.stringify(Array(n).fill(0)));
+            errArr[i][j][k][initialArr[i][j][k] - 1] = initialArr[i][j][k];
+          }
+          solnArr[i][j][k] = initialArr[i][j][k]; 
+        }
       }
     }
   }
 }
 
 //all other remove functions below are lower order functions called solely by populateInitialValues
-function removeElement(num, row, col) {
-  removeElementInCol(num - 1, row, col);
-  removeElementInRow(num - 1, row, col);
-  removeElementInBox(num - 1, row, col);
-}
-
-function removeElementInRow(num, row, col) {
-  for (let i = 0; i < errArr[row].length; i++) {
-    errArr[row][i][num] = 0;
+function removeElement(num, x, y, z = 0) {
+  //num must -1 as it is removing index
+  removeElementInCol(num - 1, x, y, z);
+  removeElementInRow(num - 1, x, y, z);
+  removeElementInBox(num - 1, x, y, z);
+  if (dimension === 3){
+    removeElementInDepth;
   }
 }
 
-function removeElementInCol(num, row, col) {
-  for (let i = 0; i < errArr[col].length; i++) {
-    errArr[i][col][num] = 0;
-  }
-}
-
-function removeElementInBox(num, row, col) {
-  let localRow, localCol;
-  localRow = row - (row % 3);
-  localCol = col - (col % 3);
-  for (let i = localRow; i < localRow + 3; i++) {
-    for (let j = localCol; j < localCol + 3; j++) {
-      errArr[i][j][num] = 0;
+function removeElementInRow(num, x, y, z) {
+  for (let i = 0; i < errArr[x].length; i++) {
+    if (dimension === 2) {
+      errArr[x][i][num] = 0;
+    } else {
+      errArr[x][i][z][num] = 0;
     }
+  }
+}
+
+function removeElementInCol(num, x, y, z) {
+  for (let i = 0; i < n; i++) {
+    if (dimension === 2){
+      errArr[i][y][num] = 0;
+    } else {
+      errArr[i][y][z][num] = 0;
+    }
+  }
+}
+
+function removeElementInBox(num, x, y, z) {
+  let localRow, localCol, localDepth;
+  localRow = x - (x % n**0.5);
+  localCol = y - (y % n**0.5);
+  localDepth = z - (z % n**0.5);
+  for (let i = localRow; i < localRow + n**0.5; i++) {
+    for (let j = localCol; j < localCol + n**0.5; j++) {
+      if(dimension === 2){
+      errArr[i][j][num] = 0;
+      } else {
+        errArr[i][j][z][num] = 0;
+      }
+    }
+  }
+}
+
+function removeElementInDepth(num, x, y, z) {
+  for (let i = 0; i < n; i++) {
+      errArr[x][y][i][num] = 0;
   }
 }
 
@@ -209,63 +256,83 @@ function removeElementInBox(num, row, col) {
 //Change Logs:
 //Commit 1: Takes in num, row, col for any nxn boards to check if a move is valid. isNotConstrained returns true if move is valid
 //Commit 4: Able to take in array when reference is specified -> For use in board generation
+//Branch 1: Allowed nxnxn checks on arrays
 //Note: Code is ready for nxn where n is any number, but NOT READY for use in 3D (nxnxn) boards
 //Note: All row and col arguments for functions are array index (i.e starts from 0)
 
 //returns true if not contrained, i.e valid move. All other functions below are lower order functions called solely by isNotConstrained
-function isNotConstrained(num, row, col, arr = solnArr) {
-  if (
-    isRowNotConstrained(num, row, col, arr) &&
-    isColNotConstrained(num, row, col, arr) &&
-    isBoxNotConstrained(num, row, col, arr)
-  ) {
-    return true;
+function isNotConstrained(num, x, y, z = 0, arr = solnArr) {
+  let booleanHolder = true;
+  if (dimension === 2) {
+    booleanHolder = (
+    isRowNotConstrained(num, x, y, z, arr) &&
+    isColNotConstrained(num, x, y, z, arr) &&
+    isBoxNotConstrained(num, x, y, z, arr)
+    )
   } else {
-    return false;
+    booleanHolder = (
+    isRowNotConstrained(num, x, y, z, arr) &&
+    isColNotConstrained(num, x, y, z, arr) &&
+    isBoxNotConstrained(num, x, y, z, arr) &&
+    isDepthNotConstrained(num, x, y, z, arr)
+    )
   }
+  return booleanHolder ? true : false;
 }
 
-function isRowNotConstrained(num, row, col, arr) {
-  const arrR = arr[row];
+function isRowNotConstrained(num, x, y, z, arr) {
+  let arrR = [];
+  if (dimension === 2) {
+  arrR = arr[x];
+  } else {
+    for (let i = 0; i < arr.length; i++){
+      arrR.push(arr[x][i][z]);
+      }
+  }
   let rFinder = arrR.find((element) => element === num);
-  //console.log(`R returning: ${solnArrR}, rFinder = ${rFinder}, testing ${num}`);
-  if (rFinder === undefined) {
-    return true;
-  } else {
-    return false;
-  }
+  return rFinder === undefined ? true : false;
 }
 
-function isColNotConstrained(num, row, col, arr) {
+function isColNotConstrained(num, x, y, z, arr) {
   const arrC = [];
   let cFinder;
-  for (let i = 0; i < arr.length; i++) {
-    arrC.push(arr[i][col]);
+  if(dimension === 2){
+    for (let i = 0; i < arr.length; i++) {
+      arrC.push(arr[i][y]);
+    }
+  } else {
+    for (let i = 0; i < arr.length; i++) {
+      arrC.push(arr[i][y][z]);
+    }
   }
   cFinder = arrC.find((element) => element === num);
-  //console.log(`C returning: ${solnArrC}, cFinder = ${cFinder}, testing ${num}`);
-  if (cFinder === undefined) {
-    return true;
-  } else {
-    return false;
-  }
+  return cFinder === undefined ? true : false;
 }
 
-function isBoxNotConstrained(num, row, col, arr) {
+function isBoxNotConstrained(num, x, y, z, arr) {
   const arrB = [];
   let bFinder, localRow, localCol;
-  localRow = row - (row % 3);
-  localCol = col - (col % 3);
-  for (let i = localRow; i < localRow + 3; i++) {
-    for (let j = localCol; j < localCol + 3; j++) {
-      arrB.push(arr[i][j]);
+  localRow = x - (x % n**0.5);
+  localCol = y - (y % n**0.5);
+  for (let i = localRow; i < localRow + n**0.5; i++) {
+    for (let j = localCol; j < localCol + n**0.5; j++) {
+      if (dimension === 2) {
+        arrB.push(arr[i][j]);
+      } else {
+        arrB.push(arr[i][j][z])
+      }
     }
   }
   bFinder = arrB.find((element) => element === num);
-  //console.log(`B returning: ${solnArrB}, bFinder = ${bFinder}, testing ${num}`);
-  if (bFinder === undefined) {
-    return true;
-  } else {
-    return false;
+  return bFinder === undefined ? true : false;
+}
+
+function isDepthNotConstrained(num, x, y, z, arr) {
+  const arrD = [];
+  let DFinder;
+  for (let i = 0; i < arr.length; i++) {
+    arrD.push(arr[x][y][i]);
   }
+  DFinder = arrD.find((element) => element === num);
+  return DFinder === undefined ? true : false;
 }
