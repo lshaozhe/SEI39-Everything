@@ -102,6 +102,7 @@ function initialiseArrs(n = 9, depth = 2) {
   solnArr = JSON.parse(JSON.stringify(solnArr));
   initialArr = JSON.parse(JSON.stringify(initialArr));
   errArr = JSON.parse(JSON.stringify(errArr));
+console.log(initialArr,solnArr,errArr);
 }
 
 //Either generate a 9x9 board or use a default 9x9 board depending on user selection
@@ -143,7 +144,7 @@ function boardGenerator(n = 9, depth = 2, isGenerateTrue = false) {
           document.querySelectorAll(".gridElement")[count].value > 0 &&
           document.querySelectorAll(".gridElement")[count].value < 10
         ) {
-          initialArr[i][j] = parseFloat(
+          initialArr[i][j] = parseInt(
             document.querySelectorAll(".gridElement")[count].value
           );
         } else {
@@ -158,21 +159,17 @@ function boardGenerator(n = 9, depth = 2, isGenerateTrue = false) {
 
 //Creating a working board: SolnArr, and error board: ErrArr for working of solutions in solver, and errArr to generate hints later
 function populateInitialValues() {
-  //limiting all solvable grids to be contrained - i.e will never conflict with solve/ default puzzle input in the same row, col, box
-  for (let i = 0; i < initialArr.length; i++) {
-    for (let j = 0; j < initialArr[i].length; j++) {
-      if (initialArr[i][j] !== 0) {
-        removeElement(initialArr[i][j], i, j);
-      }
-      solnArr[i][j] = initialArr[i][j];
-    }
-  }
   //limiting the error array to register the solved/ default puzzle input to be the only right answer at the grid
+  //Also copies valid entries from initialArr to solnArr such that solnArr can be run by solver later.
   for (let i = 0; i < initialArr.length; i++) {
     for (let j = 0; j < initialArr[i].length; j++) {
       if (initialArr[i][j] !== 0) {
-        errArr[i][j] = JSON.parse(JSON.stringify(Array(9).fill(0)));
+        
+        //errArr[i][j] = JSON.parse(JSON.stringify(Array(9).fill(0)));
         errArr[i][j][initialArr[i][j] - 1] = initialArr[i][j];
+        solnArr[i][j] = initialArr[i][j];
+      } else {
+        solnArr[i][j] = initialArr[i][j];
       }
     }
   }

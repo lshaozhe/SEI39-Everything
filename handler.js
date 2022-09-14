@@ -27,11 +27,11 @@ document.querySelector("#buttons").addEventListener("click", function (e) {
 });
 
 ////=============== Event Listener for Sudoku Grid ===============
-//Commit 5: added input listeners
-document.querySelector("#grid").addEventListener("change", function (e) {
-  e.preventDefault();
-  alert("changed");
-});
+//Commit 5: added input listeners (for expansion later)
+// document.querySelector("#grid").addEventListener("change", function (e) {
+//   e.preventDefault();
+//   alert("changed");
+// });
 
 ////=============== Higher Order Functions for Click Logic ===============
 //Change Logs:
