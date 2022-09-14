@@ -60,6 +60,7 @@ function checkComplete(row, col) {
 //Change Logs:
 //Commit 1: Sets up the 3 array for a fixed array defined within JS.
 //Commit 4: Created boardGenerator function that allows for generation of 9x9 boards.
+//Commit 5: resolved boardGenerator not receiving user input due to incorrect array reference.
 //Note: Only for 9x9 board for now. Code is NOT READY for nxn where n is any number and NOT READY for use in 3D (nxnxn) boards. though some features for n and depths are considered below.
 //Note: by default uses a pre-generated board
 
@@ -138,11 +139,15 @@ function boardGenerator(n = 9, depth = 2, isGenerateTrue = false) {
     let count = 0;
     for (let i = 0; i < n; i++) {
       for (let j = 0; j < n; j++) {
-        console.log(document.querySelectorAll(".gridElement").value);
-        if (document.querySelectorAll(".gridElement").value == undefined) {
-          initialArr[i][j] = 0;
+        if (
+          document.querySelectorAll(".gridElement")[count].value > 0 &&
+          document.querySelectorAll(".gridElement")[count].value < 10
+        ) {
+          initialArr[i][j] = parseFloat(
+            document.querySelectorAll(".gridElement")[count].value
+          );
         } else {
-          initialArr[i][j] = document.querySelectorAll(".gridElement").value;
+          initialArr[i][j] = 0;
         }
         count++;
       }

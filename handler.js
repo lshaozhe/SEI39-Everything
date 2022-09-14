@@ -7,7 +7,6 @@
 //Commit 4:
 //Notes: each switch case should only trigger one function for consistency and neatness
 document.querySelector("#buttons").addEventListener("click", function (e) {
-  //e.preventDefault();
   switch (e.target.id) {
     case "generateBoard":
       fGenerateRandomBoard();
@@ -27,16 +26,28 @@ document.querySelector("#buttons").addEventListener("click", function (e) {
   }
 });
 
+////=============== Event Listener for Sudoku Grid ===============
+//Commit 5: added input listeners
+document.querySelector("#grid").addEventListener("change", function (e) {
+  e.preventDefault();
+  alert("changed");
+});
+
 ////=============== Higher Order Functions for Click Logic ===============
 //Change Logs:
 //Commit 4: Individual button functions created. Button 1 and 4 functional.
+//Commit 5: Button 2 now functional. Slighted edited DOM during button clicks
 
 let getDisplay = document.querySelector("#display");
 
 //Upon click, generate a random & valid board on html
 function fGenerateRandomBoard() {
-  getDisplay.textContent +=
+  let createLines = document.createElement("p");
+  createLines.id = "msg";
+  createLines.innerText =
     "Generate Board was clicked => A random puzzle had been generated. ";
+  getDisplay.append(createLines);
+
   initialiseArrs();
   boardGenerator(n, depth, true);
   populateInitialValues();
@@ -44,22 +55,38 @@ function fGenerateRandomBoard() {
 }
 
 function fGetFromBoard() {
-  getDisplay.textContent += "Your inputs had been recorded. ";
+  let createLines = document.createElement("p");
+  createLines.id = "msg";
+  createLines.innerText = "Your inputs had been recorded. ";
+  getDisplay.append(createLines);
+
   initialiseArrs();
   boardGenerator(n, depth, false);
+  populateInitialValues();
+  console.log(initialArr, solnArr, errArr);
 }
 
 function fCheckBoard() {
-  getDisplay.textContent += "Button still in development";
+  let createLines = document.createElement("p");
+  createLines.id = "msg";
+  createLines.innerText = "Button still in development";
+  getDisplay.append(createLines);
 }
 
 function fSolveBoard() {
-  getDisplay.textContent += generateSolutionsforHTML();
+  let createLines = document.createElement("p");
+  createLines.id = "msg";
+  createLines.innerText = generateSolutionsforHTML();
+  getDisplay.append(createLines);
+
   writeToBoard(solnArr);
 }
 
 function fShowHints() {
-  getDisplay.textContent += errArr;
+  let createLines = document.createElement("p");
+  createLines.id = "msg";
+  createLines.innerText = "Button still in development";
+  getDisplay.append(createLines);
 }
 
 //Takes a nxn matrix for disp (HTML limited to 9x9)

@@ -1,42 +1,143 @@
 body {
+  background-image: url("./assets/doodle_background.jpg");
   background-color: grey;
 }
 
 div {
-  text-align: center;
-  margin: 1em;
+  justify-content: center;
+  align-items: center;
 }
 
 .flex-container {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
 }
 
 .flex-row {
   display: flex;
   flex-direction: row;
+  align-items: center;
   justify-content: center;
+  font-size: 0px;
+  gap: 10px;
+  background-color: rgba(0, 0, 50, 0.1);
+  border-radius: 10px;
+  padding: 5px 15px 15px 15px;
+}
+
+#console {
+  display: flex;
+  flex-direction: column;
+}
+
+p {
+  font-size: 16px;
+  padding: 5px;
+  margin: 5px;
+}
+
+h2 {
+  font-size: 32px;
+  text-align: center;
+  margin: auto;
+  width: 250px;
 }
 
 .gridElement {
   width: 50px;
   height: 50px;
-  border-color: black;
-  margin: -5px -5px;
-  font-size: large;
+  border: 1px solid #000;
+  margin: 0;
   text-align: center;
+  font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+  transition: transform 0.2s; /* Animation */
 }
 
-.odd {
-  background-color: lightgray;
+.gridElement:nth-of-type(3n) {
+  border-right: 3px solid blue;
 }
 
-.even {
-  background-color: lavender;
+.gridElement:nth-of-type(3n-2) {
+  border-left: 3px solid blue;
+}
+
+.gridElement:hover {
+  background-color: #ca9bf2;
+  transform: scale(1.05);
+}
+
+.top {
+  border-top: 3px solid blue;
+}
+
+.btm {
+  border-bottom: 3px solid blue;
+}
+
+#menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 90%;
+  background-color: rgba(0, 0, 50, 0.1);
+  border-radius: 10px;
+  padding: 5px, 15px, 15px, 15px;
+}
+
+#buttons {
+  display: flex;
+  gap: 10px;
+}
+
+button {
+  padding: 15px;
+  border-color: #fff;
+  font-size: 16px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: rgb(0, 0, 0);
+  background-color: #b6e8ec;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 2px 4px #999;
+}
+
+button:hover {
+  background-color: #ca9bf2;
+}
+
+button:active {
+  background-color: #ca9bf2;
+  box-shadow: 2px 2px #666;
+  transform: translateY(2px) translateX(2px);
 }
 
 #display {
-  width: 200px;
-  height: 420px;
+  width: 220px;
+  height: 493px;
+  margin: 5px;
+  overflow-y: scroll;
   background-color: aliceblue;
+  text-align: justify;
+}
+
+#msg {
+  margin: 0px;
+  background-color: #f9b6e2;
+  padding: 2px;
+}
+#msg:nth-of-type(2n) {
+  background-color: #b6e8ec;
+}
+
+#credits {
+  display: flex;
+  justify-content: center;
+  margin-top: 16px;
+  font-size: 8px;
 }
