@@ -1,23 +1,30 @@
 "use strict";
+////=============== Script.js Objective ===============
+//Contains all functions required to generate arrays, check moves validity and generate solutions.
+//Currently works for all nxn board where n is a square of an integer.
+//nxnxn are ready on all functions except the solver (ready != tested)
 
+////=============== Declaring Variables ===============
+//Arrays used in the solver are as follows
 let initialArr = [],
   solnArr = [],
   errArr = [];
-// n = 9,
-// dimension = 2;
 
+////=============== Key Solving Sequence/ Functions and Arguments Required ===============
 // initialiseArrs(n, dimension);
 // boardGenerator(n, dimension, true);
 // populateInitialValues();
 // generateSolutionsforHTML();
 
-function generateSolutionsforHTML() {
+async function generateSolutionsforHTML() {
   if (dimension === 2) {
-    return autoSolver()
+    let waitingVal = await autoSolver()
+    return waitingVal
       ? "Solutions generated."
-      : "However, no solution exists";
+      : "No solution found";
   } else {
-    return autoSolver3D()
+    let waitingVal = await autoSolver()
+    return waitingVal
       ? "Solutions generated."
       : "However, no solution exists";
   }
@@ -167,6 +174,7 @@ function boardGenerator(n = 9, dimension = 2, isGenerateTrue = false) {
 //Creating a working board: SolnArr, and error board: ErrArr for working of solutions in solver, and errArr to generate hints later
 //limiting the error array to register the solved/ default puzzle input to be the only right answer at the grid
 //Also copies valid entries from initialArr to solnArr such that solnArr can be run by solver later.
+//i.e All array ready for solver after this is run
 function populateInitialValues() {
   for (let i = 0; i < initialArr.length; i++) {
     for (let j = 0; j < initialArr[i].length; j++) {

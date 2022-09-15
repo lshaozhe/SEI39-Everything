@@ -1,4 +1,7 @@
 body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-image: url("./assets/doodle_background.jpg");
   background-color: grey;
 }
@@ -155,6 +158,14 @@ h2 {
   color: black;
   font-family: "Trebuchet MS";
   font-weight: bold;
+}
+
+::placeholder {
+  font-weight: lighter;
+  font-family: 'Times New Roman';
+  text-align: center;
+  font-size: 10px;
+  word-wrap: break-all;
 }
 
 /*CSS overrule for 4x4*/
