@@ -14,12 +14,12 @@ let initialArr = [],
 function generateSolutionsforHTML() {
   if (dimension === 2) {
     return autoSolver()
-      ? "Solve Puzzle was clicked => Solutions generated."
-      : "Solve Puzzle was clicked => However, no solution exists";
+      ? "Solutions generated."
+      : "However, no solution exists";
   } else {
     return autoSolver3D()
-      ? "Solve Puzzle was clicked => Solutions generated."
-      : "Solve Puzzle was clicked => However, no solution exists";
+      ? "Solutions generated."
+      : "However, no solution exists";
   }
 }
 function autoSolver(row = 0, col = 0) {
@@ -141,7 +141,6 @@ function boardGenerator(n = 9, dimension = 2, isGenerateTrue = false) {
   if (n === 4 && maxCount > 6) {
     maxCount = 5;
   }
-  console.log(maxCount);
   if (isGenerateTrue) {
     while (count < maxCount) {
       //initial numbers of populated elements on generated grid

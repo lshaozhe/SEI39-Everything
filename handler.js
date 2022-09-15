@@ -31,9 +31,6 @@ document.querySelector("#buttons").addEventListener("click", function (e) {
     case "fillBoard":
       fGetFromBoard();
       break;
-    case "checkBoard":
-      fCheckBoard();
-      break;
     case "solveBoard":
       fSolveBoard();
       break;
@@ -66,33 +63,25 @@ let getDisplay = document.querySelector("#display");
 function fGenerateRandomBoard() {
   let createLines = document.createElement("p");
   createLines.id = "msg";
-  createLines.innerText =
-    "Generate Board was clicked => A random puzzle had been generated. ";
+  createLines.innerText = "A random puzzle had been generated. ";
   getDisplay.append(createLines);
 
   initialiseArrs(n, dimension);
   boardGenerator(n, dimension, true);
   populateInitialValues();
-  writeToBoard(initialArr);
+  setTimeout(writeToBoard(initialArr), 1000);
   console.log(solnArr, initialArr, errArr);
 }
 
 function fGetFromBoard() {
   let createLines = document.createElement("p");
   createLines.id = "msg";
-  createLines.innerText = "Your inputs had been recorded. ";
+  createLines.innerText = "Your input puzzle had been recorded. ";
   getDisplay.append(createLines);
 
   initialiseArrs(n, dimension);
   boardGenerator(n, dimension, false);
   populateInitialValues();
-}
-
-function fCheckBoard() {
-  let createLines = document.createElement("p");
-  createLines.id = "msg";
-  createLines.innerText = "Button still in development";
-  getDisplay.append(createLines);
 }
 
 function fSolveBoard() {
@@ -101,7 +90,7 @@ function fSolveBoard() {
   createLines.innerText = generateSolutionsforHTML();
   getDisplay.append(createLines);
 
-  writeToBoard(solnArr);
+  setTimeout(writeToBoard(solnArr), 3000);
 }
 
 function fShowHints() {
