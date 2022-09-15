@@ -99,3 +99,4 @@ bigger boards (n=16) freezes browser occasionally - suspect synchronous function
 Things to Improve On/ Reflections
 1. Better version control thru documentation and commits onto git.
 2. Refractor codes for simplicity of understanding/ troubleshooting/ further development.
+3. Practice practice and more practice to get better on writting html css js.
