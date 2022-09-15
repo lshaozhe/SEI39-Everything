@@ -5,113 +5,121 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css"/>
-    <title>9x9 Sudoku Solver</title>
+    <title>Sudoku Solver</title>
    </head>
   <body>
-    <div class="flex-container">
-      <div class="flex-row">
-        <form id="grid">
-        <h2>Sudoku Board</h2>
-          <input id="11" class="gridElement top" type="number" max ="9" min="1" autocomplete="off"></input>
-          <input id="12" class="gridElement top" type="number" max ="9" min="1" autocomplete="off"></input>
-          <input id="13" class="gridElement top" type="number" max ="9" min="1" autocomplete="off"></input>
-          <input id="14" class="gridElement top" type="number" max ="9" min="1" autocomplete="off"></input>
-          <input id="15" class="gridElement top" type="number" max ="9" min="1" autocomplete="off"></input>
-          <input id="16" class="gridElement top" type="number" max ="9" min="1" autocomplete="off"></input>
-          <input id="17" class="gridElement top" type="number" max ="9" min="1" autocomplete="off"></input>
-          <input id="18" class="gridElement top" type="number" max ="9" min="1" autocomplete="off"></input>
-          <input id="19" class="gridElement top" type="number" max ="9" min="1" autocomplete="off"></input>
-          <br/>
-          <input id="21" class="gridElement" type="number" max ="9" min="1" autocomplete="off"></input>
-          <input id="22" class="gridElement" type="number" max ="9" min="1" autocomplete="off"></input>
-          <input id="23" class="gridElement" type="number" max ="9" min="1" autocomplete="off"></input>
-          <input id="24" class="gridElement" type="number" max ="9" min="1" autocomplete="off"></input>
-          <input id="25" class="gridElement" type="number" max ="9" min="1" autocomplete="off"></input>
-          <input id="26" class="gridElement" type="number" max ="9" min="1" autocomplete="off"></input>
-          <input id="27" class="gridElement" type="number" max ="9" min="1" autocomplete="off"></input>
-          <input id="28" class="gridElement" type="number" max ="9" min="1" autocomplete="off"></input>
-          <input id="29" class="gridElement" type="number" max ="9" min="1" autocomplete="off"></input>
-          <br/>
-          <input id="31" class="gridElement" type="number" max ="9" min="1" autocomplete="off"></input>
-          <input id="32" class="gridElement" type="number" max ="9" min="1" autocomplete="off"></input>
-          <input id="33" class="gridElement" type="number" max ="9" min="1" autocomplete="off"></input>
-          <input id="34" class="gridElement" type="number" max ="9" min="1" autocomplete="off"></input>
-          <input id="35" class="gridElement" type="number" max ="9" min="1" autocomplete="off"></input>
-          <input id="36" class="gridElement" type="number" max ="9" min="1" autocomplete="off"></input>
-          <input id="37" class="gridElement" type="number" max ="9" min="1" autocomplete="off"></input>
-          <input id="38" class="gridElement" type="number" max ="9" min="1" autocomplete="off"></input>
-          <input id="39" class="gridElement" type="number" max ="9" min="1" autocomplete="off"></input>
-          <br/>
-          <input id="41" class="gridElement top" type="number" max ="9" min="1" autocomplete="off"></input>
-          <input id="42" class="gridElement top" type="number" max ="9" min="1" autocomplete="off"></input>
-          <input id="43" class="gridElement top" type="number" max ="9" min="1" autocomplete="off"></input>
-          <input id="44" class="gridElement top" type="number" max ="9" min="1" autocomplete="off"></input>
-          <input id="45" class="gridElement top" type="number" max ="9" min="1" autocomplete="off"></input>
-          <input id="46" class="gridElement top" type="number" max ="9" min="1" autocomplete="off"></input>
-          <input id="47" class="gridElement top" type="number" max ="9" min="1" autocomplete="off"></input>
-          <input id="48" class="gridElement top" type="number" max ="9" min="1" autocomplete="off"></input>
-          <input id="49" class="gridElement top" type="number" max ="9" min="1" autocomplete="off"></input>
-          <br/>
-          <input id="51" class="gridElement" type="number" max ="9" min="1" autocomplete="off"></input>
-          <input id="52" class="gridElement" type="number" max ="9" min="1" autocomplete="off"></input>
-          <input id="53" class="gridElement" type="number" max ="9" min="1" autocomplete="off"></input>
-          <input id="54" class="gridElement" type="number" max ="9" min="1" autocomplete="off"></input>
-          <input id="55" class="gridElement" type="number" max ="9" min="1" autocomplete="off"></input>
-          <input id="56" class="gridElement" type="number" max ="9" min="1" autocomplete="off"></input>
-          <input id="57" class="gridElement" type="number" max ="9" min="1" autocomplete="off"></input>
-          <input id="58" class="gridElement" type="number" max ="9" min="1" autocomplete="off"></input>
-          <input id="59" class="gridElement" type="number" max ="9" min="1" autocomplete="off"></input>
-          <br/>
-          <input id="61" class="gridElement" type="number" max ="9" min="1" autocomplete="off"></input>
-          <input id="62" class="gridElement" type="number" max ="9" min="1" autocomplete="off"></input>
-          <input id="63" class="gridElement" type="number" max ="9" min="1" autocomplete="off"></input>
-          <input id="64" class="gridElement" type="number" max ="9" min="1" autocomplete="off"></input>
-          <input id="65" class="gridElement" type="number" max ="9" min="1" autocomplete="off"></input>
-          <input id="66" class="gridElement" type="number" max ="9" min="1" autocomplete="off"></input>
-          <input id="67" class="gridElement" type="number" max ="9" min="1" autocomplete="off"></input>
-          <input id="68" class="gridElement" type="number" max ="9" min="1" autocomplete="off"></input>
-          <input id="69" class="gridElement" type="number" max ="9" min="1" autocomplete="off"></input>
-          <br/>
-          <input id="71" class="gridElement top" type="number" max ="9" min="1" autocomplete="off"></input>
-          <input id="72" class="gridElement top" type="number" max ="9" min="1" autocomplete="off"></input>
-          <input id="73" class="gridElement top" type="number" max ="9" min="1" autocomplete="off"></input>
-          <input id="74" class="gridElement top" type="number" max ="9" min="1" autocomplete="off"></input>
-          <input id="75" class="gridElement top" type="number" max ="9" min="1" autocomplete="off"></input>
-          <input id="76" class="gridElement top" type="number" max ="9" min="1" autocomplete="off"></input>
-          <input id="77" class="gridElement top" type="number" max ="9" min="1" autocomplete="off"></input>
-          <input id="78" class="gridElement top" type="number" max ="9" min="1" autocomplete="off"></input>
-          <input id="79" class="gridElement top" type="number" max ="9" min="1" autocomplete="off"></input>
-          <br/>
-          <input id="81" class="gridElement" type="number" max ="9" min="1" autocomplete="off"></input>
-          <input id="82" class="gridElement" type="number" max ="9" min="1" autocomplete="off"></input>
-          <input id="83" class="gridElement" type="number" max ="9" min="1" autocomplete="off"></input>
-          <input id="84" class="gridElement" type="number" max ="9" min="1" autocomplete="off"></input>
-          <input id="85" class="gridElement" type="number" max ="9" min="1" autocomplete="off"></input>
-          <input id="86" class="gridElement" type="number" max ="9" min="1" autocomplete="off"></input>
-          <input id="87" class="gridElement" type="number" max ="9" min="1" autocomplete="off"></input>
-          <input id="88" class="gridElement" type="number" max ="9" min="1" autocomplete="off"></input>
-          <input id="89" class="gridElement" type="number" max ="9" min="1" autocomplete="off"></input>
-          <br/>
-          <input id="91" class="gridElement btm" type="number" max ="9" min="1" autocomplete="off"></input>
-          <input id="92" class="gridElement btm" type="number" max ="9" min="1" autocomplete="off"></input>
-          <input id="93" class="gridElement btm" type="number" max ="9" min="1" autocomplete="off"></input>
-          <input id="94" class="gridElement btm" type="number" max ="9" min="1" autocomplete="off"></input>
-          <input id="95" class="gridElement btm" type="number" max ="9" min="1" autocomplete="off"></input>
-          <input id="96" class="gridElement btm" type="number" max ="9" min="1" autocomplete="off"></input>
-          <input id="97" class="gridElement btm" type="number" max ="9" min="1" autocomplete="off"></input>
-          <input id="98" class="gridElement btm" type="number" max ="9" min="1" autocomplete="off"></input>
-          <input id="99" class="gridElement btm" type="number" max ="9" min="1" autocomplete="off"></input>
-        </form>
+    <div id="flex-container">
+      <div id="flex-row">
+        <div id="left-menu">
+          <h2>Menu</h2>
+          <a href="./index.html"><button>9x9 Sudoku Board</button></a>
+          <a href="./4x4Board.html"><button>4x4 Sudoku Board</button></a>
+          <a href="./16x16Board.html"><button>16x16 Sudoku Board</button></a>
+        </div>
+        <div id="main-board">
+          <h2>Sudoku Board</h2>
+          <form id="grid">
+            <input id="11" class="gridElement gridElement99 top" type="number" max ="9" min="1" autocomplete="off"></input>
+            <input id="12" class="gridElement gridElement99 top" type="number" max ="9" min="1" autocomplete="off"></input>
+            <input id="13" class="gridElement gridElement99 top" type="number" max ="9" min="1" autocomplete="off"></input>
+            <input id="14" class="gridElement gridElement99 top" type="number" max ="9" min="1" autocomplete="off"></input>
+            <input id="15" class="gridElement gridElement99 top" type="number" max ="9" min="1" autocomplete="off"></input>
+            <input id="16" class="gridElement gridElement99 top" type="number" max ="9" min="1" autocomplete="off"></input>
+            <input id="17" class="gridElement gridElement99 top" type="number" max ="9" min="1" autocomplete="off"></input>
+            <input id="18" class="gridElement gridElement99 top" type="number" max ="9" min="1" autocomplete="off"></input>
+            <input id="19" class="gridElement gridElement99 top" type="number" max ="9" min="1" autocomplete="off"></input>
+            <br/>
+            <input id="21" class="gridElement gridElement99" type="number" max ="9" min="1" autocomplete="off"></input>
+            <input id="22" class="gridElement gridElement99" type="number" max ="9" min="1" autocomplete="off"></input>
+            <input id="23" class="gridElement gridElement99" type="number" max ="9" min="1" autocomplete="off"></input>
+            <input id="24" class="gridElement gridElement99" type="number" max ="9" min="1" autocomplete="off"></input>
+            <input id="25" class="gridElement gridElement99" type="number" max ="9" min="1" autocomplete="off"></input>
+            <input id="26" class="gridElement gridElement99" type="number" max ="9" min="1" autocomplete="off"></input>
+            <input id="27" class="gridElement gridElement99" type="number" max ="9" min="1" autocomplete="off"></input>
+            <input id="28" class="gridElement gridElement99" type="number" max ="9" min="1" autocomplete="off"></input>
+            <input id="29" class="gridElement gridElement99" type="number" max ="9" min="1" autocomplete="off"></input>
+            <br/>
+            <input id="31" class="gridElement gridElement99" type="number" max ="9" min="1" autocomplete="off"></input>
+            <input id="32" class="gridElement gridElement99" type="number" max ="9" min="1" autocomplete="off"></input>
+            <input id="33" class="gridElement gridElement99" type="number" max ="9" min="1" autocomplete="off"></input>
+            <input id="34" class="gridElement gridElement99" type="number" max ="9" min="1" autocomplete="off"></input>
+            <input id="35" class="gridElement gridElement99" type="number" max ="9" min="1" autocomplete="off"></input>
+            <input id="36" class="gridElement gridElement99" type="number" max ="9" min="1" autocomplete="off"></input>
+            <input id="37" class="gridElement gridElement99" type="number" max ="9" min="1" autocomplete="off"></input>
+            <input id="38" class="gridElement gridElement99" type="number" max ="9" min="1" autocomplete="off"></input>
+            <input id="39" class="gridElement gridElement99" type="number" max ="9" min="1" autocomplete="off"></input>
+            <br/>
+            <input id="41" class="gridElement gridElement99 top" type="number" max ="9" min="1" autocomplete="off"></input>
+            <input id="42" class="gridElement gridElement99 top" type="number" max ="9" min="1" autocomplete="off"></input>
+            <input id="43" class="gridElement gridElement99 top" type="number" max ="9" min="1" autocomplete="off"></input>
+            <input id="44" class="gridElement gridElement99 top" type="number" max ="9" min="1" autocomplete="off"></input>
+            <input id="45" class="gridElement gridElement99 top" type="number" max ="9" min="1" autocomplete="off"></input>
+            <input id="46" class="gridElement gridElement99 top" type="number" max ="9" min="1" autocomplete="off"></input>
+            <input id="47" class="gridElement gridElement99 top" type="number" max ="9" min="1" autocomplete="off"></input>
+            <input id="48" class="gridElement gridElement99 top" type="number" max ="9" min="1" autocomplete="off"></input>
+            <input id="49" class="gridElement gridElement99 top" type="number" max ="9" min="1" autocomplete="off"></input>
+            <br/>
+            <input id="51" class="gridElement gridElement99" type="number" max ="9" min="1" autocomplete="off"></input>
+            <input id="52" class="gridElement gridElement99" type="number" max ="9" min="1" autocomplete="off"></input>
+            <input id="53" class="gridElement gridElement99" type="number" max ="9" min="1" autocomplete="off"></input>
+            <input id="54" class="gridElement gridElement99" type="number" max ="9" min="1" autocomplete="off"></input>
+            <input id="55" class="gridElement gridElement99" type="number" max ="9" min="1" autocomplete="off"></input>
+            <input id="56" class="gridElement gridElement99" type="number" max ="9" min="1" autocomplete="off"></input>
+            <input id="57" class="gridElement gridElement99" type="number" max ="9" min="1" autocomplete="off"></input>
+            <input id="58" class="gridElement gridElement99" type="number" max ="9" min="1" autocomplete="off"></input>
+            <input id="59" class="gridElement gridElement99" type="number" max ="9" min="1" autocomplete="off"></input>
+            <br/>
+            <input id="61" class="gridElement gridElement99" type="number" max ="9" min="1" autocomplete="off"></input>
+            <input id="62" class="gridElement gridElement99" type="number" max ="9" min="1" autocomplete="off"></input>
+            <input id="63" class="gridElement gridElement99" type="number" max ="9" min="1" autocomplete="off"></input>
+            <input id="64" class="gridElement gridElement99" type="number" max ="9" min="1" autocomplete="off"></input>
+            <input id="65" class="gridElement gridElement99" type="number" max ="9" min="1" autocomplete="off"></input>
+            <input id="66" class="gridElement gridElement99" type="number" max ="9" min="1" autocomplete="off"></input>
+            <input id="67" class="gridElement gridElement99" type="number" max ="9" min="1" autocomplete="off"></input>
+            <input id="68" class="gridElement gridElement99" type="number" max ="9" min="1" autocomplete="off"></input>
+            <input id="69" class="gridElement gridElement99" type="number" max ="9" min="1" autocomplete="off"></input>
+            <br/>
+            <input id="71" class="gridElement gridElement99 top" type="number" max ="9" min="1" autocomplete="off"></input>
+            <input id="72" class="gridElement gridElement99 top" type="number" max ="9" min="1" autocomplete="off"></input>
+            <input id="73" class="gridElement gridElement99 top" type="number" max ="9" min="1" autocomplete="off"></input>
+            <input id="74" class="gridElement gridElement99 top" type="number" max ="9" min="1" autocomplete="off"></input>
+            <input id="75" class="gridElement gridElement99 top" type="number" max ="9" min="1" autocomplete="off"></input>
+            <input id="76" class="gridElement gridElement99 top" type="number" max ="9" min="1" autocomplete="off"></input>
+            <input id="77" class="gridElement gridElement99 top" type="number" max ="9" min="1" autocomplete="off"></input>
+            <input id="78" class="gridElement gridElement99 top" type="number" max ="9" min="1" autocomplete="off"></input>
+            <input id="79" class="gridElement gridElement99 top" type="number" max ="9" min="1" autocomplete="off"></input>
+            <br/>
+            <input id="81" class="gridElement gridElement99" type="number" max ="9" min="1" autocomplete="off"></input>
+            <input id="82" class="gridElement gridElement99" type="number" max ="9" min="1" autocomplete="off"></input>
+            <input id="83" class="gridElement gridElement99" type="number" max ="9" min="1" autocomplete="off"></input>
+            <input id="84" class="gridElement gridElement99" type="number" max ="9" min="1" autocomplete="off"></input>
+            <input id="85" class="gridElement gridElement99" type="number" max ="9" min="1" autocomplete="off"></input>
+            <input id="86" class="gridElement gridElement99" type="number" max ="9" min="1" autocomplete="off"></input>
+            <input id="87" class="gridElement gridElement99" type="number" max ="9" min="1" autocomplete="off"></input>
+            <input id="88" class="gridElement gridElement99" type="number" max ="9" min="1" autocomplete="off"></input>
+            <input id="89" class="gridElement gridElement99" type="number" max ="9" min="1" autocomplete="off"></input>
+            <br/>
+            <input id="91" class="gridElement gridElement99 btm" type="number" max ="9" min="1" autocomplete="off"></input>
+            <input id="92" class="gridElement gridElement99 btm" type="number" max ="9" min="1" autocomplete="off"></input>
+            <input id="93" class="gridElement gridElement99 btm" type="number" max ="9" min="1" autocomplete="off"></input>
+            <input id="94" class="gridElement gridElement99 btm" type="number" max ="9" min="1" autocomplete="off"></input>
+            <input id="95" class="gridElement gridElement99 btm" type="number" max ="9" min="1" autocomplete="off"></input>
+            <input id="96" class="gridElement gridElement99 btm" type="number" max ="9" min="1" autocomplete="off"></input>
+            <input id="97" class="gridElement gridElement99 btm" type="number" max ="9" min="1" autocomplete="off"></input>
+            <input id="98" class="gridElement gridElement99 btm" type="number" max ="9" min="1" autocomplete="off"></input>
+            <input id="99" class="gridElement gridElement99 btm" type="number" max ="9" min="1" autocomplete="off"></input>
+          </form>
+        </div>
         <div id="console">
-            <h2>Console</h2>
-            <p id="display"></p>
+          <h2>Console</h2>
+          <p id="display"></p>
         </div>
       </div>
-      <div id="menu" class="flex-item-btm">
-        <h2>Menu</h2>
+      <div id="btm-buttons">
+        <h2>Options</h2>
         <div id="buttons">
-          <button id="generateBoard">Generate Board</button>
-          <button id="fillBoard">Fill my own Board</button>
+          <button id="generateBoard">Generate Puzzle</button>
+          <button id="fillBoard">Fill my own Puzzle</button>
           <button id="checkBoard">Check my filled solutions</button>
           <button id="solveBoard">Solve puzzle</button>
           <button id="showHints">Show hints</button>

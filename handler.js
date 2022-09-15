@@ -1,5 +1,22 @@
 "use strict";
 
+var n, dimension;
+
+console.log(document.location.pathname);
+window.addEventListener("load", function () {
+  switch (document.location.pathname) {
+    case "/4x4Board.html":
+      (n = 4), (dimension = 2);
+      break;
+    case "/16x16Board.html":
+      (n = 16), (dimension = 2);
+      break;
+    case "/index.html":
+      (n = 9), (dimension = 2);
+      break;
+  }
+});
+
 ////=============== Logic for Clicks on Menu ===============
 //Summary: Click Eventlisteners and SwitchBoard for Menu
 //Change Logs:
@@ -26,12 +43,17 @@ document.querySelector("#buttons").addEventListener("click", function (e) {
   }
 });
 
-////=============== Event Listener for Sudoku Grid ===============
+//=============== Event Listener for Sudoku Grid ===============
 //Commit 5: added input listeners (for expansion later)
-// document.querySelector("#grid").addEventListener("change", function (e) {
-//   e.preventDefault();
-//   alert("changed");
-// });
+document.querySelector("#grid").addEventListener("change", function (e) {
+  e.preventDefault();
+  console.log(e.target.value);
+  if (e.target.value < 1 || e.target.value > n) {
+    alert(`Please input a value between 1 and ${n}!`);
+    e.target.value = "";
+  }
+  //if (isNotConstrained(e.target.value,)
+});
 
 ////=============== Higher Order Functions for Click Logic ===============
 //Change Logs:
@@ -48,10 +70,11 @@ function fGenerateRandomBoard() {
     "Generate Board was clicked => A random puzzle had been generated. ";
   getDisplay.append(createLines);
 
-  initialiseArrs();
+  initialiseArrs(n, dimension);
   boardGenerator(n, dimension, true);
   populateInitialValues();
   writeToBoard(initialArr);
+  console.log(solnArr, initialArr, errArr);
 }
 
 function fGetFromBoard() {
@@ -60,7 +83,7 @@ function fGetFromBoard() {
   createLines.innerText = "Your inputs had been recorded. ";
   getDisplay.append(createLines);
 
-  initialiseArrs();
+  initialiseArrs(n, dimension);
   boardGenerator(n, dimension, false);
   populateInitialValues();
 }
