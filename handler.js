@@ -11,7 +11,7 @@ window.addEventListener("load", function () {
     case "/16x16Board.html":
       (n = 16), (dimension = 2);
       break;
-    case "/index.html":
+    case "/9x9Board.html":
       (n = 9), (dimension = 2);
       break;
   }
@@ -112,5 +112,29 @@ function writeToBoard(arr) {
       }
       count++;
     }
+  }
+}
+
+function writeToInitialArr() {
+  let count = 0;
+  if (dimension === 2) {
+    for (let i = 0; i < n; i++) {
+      for (let j = 0; j < n; j++) {
+        if (
+          document.querySelectorAll(".gridElement")[count].value > 0 &&
+          document.querySelectorAll(".gridElement")[count].value < 10
+        ) {
+          initialArr[i][j] = parseInt(
+            document.querySelectorAll(".gridElement")[count].value
+          );
+        } else {
+          initialArr[i][j] = 0;
+        }
+        count++;
+      }
+    }
+  }
+  if (dimension === 3) {
+    //TO BE DEVELOPED WITH FRONTEND
   }
 }

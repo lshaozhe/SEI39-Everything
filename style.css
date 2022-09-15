@@ -143,6 +143,20 @@ h2 {
   font-size: 24px;
 }
 
+#menu-button {
+  text-decoration: none;
+  background-color: #f9b6e2;
+
+  margin: 8px;
+  padding: 8px;
+  box-shadow: 2px 2px 2px 2px rgb(175, 159, 159);
+  border-radius: 4px;
+  font-size: 24px;
+  color: black;
+  font-family: "Trebuchet MS";
+  font-weight: bold;
+}
+
 /*CSS overrule for 4x4*/
 .gridElement44 {
   width: 50px;
