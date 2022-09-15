@@ -118,7 +118,6 @@ function fGenerateRandomBoard() {
   boardGenerator(n, dimension, true);
   populateInitialValues();
   setTimeout(writeToBoard(initialArr), 1000);
-  console.log(solnArr, initialArr, errArr);
 }
 
 function fGetFromBoard() {
@@ -198,7 +197,6 @@ function generateHintsOnPlaceHolders() {
       count++;
     }
   }
-  console.log(tempArr, errArr);
   for (let i = 0; i < n*n; i++){
     let tempVal = tempArr[i].join();
     document.querySelectorAll(".gridElement")[i].setAttribute("placeholder", tempVal);
