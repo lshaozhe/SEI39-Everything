@@ -1,0 +1,20 @@
+$blue   : #6772e5;
+$red    : #F1534E;
+
+.margin {
+  padding: 7px 14px;
+}
+
+.container {
+  color: red;
+
+  .button {
+    background-color: green;
+    color: #fff;
+    margin:0 5px;
+
+    &:hover {
+      background-color: red;
+    }
+  }
+}

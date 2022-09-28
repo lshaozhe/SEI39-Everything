@@ -1,0 +1,46 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+section {
+  display:flex;
+  width:350px;
+}
+
+#control-panel {
+  font-family: sans-serif;
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-around;
+  align-items:center;
+  
+}
+
+.button {
+  background-color: gray;
+  color: white;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+  width:100px;
+}
+
+#traffic-lights {
+  height: 400px;
+  width: 150px;
+  background-color: #333;
+  border-radius: 40px;
+  padding: 5px 20px;
+}
+
+.bulb {
+  height: 100px;
+  width: 100px;
+  background-color: #111;
+  border-radius: 50%;
+  margin: 25px auto;
+  transition: background 500ms;
+}

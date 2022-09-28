@@ -1,0 +1,43 @@
+[![General Assembly Logo](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png)](https://generalassemb.ly)
+
+# Mongo - Advanced Find
+
+## Lesson Objectives
+
+1. Explain Field Selection
+1. Explain Ordering
+1. Explain Paging
+1. Explain Count
+
+## Explain Field Selection
+
+1. `db.employees.find({}, {name: 1});`
+
+- 1 for include
+- 0 for exclude
+
+1. `{name:1, _id: 0}` excludes the id
+
+## Explain Ordering
+
+1. `db.employees.find().sort({name: 1, salary: -1})`
+
+- 1 for ascending
+- -1 for descending
+- won't sort on large set without index
+
+## Explain Paging
+
+1. `db.employees.find().sort({weight: -1}).limit(2).skip(1)`
+
+- can help avoid issues when sorting on large un-indexed fields
+
+## Explain Count
+
+1. `db.employees.find({salary: {$gt: 50}}).count()`
+
+- usual count is just a shortcut to this
+
+---
+
+_Copyright 2022, General Assembly Space. Licensed under [CC-BY-NC-SA, 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)_
