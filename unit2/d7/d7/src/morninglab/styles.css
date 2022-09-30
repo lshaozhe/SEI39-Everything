@@ -1,0 +1,25 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.children {
+  display: flex;
+  justify-content: center;
+}
+
+.children div {
+  border: 1px solid;
+  margin: 20px;
+  padding: 10px;
+}
+
+.light {
+  background-color: lightblue;
+  color: black;
+}
+
+.dark {
+  background-color: black;
+  color: white;
+}
