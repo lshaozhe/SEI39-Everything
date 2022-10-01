@@ -22,7 +22,7 @@ const Fetch = (props) => {
       const data = await res.json();
 
       setPost(data);
-      props.setMarketData(data);
+      props.setMarketData(data.result);
     } catch (err) {
       setError(err.message);
     }
