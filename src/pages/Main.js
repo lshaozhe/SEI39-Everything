@@ -5,6 +5,8 @@ import LoadingSpinner from "../Components/LoadingSpinner";
 import Results from "../Components/Results";
 
 const Main = () => {
+  const [search, setSearch] = useState({ first: "", next: "" });
+
   const [post, setPost] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -38,7 +40,7 @@ const Main = () => {
   return (
     <div className="main">
       <div className="form-container">
-        <Form />
+        <Form search={search} setSearch={setSearch} />
       </div>
       <div className="loading-spinner">
         <section>
@@ -52,8 +54,7 @@ const Main = () => {
         </section>
       </div>
       <div className="results-container">
-        <Results post={post} />
-        {JSON.stringify(post)}
+        <Results post={post} search={search} />
       </div>
     </div>
   );

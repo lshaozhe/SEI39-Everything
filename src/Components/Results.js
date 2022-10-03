@@ -2,12 +2,13 @@ import React, { useState, useEffect } from "react";
 import Card from "./Card";
 
 const Results = (props) => {
-  const [displayedMarketData, setDisplayedMarketData] = useState([]);
+  const [initialMarketData, setInitialMarketData] = useState([]);
+  const [filteredCoins, setFilteredCoins] = useState([]);
 
   useEffect(() => {
     for (const element of props.post) {
       if (element.type === "spot") {
-        setDisplayedMarketData((prevState) => [
+        setInitialMarketData((prevState) => [
           ...prevState,
           {
             name: element.name,
@@ -24,6 +25,35 @@ const Results = (props) => {
     }
   }, [props.post]);
 
+  useEffect(() => {
+    let tempArr = JSON.parse(JSON.stringify(initialMarketData));
+    let search1 = props.search.first.toLowerCase();
+    let search2 = props.search.next.toLowerCase();
+    if (search1 !== "" || search2 !== "") {
+      tempArr = tempArr.filter((element) =>
+        element.name.toLowerCase().includes(search1)
+      );
+      tempArr = tempArr.filter((element) =>
+        element.name.toLowerCase().includes(search2)
+      );
+      setFilteredCoins(tempArr);
+    } else {
+      setFilteredCoins(initialMarketData);
+    }
+  }, [props.search]);
+
+  const displayToggle = () => {
+    if (filteredCoins.length === 0) {
+      return initialMarketData.map((element) => (
+        <Card key={Math.random()} element={element} />
+      ));
+    } else {
+      return filteredCoins.map((element) => (
+        <Card key={Math.random()} element={element} />
+      ));
+    }
+  };
+
   return (
     <table>
       <thead>
@@ -38,11 +68,7 @@ const Results = (props) => {
           <th>Favourite</th>
         </tr>
       </thead>
-      <tbody>
-        {displayedMarketData.map((element) => (
-          <Card key={element.name} element={element} />
-        ))}
-      </tbody>
+      <tbody>{displayToggle()}</tbody>
     </table>
   );
 };

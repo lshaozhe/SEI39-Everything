@@ -1,16 +1,14 @@
 import React, { useState } from "react";
 
 const Form = (props) => {
-  const [search, setSearch] = useState({ first: "", next: "" });
-
   const handleChange = (e) => {
     if (e.target.name === "first") {
-      setSearch((prevState) => ({
+      props.setSearch((prevState) => ({
         first: e.target.value,
         next: prevState.next,
       }));
     } else {
-      setSearch((prevState) => ({
+      props.setSearch((prevState) => ({
         first: prevState.first,
         next: e.target.value,
       }));
@@ -25,7 +23,7 @@ const Form = (props) => {
       <label htmlFor="second">Second</label>
       <input name="second" onChange={handleChange}></input>
 
-      {JSON.stringify(search)}
+      {JSON.stringify(props.search)}
     </>
   );
 };
