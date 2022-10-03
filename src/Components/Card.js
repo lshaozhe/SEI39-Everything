@@ -1,4 +1,5 @@
 import React from "react";
+import FavButton from "../Common/FavButton";
 
 const Card = (props) => {
   return (
@@ -10,6 +11,9 @@ const Card = (props) => {
       <td>{props.element.ask}</td>
       <td>{props.element.bid}</td>
       <td>{props.element.volumeUsd24h}</td>
+      <td>
+        <FavButton />
+      </td>
     </tr>
   );
 };

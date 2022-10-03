@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Form = () => {
+const Form = (props) => {
   const [search, setSearch] = useState({ first: "", next: "" });
 
   const handleChange = (e) => {

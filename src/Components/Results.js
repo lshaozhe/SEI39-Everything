@@ -1,5 +1,5 @@
 import React from "react";
-import Card from "./Components/Card";
+import Card from "./Card";
 
 const Results = (props) => {
   return (
@@ -13,10 +13,11 @@ const Results = (props) => {
           <th>Ask</th>
           <th>Bid</th>
           <th>Last 24 hour volume (USD)</th>
+          <th>Favourite</th>
         </tr>
       </thead>
       <tbody>
-        {props.marketData.map((element) => (
+        {props.displayedMarketData.map((element) => (
           <Card key={element.name} element={element} />
         ))}
       </tbody>
