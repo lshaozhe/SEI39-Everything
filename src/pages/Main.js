@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 import Form from "../Components/Form";
-import LoadingSpinner from "../Components/LoadingSpinner";
+import LoadingSpinner from "../Common/LoadingSpinner";
 import Results from "../Components/Results";
 
 const Main = () => {

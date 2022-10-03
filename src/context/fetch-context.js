@@ -1,5 +1,5 @@
 import React from "react";
 
-const fetchContext = React.createContext;
+const FetchContext = React.createContext();
 
-export default fetchContext;
+export default FetchContext;

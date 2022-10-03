@@ -1,7 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
+import FetchContext from "../context/fetch-context";
 
 const Watchlist = () => {
-  return <div></div>;
+  const ctx = useContext(FetchContext);
+
+  return (
+    <FetchContext.Provider>
+      <div className="watchlist">{JSON.stringify(ctx)}</div>
+    </FetchContext.Provider>
+  );
 };
 
 export default Watchlist;
