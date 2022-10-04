@@ -34,6 +34,10 @@ const Detailedview = (props) => {
     fetchPost(url);
   }, [props.currentSelection, resolution]);
 
+  const handleResolutionChange = (e) => {
+    setResolution(e.target.value);
+  };
+
   return (
     <>
       {props.currentSelection}
@@ -50,7 +54,7 @@ const Detailedview = (props) => {
       </div>
       <div className="details">
         <div className="chart-area">
-          <Plot post={post} />
+          <Plot post={post} handleResolutionChange={handleResolutionChange} />
         </div>
       </div>
     </>

@@ -42,6 +42,19 @@ const Plot = (props) => {
           height="350"
         />
       )}
+      <section>
+        <h2>Select Your Watched Coins</h2>
+        <div>
+          <select id="selection" onChange={props.handleResolutionChange}>
+            <option value="60">1m</option>
+            <option value="300">5m</option>
+            <option value="900">15m</option>
+            <option value="3600">1h</option>
+            <option value="14400">4h</option>
+            <option value="86400">1d</option>
+          </select>
+        </div>
+      </section>
     </>
   );
 };
