@@ -3,7 +3,7 @@ import { Route, Routes, Navigate } from "react-router-dom";
 
 import Main from "./pages/Main";
 import Watchlist from "./pages/Watchlist";
-import NavBar from "./Components/Navbar";
+import NavBar from "./Common/Navbar";
 import FetchContext from "./context/fetch-context";
 
 const App = () => {
