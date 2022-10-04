@@ -9,7 +9,6 @@ const Card = (props) => {
     if (!ctx.current.includes(e.currentTarget.children[0].innerText)) {
       ctx.current.push(e.currentTarget.children[0].innerText);
     }
-    console.log(ctx.current);
   };
 
   return (

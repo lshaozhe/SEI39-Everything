@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-
+import Plot from "./Plot";
 import LoadingSpinner from "../Common/LoadingSpinner";
 
 const Detailedview = (props) => {
@@ -48,7 +48,11 @@ const Detailedview = (props) => {
           {!isLoading && error && <p>{error}</p>}
         </section>
       </div>
-      <div className="details">{JSON.stringify(post)}</div>
+      <div className="details">
+        <div className="chart-area">
+          <Plot post={post} />
+        </div>
+      </div>
     </>
   );
 };

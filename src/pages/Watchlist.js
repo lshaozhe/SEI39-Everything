@@ -4,21 +4,23 @@ import Detailedview from "../Components/Detailedview";
 
 const Watchlist = () => {
   const ctx = useContext(FetchContext);
-  const [currentSelection, setCurrentSelection] = useState("");
+  const [currentSelection, setCurrentSelection] = useState("AAVE/USD");
 
   const handleSelectionChange = (e) => {
     setCurrentSelection(e.target.value);
   };
 
   return (
-    <FetchContext.Provider>
+    <FetchContext.Provider value={currentSelection}>
       <div className="watchlist">
         <section>
           <h2>Select Your Watched Coins</h2>
           <div>
             <select id="selection" onChange={handleSelectionChange}>
               {ctx.current.map((element) => (
-                <option value={element}>{element}</option>
+                <option key={Math.random()} value={element}>
+                  {element}
+                </option>
               ))}
             </select>
           </div>

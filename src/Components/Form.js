@@ -22,8 +22,6 @@ const Form = (props) => {
 
       <label htmlFor="second">Second</label>
       <input name="second" onChange={handleChange}></input>
-
-      {JSON.stringify(props.search)}
     </>
   );
 };
