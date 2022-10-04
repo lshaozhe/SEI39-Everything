@@ -40,9 +40,8 @@ const Detailedview = (props) => {
 
   return (
     <>
-      {props.currentSelection}
       <div className="loading-spinner">
-        <section>
+        <section className="flex justify-center">
           {isLoading && (
             <div className="centered">
               <LoadingSpinner />
@@ -52,10 +51,12 @@ const Detailedview = (props) => {
           {!isLoading && error && <p>{error}</p>}
         </section>
       </div>
-      <div className="details">
-        <div className="chart-area">
-          <Plot post={post} handleResolutionChange={handleResolutionChange} />
-        </div>
+      <div>
+        {!isLoading && (
+          <div className="chart-area">
+            <Plot post={post} handleResolutionChange={handleResolutionChange} />
+          </div>
+        )}
       </div>
     </>
   );

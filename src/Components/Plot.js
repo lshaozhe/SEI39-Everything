@@ -7,7 +7,13 @@ const Plot = (props) => {
   useEffect(() => {
     let data = [];
     for (const element of props.post) {
-      data.push([element.time, element.open, element.high, element.low, element.close]);
+      data.push([
+        element.time,
+        element.open,
+        element.high,
+        element.low,
+        element.close,
+      ]);
     }
     setChartData({
       series: [{ data: data }],
@@ -34,18 +40,32 @@ const Plot = (props) => {
 
   return (
     <>
-      {chartData.series !== undefined && (
-        <ReactApexChart
-          series={chartData.series}
-          options={chartData.options}
-          type="candlestick"
-          height="350"
-        />
-      )}
-      <section>
-        <h2>Select Your Watched Coins</h2>
+      <div className="bg-gray-100 p-4 border-4 border-red-600">
+        {chartData.series !== undefined && (
+          <ReactApexChart
+            series={chartData.series}
+            options={chartData.options}
+            type="candlestick"
+            height="350"
+          />
+        )}
+      </div>
+      <section className="bg-gray-800 w-4/5 rounded p-4">
+        <label
+          htmlFor="selection"
+          className="block mb-2 text-sm font-medium text-gray-400"
+        >
+          Choose Chart Interval for Displayed
+        </label>
         <div>
-          <select id="selection" onChange={props.handleResolutionChange}>
+          <select
+            id="selection"
+            onChange={props.handleResolutionChange}
+            className="border text-sm rounded-lg lock w-1/2 p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
+          >
+            <option value="" disabled selected>
+              Choose an Interval
+            </option>
             <option value="60">1m</option>
             <option value="300">5m</option>
             <option value="900">15m</option>

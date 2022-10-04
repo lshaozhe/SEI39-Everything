@@ -15,9 +15,9 @@ const Results = (props) => {
             price: Math.round(element.price * 10000) / 10000,
             ask: Math.round(element.ask * 10000) / 10000,
             bid: Math.round(element.bid * 10000) / 10000,
-            change1h: Math.round(element.change1h * 1000) / 10 + "%",
-            change24h: Math.round(element.change24h * 1000) / 10 + "%",
-            volumeUsd24h: Math.round(element.volumeUsd24h),
+            change1h: Math.round(element.change1h * 100000) / 1000,
+            change24h: Math.round(element.change24h * 100000) / 1000,
+            volumeUsd24h: Math.round(element.volumeUsd24h * 100) / 100,
             isFavourite: false,
           },
         ]);
@@ -38,9 +38,9 @@ const Results = (props) => {
       );
       setFilteredCoins(tempArr);
     } else {
-      setFilteredCoins(initialMarketData);
+      setFilteredCoins(tempArr);
     }
-  }, [props.search]);
+  }, [initialMarketData, props.search]);
 
   const displayToggle = () => {
     if (filteredCoins.length === 0) {
@@ -55,21 +55,23 @@ const Results = (props) => {
   };
 
   return (
-    <table>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Price</th>
-          <th>Last 1 hour</th>
-          <th>Last 24 hour</th>
-          <th>Ask</th>
-          <th>Bid</th>
-          <th>Last 24 hour volume (USD)</th>
-          <th>Favourite</th>
-        </tr>
-      </thead>
-      <tbody>{displayToggle()}</tbody>
-    </table>
+    <div className="flex justify-center py-4 bg-gray-800 w-4/5 rounded-lg">
+      <table className="w-full text-md text-left">
+        <thead className=" text-gray-300 uppercase bg-gray-800 text-sm">
+          <tr>
+            <th className="py-3 px-6">Name</th>
+            <th className="py-3 px-6">Price</th>
+            <th className="py-3 px-6">Last 1 hour</th>
+            <th className="py-3 px-6">Last 24 hour</th>
+            <th className="py-3 px-6">Ask</th>
+            <th className="py-3 px-6">Bid</th>
+            <th className="py-3 px-6">Last 24 hour volume (USD)</th>
+            <th className="py-3 px-6 text-center">Add to Watchlist</th>
+          </tr>
+        </thead>
+        <tbody>{displayToggle()}</tbody>
+      </table>
+    </div>
   );
 };
 

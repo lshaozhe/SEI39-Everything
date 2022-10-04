@@ -11,14 +11,12 @@ const App = () => {
 
   return (
     <FetchContext.Provider value={watchlistArrRef}>
-      <div className="container">
-        <NavBar />
-        <Routes>
-          <Route path="/" element={<Navigate replace to="/main" />} />
-          <Route path="/main" element={<Main />} />
-          <Route path="/watchlist" element={<Watchlist />} />
-        </Routes>
-      </div>
+      <NavBar />
+      <Routes>
+        <Route path="/" element={<Navigate replace to="/main" />} />
+        <Route path="/main" element={<Main />} />
+        <Route path="/watchlist" element={<Watchlist />} />
+      </Routes>
     </FetchContext.Provider>
   );
 };

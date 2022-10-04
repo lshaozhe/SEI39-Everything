@@ -38,11 +38,14 @@ const Main = () => {
   }, []);
 
   return (
-    <div className="main">
-      <div className="form-container">
+    <div className="flex-col justify-center">
+      <div className="flex justify-center items-center h-24">
         <Form search={search} setSearch={setSearch} />
       </div>
-      <div className="loading-spinner">
+      <div className="flex justify-center items-center">
+        <Results post={post} search={search} />
+      </div>
+      <div className="flex justify-center">
         <section>
           {isLoading && (
             <div className="centered">
@@ -52,9 +55,6 @@ const Main = () => {
 
           {!isLoading && error && <p>{error}</p>}
         </section>
-      </div>
-      <div className="results-container">
-        <Results post={post} search={search} />
       </div>
     </div>
   );

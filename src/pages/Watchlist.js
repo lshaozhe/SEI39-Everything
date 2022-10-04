@@ -11,25 +11,34 @@ const Watchlist = () => {
   };
 
   return (
-    <FetchContext.Provider value={currentSelection}>
-      <div className="watchlist">
-        <section>
-          <h2>Select Your Watched Coins</h2>
-          <div>
-            <select id="selection" onChange={handleSelectionChange}>
-              {ctx.current.map((element) => (
-                <option key={Math.random()} value={element}>
-                  {element}
-                </option>
-              ))}
-            </select>
-          </div>
-        </section>
-        <div className="details">
-          <Detailedview currentSelection={currentSelection} />
-        </div>
+    <div className="flex-col items-center justify-center rounded-lg py-4">
+      <section className="bg-gray-800 w-4/5 rounded p-4">
+        <label
+          htmlFor="selection"
+          className="block mb-2 text-sm font-medium text-gray-400"
+        >
+          Select Your Watched Coins
+        </label>
+        <select
+          id="selection"
+          onChange={handleSelectionChange}
+          className=" border text-sm rounded-lg lock w-1/2 p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500"
+        >
+          <option value="" disabled selected>
+            Choose a coin pair in your watchlist
+          </option>
+          {ctx.current.map((element) => (
+            <option key={Math.random()} value={element}>
+              {element}
+            </option>
+          ))}
+        </select>
+      </section>
+
+      <div className="bg-gray-800 w-4/5">
+        <Detailedview currentSelection={currentSelection} />
       </div>
-    </FetchContext.Provider>
+    </div>
   );
 };
 
