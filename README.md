@@ -13,11 +13,11 @@ npm i
 
 **Code Structure**
 
--App /
-          -Main /
-                    -Form /
-                    -Results /
-                              -Card /
-          -Watchlist /
-                    -Detailedview /
-                              -Plot /
+ * App /
+   * Main /
+     * Form /
+     * Results /
+       * Card /
+    * Watchlist /
+    * Detailedview /
+      * Plot /
