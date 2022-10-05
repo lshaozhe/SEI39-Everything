@@ -1,23 +1,23 @@
-**Project's Title and Description
+**Project's Title and Description**
 
 A frontend ReactJS application that fetches data from FTX's RESTfull API
 
-**Technology Used
+**Technology Used**
 
 ReactJS, TailwindCSS, ApexChart
 
-**Installation
+**Installation**
 
 installation of all required node modules can be performed thru: 
 npm i
 
-**Code Structure
+**Code Structure**
 
-App /
-  -Main /
-      -Form /
-      -Results /
-      -Card /
-  -Watchlist /
-      -Detailedview /
-          -Plot /
+-App /
+          -Main /
+                    -Form /
+                    -Results /
+                              -Card /
+          -Watchlist /
+                    -Detailedview /
+                              -Plot /
