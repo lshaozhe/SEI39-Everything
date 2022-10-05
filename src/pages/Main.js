@@ -4,6 +4,8 @@ import Form from "../Components/Form";
 import LoadingSpinner from "../Common/LoadingSpinner";
 import Results from "../Components/Results";
 
+const URL = "https://ftx.com/api/markets";
+
 const Main = () => {
   const [search, setSearch] = useState({ first: "", next: "" });
 
@@ -33,8 +35,14 @@ const Main = () => {
   };
 
   useEffect(() => {
-    const url = "https://ftx.com/api/markets";
-    fetchPost(url);
+    fetchPost(URL);
+  }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      fetchPost(URL);
+    }, 5000);
+    return () => clearInterval(interval);
   }, []);
 
   return (
