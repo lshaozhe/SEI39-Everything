@@ -1,4 +1,4 @@
-# SEI-39 Project 3 Group 3: Aidha
+# SEI-39 Project 3 Group 2: Aidha
 
 ## Group Members
 
