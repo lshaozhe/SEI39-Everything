@@ -8,11 +8,11 @@ Shao Zhe, Ru Yi, Ian, Zi Hao
 
 ## Overall Structure
 
-\*Main
-*client - React (Managed by Ru Yi)
-*server - Express (Managed by Ian)
-*gitignore - global gitignore for both client and server
-*README.md
+- Main
+  - client - React (Managed by Ru Yi)
+  - server - Express (Managed by Ian)
+  - gitignore - global gitignore for both client and server
+  - README.md
 
 # DEV NOTES
 
