@@ -328,16 +328,12 @@ const Navbar = () => {
           </ul>
         </div>
         <div className={styles.navsearch}>
-
           <span className={styles.emoji} aria-label="sg-flag">
             <span className="material-icons" style={{ paddingRight: "1vw" }}>
               search
             </span>
             🇸🇬
           </span>
-
-          <div className={styles.searchbar}>Search bar goes here</div>
-
         </div>
       </div>
     </>
