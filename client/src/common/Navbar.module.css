@@ -79,7 +79,6 @@
   line-height: 59px;
   text-align: center;
   justify-content: center;
-
 }
 
 .searchbar {
@@ -92,5 +91,4 @@
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
   text-align: center;
-
 }
