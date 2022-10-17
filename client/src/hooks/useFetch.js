@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 // use of hook in a parent component:
 // 3 argument/ params: url(required, string), method(optional, string), body(optional, obj)
 // 3 return: response, isloading(for conditional rendering when loading is true), error
+
 // Sample invocation
 // const { response, isloading, error } = useFetch(
 //     "https://jsonplaceholder.typicode.com/todos/", method(optional), body(optional)
