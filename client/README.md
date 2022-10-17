@@ -14,3 +14,13 @@ The src folder structure is as follows:
     - for presentation only for pages (mainly for HTML rendering)
 - App.js
     - routes & context will be saved here
+
+Ground rules:
+- Make names as descriptive as possible
+- Divide your code into sections by commenting out headers e.g.
+    /* ===============================================
+    // HEADER
+    =============================================== */
+- Comment every piece of code you write (except those very basic ones that everyone can understand at a glance). To standardise, write your comment ABOVE the code
+- For small components that will appear in more than one section, please save in the common folder.
+- Double check that a common component has not already been written before you write your own.
