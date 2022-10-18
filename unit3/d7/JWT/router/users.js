@@ -20,7 +20,7 @@ router.post("/login", async (req, res) => {
       return res.status(401).json({ status: "error", message: "login failed" });
     }
 
-    //JWT stuff here
+    //JWT stuff here - rmb to setup postman to remember the tokens when sending requests
     const payload = {
       id: user._id,
       email: user.email,
