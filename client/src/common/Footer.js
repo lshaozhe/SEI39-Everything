@@ -4,15 +4,20 @@ import React from "react";
 import styles from "./Footer.module.css";
 import FacebookIcon from "../assets/footer/footer_1_facebook.png";
 import InstagramIcon from "../assets/footer/footer_2_instagram.png";
-import YoutubeIcon from  "../assets/footer/footer_3_youtube.png";
+import YoutubeIcon from "../assets/footer/footer_3_youtube.png";
 import TiktokIcon from "../assets/footer/footer_4_tiktok.png";
 import TelegramIcon from "../assets/footer/footer_5_telegram.png";
 import WhatsappIcon from "../assets/footer/footer_6_whatsapp.png";
 
 const Footer = () => {
-	return (
-		<div className="mx-0 bg-[#eee7df] text-[#3c3d3c]">
-			<div className="grid grid-cols-5 gap-x-4 mx-16 pt-10 pb-16">
+    return (
+        // Container for entire footer, horizontal margin, bg-color & text color set via tailwind
+        <div className="mx-0 bg-[#eee7df] text-[#3c3d3c]">
+            
+            {/* Grid container for 5 columns, size 4 gap horizontally b/w columns, horizontal margin, top & bottom padding set */}
+            <div className="grid grid-cols-5 gap-x-4 mx-16 pt-10 pb-16">
+                
+                {/* Container for 1 column out of 5 */}
 				<div>
 					<p className="font-bold">ABOUT</p>
 					<ul className="mt-10 leading-relaxed">
@@ -51,12 +56,12 @@ const Footer = () => {
 					<p className="mt-10">Sign up here to receive our newsletters!</p>
 					<input className={styles.emailInput} type="email" placeholder="EMAIL:" />
 					<div className={styles.socialMediaIconsContainer}>
-                        <input type="image" src={FacebookIcon} alt="facebook" className={styles.socialMediaIcons} />
-                        <input type="image" src={InstagramIcon} alt="instagram" className={styles.socialMediaIcons} />
-                        <input type="image" src={YoutubeIcon} alt="youtube" className={styles.socialMediaIcons} />
-                        <input type="image" src={TiktokIcon} alt="tiktok" className={styles.socialMediaIcons} />
-                        <input type="image" src={TelegramIcon} alt="telegram" className={styles.socialMediaIcons} />
-                        <input type="image" src={WhatsappIcon} alt="whatsapp" className={styles.socialMediaIcons} />
+						<input type="image" src={FacebookIcon} alt="facebook" className={styles.socialMediaIcons} />
+						<input type="image" src={InstagramIcon} alt="instagram" className={styles.socialMediaIcons} />
+						<input type="image" src={YoutubeIcon} alt="youtube" className={styles.socialMediaIcons} />
+						<input type="image" src={TiktokIcon} alt="tiktok" className={styles.socialMediaIcons} />
+						<input type="image" src={TelegramIcon} alt="telegram" className={styles.socialMediaIcons} />
+						<input type="image" src={WhatsappIcon} alt="whatsapp" className={styles.socialMediaIcons} />
 					</div>
 				</div>
 			</div>
