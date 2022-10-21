@@ -10,6 +10,8 @@
   text-align: center;
   justify-content: center;
   background-color: #f68121;
+  border-radius: 0;
+  border-color: none;
 }
 
 .navbar li {
@@ -18,6 +20,8 @@
   font-size: 14px;
   border-bottom: 4px solid;
   border-color: #f68121;
+  background-color: #f68121;
+  border-radius: 0;
 }
 
 .navbar li:hover {
@@ -33,10 +37,10 @@
 .navbar {
   position: relative;
   display: inline-flex;
-  /* justify-content: center; */
   background-color: #eee7df;
   height: 44px;
   width: 100vw;
+  z-index: 2;
 }
 
 .navlogo {

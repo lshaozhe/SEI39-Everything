@@ -3,6 +3,9 @@ import logo from "../assets/aidha-logo.png";
 import styles from "./Navbar.module.css";
 
 const Navbar = () => {
+  // hover states and functions allow the parent navlabel to also be highlighted
+  // in orange, when the user hovers over the child (nested unordered list)
+
   const [aboutHoverState, setAboutHoverState] = useState({});
   const [studentHoverState, setStudentHoverState] = useState({});
   const [employerHoverState, setEmployerHoverState] = useState({});
