@@ -38,7 +38,7 @@
   z-index: -1;
 }
 
-.banner_label p {
+.banner_label span {
   font-size: 1.25em;
   font-weight: 700;
   width: 48vw;
@@ -51,12 +51,30 @@
   top: -15vh;
 }
 
-.carousel-indicators li:active {
+.carousel-indicators {
+  position: relative;
+  justify-content: center;
+}
+
+.carousel-indicators li:not(.active) {
+  background-color: #e2e2e2;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  opacity: 80%;
+  margin-top: 2.5px;
+}
+
+.carousel-indicators li.active {
   background-color: #f68121;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
 }
 
 .content_container {
   width: 100vw;
+  margin-bottom: 5vh;
 }
 
 .content_box {
@@ -86,6 +104,7 @@
 .content_image img {
   object-fit: cover;
   height: 24vh;
+  width: 22.5vw;
 }
 
 .content_button {
