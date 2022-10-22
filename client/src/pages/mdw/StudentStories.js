@@ -7,10 +7,14 @@ import eventsIconFour from "../../assets/mdw_pages/stories_02d.jpg";
 import eventsIconFive from "../../assets/mdw_pages/stories_02e.jpg";
 import eventsIconSix from "../../assets/mdw_pages/stories_02f.jpg";
 import eventsIconSeven from "../../assets/mdw_pages/stories_02g.jpg";
+import profileIconOne from "../../assets/mdw_pages/stories_03a_profilepic.png";
+import profileIconTwo from "../../assets/mdw_pages/stories_03b_profilepic.png";
+import profileIconThree from "../../assets/mdw_pages/stories_03c_profilepic.png";
+import profileIconFour from "../../assets/mdw_pages/stories_03d_profilepic.png";
+import profileIconFive from "../../assets/mdw_pages/stories_03e_profilepic.png";
+import profileIconSix from "../../assets/mdw_pages/stories_03f_profilepic.png";
 import { CCarousel } from "@coreui/react";
 import { CCarouselItem } from "@coreui/react";
-import { CCarouselCaption } from "@coreui/react";
-import { CCallout } from "@coreui/react";
 
 const StudentStories = () => {
   return (
@@ -21,7 +25,11 @@ const StudentStories = () => {
         </div>
         <div className={styles.banner}>
           <div className={styles.banner_video}>
-            <iframe src="https://www.youtube.com/embed/xsuNrqkzNqI"></iframe>
+            <iframe
+              src="https://www.youtube.com/embed/xsuNrqkzNqI"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
           </div>
           <div className={styles.banner_caption}>
             <CCarousel
@@ -125,6 +133,115 @@ const StudentStories = () => {
               <div className={styles.events_label}>
                 <div>Aidha Alumni</div>
               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className={styles.content_container}>
+        {/* content_box contains the 5 'content' elements */}
+        <div className={styles.content_box} style={{ marginTop: "3vh" }}>
+          {/* content contains the image, navigation button & label */}
+          <div className={styles.content}>
+            <div className={styles.content_image}>
+              <img src={profileIconOne} alt="" />
+              <span>@Ritchelle</span>
+              <p>🇵🇭</p>
+            </div>
+            <div className={styles.content_button}></div>
+            {/* button_label to become navigation link */}
+            <div className={styles.button_label}>
+              <span className={styles.quote_icon}>“</span>
+              <span>
+                Aidha provided a platform for me to grow and explore my
+                potential.
+              </span>
+            </div>
+          </div>
+          {/* second content element */}
+          <div className={styles.content}>
+            <div className={styles.content_image}>
+              <img src={profileIconTwo} alt="" />
+              <span>@NonaDaza</span>
+              <p>🇮🇩</p>
+            </div>
+            <div className={styles.content_button}></div>
+            {/* button_label to become navigation link */}
+            <div className={styles.button_label}>
+              <span className={styles.quote_icon}>“</span>
+              <span>
+                Aidha really helped me change my life. Now I have some savings
+                and income rolling in from my pig business.
+              </span>
+            </div>
+          </div>
+        </div>
+        <div className={styles.content_box}>
+          {/* third content element */}
+          <div className={styles.content}>
+            <div className={styles.content_image}>
+              <img src={profileIconThree} alt="" />
+              <span>@ArnolitaCruz</span>
+              <p>🇵🇭</p>
+            </div>
+            <div className={styles.content_button}></div>
+            {/* button_label to become navigation link */}
+            <div className={styles.button_label}>
+              <span className={styles.quote_icon}>“</span>
+              <span>
+                Thanks to Aidha, I now know how to manage my assets better and
+                make them work for me.
+              </span>
+            </div>
+          </div>
+          {/* fourth content element */}
+          <div className={styles.content}>
+            <div className={styles.content_image}>
+              <img src={profileIconFour} alt="" />
+              <span>@CherryDiaz</span>
+              <p>🇵🇭</p>
+            </div>
+            <div className={styles.content_button}></div>
+            {/* button_label to become navigation link */}
+            <div className={styles.button_label}>
+              <span className={styles.quote_icon}>“</span>
+              <span>I am very lucky to have supportive employers.</span>
+            </div>
+          </div>
+        </div>
+        <div className={styles.content_box}>
+          {/* fifth content element */}
+          <div className={styles.content}>
+            <div className={styles.content_image}>
+              <img src={profileIconFive} alt="" />
+              <span>@EmeldaCaria</span>
+              <p>🇵🇭</p>
+            </div>
+            <div className={styles.content_button}></div>
+            {/* button_label to become navigation link */}
+            <div className={styles.button_label}>
+              <span className={styles.quote_icon}>“</span>
+              <span>
+                I was usually shy and now I’ve learned to speak infront of
+                people with confidence and overcome my shyness to express
+                myself.
+              </span>
+            </div>
+          </div>
+          {/* sixth content element */}
+          <div className={styles.content}>
+            <div className={styles.content_image}>
+              <img src={profileIconSix} alt="" />
+              <span>@AngelineDiego</span>
+              <p>🇵🇭</p>
+            </div>
+            <div className={styles.content_button}></div>
+            {/* button_label to become navigation link */}
+            <div className={styles.button_label}>
+              <span className={styles.quote_icon}>“</span>
+              <span>
+                Aidha helped me build confidence in pursuing my goals. And I do
+                believe that confidence is companion of success.
+              </span>
             </div>
           </div>
         </div>
