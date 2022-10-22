@@ -7,7 +7,8 @@ import bannerOne from "../../assets/volunteer_pages/getinvolved_01a_banner.png";
 import bannerTwo from "../../assets/volunteer_pages/getinvolved_01b_banner.png";
 import bannerThree from "../../assets/volunteer_pages/getinvolved_01c_banner.png";
 import bannerFour from "../../assets/volunteer_pages/getinvolved_01d_banner.png";
-import Partners from "../../components/volunteer/Partners";
+import Partners from "../../Components/volunteer/Partners";
+import ReachImpact from "../../Components/volunteer/ReachImpact";
 
 const GetInvolved = () => {
   return (
@@ -81,6 +82,7 @@ const GetInvolved = () => {
           </CCarouselItem>
         </CCarousel>
       </div>
+      <ReachImpact />
       <Partners />
     </>
   );
