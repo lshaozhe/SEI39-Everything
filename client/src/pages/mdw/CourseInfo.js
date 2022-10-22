@@ -11,6 +11,8 @@ import courseImageFour from "../../assets/mdw_pages/courses_03_dealing_with_stre
 import leftArrow from "../../assets/svg_icons/volunteer_9a_carouselleftarrowgrey.svg";
 
 const CourseInfo = () => {
+  // default responsive settings from carousel component
+  // may come in handy when we try to implement mobile design
   const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
@@ -32,8 +34,10 @@ const CourseInfo = () => {
   return (
     <>
       <CourseInfoBanner />
+      {/* contains buttons to sign up for course or browse other courses */}
       <div className={styles.signup_container}>
         <div className={styles.signup_box}>
+          {/* image on the left side of buttons */}
           <div className={styles.signup_img}>
             <img src={signupImage} alt="" />
           </div>
@@ -50,6 +54,7 @@ const CourseInfo = () => {
           </div>
         </div>
       </div>
+      {/* carousel component to scroll through other related courses */}
       <div className={styles.carousel_container}>
         <span className={styles.related_courses}>Related Courses</span>
         <Carousel
@@ -58,6 +63,7 @@ const CourseInfo = () => {
           className={styles.courses_carousel}
           transitionDuration={500}
         >
+          {/* first carousel item */}
           <div className={styles.content}>
             <div className={styles.content_image}>
               <img src={courseImageOne} alt="" />
@@ -65,11 +71,11 @@ const CourseInfo = () => {
             <div className={styles.content_button}>
               <span>Understanding Debt</span>
             </div>
-            {/* button_label to become navigation link */}
             <div className={styles.content_label}>
               <span>FREE | Course Mode • Online</span>
             </div>
           </div>
+          {/* second carousel item */}
           <div className={styles.content}>
             <div className={styles.content_image}>
               <img src={courseImageTwo} alt="" />
@@ -82,6 +88,7 @@ const CourseInfo = () => {
               <span>FREE | Course Mode • Online</span>
             </div>
           </div>
+          {/* third carousel item */}
           <div className={styles.content}>
             <div className={styles.content_image}>
               <img src={courseImageThree} alt="" />
@@ -89,11 +96,11 @@ const CourseInfo = () => {
             <div className={styles.content_button}>
               <span>How to Open a Bank Account</span>
             </div>
-            {/* button_label to become navigation link */}
             <div className={styles.content_label}>
               <span>FREE | Course Mode • Online</span>
             </div>
           </div>
+          {/* fourth carousel item */}
           <div className={styles.content}>
             <div className={styles.content_image}>
               <img src={courseImageFour} alt="" />
@@ -101,7 +108,6 @@ const CourseInfo = () => {
             <div className={styles.content_button}>
               <span>Dealing With Stress</span>
             </div>
-            {/* button_label to become navigation link */}
             <div className={styles.content_label}>
               <span>FREE | Course Mode • Online</span>
             </div>
