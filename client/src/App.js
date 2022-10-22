@@ -9,6 +9,7 @@ import GetInvolved from "./pages/volunteer/GetInvolved";
 import Navbar from "./common/Navbar";
 import Footer from "./common/Footer";
 import Courses from "./pages/mdw/Courses";
+import SignUpPage from "./pages/mdw/SignUpPage";
 
 function App() {
 	return (
@@ -19,6 +20,7 @@ function App() {
 				{/* MDW User Flow */}
 				<Route path="/courses" element={<Courses />} />
 				<Route path="/students/courses/financial_education" element={<CourseInfo />} />
+				<Route path="students/courses/sign_up" element={<SignUpPage />} />
 				{/* Volunteers User Flow */}
 				<Route path="/volunteers" element={<GetInvolved />} />
 			</Routes>
