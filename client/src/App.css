@@ -96,6 +96,10 @@
   cursor: pointer;
 }
 
+.content a {
+    text-decoration: none;
+}
+
 .content_image {
   display: inline-block;
   width: 22.5vw;
@@ -150,6 +154,7 @@
   text-align: center;
   line-height: 8vh;
   justify-content: center;
+  color: #3C3D3C;
 }
 
 .button_label span {

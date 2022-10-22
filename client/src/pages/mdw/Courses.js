@@ -13,6 +13,7 @@ import CoursesImg8 from "../../assets/mdw_pages/courses_08_start_business.png";
 import CoursesImg9 from "../../assets/mdw_pages/courses_09_open_bank_account.png";
 import CoursesImg10 from "../../assets/mdw_pages/courses_10_computer_skills.png";
 import CoursesImg11 from "../../assets/mdw_pages/courses_11_building_resilience.png";
+import { Link } from "react-router-dom";
 
 const Courses = () => {
 	return (
@@ -28,17 +29,20 @@ const Courses = () => {
 			{/* Section below is for the 11 course cards */}
 			<div className="content_container">
 				<div className="content_box">
-					<div className="column">
-						<div className="content">
-							<div className="content_image">
-								<img src={CoursesImg1} alt="financial-education" />
-							</div>
-							<div className="content_button"></div>
-							<div className="button_label">Financial Education</div>
-							<div className="content_label">
-								<span>FREE | Course Mode · Online</span>
-							</div>
-						</div>
+                    <div className="column">
+                        <div className="content">
+                            <Link to="/students/courses/financial_education">
+                                <div className="content_image">
+                                    <img src={CoursesImg1} alt="financial-education" />
+                                </div>
+                                <div className="content_button"></div>
+                                <div className="button_label">Financial Education</div>
+                                <div className="content_label">
+                                    <span>FREE | Course Mode · Online</span>
+                                </div>
+                            </Link>
+                        </div>
+                        
 						<div className="content">
 							<div className="content_image">
 								<img src={CoursesImg3} alt="dealing-with-stress" />
