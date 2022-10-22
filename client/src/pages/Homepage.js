@@ -3,8 +3,6 @@ import { CCarousel } from "@coreui/react";
 import { CCarouselItem } from "@coreui/react";
 import { CCarouselCaption } from "@coreui/react";
 import { CImage } from "@coreui/react";
-import Navbar from "../common/Navbar";
-import Footer from "../common/Footer";
 import bannerOne from ".././assets/homepage/homepage_banner.png";
 import bannerTwo from ".././assets/homepage/homepage_banner2.jpeg";
 import bannerThree from ".././assets/homepage/homepage_banner3.png";
@@ -17,7 +15,6 @@ import contentImgFive from ".././assets/homepage/0_5_aidha_photography.png";
 const Homepage = () => {
   return (
     <>
-      <Navbar />
       <div className="page_container">
         {/* page_header shows current page navigation */}
         <div className="page_header">
@@ -155,7 +152,6 @@ const Homepage = () => {
           <div className="content"></div>
         </div>
       </div>
-      <Footer />
     </>
   );
 };
