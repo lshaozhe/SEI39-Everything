@@ -1,7 +1,5 @@
 import React from "react";
-import Navbar from "../../common/Navbar";
 import CourseInfoBanner from "../../common/CourseInfoBanner";
-import Footer from "../../common/Footer";
 import styles from "../../common/CourseInfoBanner.module.css";
 import signupImage from "../../assets/mdw_pages/stories_04.png";
 import Carousel from "react-multi-carousel";
@@ -33,7 +31,6 @@ const CourseInfo = () => {
 
   return (
     <>
-      <Navbar />
       <CourseInfoBanner />
       <div className={styles.signup_container}>
         <div className={styles.signup_box}>
@@ -111,7 +108,6 @@ const CourseInfo = () => {
           </div>
         </Carousel>
       </div>
-      <Footer />
     </>
   );
 };
