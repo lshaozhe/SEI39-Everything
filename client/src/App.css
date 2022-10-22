@@ -25,7 +25,7 @@
   color: #ffffff;
   line-height: 32px;
   font-weight: 700;
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .page_header span {
@@ -38,7 +38,7 @@
   z-index: -1;
 }
 
-.banner_label p {
+.banner_label span {
   font-size: 1.25em;
   font-weight: 700;
   width: 48vw;
@@ -51,12 +51,31 @@
   top: -15vh;
 }
 
-.carousel-indicators li:active {
+.carousel-indicators {
+  position: relative;
+  justify-content: center;
+}
+
+.carousel-indicators li:not(.active) {
+  background-color: #e2e2e2;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  opacity: 80%;
+  margin-top: 2.5px;
+}
+
+.carousel-indicators li.active {
   background-color: #f68121;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
 }
 
 .content_container {
   width: 100vw;
+  margin-bottom: 5vh;
+  margin-top: 5vh;
 }
 
 .content_box {
@@ -74,6 +93,7 @@
   height: 27vh;
   background-color: transparent;
   margin-top: 2.5vh;
+  cursor: pointer;
 }
 
 .content_image {
@@ -86,6 +106,7 @@
 .content_image img {
   object-fit: cover;
   height: 24vh;
+  width: 22.5vw;
 }
 
 .content_button {
@@ -99,12 +120,13 @@
 }
 
 .content_label {
-  top: -62.5px;
-  display: block;
+  top: -82.5px;
+  display: flex;
   position: relative;
   width: 100%;
   height: 3vh;
   background-color: #f68121;
+  align-items: center;
 }
 
 .content_label span {
@@ -112,9 +134,8 @@
   position: relative;
   color: #ffffff;
   font-weight: 700;
-  font-size: 12px;
+  font-size: 14px;
   margin-left: 1.5vw;
-  top: -3px;
 }
 
 .button_label {
@@ -122,7 +143,7 @@
   display: flex;
   width: 35%;
   height: 8vh;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 700;
   left: 26vw;
   top: -17vh;
@@ -135,4 +156,9 @@
   display: inline-block;
   vertical-align: middle;
   line-height: 4vh;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
 }
