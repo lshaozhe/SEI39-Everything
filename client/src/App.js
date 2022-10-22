@@ -8,6 +8,7 @@ import CourseInfo from "./pages/mdw/CourseInfo";
 import GetInvolved from "./pages/volunteer/GetInvolved";
 import Navbar from "./common/Navbar";
 import Footer from "./common/Footer";
+import Courses from "./pages/mdw/Courses";
 
 function App() {
 	return (
@@ -15,6 +16,7 @@ function App() {
             <Navbar />
 			<Routes>
                 <Route path="/" element={<Homepage />} />
+                <Route path="/courses" element={<Courses />} />
                 <Route path="/students/courses/financial_education" element={<CourseInfo />} />
                 <Route path="/volunteers" element={<GetInvolved />} />
             </Routes>
