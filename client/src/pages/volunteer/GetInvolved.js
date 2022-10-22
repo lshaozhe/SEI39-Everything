@@ -3,8 +3,6 @@ import { CCarousel } from "@coreui/react";
 import { CCarouselItem } from "@coreui/react";
 import { CCarouselCaption } from "@coreui/react";
 import { CImage } from "@coreui/react";
-import Navbar from "../../common/Navbar";
-import Footer from "../../common/Footer";
 import bannerOne from "../../assets/volunteer_pages/getinvolved_01a_banner.png";
 import bannerTwo from "../../assets/volunteer_pages/getinvolved_01b_banner.png";
 import bannerThree from "../../assets/volunteer_pages/getinvolved_01c_banner.png";
@@ -14,7 +12,6 @@ import Partners from "../../components/volunteer/Partners";
 const GetInvolved = () => {
   return (
     <>
-      <Navbar />
       <div className="page_container">
         {/* page_header shows current page navigation */}
         <div className="page_header">
@@ -85,8 +82,6 @@ const GetInvolved = () => {
         </CCarousel>
       </div>
       <Partners />
-
-      <Footer />
     </>
   );
 };
