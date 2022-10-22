@@ -12,15 +12,17 @@ import Courses from "./pages/mdw/Courses";
 
 function App() {
 	return (
-        <>
-            <Navbar />
+		<>
+			<Navbar />
 			<Routes>
-                <Route path="/" element={<Homepage />} />
-                <Route path="/courses" element={<Courses />} />
-                <Route path="/students/courses/financial_education" element={<CourseInfo />} />
-                <Route path="/volunteers" element={<GetInvolved />} />
-            </Routes>
-            <Footer />
+				<Route path="/" element={<Homepage />} />
+				{/* MDW User Flow */}
+				<Route path="/courses" element={<Courses />} />
+				<Route path="/students/courses/financial_education" element={<CourseInfo />} />
+				{/* Volunteers User Flow */}
+				<Route path="/volunteers" element={<GetInvolved />} />
+			</Routes>
+			<Footer />
 		</>
 	);
 }
