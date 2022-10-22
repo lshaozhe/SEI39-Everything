@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../../common/StudentStories.module.css";
+import styles from "../../components/mdw/StudentStories.module.css";
 import eventsIconOne from "../../assets/mdw_pages/stories_02a.jpg";
 import eventsIconTwo from "../../assets/mdw_pages/stories_02b.jpg";
 import eventsIconThree from "../../assets/mdw_pages/stories_02c.jpg";
@@ -29,6 +29,7 @@ const StudentStories = () => {
               src="https://www.youtube.com/embed/xsuNrqkzNqI"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
+              title="video"
             ></iframe>
           </div>
           <div className={styles.banner_caption}>
