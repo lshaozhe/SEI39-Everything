@@ -56,20 +56,20 @@ const Footer = () => {
 					<p className="mt-10">Sign up here to receive our newsletters!</p>
 					<input className={styles.emailInput} type="email" placeholder="EMAIL:" />
                     <div className={styles.socialMediaIconsContainer}>
-                        <a href="https://www.facebook.com/aidha.org/" target="_blank">
+                        <a href="https://www.facebook.com/aidha.org/" target="_blank" rel="noreferrer">
                             <input type="image" src={FacebookIcon} alt="facebook" className={styles.socialMediaIcons} />
                         </a>
-						<a href="https://www.instagram.com/aidha.sg/" target="_blank">
+						<a href="https://www.instagram.com/aidha.sg/" target="_blank" rel="noreferrer">
                             <input type="image" src={InstagramIcon} alt="instagram" className={styles.socialMediaIcons} />
                         </a>
-                        <a href="https://www.youtube.com/channel/UCEpqUcq2u0jcTQu7fYxD2vQ" target="_blank">
+                        <a href="https://www.youtube.com/channel/UCEpqUcq2u0jcTQu7fYxD2vQ" target="_blank" rel="noreferrer">
                             <input type="image" src={YoutubeIcon} alt="youtube" className={styles.socialMediaIcons} />
                         </a>
-                        <a href="https://www.tiktok.com/@aidha.sg" target="_blank">
+                        <a href="https://www.tiktok.com/@aidha.sg" target="_blank" rel="noreferrer">
                             <input type="image" src={TiktokIcon} alt="tiktok" className={styles.socialMediaIcons} />
                         </a>
                         <input type="image" src={TelegramIcon} alt="telegram" className={styles.socialMediaIcons} />
-                        <a href="https://api.whatsapp.com/send?phone=6597894041" target="_blank">
+                        <a href="https://api.whatsapp.com/send?phone=6597894041" target="_blank" rel="noreferrer">
                             <input type="image" src={WhatsappIcon} alt="whatsapp" className={styles.socialMediaIcons} />
                         </a>
 					</div>
