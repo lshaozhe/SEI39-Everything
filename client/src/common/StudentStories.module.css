@@ -36,17 +36,6 @@
   top: -6vh;
 }
 
-.dot_span {
-  display: inline-block;
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background-color: white;
-  margin-left: 0.4vw;
-  margin-right: 0.8vw;
-  margin-bottom: 0.2vw;
-}
-
 .carousel-indicators {
   position: relative;
   justify-content: center;
@@ -68,21 +57,13 @@
   border-radius: 50%;
 }
 
-.coursegoals_container {
+.events_icons_container {
   width: 100vw;
-  height: 42vh;
-  background-color: #eee7df;
+  height: 24vh;
+  background-color: #f2cbab;
 }
 
-.coursegoals_container h2 {
-  position: relative;
-  font-size: 2.25vw;
-  font-weight: 700;
-  margin-left: 40px;
-  top: 20px;
-}
-
-.goals_box {
+.events_box {
   width: 100vw;
   display: flex;
   justify-content: space-evenly;
@@ -90,7 +71,7 @@
   margin-top: 1vh;
 }
 
-.goals {
+.events {
   position: relative;
   display: inline-block;
   width: 4vw;
@@ -99,38 +80,40 @@
   margin-top: 4vh;
 }
 
-.goals_icons {
+.events_icons {
   display: inline-block;
-  width: 4vw;
-  height: 4vw;
+  width: 6vw;
+  height: 6vw;
   justify-content: center;
 }
 
-.goals_icons img {
+.events_icons img {
   position: relative;
   display: flex;
   object-fit: fill;
-  height: 4vw;
-  width: 4vw;
+  height: 6vw;
+  width: 6vw;
   margin: 0 auto;
+  border-radius: 50%;
+  border: 1px solid black;
 }
 
-.goals_label {
+.events_label {
   top: 0;
   display: block;
   position: relative;
-  left: -6vw;
+  left: -5vw;
   width: 16vw;
   text-align: center;
   margin-top: 2vh;
 }
 
-.goals_label div {
+.events_label div {
   display: inline;
   position: relative;
   color: #3c3d3c;
-  font-size: 2.25vh;
-  top: -3px;
+  font-size: 2vh;
+  top: -15px;
 }
 
 .signup_container {
