@@ -1,16 +1,16 @@
 import React from "react";
-import Navbar from "../common/Navbar";
-import CourseInfoBanner from "../common/CourseInfoBanner";
-import Footer from "../common/Footer";
-import styles from "../common/CourseInfoBanner.module.css";
-import signupImage from ".././assets/mdw_pages/stories_04.png";
+import Navbar from "../../common/Navbar";
+import CourseInfoBanner from "../../common/CourseInfoBanner";
+import Footer from "../../common/Footer";
+import styles from "../../common/CourseInfoBanner.module.css";
+import signupImage from "../../assets/mdw_pages/stories_04.png";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import courseImageOne from ".././assets/mdw_pages/courses_05_understanding_debt.png";
-import courseImageTwo from ".././assets/mdw_pages/courses_07_debt_counselling.png";
-import courseImageThree from ".././assets/mdw_pages/courses_09_open_bank_account.png";
-import courseImageFour from ".././assets/mdw_pages/courses_03_dealing_with_stress.png";
-import leftArrow from ".././assets/svg_icons/volunteer_9a_carouselleftarrowgrey.svg";
+import courseImageOne from "../../assets/mdw_pages/courses_05_understanding_debt.png";
+import courseImageTwo from "../../assets/mdw_pages/courses_07_debt_counselling.png";
+import courseImageThree from "../../assets/mdw_pages/courses_09_open_bank_account.png";
+import courseImageFour from "../../assets/mdw_pages/courses_03_dealing_with_stress.png";
+import leftArrow from "../../assets/svg_icons/volunteer_9a_carouselleftarrowgrey.svg";
 
 const CourseInfo = () => {
   const responsive = {
