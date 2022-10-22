@@ -1,0 +1,29 @@
+.header {
+    font-size: 1.75vw;
+    font-weight: 700;
+    margin-left: 8vw;
+    margin-bottom: 3vw;;
+}
+
+.formRow {
+    margin-left: 8vw;
+    background-color: #eee7df;
+    border-radius: 10px;
+}
+
+.nameLabel, .nameInput {
+    height: 2em;
+}
+
+.nameLabel {
+    padding-top: 4px;
+    width: 100px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.nameInput {
+    background-color: #eee7df;
+    width: 468px;
+    border: none;
+}
