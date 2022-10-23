@@ -13,6 +13,7 @@ import profileIconThree from "../../assets/mdw_pages/stories_03c_profilepic.png"
 import profileIconFour from "../../assets/mdw_pages/stories_03d_profilepic.png";
 import profileIconFive from "../../assets/mdw_pages/stories_03e_profilepic.png";
 import profileIconSix from "../../assets/mdw_pages/stories_03f_profilepic.png";
+import signupImage from "../../assets/mdw_pages/stories_04.png";
 import { CCarousel } from "@coreui/react";
 import { CCarouselItem } from "@coreui/react";
 
@@ -243,6 +244,24 @@ const StudentStories = () => {
                 Aidha helped me build confidence in pursuing my goals. And I do
                 believe that confidence is companion of success.
               </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* container with signup button at bottom of page */}
+      <div className={styles.signup_container}>
+        <div className={styles.signup_box}>
+          {/* image on the left side of buttons */}
+          <div className={styles.signup_img}>
+            <img src={signupImage} alt="" />
+          </div>
+          <div className={styles.signup_label}>
+            <p>
+              Join our vibrant community of students and learn a new skill to
+              upgrade your life!
+            </p>
+            <div className={styles.button_container}>
+              <button className={styles.signup_button}>Sign Up</button>
             </div>
           </div>
         </div>

@@ -111,6 +111,7 @@ const VolunteerWithUs = () => {
           </CCarouselItem>
         </CCarousel>
       </div>
+      {/* container with signup button */}
       <div className={styles.register_container}>
         <div className={styles.register_box}>
           {/* image on the left side of buttons */}
@@ -135,6 +136,8 @@ const VolunteerWithUs = () => {
           </div>
         </div>
       </div>
+
+      {/* carousel to scroll through various mentor roles */}
       <div className={styles.carousel_container}>
         <span className={styles.related_courses}>Available Roles</span>
         <Carousel
@@ -146,6 +149,14 @@ const VolunteerWithUs = () => {
           {/* first carousel item */}
           <div className={styles.content}>
             <div className={styles.content_label}>
+              {/* first carousel item label */}
+              <span>Mentor (Module 1, 2 or 3)</span>
+            </div>
+            {/* first carousel item image */}
+            <div className={styles.content_image}>
+              <img src={bannerTwo} alt="" />
+            </div>
+            {/* first carousel item content body */}
               <span>Mentor (Module 1, 2 or 3)</span>
             </div>
             <div className={styles.content_image}>
@@ -174,6 +185,7 @@ const VolunteerWithUs = () => {
                 • Adopt a class and take the students on a learning journey that
                 will build their confidence in themselves and their future
               </p>
+              {/* first carousel buttons */}
               <div className={styles.roles_button_container}>
                 <div className={styles.roles_button}>More Info</div>
                 <div className={styles.roles_button}>Apply Now</div>
@@ -183,6 +195,14 @@ const VolunteerWithUs = () => {
           {/* second carousel item */}
           <div className={styles.content}>
             <div className={styles.content_label}>
+              {/* second carousel item label */}
+              <span>Mentor (Computer Classes)</span>
+            </div>
+            {/* second carousel item image */}
+            <div className={styles.content_image}>
+              <img src={bannerThree} alt="" />
+            </div>
+            {/* second carousel item content body */}
               <span>Mentor (Computer Classes)</span>
             </div>
             <div className={styles.content_image}>
@@ -212,6 +232,7 @@ const VolunteerWithUs = () => {
                 • Adopt a class and help students improve practical IT skills on
                 computer and phone
               </p>
+              {/* second carousel item buttons */}
               <div className={styles.roles_button_container}>
                 <div className={styles.roles_button}>More Info</div>
                 <div className={styles.roles_button}>Apply Now</div>
@@ -221,6 +242,15 @@ const VolunteerWithUs = () => {
           </div>
           {/* third carousel item */}
           <div className={styles.content}>
+            {/* third carousel item label */}
+            <div className={styles.content_label}>
+              <span>Mentor (Improve Your English)</span>
+            </div>
+            {/* third carousel item image */}
+            <div className={styles.content_image}>
+              <img src={bannerFour} alt="" />
+            </div>
+            {/* third carousel item content body */}
             <div className={styles.content_label}>
               <span>Mentor (Improve Your English)</span>
             </div>
@@ -251,6 +281,7 @@ const VolunteerWithUs = () => {
                 • Adopt a class and help students build confidence in speaking,
                 reading and writing in English
               </p>
+              {/* third carousel item buttons */}
               <div className={styles.roles_button_container}>
                 <div className={styles.roles_button}>More Info</div>
                 <div className={styles.roles_button}>Apply Now</div>
@@ -259,6 +290,15 @@ const VolunteerWithUs = () => {
           </div>
           {/* fourth carousel item */}
           <div className={styles.content}>
+            {/* fourth carousel item label */}
+            <div className={styles.content_label}>
+              <span>Tech Support</span>
+            </div>
+            {/* fourth carousel item image */}
+            <div className={styles.tech_support}>
+              <img src={bannerFive} alt="" />
+            </div>
+            {/* fourth carousel item content body */}
             <div className={styles.content_label}>
               <span>Tech Support</span>
             </div>
@@ -289,6 +329,7 @@ const VolunteerWithUs = () => {
                 • Adopt a class and support students in any technical issues
                 they may encounter during lessons
               </p>
+              {/* fourth carousel item buttons */}
               <div className={styles.roles_button_container}>
                 <div className={styles.roles_button}>More Info</div>
                 <div className={styles.roles_button}>Apply Now</div>

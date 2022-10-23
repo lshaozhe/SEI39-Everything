@@ -177,7 +177,7 @@
 .signup_container {
   position: relative;
   width: 100vw;
-  height: 32vh;
+  height: 16vw;
   background-color: #f2cbab;
   margin-top: -7px;
 }
@@ -196,6 +196,7 @@
   height: 10vw;
   justify-content: center;
   margin-top: 6vh;
+  margin-left: 30vh;
 }
 
 .signup_img img {
@@ -337,4 +338,24 @@
   color: #6f706f;
   left: -1vw;
   top: -1vh;
+}
+
+.signup_label p {
+  width: 60%;
+  margin-left: 5%;
+  margin-top: -1vw;
+  text-align: left;
+}
+
+.button_container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.signup_button {
+  padding: 5px 40px;
+  border-radius: 20px;
+  background-color: #f68121;
+  color: #ffffff;
+  margin-left: 4vw;
 }
