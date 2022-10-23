@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import CourseInfoBanner from "../../common/CourseInfoBanner";
+import SignUpFormPagination from "../../components/mdw/SignUpFormPagination";
 import SignUpStep1 from "../../components/mdw/SignUpStep1";
 import SignUpStep2 from "../../components/mdw/SignUpStep2";
 import SignUpStep3 from "../../components/mdw/SignUpStep3";
@@ -39,8 +40,9 @@ const SignUpPage = () => {
     }
     
 	return (
-		<>
-			<CourseInfoBanner />
+        <>
+            <CourseInfoBanner />
+            <SignUpFormPagination currentSignUpPage={currentSignUpPage} />
             {currentSignUpPage === 1 && <SignUpStep1 handleStep1Submission={handleStep1Submission} returnedFromStep2={returnedFromStep2} formDetails={formDetails} />}
             {currentSignUpPage === 2 && <SignUpStep2 formDetails={formDetails} handleReturnClickInStep2={handleReturnClickInStep2} handleStep2Submission={handleStep2Submission} />}
             {currentSignUpPage === 3 && <SignUpStep3 />}
