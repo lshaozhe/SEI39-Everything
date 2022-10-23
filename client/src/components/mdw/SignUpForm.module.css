@@ -21,10 +21,6 @@
     margin-bottom: 1.5vw;
 }
 
-.nameLabel, .nameInput {
-    /* height: 2em; */
-}
-
 .nameLabel, .workPermitLabel, .courseDateLabel, .aboutyourselfLabel {
     padding-top: 4px;
     font-weight: bold;
@@ -59,8 +55,8 @@
 }
 
 .courseDateInput {
-    background-image: url("../../assets/arrow-down-filled-triangle.png");
-    background-size: 1.5vw;
+    background-image: url("../../assets/svg_icons/forms_2_dropdownarrow.svg");
+    background-size: 1.25vw;
 }
 
 .aboutyourselfInput {
@@ -116,8 +112,8 @@
     font-size: 1.5vw;
     height: 3vw;
     width: 15vw;
-    border-radius: 20px;
-    margin-left: 35vw;
+    border-radius: 30px;
+    margin-left: 34vw;
 }
 
 .whatsappSection {

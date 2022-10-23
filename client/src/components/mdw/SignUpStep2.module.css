@@ -1,0 +1,68 @@
+.header {
+    font-size: 2.25vw;
+    font-weight: 700;
+    margin-left: 4vw;
+}
+
+.formDetailsDiv {
+    background-color: #eee7df;
+    border-radius: 20px;
+    width: 27vw;
+    margin-top: 2vw;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.formUl {
+    color: #3c3d3c;
+    font-size: 1vw;
+    line-height: 1.4em;
+}
+
+.firstFormLi {
+    padding-top: 1vw;
+    padding-left: 4vw;
+
+}
+
+.formLi {
+    padding-left: 4vw;
+
+}
+
+.lastFormLi {
+    padding-left: 4vw;
+    padding-bottom: 1vw;
+}
+
+.formQuestion {
+    font-weight: bold;
+}
+
+.buttonContainer {
+    display: flex;
+    width: 27vw;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.returnButton {
+    background-color: #eee7df;
+    color: #3c3d3c;
+    font-weight: bold;
+    font-size: 1vw;
+    height: 2vw;
+    width: 15vw;
+    border-radius: 30px;
+}
+
+.confirmButton {
+    background-color: #f68121;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 1vw;
+    height: 2vw;
+    width: 10vw;
+    border-radius: 30px;
+    margin-left: 2vw;
+}
