@@ -369,13 +369,18 @@ const Navbar = () => {
               </button>
             </li>
             <li className="rounded-sm relative px-3 py-1 hover:bg-gray-100">
-              <button
-                aria-haspopup="true"
-                aria-controls="menu-lang"
-                className="w-full text-center flex items-center outline-none focus:outline-none"
+              <Link
+                to="/volunteers/volunteer_with_us"
+                style={{ textDecoration: "none", color: "#ffffff" }}
               >
-                <span className="pr-1 flex-1">Volunteer With Us</span>
-              </button>
+                <button
+                  aria-haspopup="true"
+                  aria-controls="menu-lang"
+                  className="w-full text-center flex items-center outline-none focus:outline-none"
+                >
+                  <span className="pr-1 flex-1">Volunteer With Us</span>
+                </button>
+              </Link>
             </li>
             <li className="rounded-sm relative px-3 py-1 hover:bg-gray-100">
               <button

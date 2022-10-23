@@ -12,6 +12,7 @@ import Partners from "../../components/volunteer/Partners";
 import ReachImpact from "../../components/volunteer/ReachImpact";
 import styles from "../../components/volunteer/VolunteerWithUs.module.css";
 import registerImage from "../../assets/volunteer_pages/volunteer_01.jpeg";
+import rolesIconOne from "../../assets/svg_icons/volunteer_1_time.svg";
 import Carousel from "react-multi-carousel";
 
 const VolunteerWithUs = () => {
@@ -157,37 +158,50 @@ const VolunteerWithUs = () => {
               <img src={bannerTwo} alt="" />
             </div>
             {/* first carousel item content body */}
-            <span>Mentor (Module 1, 2 or 3)</span>
-          </div>
-          <div className={styles.content_image}>
-            <img src={bannerTwo} alt="" />
-          </div>
-          <div className={styles.content_button}>
-            <div>
-              <span>Time Commitment</span>
-              <br />
-              <p>• Minimum period of 6 months</p>
-              <p style={{ marginLeft: "7.5vw" }}>• 1.5 hours every Sunday OR</p>
-              <p style={{ marginLeft: "7.5vw" }}>• 3 hours every 2 Sundays</p>
-            </div>
-            <span>Location</span>
-            <br />
-            <p>• Online on Zoom OR</p>
-            <p>• FAST Hub @ 3 Chin Cheng Avenue, S429401</p>
-            <span>Requirements</span>
-            <br />
-            <p>• Minimum 3 years of work experience in any field</p>
-            <span>Responsibilities</span>
-            <br />
-            <p>
-              • Adopt a class and take the students on a learning journey that
-              will build their confidence in themselves and their future
-            </p>
-            {/* first carousel buttons */}
-            <div className={styles.roles_button_container}>
-              <div className={styles.roles_button}>More Info</div>
-              <div className={styles.roles_button}>Apply Now</div>
-            </div>
+            <div className={styles.content_button}>
+              <div>
+                {/* container sets icons in-line with label */}
+                <div className={styles.roles_icons_container}>
+                  <span className={styles.roles_icons_clock}></span>
+                  <span className={styles.roles_label}>Time Commitment</span>
+                </div>
+                <p>• Minimum period of 6 months</p>
+                <p style={{ marginLeft: "7.5vw" }}>
+                  • 1.5 hours every Sunday <b>OR</b>
+                </p>
+                <p style={{ marginLeft: "7.5vw" }}>• 3 hours every 2 Sundays</p>
+              </div>
+              {/* container sets icons in-line with label */}
+              <div className={styles.roles_icons_container}>
+                <span className={styles.roles_icons_location}></span>
+                <span className={styles.roles_label}>Location</span>
+              </div>
+              <p>
+                • Online on Zoom <b>OR</b>
+              </p>
+              <p>• FAST Hub @ 3 Chin Cheng Avenue, S429401</p>
+              {/* container sets icons in-line with label */}
+              <div className={styles.roles_icons_container}>
+                <span className={styles.roles_icons_requirements}></span>
+                <span className={styles.roles_label}>Requirements</span>
+              </div>
+              <p>• Minimum 3 years of work experience in any field</p>
+              {/* container sets icons in-line with label */}
+              <div className={styles.roles_icons_container}>
+                <span className={styles.roles_icons_responsibilities}></span>
+                <span className={styles.roles_label}>Responsibilities</span>
+              </div>
+              <p>
+                • Adopt a class and take the students on a learning journey that
+                will build their confidence in themselves and their future
+              </p>
+              {/* first carousel buttons */}
+              <div className={styles.roles_button_container}>
+                <div className={styles.roles_button}>More Info</div>
+                <div className={styles.roles_button}>Apply Now</div>
+                {/* </div> */}
+              </div>
+         </div>
           </div>
           {/* second carousel item */}
           <div className={styles.content}>
@@ -200,6 +214,49 @@ const VolunteerWithUs = () => {
               <img src={bannerThree} alt="" />
             </div>
             {/* second carousel item content body */}
+            <div className={styles.content_button}>
+              <div>
+                {/* container sets icons in-line with label */}
+                <div className={styles.roles_icons_container}>
+                  <span className={styles.roles_icons_clock}></span>
+                  <span className={styles.roles_label}>Time Commitment</span>
+                </div>
+                <p>• Minimum period of 6 months</p>
+                <p style={{ marginLeft: "7.5vw" }}>
+                  • 1.5 hours every Sunday <b>OR</b>
+                </p>
+                <p style={{ marginLeft: "7.5vw" }}>• 3 hours every 2 Sundays</p>
+              </div>
+              {/* container sets icons in-line with label */}
+              <div className={styles.roles_icons_container}>
+                <span className={styles.roles_icons_location}></span>
+                <span className={styles.roles_label}>Location</span>
+              </div>
+              <p>
+                • Online on Zoom <b>OR</b>
+              </p>
+              <p>• FAST Hub @ 3 Chin Cheng Avenue, S429401</p>
+              {/* container sets icons in-line with label */}
+              <div className={styles.roles_icons_container}>
+                <span className={styles.roles_icons_requirements}></span>
+                <span className={styles.roles_label}>Requirements</span>
+              </div>
+              <p>• Minimum 1 year of work experience in any field</p>
+              <p>• Good Computer Skills</p>
+              {/* container sets icons in-line with label */}
+              <div className={styles.roles_icons_container}>
+                <span className={styles.roles_icons_responsibilities}></span>
+                <span className={styles.roles_label}>Responsibilities</span>
+              </div>
+              <p>
+                • Adopt a class and help students improve practical IT skills on
+                computer and phone
+              </p>
+              {/* second carousel item buttons */}
+              <div className={styles.roles_button_container}>
+                <div className={styles.roles_button}>More Info</div>
+                <div className={styles.roles_button}>Apply Now</div>
+              </div>
             <span>Mentor (Computer Classes)</span>
           </div>
           <div className={styles.content_image}>
@@ -244,32 +301,40 @@ const VolunteerWithUs = () => {
               <img src={bannerFour} alt="" />
             </div>
             {/* third carousel item content body */}
-            <div className={styles.content_label}>
-              <span>Mentor (Improve Your English)</span>
-            </div>
-            <div className={styles.content_image}>
-              <img src={bannerFour} alt="" />
-            </div>
             <div className={styles.content_button}>
               <div>
-                <span>Time Commitment</span>
-                <br />
+                {/* container sets icons in-line with label */}
+                <div className={styles.roles_icons_container}>
+                  <span className={styles.roles_icons_clock}></span>
+                  <span className={styles.roles_label}>Time Commitment</span>
+                </div>
                 <p>• Minimum period of 6 months</p>
                 <p style={{ marginLeft: "7.5vw" }}>
-                  • 1.5 hours every Sunday OR
+                  • 1.5 hours every Sunday <b>OR</b>
                 </p>
                 <p style={{ marginLeft: "7.5vw" }}>• 3 hours every 2 Sundays</p>
               </div>
-              <span>Location</span>
-              <br />
-              <p>• Online on Zoom OR</p>
+              {/* container sets icons in-line with label */}
+              <div className={styles.roles_icons_container}>
+                <span className={styles.roles_icons_location}></span>
+                <span className={styles.roles_label}>Location</span>
+              </div>
+              <p>
+                • Online on Zoom <b>OR</b>
+              </p>
               <p>• FAST Hub @ 3 Chin Cheng Avenue, S429401</p>
-              <span>Requirements</span>
-              <br />
+              {/* container sets icons in-line with label */}
+              <div className={styles.roles_icons_container}>
+                <span className={styles.roles_icons_requirements}></span>
+                <span className={styles.roles_label}>Requirements</span>
+              </div>
               <p>• Native English speaker</p>
               <p>• CELTA / TESOL certification preferred</p>
-              <span>Responsibilities</span>
-              <br />
+              {/* container sets icons in-line with label */}
+              <div className={styles.roles_icons_container}>
+                <span className={styles.roles_icons_responsibilities}></span>
+                <span className={styles.roles_label}>Responsibilities</span>
+              </div>
               <p>
                 • Adopt a class and help students build confidence in speaking,
                 reading and writing in English
@@ -292,32 +357,40 @@ const VolunteerWithUs = () => {
               <img src={bannerFive} alt="" />
             </div>
             {/* fourth carousel item content body */}
-            <div className={styles.content_label}>
-              <span>Tech Support</span>
-            </div>
-            <div className={styles.tech_support}>
-              <img src={bannerFive} alt="" />
-            </div>
             <div className={styles.content_button}>
               <div>
-                <span>Time Commitment</span>
-                <br />
+                {/* container sets icons in-line with label */}
+                <div className={styles.roles_icons_container}>
+                  <span className={styles.roles_icons_clock}></span>
+                  <span className={styles.roles_label}>Time Commitment</span>
+                </div>
                 <p>• Minimum period of 6 months</p>
                 <p style={{ marginLeft: "7.5vw" }}>
-                  • 1.5 hours every Sunday OR
+                  • 1.5 hours every Sunday <b>OR</b>
                 </p>
                 <p style={{ marginLeft: "7.5vw" }}>• 3 hours every 2 Sundays</p>
               </div>
-              <span>Location</span>
-              <br />
-              <p>• Online on Zoom OR</p>
+              {/* container sets icons in-line with label */}
+              <div className={styles.roles_icons_container}>
+                <span className={styles.roles_icons_location}></span>
+                <span className={styles.roles_label}>Location</span>
+              </div>
+              <p>
+                • Online on Zoom <b>OR</b>
+              </p>
               <p>• FAST Hub @ 3 Chin Cheng Avenue, S429401</p>
-              <span>Requirements</span>
-              <br />
+              {/* container sets icons in-line with label */}
+              <div className={styles.roles_icons_container}>
+                <span className={styles.roles_icons_requirements}></span>
+                <span className={styles.roles_label}>Requirements</span>
+              </div>
               <p>• Minimum 1 year of work experience in any field</p>
               <p>• Good Computer skills</p>
-              <span>Responsibilities</span>
-              <br />
+              {/* container sets icons in-line with label */}
+              <div className={styles.roles_icons_container}>
+                <span className={styles.roles_icons_responsibilities}></span>
+                <span className={styles.roles_label}>Responsibilities</span>
+              </div>
               <p>
                 • Adopt a class and support students in any technical issues
                 they may encounter during lessons

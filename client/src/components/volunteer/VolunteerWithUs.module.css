@@ -310,8 +310,8 @@
   text-align: center;
 }
 
-.content_button span {
-  margin-left: 5.5vw;
+.roles_label {
+  margin-left: 3.5vw;
   font-size: 2.5vh;
 }
 
@@ -381,4 +381,53 @@
 .courses_carousel button:hover:nth-of-type(2) {
   background-color: #f68121;
   opacity: 100%;
+}
+
+.roles_icons_container {
+  width: 100%;
+  display: flex;
+}
+
+.roles_icons_clock {
+  position: relative;
+  background-image: url("../../assets/svg_icons/volunteer_1_time.svg");
+  display: flex;
+  width: 4vh;
+  height: 4vh;
+  top: 1.25vh;
+  left: 4vh;
+  background-size: cover;
+}
+
+.roles_icons_location {
+  position: relative;
+  background-image: url("../../assets/svg_icons/volunteer_2_location.svg");
+  display: flex;
+  width: 4vh;
+  height: 5vh;
+  top: 1.25vh;
+  left: 4vh;
+  background-size: cover;
+}
+
+.roles_icons_requirements {
+  position: relative;
+  background-image: url("../../assets/svg_icons/volunteer_3_requirements.svg");
+  display: flex;
+  width: 4vh;
+  height: 4vh;
+  top: 1.25vh;
+  left: 4vh;
+  background-size: cover;
+}
+
+.roles_icons_responsibilities {
+  position: relative;
+  background-image: url("../../assets/svg_icons/volunteer_4_responsibilities.svg");
+  display: flex;
+  width: 4vh;
+  height: 4vh;
+  top: 1.25vh;
+  left: 4vh;
+  background-size: cover;
 }
