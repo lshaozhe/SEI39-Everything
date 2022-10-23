@@ -1,3 +1,7 @@
+.container {
+    padding-bottom: 7vw;
+}
+
 .header {
     font-size: 1.75vw;
     font-weight: 700;
@@ -5,25 +9,127 @@
     margin-bottom: 3vw;;
 }
 
+.formContainer {
+    display: flex;
+    flex-direction: column;
+}
+
 .formRow {
     margin-left: 8vw;
     background-color: #eee7df;
     border-radius: 10px;
+    margin-bottom: 1.5vw;
 }
 
-.nameLabel, .nameInput {
-    height: 2em;
+.nameLabel, .workPermitLabel, .courseDateLabel, .aboutyourselfLabel {
+    padding-top: 4px;
+    font-weight: bold;
+    margin-left: 2.5vw;
+    color: #3c3d3c;
 }
 
 .nameLabel {
-    padding-top: 4px;
-    width: 100px;
-    text-align: center;
-    font-weight: bold;
+    margin-right: 14vw;
 }
 
-.nameInput {
+.workPermitLabel {
+    margin-right: 3.3vw;
+}
+
+.courseDateLabel {
+    margin-right: 6.5vw;
+}
+
+.aboutyourselfLabel {
+    margin-top: 1vw;
+}
+
+.nameInput, .workPermitInput, .courseDateInput, .aboutyourselfInput {
     background-color: #eee7df;
-    width: 468px;
     border: none;
+
+}
+
+.nameInput, .workPermitInput, .courseDateInput {
+    width: 50%;
+}
+
+.courseDateInput {
+    background-image: url("../../assets/svg_icons/forms_2_dropdownarrow.svg");
+    background-size: 1.25vw;
+}
+
+.aboutyourselfInput {
+    width: 90%;
+    margin-left: 5%;
+}
+
+.aboutYourselfCount {
+    text-align: end;
+    margin-right: 2vw;
+    color: rgb(60,61,60, 0.4);
+}
+
+.privacyPolicyRow {
+    margin-left: 8vw;
+    border-radius: 10px;
+    margin-bottom: 1.5vw;
+}
+
+.privacyPolicyCheckbox {
+    border-width: 3px;
+    border-color: #3d3c3d;
+    border-radius: 5px;
+    width: 1.5vw;
+    height: 1.5vw;
+}
+
+.privacyPolicyCheckbox:checked {
+    background-image: url("../../assets/mdw_pages/check.png");
+    color: #ffffff;
+    border-width: 3px;
+    border-color: #3d3c3d;
+    border-radius: 5px;
+    width: 1.5vw;
+    height: 1.5vw;
+}
+
+.privacyPolicyLabel {
+    padding-top: 4px;
+    font-weight: bold;
+    margin-left: 1vw;
+    color: #3c3d3c;
+}
+
+.privacyPolicyLabel span {
+    color: #f68121;
+}
+
+.continueButton {
+    background-color: #f68121;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 1.5vw;
+    height: 3vw;
+    width: 15vw;
+    border-radius: 30px;
+    margin-left: 34vw;
+}
+
+.whatsappSection {
+    display: flex;
+}
+
+.imgSection {
+    width: 3.5vw;
+    margin-left: 4vw;
+}
+
+.whatsappIcon {
+    height: auto;
+}
+
+.pSection {
+    width: 30vw;
+    margin-left: 1.5vw;
 }
