@@ -201,7 +201,7 @@ const VolunteerWithUs = () => {
                 <div className={styles.roles_button}>Apply Now</div>
                 {/* </div> */}
               </div>
-         </div>
+            </div>
           </div>
           {/* second carousel item */}
           <div className={styles.content}>
@@ -257,37 +257,6 @@ const VolunteerWithUs = () => {
                 <div className={styles.roles_button}>More Info</div>
                 <div className={styles.roles_button}>Apply Now</div>
               </div>
-            <span>Mentor (Computer Classes)</span>
-          </div>
-          <div className={styles.content_image}>
-            <img src={bannerThree} alt="" />
-          </div>
-          <div className={styles.content_button}>
-            <div>
-              <span>Time Commitment</span>
-              <br />
-              <p>• Minimum period of 6 months</p>
-              <p style={{ marginLeft: "7.5vw" }}>• 1.5 hours every Sunday OR</p>
-              <p style={{ marginLeft: "7.5vw" }}>• 3 hours every 2 Sundays</p>
-            </div>
-            <span>Location</span>
-            <br />
-            <p>• Online on Zoom OR</p>
-            <p>• FAST Hub @ 3 Chin Cheng Avenue, S429401</p>
-            <span>Requirements</span>
-            <br />
-            <p>• Minimum 1 year of work experience in any field</p>
-            <p>• Good Computer Skills</p>
-            <span>Responsibilities</span>
-            <br />
-            <p>
-              • Adopt a class and help students improve practical IT skills on
-              computer and phone
-            </p>
-            {/* second carousel item buttons */}
-            <div className={styles.roles_button_container}>
-              <div className={styles.roles_button}>More Info</div>
-              <div className={styles.roles_button}>Apply Now</div>
             </div>
           </div>
           {/* third carousel item */}
