@@ -5,15 +5,27 @@ import styles from "./SignUpStep1.module.css";
 import MyInfo from "../../assets/mdw_pages/signup_01_retrieve_myinfo.png";
 import SignUpForm from "./SignUpForm";
 
-const SignUpStep1 = () => {
+const SignUpStep1 = (props) => {
 	// This is to store boolean value of whether registration button is clicked, to change CSS style on click
-	const [registrationButtonClicked, setRegistrationButtonClicked] = useState(true);
+	const [registrationButtonClicked, setRegistrationButtonClicked] = useState(false);
 
-    const handleClick = (e) => {
-        setRegistrationButtonClicked(true);
+	const handleClick = (e) => {
+		setRegistrationButtonClicked(true);
 		e.target.style.backgroundColor = "#f68121";
 		e.target.style.color = "#ffffff";
 	};
+
+	const handleFormSubmissionInStep1 = (liftedData) => {
+		// Updates current page state in parent, SignUpPage, and passes lifted data from child (SignUpForm) to parent
+		props.handleStep1Submission(liftedData);
+    };
+    
+    // Boolean is true if registration button is clicked or user is returning from step 2
+    let displaySignUpForm = false;
+
+    if (registrationButtonClicked || props.returnedFromStep2) {
+        displaySignUpForm = true;
+    }
 
 	return (
 		<>
@@ -34,7 +46,7 @@ const SignUpStep1 = () => {
 					</div>
 				</div>
 			</div>
-            {registrationButtonClicked && (<SignUpForm />)}
+			{displaySignUpForm && <SignUpForm handleFormSubmissionInStep1={handleFormSubmissionInStep1} formDetails={props.formDetails} />}
 		</>
 	);
 };

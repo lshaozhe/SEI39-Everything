@@ -1,0 +1,56 @@
+.container {
+    display: flex;
+}
+
+.navigateBack {
+    text-decoration: none;
+    color: #f68121;
+    display: flex;
+    width: 15vw;
+}
+
+.leftArrowImg {
+    margin-top: 2vw;
+    margin-left: 3vw;
+    height: 1.5vw;
+    width: 1.5vw;
+}
+
+.navigationText {
+    font-weight: bold;
+    padding: 1.8vw 1vw 0;
+    margin: 0;
+    vertical-align: middle;
+}
+
+.paginationContainer {
+    display: flex;
+    flex-direction: column;
+    width: 30vw;
+    margin-left: 20vw;
+    justify-content: center;
+    text-align: center;
+}
+
+.header {
+    font-weight: bold;
+    padding: 1.8vw 1vw 0;
+    margin: 0;
+    vertical-align: middle;
+}
+
+.dotsContainer {
+    margin-top: 1vw;
+    width: 30vw;
+    display: flex;
+    justify-content: center;
+}
+
+.dots {
+    height: 2vw;
+    width: 2vw;
+    border-radius: 50%;
+    margin-left: 1.1vw;
+    margin-right: 1.1vw;
+    border: solid 4px #F68121;
+}
