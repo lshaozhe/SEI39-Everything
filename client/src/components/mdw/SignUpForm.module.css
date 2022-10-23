@@ -12,18 +12,18 @@
 }
 
 .nameLabel, .nameInput {
-    height: 2em;
+    /* height: 2em; */
 }
 
 .nameLabel {
     padding-top: 4px;
-    width: 100px;
+    width: 20%;
     text-align: center;
     font-weight: bold;
 }
 
 .nameInput {
     background-color: #eee7df;
-    width: 468px;
+    width: 75%;
     border: none;
 }
