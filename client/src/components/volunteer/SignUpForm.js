@@ -102,8 +102,10 @@ const SignUpForm = () => {
             privacyPolicyAgreed
         }
 
+        // check only required or validated fields
         if (formSubmitted.name && formSubmitted.languagesSpoken && validEmail && formSubmitted.startDate && formSubmitted.endDate && formSubmitted.howToHelp && formSubmitted.learntAboutAidha && formSubmitted.orientationAttended && formSubmitted.privacyPolicyAgreed) {
 
+            // TODO: add lifting state to parent
         } else if (!formSubmitted.orientationAttended) {
             window.alert("All volunteers are required to attend the Volunteer Orientation before applying for a role.")
         }
