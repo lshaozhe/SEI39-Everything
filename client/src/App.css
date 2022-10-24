@@ -100,6 +100,10 @@
     text-decoration: none;
 }
 
+.content_link {
+    height: 29.5vh;
+}
+
 .content_image {
   display: inline-block;
   width: 22.5vw;
