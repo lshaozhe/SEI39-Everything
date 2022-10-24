@@ -16,12 +16,6 @@ const Homepage = () => {
   return (
     <>
       <div className="page_container">
-        {/* page_header shows current page navigation */}
-        <div className="page_header">
-          <span>
-            Shows which page you are currently on *to be removed from homepage*
-          </span>
-        </div>
         {/* carousel for banner image, transitions between 3 different images */}
         <CCarousel
           indicators

@@ -97,7 +97,7 @@
 }
 
 .content a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .content_image {
@@ -154,7 +154,7 @@
   text-align: center;
   line-height: 8vh;
   justify-content: center;
-  color: #3C3D3C;
+  color: #3c3d3c;
 }
 
 .button_label span {
@@ -164,6 +164,13 @@
 }
 
 .column {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
+}
+
+.mentor_image {
+  width: 80vw;
+  height: 15vw;
+  margin-top: 2vw;
+  object-fit: cover;
 }

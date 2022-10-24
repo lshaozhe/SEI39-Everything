@@ -47,9 +47,11 @@ const Navbar = () => {
   return (
     <>
       <div className={styles.navbar}>
-        <div className={styles.navlogo}>
-          <img src={logo} alt="logo" style={{ objectFit: "contain" }} />
-        </div>
+        <Link to="/">
+          <div className={styles.navlogo}>
+            <img src={logo} alt="logo" style={{ objectFit: "contain" }} />
+          </div>
+        </Link>
         {/* about us tab */}
         <div className="group inline-block">
           <button
