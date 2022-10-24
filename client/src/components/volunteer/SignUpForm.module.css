@@ -1,0 +1,57 @@
+.container {
+    padding-bottom: 7vw;
+    margin-left: 8vw;
+}
+
+.header {
+    font-size: 1.75vw;
+    font-weight: 700;
+    margin-top: 3vw;
+    margin-bottom: 1vw;;
+}
+
+.orientationReminderContainer {
+    background-color: #f2cbab;
+    width: 50vw;
+    display: flex;
+    font-weight: bold;
+    align-items: center;
+}
+
+.orientationReminderIcon {
+    margin-left: 2vw;
+    height: auto;
+    width: 1.5vw;
+}
+
+.orientationReminderText {
+    color: #6F706F;
+    margin-left: 1vw;
+    margin-top: 1vw;
+    width: 35vw
+}
+
+.orientationReminderButton {
+    background-color: #f68121;
+    color: #ffffff;
+    border-radius: 10vw;
+    height: 2.5vw;
+    width: 9vw;
+}
+
+.formContainer {
+    width: 50vw;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1vw;
+    font-weight: bold;
+    flex-wrap: wrap;
+}
+
+.formField {
+    /* background-color: #eee7df; */
+    border-radius: 10px;
+    width: 24vw;
+    margin-top: 1vw;
+}
+
