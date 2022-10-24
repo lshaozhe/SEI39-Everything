@@ -52,6 +52,43 @@ const SignUpForm = () => {
   const [learntAboutAidhaCount, setLearntAboutAidhaCount] = useState(0);
   const [questionsCount, setQuestionsCount] = useState(0);
 
+  //Function declaration to convert form data before POST to backend
+  function convertFormDataBeforeFetch(formDetails) {
+    let convertedFormData = {};
+    convertedFormData.name = formDetails.name;
+    convertedFormData.languagesSpoken = formDetails.languagesSpoken;
+    convertedFormData.mobileNumber = formDetails.phone;
+    convertedFormData.email = formDetails.validEmail;
+    convertedFormData.availableStartDate = formDetails.startDate;
+    convertedFormData.availableEndDate = formDetails.endDate;
+    convertedFormData.volunteerDescription = formDetails.howToHelp;
+    convertedFormData.referralChannel = formDetails.learntAboutAidha;
+    convertedFormData.questionsOrNotes = formDetails.questions;
+    convertedFormData.attendedOrientation = formDetails.orientationAttended;
+    convertedFormData.privacyPolicyAgreement = formDetails.privacyPolicyAgreed;
+
+    convertedFormData = JSON.stringify(convertedFormData);
+    return convertedFormData;
+  }
+
+  //fetch function with error logging in console
+  async function fetchPost(url, method, body) {
+    try {
+      const res = await fetch(url, {
+        method,
+        body,
+        headers: { "Content-Type": "application/json" },
+      });
+      if (res.status !== 200) {
+        throw new Error("Something went wrong.");
+      }
+      const data = await res.json();
+      console.log(`response from server: ${data.status}, ${data.message}`);
+    } catch (err) {
+      console.error(`error from server: ${err.message}`);
+    }
+  }
+
   const handleNameUpdate = (e) => {
     setName(e.target.value);
   };
