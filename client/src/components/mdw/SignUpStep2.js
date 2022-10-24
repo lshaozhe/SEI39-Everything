@@ -7,18 +7,34 @@ const SignUpStep2 = (props) => {
   // Save form details passed down from parent (SignUpPage) in variable
   const formDetails = props.formDetails;
 
+  //Function declaration to convert form data before POST to backend
   function convertFormDataBeforeFetch(formDetails) {
     let convertedFormData = {};
-
     convertedFormData.name = formDetails.name;
     convertedFormData.mobileNumber = formDetails.phone;
     convertedFormData.workPermitLastThreeDigits = formDetails.workPermit;
     convertedFormData.selectADate = formDetails.courseDate;
     convertedFormData.studentDescription = formDetails.aboutYourself;
-
     convertedFormData = JSON.stringify(convertedFormData);
-
     return convertedFormData;
+  }
+
+  //fetch function with error logging in console
+  async function fetchPost(url, method, body) {
+    try {
+      const res = await fetch(url, {
+        method,
+        body,
+        headers: { "Content-Type": "application/json" },
+      });
+      if (res.status !== 200) {
+        throw new Error("Something went wrong.");
+      }
+      const data = await res.json();
+      console.log(`response from server: ${data.status}, ${data.message}`);
+    } catch (err) {
+      console.error(`error from server: ${err.message}`);
+    }
   }
 
   const handleReturnClick = () => {
@@ -28,9 +44,10 @@ const SignUpStep2 = (props) => {
 
   const handleConfirmClick = () => {
     // Convert Form Data to fit what backend db structure first
-    convertFormDataBeforeFetch(formDetails);
+    let convertedFormData = convertFormDataBeforeFetch(formDetails);
 
     // Call the API to pass Form Data to backend
+    fetchPost("http://127.0.0.1:5001/api/mdw", "POST", convertedFormData);
 
     // Changes current page in parent (SignUpPage) to 3
     props.handleStep2Submission();
