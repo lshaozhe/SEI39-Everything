@@ -49,8 +49,10 @@ const CourseInfo = () => {
 						<div className={styles.button_container}>
 							<Link to="/students/courses/sign_up">
 								<button className={styles.signup_button}>Sign Up</button>
-							</Link>
-							<button className={styles.others_button}>View Other Courses</button>
+                            </Link>
+                            <Link to="/students/courses">
+                                <button className={styles.others_button}>View Other Courses</button>
+                            </Link>
 						</div>
 					</div>
 				</div>
