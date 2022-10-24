@@ -1,6 +1,6 @@
 /** @format */
 
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import leftArrow from "../../assets/svg_icons/leftarrow.svg";
 import styles from "./SignUpFormPagination.module.css";
