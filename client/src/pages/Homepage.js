@@ -1,3 +1,5 @@
+/** @format */
+
 import React from "react";
 import { CCarousel } from "@coreui/react";
 import { CCarouselItem } from "@coreui/react";
@@ -11,6 +13,7 @@ import contentImgTwo from ".././assets/homepage/0_2_financial_planning.png";
 import contentImgThree from ".././assets/homepage/0_3_make_a_change.png";
 import contentImgFour from ".././assets/homepage/0_4_ride_for_aidha.png";
 import contentImgFive from ".././assets/homepage/0_5_aidha_photography.png";
+import { Link } from "react-router-dom";
 
 const Homepage = () => {
   return (

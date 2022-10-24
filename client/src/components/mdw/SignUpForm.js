@@ -57,10 +57,15 @@ const SignUpForm = (props) => {
 			courseDate,
 			aboutYourself,
 			privacyPolicyAgreed,
-		};
-
-		// Lifts form details from user to parent, SignUpStep1
-		props.handleFormSubmissionInStep1(formSubmitted);
+        };
+        
+        // Check all form fields have values before proceeding to lift from child to parent
+        if (formSubmitted.name && formSubmitted.phone && formSubmitted.workPermit && formSubmitted.courseDate && formSubmitted.aboutYourself && formSubmitted.privacyPolicyAgreed) {
+            props.handleFormSubmissionInStep1(formSubmitted);  
+        } else {
+            window.alert("Please complete all fields before you proceed to submit the form.");
+        }
+		
 	};
 
 	return (

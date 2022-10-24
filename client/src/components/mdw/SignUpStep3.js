@@ -9,7 +9,7 @@ const SignUpStep3 = () => {
 	return (
 		<div className={styles.container}>
 			<img className={styles.thankYouImage} src={ThankYouImg} alt="thank-you" />
-            <div className={styles.messageContainer}>
+            <div>
                 <h3 className={styles.header}>Thank you for believing in Aidha!!</h3>
                 <div className={styles.whatsappSection}>
                     <div className={styles.imgSection}>
