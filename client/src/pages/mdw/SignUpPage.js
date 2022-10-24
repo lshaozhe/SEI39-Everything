@@ -24,15 +24,9 @@ const SignUpPage = () => {
 	});
 
 	// Upon step 1 submission, update current page to 2 and save form details in state
-    const handleStep1Submission = (liftedData) => {
-
-        // Check all form fields have values before proceeding to step 2
-        if (formDetails.name && formDetails.phone && formDetails.workPermit && formDetails.courseDate && formDetails.aboutYourself && formDetails.privacyPolicyAgreed) {
-            setCurrentSignUpPage(2);
-            setFormDetails(liftedData);    
-        } else {
-            window.alert("Please complete all fields before you proceed to submit the form.");
-        }
+	const handleStep1Submission = (liftedData) => {
+		setCurrentSignUpPage(2);
+		setFormDetails(liftedData);
 	};
 
 	// Upon click of return button in step 2, change to display step 1 form
