@@ -14,6 +14,7 @@ import styles from "../../components/volunteer/VolunteerWithUs.module.css";
 import registerImage from "../../assets/volunteer_pages/volunteer_01.jpeg";
 import rolesIconOne from "../../assets/svg_icons/volunteer_1_time.svg";
 import Carousel from "react-multi-carousel";
+import { Link } from "react-router-dom";
 
 const VolunteerWithUs = () => {
   // default responsive settings from carousel component
@@ -197,7 +198,15 @@ const VolunteerWithUs = () => {
               </p>
               {/* first carousel buttons */}
               <div className={styles.roles_button_container}>
-                <div className={styles.roles_button}>More Info</div>
+                <div className={styles.roles_button}>
+                  {" "}
+                  <Link
+                    to="/volunteers/volunteer_with_us/details"
+                    style={{ textDecoration: "none", color: "#ffffff" }}
+                  >
+                    More Info
+                  </Link>
+                </div>
                 <div className={styles.roles_button}>Apply Now</div>
                 {/* </div> */}
               </div>
