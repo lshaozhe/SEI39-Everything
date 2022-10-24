@@ -22,6 +22,7 @@ const useFetch = (url, method = "GET", body = null) => {
       const res = await fetch(url, {
         method,
         body,
+        headers: { "Content-Type": "application/json" },
       });
 
       if (res.status !== 200) {
