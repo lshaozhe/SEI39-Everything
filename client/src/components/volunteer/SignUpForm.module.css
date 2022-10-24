@@ -1,57 +1,156 @@
+/** @format */
+
 .container {
-    padding-bottom: 7vw;
-    margin-left: 8vw;
+	padding-bottom: 7vw;
+	margin-left: 8vw;
 }
 
 .header {
-    font-size: 1.75vw;
-    font-weight: 700;
-    margin-top: 3vw;
-    margin-bottom: 1vw;;
+	font-size: 1.75vw;
+	font-weight: 700;
+	margin-top: 3vw;
+	margin-bottom: 1vw;
 }
 
 .orientationReminderContainer {
-    background-color: #f2cbab;
-    width: 50vw;
-    display: flex;
-    font-weight: bold;
-    align-items: center;
+	background-color: #f2cbab;
+	width: 50vw;
+	display: flex;
+	font-weight: bold;
+	align-items: center;
 }
 
 .orientationReminderIcon {
-    margin-left: 2vw;
-    height: auto;
-    width: 1.5vw;
+	margin-left: 2vw;
+	height: auto;
+	width: 1.5vw;
 }
 
 .orientationReminderText {
-    color: #6F706F;
-    margin-left: 1vw;
-    margin-top: 1vw;
-    width: 35vw
+	color: #6f706f;
+	margin-left: 1vw;
+	margin-top: 1vw;
+	width: 35vw;
 }
 
 .orientationReminderButton {
-    background-color: #f68121;
-    color: #ffffff;
-    border-radius: 10vw;
-    height: 2.5vw;
-    width: 9vw;
+	background-color: #f68121;
+	color: #ffffff;
+	border-radius: 10vw;
+	height: 2.5vw;
+	width: 9vw;
 }
 
 .formContainer {
-    width: 50vw;
-    display: flex;
-    justify-content: space-between;
-    margin-top: 1vw;
-    font-weight: bold;
-    flex-wrap: wrap;
+	width: 50vw;
+	display: flex;
+	justify-content: space-between;
+	margin-top: 1vw;
+	font-weight: bold;
+	flex-wrap: wrap;
+	color: #3c3d3c;
 }
 
 .formField {
-    /* background-color: #eee7df; */
-    border-radius: 10px;
-    width: 24vw;
-    margin-top: 1vw;
+	background-color: #eee7df;
+	border-radius: 10px;
+	height: 56px;
+	width: 24vw;
+	margin-top: 1vw;
 }
 
+.formFieldHTMLInput {
+	background-color: #eee7df;
+	border-radius: 5px;
+	height: 56px;
+	width: 24vw;
+	margin-top: 1vw;
+	border-width: 1px;
+	border-style: solid;
+	border-color: rgba(0, 0, 0, 0.23);
+}
+
+.formFieldHTMLTextarea {
+	background-color: #eee7df;
+	border-radius: 5px;
+	width: 50vw;
+	margin-top: 1vw;
+	border-width: 1px;
+	border-style: solid;
+	border-color: rgba(0, 0, 0, 0.23);
+}
+
+.dateLabel {
+	padding-top: 1vw;
+	font-weight: bold;
+	margin-left: 1vw;
+}
+
+.dateInput {
+	background-color: #eee7df;
+	border: none;
+	color: #eee7df;
+}
+
+
+.textareaInput {
+	background-color: #eee7df;
+	border: none;
+	width: 90%;
+	margin-left: 1vw;
+    font-weight: normal;
+}
+
+.textareaCount {
+    text-align: end;
+    margin-right: 2vw;
+    color: rgb(60,61,60, 0.4);
+}
+
+.checkboxAndButtonSection {
+    margin-top: 1.5vw;
+    width: 50vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.checkboxesContainer {
+    width: 60%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.checkbox {
+    border-width: 3px;
+    border-color: #3d3c3d;
+    border-radius: 5px;
+    width: 1.5vw;
+    height: 1.5vw;
+    margin-top: 0.5vw;
+    margin-bottom: 1vw;
+}
+
+.checkbox:checked {
+    background-image: url("../../assets/mdw_pages/check.png");
+    color: #ffffff;
+    border-width: 3px;
+    border-color: #3d3c3d;
+    border-radius: 5px;
+    width: 1.5vw;
+    height: 1.5vw;
+}
+
+.checkboxLabel {
+    margin-left: 1vw;
+}
+
+.submitButton {
+    background-color: #f68121;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 1.5vw;
+    height: 3vw;
+    width: 12vw;
+    border-radius: 30px;
+}
