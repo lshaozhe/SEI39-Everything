@@ -146,7 +146,6 @@ const SignUpForm = () => {
   };
 
   const handleFormSubmission = () => {
-    console.log("clicked");
     const formSubmitted = {
       name,
       languagesSpoken,
@@ -174,6 +173,16 @@ const SignUpForm = () => {
       formSubmitted.privacyPolicyAgreed
     ) {
       // TODO: add lifting state to parent
+
+      // Convert Form Data to fit what backend db structure first
+      let convertedFormData = convertFormDataBeforeFetch(formSubmitted);
+
+      // Call the API to pass Form Data to backend
+      fetchPost(
+        "http://127.0.0.1:5001/api/volunteer",
+        "POST",
+        convertedFormData
+      );
     } else if (!formSubmitted.orientationAttended) {
       window.alert(
         "All volunteers are required to attend the Volunteer Orientation before applying for a role."
