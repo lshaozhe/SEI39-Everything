@@ -7,7 +7,7 @@ const VolunteerSchema = new mongoose.Schema(
       required: true,
     },
     languagesSpoken: {
-      type: String,
+      type: [String],
       required: true,
     },
     mobileNumber: {
