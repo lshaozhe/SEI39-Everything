@@ -13,6 +13,7 @@ import SignUpPage from "./pages/mdw/SignUpPage";
 import StudentStories from "./pages/mdw/StudentStories";
 import VolunteerWithUs from "./pages/volunteer/VolunteerWithUs";
 import SignUpForm from "./components/volunteer/SignUpForm";
+import SignUpConfirmation from "./components/volunteer/SignUpConfirmation";
 
 function App() {
 	return (
@@ -31,6 +32,7 @@ function App() {
                 <Route path="/volunteers/volunteer_with_us/details" />
                 {/* To remove below once volunteer pages are up, this is currently for development purpose only */}
                 <Route path="/volunteers/volunteer_with_us/sign_up" element={<SignUpForm />} />
+                <Route path="/volunteers/volunteer_with_us/sign_up/confirmation" element={<SignUpConfirmation />} />
 			</Routes>
 			<Footer />
 		</>
