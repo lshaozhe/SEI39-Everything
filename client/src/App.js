@@ -23,7 +23,8 @@ function App() {
         <Route
           path="/students/courses/financial_education"
           element={<CourseInfo />}
-        />
+              />
+        <Route path="students/courses/sign_up" element={<SignUpPage />} />
         <Route path="/volunteers" element={<GetInvolved />} />
         <Route path="/students/stories" element={<StudentStories />} />
         <Route
@@ -52,29 +53,29 @@ function App() {
 //   );
 
 //   function App() {
-    return (
-      <>
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Homepage />} />
-          {/* MDW User Flow */}
-          <Route path="students/courses/stories" element={<StudentStories />} />
-          <Route path="/courses" element={<Courses />} />
-          <Route
-            path="/students/courses/financial_education"
-            element={<CourseInfo />}
-          />
-          <Route path="students/courses/sign_up" element={<SignUpPage />} />
-          {/* Volunteers User Flow */}
-          <Route path="/volunteers" element={<GetInvolved />} />
-          <Route
-            path="/volunteers/volunteer_with_us"
-            element={<VolunteerWithUs />}
-          />
-        </Routes>
-        <Footer />
-      </>
-    );
+    // return (
+    //   <>
+    //     <Navbar />
+    //     <Routes>
+    //       <Route path="/" element={<Homepage />} />
+    //       {/* MDW User Flow */}
+    //       <Route path="students/courses/stories" element={<StudentStories />} />
+    //       <Route path="/courses" element={<Courses />} />
+    //       <Route
+    //         path="/students/courses/financial_education"
+    //         element={<CourseInfo />}
+    //       />
+    //       <Route path="students/courses/sign_up" element={<SignUpPage />} />
+    //       {/* Volunteers User Flow */}
+    //       <Route path="/volunteers" element={<GetInvolved />} />
+    //       <Route
+    //         path="/volunteers/volunteer_with_us"
+    //         element={<VolunteerWithUs />}
+    //       />
+    //     </Routes>
+    //     <Footer />
+    //   </>
+    // );
 //   }
 }
 

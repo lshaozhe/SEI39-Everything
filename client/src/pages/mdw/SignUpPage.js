@@ -8,6 +8,7 @@ import SignUpStep2 from "../../components/mdw/SignUpStep2";
 import SignUpStep3 from "../../components/mdw/SignUpStep3";
 
 const SignUpPage = () => {
+    // This the current sign-up page to display
     const [currentSignUpPage, setCurrentSignUpPage] = useState(1);
     
     const [returnedFromStep2, setReturnedFromStep2] = useState(false);
