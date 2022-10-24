@@ -30,9 +30,9 @@
   color: #ffffff;
 }
 
-/* .navbar li:hover ~ .navlabel {
-  background-color: #f68121;
-} */
+.navbar button {
+  text-decoration: none;
+}
 
 .navbar {
   position: relative;

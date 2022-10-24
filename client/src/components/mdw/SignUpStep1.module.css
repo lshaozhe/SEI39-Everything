@@ -1,0 +1,40 @@
+.sign_up_header, .or_header {
+    font-size: 2.25vw;
+    font-weight: 700;
+    margin-left: 4vw;
+}
+
+.sign_up_header {
+    padding-bottom: 35px;
+}
+
+.or_header {
+    margin: 0;
+}
+
+.myInfo {
+    height: 80px;
+    width: 350px;
+    object-fit: contain;
+    margin-left: 330px;
+}
+
+.registration_button {
+    background-color: #eee7df;
+    color: #3c3d3c;
+    height: 80px;
+    width: 350px;
+    border-radius: 50px;
+    font-size: 1.75vw;
+    font-weight: 700;
+    margin-right: 390px;
+}
+
+/* .registration_button:active {
+    background-color: #f68121;
+    color: #ffffff;
+} */
+
+/* .registration_type_section {
+    display: flex;
+} */
