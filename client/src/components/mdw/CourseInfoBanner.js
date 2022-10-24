@@ -4,11 +4,11 @@ import { CCarousel } from "@coreui/react";
 import { CCarouselItem } from "@coreui/react";
 import { CCarouselCaption } from "@coreui/react";
 import { CImage } from "@coreui/react";
-import banner from "../assets/mdw_pages/courses_01_financial_education.png";
-import goalsIconOne from "../assets/svg_icons/coursedetails_1_futuregoals.svg";
-import goalsIconTwo from "../assets/svg_icons/coursedetails_2_moneymanagementgame.svg";
-import goalsIconThree from "../assets/svg_icons/coursedetails_3_trackspending.svg";
-import goalsIconFour from "../assets/svg_icons/coursedetails_3_finances.svg";
+import banner from "../../assets/mdw_pages/courses_01_financial_education.png";
+import goalsIconOne from "../../assets/svg_icons/coursedetails_1_futuregoals.svg";
+import goalsIconTwo from "../../assets/svg_icons/coursedetails_2_moneymanagementgame.svg";
+import goalsIconThree from "../../assets/svg_icons/coursedetails_3_trackspending.svg";
+import goalsIconFour from "../../assets/svg_icons/coursedetails_3_finances.svg";
 
 const CourseInfoBanner = () => {
   return (

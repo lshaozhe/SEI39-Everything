@@ -1,8 +1,8 @@
 /** @format */
 
 import React from "react";
-import CourseInfoBanner from "../../common/CourseInfoBanner";
-import styles from "../../common/CourseInfoBanner.module.css";
+import CourseInfoBanner from "../../components/mdw/CourseInfoBanner";
+import styles from "../../components/mdw/CourseInfoBanner.module.css";
 import signupImage from "../../assets/mdw_pages/stories_04.png";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
