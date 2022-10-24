@@ -46,29 +46,31 @@ const Navbar = () => {
 		});
 	};
 
-	return (
-		<>
-			<div className={styles.navbar}>
-				<Link to="/">
-					<div className={styles.navlogo}>
-						<img src={logo} alt="logo" style={{ objectFit: "contain" }} />
-					</div>
-				</Link>
-
-				{/* about us tab */}
-				<div className="group inline-block">
-					<button
-						aria-haspopup="true"
-						aria-controls="menu"
-						className={("outline-none focus:outline-none px-3 py-1 bg-white flex items-center min-w-32", styles.navlabel)}
-						style={aboutHoverState}
-					>
-						<span className="pr-1 font-semibold flex-1">About</span>
-					</button>
-					<ul
-						id="menu"
-						aria-hidden="true"
-						className="bg-white border rounded-sm transform scale-0 group-hover:scale-100 absolute 
+  return (
+    <>
+      <div className={styles.navbar}>
+        <Link to="/">
+          <div className={styles.navlogo}>
+            <img src={logo} alt="logo" style={{ objectFit: "contain" }} />
+          </div>
+        </Link>
+        {/* about us tab */}
+        <div className="group inline-block">
+          <button
+            aria-haspopup="true"
+            aria-controls="menu"
+            className={
+              ("outline-none focus:outline-none px-3 py-1 bg-white flex items-center min-w-32",
+              styles.navlabel)
+            }
+            style={aboutHoverState}
+          >
+            <span className="pr-1 font-semibold flex-1">About</span>
+          </button>
+          <ul
+            id="menu"
+            aria-hidden="true"
+            className="bg-white border rounded-sm transform scale-0 group-hover:scale-100 absolute 
   origin-top min-w-32"
 						onMouseEnter={aboutHover}
 						onMouseLeave={() => setAboutHoverState()}
