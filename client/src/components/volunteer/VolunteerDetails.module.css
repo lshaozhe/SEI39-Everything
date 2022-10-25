@@ -2,34 +2,6 @@
   display: flex;
 }
 
-.left_container {
-  width: 30vw;
-  height: 140vh;
-  padding-bottom: 7vw;
-}
-
-.details_image_container {
-  margin-top: 2vw;
-  width: 27vw;
-  height: 45vh;
-  margin-left: 3vw;
-}
-
-.detailsImage {
-  width: 27vw;
-  height: 45vh;
-  object-fit: cover;
-}
-
-.leftDescriptionContainer {
-  width: 27vw;
-  height: 81.5vh;
-  margin-top: 2vw;
-  margin-left: 3vw;
-  background-color: #eee7df;
-  border-radius: 10px;
-}
-
 .right_container {
   width: 70vw;
   height: 132vh;

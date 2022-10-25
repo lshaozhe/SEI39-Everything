@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./VolunteerDonate.module.css";
 import volunteerImage from "../../assets/volunteer_pages/getinvolved_03.jpeg";
+import { Link } from "react-router-dom";
 
 const VolunteerDonate = () => {
   return (
@@ -16,7 +17,14 @@ const VolunteerDonate = () => {
             counts.
           </p>
           <div className={styles.button_container}>
-            <button className={styles.signup_button}>Volunteer</button>
+            <button className={styles.signup_button}>
+              <Link
+                to="/volunteers/volunteer_with_us"
+                style={{ textDecoration: "none", color: "#ffffff" }}
+              >
+                Volunteer
+              </Link>
+            </button>
             <button className={styles.signup_button}>Donate</button>
           </div>
         </div>

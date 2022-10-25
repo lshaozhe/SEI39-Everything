@@ -1,0 +1,23 @@
+.container {
+    display: flex;
+}
+
+.navigateBack {
+    text-decoration: none;
+    color: #f68121;
+    display: flex;
+}
+
+.leftArrowImg {
+    margin-top: 2vw;
+    margin-left: 3vw;
+    height: 1.5vw;
+    width: 1.5vw;
+}
+
+.navigationText {
+    font-weight: bold;
+    padding: 2.2vw 1vw 0;
+    margin: 0;
+    vertical-align: middle;
+}
