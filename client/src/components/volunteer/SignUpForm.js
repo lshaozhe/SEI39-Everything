@@ -15,7 +15,7 @@ import {
 } from "@mui/material";
 import PhoneInput from "react-phone-input-2";
 
-const SignUpForm = () => {
+const SignUpForm = (props) => {
   // Options for language spoken field
   const languageOptions = [
     "English",
@@ -172,7 +172,8 @@ const SignUpForm = () => {
       formSubmitted.orientationAttended &&
       formSubmitted.privacyPolicyAgreed
     ) {
-      // TODO: add lifting state to parent
+      // Updates the state in parent to show confirmation page
+        props.handleFormSubmission();
 
       // Convert Form Data to fit what backend db structure first
       let convertedFormData = convertFormDataBeforeFetch(formSubmitted);
@@ -183,11 +184,15 @@ const SignUpForm = () => {
         "POST",
         convertedFormData
       );
-    } else if (!formSubmitted.orientationAttended) {
-      window.alert(
-        "All volunteers are required to attend the Volunteer Orientation before applying for a role."
-      );
+    } else {
+        window.alert(
+          "Kindly ensure all required fields are completed before submission."
+        );
     }
+      
+      if (!formSubmitted.orientationAttended) {
+          window.alert("All volunteers are required to attend the Volunteer Orientation before applying for a role.")
+      }
   };
 
   return (
