@@ -1,0 +1,92 @@
+/** @format */
+
+.left_container {
+	width: 30vw;
+	height: 140vh;
+	padding-bottom: 7vw;
+}
+
+.details_image_container {
+	margin-top: 2vw;
+	width: 27vw;
+	height: 45vh;
+	margin-left: 3vw;
+}
+
+.detailsImage {
+	width: 27vw;
+	height: 45vh;
+	object-fit: cover;
+}
+
+.leftDescriptionContainer {
+	width: 27vw;
+	height: 81.5vh;
+	margin-top: 2vw;
+	margin-left: 3vw;
+	background-color: #eee7df;
+	border-radius: 10px;
+}
+
+.description_icons_container {
+	width: 100%;
+	display: flex;
+}
+
+.roles_icons_clock {
+	position: relative;
+	background-image: url("../../assets/svg_icons/volunteer_1_time.svg");
+	display: flex;
+	width: 4vh;
+	height: 4vh;
+	top: 1.25vh;
+	left: 4vh;
+	background-size: cover;
+}
+
+.description_label {
+	margin-left: 8vh;
+	margin-top: 1.5vh;
+	font-size: 1.25vw;
+	font-weight: 700;
+	margin-right: 2vh;
+}
+
+.detailsText {
+	margin-left: 12vh;
+	margin-right: 2vw;
+	font-size: 1vw;
+}
+
+.roles_icons_location {
+	position: relative;
+	background-image: url("../../assets/svg_icons/volunteer_2_location.svg");
+	display: flex;
+	width: 4vh;
+	height: 5vh;
+	top: 1.25vh;
+	left: 4vh;
+	background-size: cover;
+}
+
+.roles_icons_requirements {
+	position: relative;
+	background-image: url("../../assets/svg_icons/volunteer_3_requirements.svg");
+	display: flex;
+	width: 4vh;
+	height: 4vh;
+	top: 1.25vh;
+	left: 4vh;
+	background-size: cover;
+}
+
+.roles_icons_responsibilities {
+	position: relative;
+	background-image: url("../../assets/svg_icons/volunteer_4_responsibilities.svg");
+	display: flex;
+	width: 4vh;
+	height: 4vh;
+	top: 1.25vh;
+	left: 4vh;
+	background-size: cover;
+}
