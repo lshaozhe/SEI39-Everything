@@ -1,7 +1,61 @@
 let obj = {
   id: "navbar",
-  en: {},
-  bu: {},
+  en: {
+    about: {
+      a: "About",
+      b: "Who We Are",
+      c: "History",
+      d: "Board of Directors",
+      e: "Management Team",
+      f: "Contact Us",
+      g: "Social Media",
+    },
+    forStudents: {
+      a: "For Students",
+      b: "Free Tips",
+      c: "Courses",
+      d: "Student Stories",
+      e: "The Aidha Experience",
+      f: "FAQ",
+      freeTips: {
+        a: "Set Your Savings Goal",
+        b: "Track Your Spending",
+        c: "Reflect on Your Spending",
+        d: "One Simple Change",
+      },
+      courses: { a: "Financial Education", b: "Improve Your English", c: "Dealing With Stress" },
+    },
+  },
+  bu: {
+    about: {
+      a: "အကြောင်း",
+      b: "ငါတို့ဘယ်သူလဲ။",
+      c: "သမိုင်း",
+      d: "ဒါရိုက်တာဘုတ်အဖွဲ့",
+      e: "စီမံခန့်ခွဲမှုအဖွဲ့",
+      f: "ကြှနျုပျတို့ကိုဆကျသှယျရနျ",
+      g: "လူမှုမီဒီယာ",
+    },
+    forStudents: {
+      a: "ကျောင်းသားများအတွက်",
+      b: "အခမဲ့ အကြံပြုချက်များ",
+      c: "သင်တန်းများ",
+      d: "ကျောင်းသားပုံပြင်များ",
+      e: "Aidha အတွေ့အကြုံ",
+      f: "အမြဲမေးလေ့ရှိသောမေးခွန်းများ",
+      freeTips: {
+        a: "သင်၏စုဆောင်းငွေပန်းတိုင်ကို သတ်မှတ်ပါ။",
+        b: "သင်၏အသုံးစရိတ်ကိုခြေရာခံပါ။",
+        c: "သင်၏အသုံးစရိတ်အပေါ် ပြန်လည်သုံးသပ်ပါ။",
+        d: "ရိုးရှင်းသောပြောင်းလဲမှုတစ်ခု",
+      },
+      courses: {
+        a: "ငွေကြေးပညာရေး",
+        b: "သင်၏အင်္ဂလိပ်စာကိုတိုးတက်စေပါ။",
+        c: "စိတ်ဖိစီးမှုနှင့်ဆက်ဆံခြင်း",
+      },
+    },
+  },
 };
 
 export default obj;
