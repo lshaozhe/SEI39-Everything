@@ -12,7 +12,6 @@ import Courses from "./pages/mdw/Courses";
 import MDWSignUpPage from "./pages/mdw/MDWSignUpPage";
 import StudentStories from "./pages/mdw/StudentStories";
 import VolunteerWithUs from "./pages/volunteer/VolunteerWithUs";
-import SignUpConfirmation from "./components/volunteer/SignUpConfirmation";
 import VolunteerDetails from "./pages/volunteer/VolunteerDetails";
 import VolunteerSignUpPage from "./pages/volunteer/VolunteerSignUpPage";
 
