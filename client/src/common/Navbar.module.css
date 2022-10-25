@@ -129,6 +129,29 @@
   display: none;
 }
 
+.languageMenu {
+  position: absolute;
+  width: 17vw;
+  height: 15vh;
+  background-color: #f68121;
+  color: #ffffff;
+  margin-top: 44px;
+  margin-left: 83vw;
+  font-weight: 700;
+}
+
+.languageMenu span {
+  margin-left: 1vw;
+  font-size: 1.1em;
+}
+
+.languageMenu span.emoji {
+  display: inline;
+  margin-left: 2.5vw;
+  font-size: 2.5vw;
+  margin-bottom: 2vw;
+}
+
 @media only screen and (max-width: 768px) {
   .navlabel {
     display: none;
@@ -240,9 +263,17 @@
     margin-top: 44px;
     margin-left: -22vw;
     font-weight: 700;
+    font-size: 5vw;
   }
 
   .languageMenu span {
     margin-left: 2.5vw;
+    font-size: 4vw;
+    color: #3c3d3c;
+  }
+
+  .languageMenu span.emoji {
+    margin-left: 2.5vw;
+    font-size: 7vw;
   }
 }

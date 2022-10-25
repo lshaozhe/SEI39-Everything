@@ -286,7 +286,7 @@ const Navbar = () => {
           {/* change this onClick to toggle English language */}
           <span onClick={setLanguageMenu}>English</span>
           <br />
-          <span className={styles.emoji} aria-label="sg-flag">
+          <span className={styles.emoji} aria-label="my-flag">
             {" "}
             🇲🇲
           </span>
