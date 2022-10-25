@@ -1,7 +1,7 @@
 /** @format */
 
 import React from "react";
-import styles from "../../components/volunteer/VolunteerDetails.module.css";
+import styles from "./VolunteerDetails.module.css";
 import Carousel from "react-multi-carousel";
 import mentorHowTo from "../../assets/volunteer_pages/mentor_01_howto.png";
 import bannerTwo from "../../assets/volunteer_pages/mentor_02_fundraising.jpeg";
