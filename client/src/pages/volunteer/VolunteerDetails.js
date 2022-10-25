@@ -8,6 +8,7 @@ import bannerFour from "../../assets/volunteer_pages/volunteer_04.png";
 import bannerFive from "../../assets/volunteer_pages/volunteer_05.jpeg";
 import noticeIcon from "../../assets/svg_icons/volunteer_8_notice.svg";
 import detailsImage from "../../assets/volunteer_pages/volunteer_02.png";
+import { Link } from "react-router-dom";
 
 const VolunteerDetails = () => {
   // default responsive settings from carousel component
@@ -106,7 +107,12 @@ const VolunteerDetails = () => {
           <div className={styles.headerContainer}>
             <h3 className={styles.header}>Mentor (Module 1, 2 or 3) Details</h3>
             <button type="button" className={styles.applyButton}>
-              Apply for this role
+              <Link
+                to="/volunteers/volunteer_with_us/sign_up"
+                style={{ textDecoration: "none", color: "#ffffff" }}
+              >
+                Apply for this role
+              </Link>
             </button>
           </div>
           {/* Section on orientation reminder */}

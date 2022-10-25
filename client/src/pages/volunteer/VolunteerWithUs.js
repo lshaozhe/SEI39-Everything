@@ -207,7 +207,14 @@ const VolunteerWithUs = () => {
                     More Info
                   </Link>
                 </div>
-                <div className={styles.roles_button}>Apply Now</div>
+                <div className={styles.roles_button}>
+                  <Link
+                    to="/volunteers/volunteer_with_us/sign_up"
+                    style={{ textDecoration: "none", color: "#ffffff" }}
+                  >
+                    Apply Now
+                  </Link>
+                </div>
                 {/* </div> */}
               </div>
             </div>
