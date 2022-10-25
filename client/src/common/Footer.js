@@ -9,25 +9,21 @@ import TiktokIcon from "../assets/footer/footer_4_tiktok.png";
 import TelegramIcon from "../assets/footer/footer_5_telegram.png";
 import WhatsappIcon from "../assets/footer/footer_6_whatsapp.png";
 
-import languageObj from "../assets/languages/language";
+import languageObj from "../assets/languages/common/footerLanguages";
 
 const Footer = () => {
-  const [language, setLanguage] = useState("bu");
+  const [language, setLanguage] = useState("en");
   const [languageText, setLanguageText] = useState(languageObj.en);
-  const [firstMount, setFirstMount] = useState(false);
-  //   let languageText = {};
 
   useEffect(() => {
     switch (language) {
       case "bu":
         console.log(languageObj.bu);
         setLanguageText(languageObj.bu);
-        // languageText = languageObj.bu;
         break;
       default:
         console.log(languageObj.en);
         setLanguageText(languageObj.en);
-      // languageText = languageObj.en;
     }
   }, [language]);
 
