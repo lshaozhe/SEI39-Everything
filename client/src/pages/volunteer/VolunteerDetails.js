@@ -11,6 +11,7 @@ import bannerFive from "../../assets/volunteer_pages/volunteer_05.jpeg";
 import noticeIcon from "../../assets/svg_icons/volunteer_8_notice.svg";
 import RequirementsOverview from "../../components/volunteer/RequirementsOverview";
 import { Link } from "react-router-dom";
+import SignUpFormReturnButtonBanner from "../../components/volunteer/SignUpFormReturnButtonBanner";
 
 const VolunteerDetails = () => {
 	// default responsive settings from carousel component
@@ -35,11 +36,12 @@ const VolunteerDetails = () => {
 
 	return (
 		<>
-			<div className="page_container">
+            <div className="page_container">
 				{/* page_header shows current page navigation */}
 				<div className="page_header">
 					<span>Get Involved / Volunteer / Available Roles / Mentor (Module 1, 2 or 3) Details</span>
-				</div>
+                </div>
+                <SignUpFormReturnButtonBanner />
 			</div>
 			<div className={styles.details_container}>
 				<RequirementsOverview />
