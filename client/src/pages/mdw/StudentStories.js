@@ -16,6 +16,7 @@ import profileIconSix from "../../assets/mdw_pages/stories_03f_profilepic.png";
 import signupImage from "../../assets/mdw_pages/stories_04.png";
 import { CCarousel } from "@coreui/react";
 import { CCarouselItem } from "@coreui/react";
+import { Link } from "react-router-dom";
 
 const StudentStories = () => {
   return (
@@ -261,7 +262,14 @@ const StudentStories = () => {
               upgrade your life!
             </p>
             <div className={styles.button_container}>
-              <button className={styles.signup_button}>Sign Up</button>
+              <button className={styles.signup_button}>
+                <Link
+                  to="/students/courses"
+                  style={{ textDecoration: "none", color: "#ffffff" }}
+                >
+                  See Courses
+                </Link>
+              </button>
             </div>
           </div>
         </div>
