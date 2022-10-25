@@ -71,9 +71,6 @@ const Homepage = () => {
             </div>
             <div className="content_button"></div>
             {/* button_label to become navigation link */}
-            <div className="button_label">
-              <span>Hear Our Stories</span>
-            </div>
             <div className="button_label">{languageText.contentOne.a}</div>
             <div className="content_label">
               <span>{languageText.contentOne.b}</span>
@@ -86,9 +83,6 @@ const Homepage = () => {
             </div>
             <div className="content_button"></div>
             {/* button_label to become navigation link */}
-            <div className="button_label">
-              <span>Available Courses</span>
-            </div>
             <div className="button_label">{languageText.contentTwo.a}</div>
             <div className="content_label">
               <span>{languageText.contentTwo.b}</span>
