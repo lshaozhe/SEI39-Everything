@@ -1,9 +1,10 @@
 /** @format */
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import logo from "../assets/aidha-logo.png";
 import styles from "./Navbar.module.css";
 import { Link } from "react-router-dom";
+import languageObj from "../assets/languages/common/NavbarLanguages";
 
 const Navbar = () => {
   // hover states and functions allow the parent navlabel to also be highlighted
@@ -77,7 +78,7 @@ const Navbar = () => {
               styles.navlabel)
             }
             style={aboutHoverState}>
-            <span className="pr-1 font-semibold flex-1">About</span>
+            <span className="pr-1 font-semibold flex-1">{languageText.about.a}</span>
           </button>
           <ul
             id="menu"
@@ -91,7 +92,7 @@ const Navbar = () => {
                 aria-haspopup="true"
                 aria-controls="menu-lang"
                 className="w-full text-center flex items-center outline-none focus:outline-none">
-                <span className="pr-1 flex-1">Who We Are</span>
+                <span className="pr-1 flex-1">{languageText.about.b}</span>
               </button>
             </li>
             <li className="rounded-sm relative px-3 py-1 hover:bg-gray-100">
@@ -99,7 +100,7 @@ const Navbar = () => {
                 aria-haspopup="true"
                 aria-controls="menu-lang"
                 className="w-full text-center flex items-center outline-none focus:outline-none">
-                <span className="pr-1 flex-1">History</span>
+                <span className="pr-1 flex-1">{languageText.about.c}</span>
               </button>
             </li>
             <li className="rounded-sm relative px-3 py-1 hover:bg-gray-100">
@@ -107,7 +108,7 @@ const Navbar = () => {
                 aria-haspopup="true"
                 aria-controls="menu-lang"
                 className="w-full text-center flex items-center outline-none focus:outline-none">
-                <span className="pr-1 flex-1">Board of Directors</span>
+                <span className="pr-1 flex-1">{languageText.about.d}</span>
               </button>
             </li>
             <li className="rounded-sm relative px-3 py-1 hover:bg-gray-100">
@@ -115,7 +116,7 @@ const Navbar = () => {
                 aria-haspopup="true"
                 aria-controls="menu-lang"
                 className="w-full text-center flex items-center outline-none focus:outline-none">
-                <span className="pr-1 flex-1">Management Team</span>
+                <span className="pr-1 flex-1">{languageText.about.e}</span>
               </button>
             </li>
             <li className="rounded-sm relative px-3 py-1 hover:bg-gray-100">
@@ -123,7 +124,7 @@ const Navbar = () => {
                 aria-haspopup="true"
                 aria-controls="menu-lang"
                 className="w-full text-center flex items-center outline-none focus:outline-none">
-                <span className="pr-1 flex-1">Contact Us</span>
+                <span className="pr-1 flex-1">{languageText.about.f}</span>
               </button>
             </li>
             <li className="rounded-sm relative px-3 py-1 hover:bg-gray-100">
@@ -131,7 +132,7 @@ const Navbar = () => {
                 aria-haspopup="true"
                 aria-controls="menu-lang"
                 className="w-full text-center flex items-center outline-none focus:outline-none">
-                <span className="pr-1 flex-1">Social Media</span>
+                <span className="pr-1 flex-1">{languageText.about.g}</span>
               </button>
             </li>
           </ul>
@@ -147,7 +148,7 @@ const Navbar = () => {
               styles.navlabel)
             }
             style={studentHoverState}>
-            <span className="pr-1 font-semibold flex-1">For Students</span>
+            <span className="pr-1 font-semibold flex-1">{languageText.forStudents.a}</span>
           </button>
           <ul
             id="menu"
@@ -161,7 +162,7 @@ const Navbar = () => {
                 aria-haspopup="true"
                 aria-controls="menu-lang"
                 className="w-full text-center flex items-center outline-none focus:outline-none">
-                <span className="pr-1 flex-1">Free Tips</span>
+                <span className="pr-1 flex-1">{languageText.forStudents.b}</span>
               </button>
               <ul
                 id="menu-lang"
@@ -174,28 +175,28 @@ const Navbar = () => {
                   <button
                     aria-haspopup="true"
                     className="w-full text-center flex items-center outline-none focus:outline-none">
-                    <span className="pr-1 flex-1">Set Your Savings Goal</span>
+                    <span className="pr-1 flex-1">{languageText.forStudents.freeTips.a}</span>
                   </button>
                 </li>
                 <li className="rounded-sm relative px-3 py-1 hover:bg-gray-100">
                   <button
                     aria-haspopup="true"
                     className="w-full text-center flex items-center outline-none focus:outline-none">
-                    <span className="pr-1 flex-1">Track Your Spending</span>
+                    <span className="pr-1 flex-1">{languageText.forStudents.freeTips.b}</span>
                   </button>
                 </li>
                 <li className="rounded-sm relative px-3 py-1 hover:bg-gray-100">
                   <button
                     aria-haspopup="true"
                     className="w-full text-center flex items-center outline-none focus:outline-none">
-                    <span className="pr-1 flex-1">Reflect on Your Spending</span>
+                    <span className="pr-1 flex-1">{languageText.forStudents.freeTips.c}</span>
                   </button>
                 </li>
                 <li className="rounded-sm relative px-3 py-1 hover:bg-gray-100">
                   <button
                     aria-haspopup="true"
                     className="w-full text-center flex items-center outline-none focus:outline-none">
-                    <span className="pr-1 flex-1">One Simple Change</span>
+                    <span className="pr-1 flex-1">{languageText.forStudents.freeTips.d}</span>
                   </button>
                 </li>
               </ul>
@@ -206,7 +207,7 @@ const Navbar = () => {
                   aria-haspopup="true"
                   aria-controls="menu-lang"
                   className="w-full text-center flex items-center outline-none focus:outline-none">
-                  <span className="pr-1 flex-1">Courses</span>
+                  <span className="pr-1 flex-1">{languageText.forStudents.c}</span>
                 </button>
               </Link>
               <ul
@@ -224,7 +225,7 @@ const Navbar = () => {
                       aria-haspopup="true"
                       aria-controls="menu-lang-python"
                       className="w-full text-center flex items-center outline-none focus:outline-none">
-                      <span className="pr-1 flex-1">Financial Education</span>
+                      <span className="pr-1 flex-1">{languageText.forStudents.courses.a}</span>
                     </button>
                   </Link>
                 </li>
@@ -233,7 +234,7 @@ const Navbar = () => {
                     aria-haspopup="true"
                     aria-controls="menu-lang-python"
                     className="w-full text-center flex items-center outline-none focus:outline-none">
-                    <span className="pr-1 flex-1">Improve Your English</span>
+                    <span className="pr-1 flex-1">{languageText.forStudents.courses.b}</span>
                   </button>
                 </li>
                 <li className="rounded-sm relative px-3 py-1 hover:bg-gray-100">
@@ -241,7 +242,7 @@ const Navbar = () => {
                     aria-haspopup="true"
                     aria-controls="menu-lang-python"
                     className="w-full text-center flex items-center outline-none focus:outline-none">
-                    <span className="pr-1 flex-1">Dealing With Stress</span>
+                    <span className="pr-1 flex-1">{languageText.forStudents.courses.c}</span>
                   </button>
                 </li>
               </ul>
@@ -252,7 +253,7 @@ const Navbar = () => {
                   aria-haspopup="true"
                   aria-controls="menu-lang"
                   className="w-full text-center flex items-center outline-none focus:outline-none">
-                  <span className="pr-1 flex-1">Student Stories</span>
+                  <span className="pr-1 flex-1">{languageText.forStudents.d}</span>
                 </button>
               </Link>
             </li>
@@ -261,7 +262,7 @@ const Navbar = () => {
                 aria-haspopup="true"
                 aria-controls="menu-lang"
                 className="w-full text-center flex items-center outline-none focus:outline-none">
-                <span className="pr-1 flex-1">The Aidha Experience</span>
+                <span className="pr-1 flex-1">{languageText.forStudents.e}</span>
               </button>
             </li>
             <li className="rounded-sm relative px-3 py-1 hover:bg-gray-100">
@@ -269,7 +270,7 @@ const Navbar = () => {
                 aria-haspopup="true"
                 aria-controls="menu-lang"
                 className="w-full text-center flex items-center outline-none focus:outline-none">
-                <span className="pr-1 flex-1">FAQ</span>
+                <span className="pr-1 flex-1">{languageText.forStudents.f}</span>
               </button>
             </li>
           </ul>
@@ -285,7 +286,7 @@ const Navbar = () => {
               styles.navlabel)
             }
             style={employerHoverState}>
-            <span className="pr-1 font-semibold flex-1">For Employers</span>
+            <span className="pr-1 font-semibold flex-1">{languageText.forEmployers.a}</span>
           </button>
           <ul
             id="menu"
@@ -299,7 +300,7 @@ const Navbar = () => {
                 aria-haspopup="true"
                 aria-controls="menu-lang"
                 className="w-full text-center flex items-center outline-none focus:outline-none">
-                <span className="pr-1 flex-1">Enrol my Helper</span>
+                <span className="pr-1 flex-1">{languageText.forEmployers.b}</span>
               </button>
             </li>
           </ul>
@@ -315,7 +316,7 @@ const Navbar = () => {
               styles.navlabel)
             }
             style={volunteerHoverState}>
-            <span className="pr-1 font-semibold flex-1">Get Involved</span>
+            <span className="pr-1 font-semibold flex-1">{languageText.getInvolved.a}</span>
           </button>
           <ul
             id="menu-lang"
@@ -330,7 +331,7 @@ const Navbar = () => {
                   aria-haspopup="true"
                   aria-controls="menu-lang"
                   className="w-full text-center flex items-center outline-none focus:outline-none">
-                  <span className="pr-1 flex-1">Our Reach & Impact</span>
+                  <span className="pr-1 flex-1">{languageText.getInvolved.b}</span>
                 </button>
               </Link>
             </li>
@@ -339,7 +340,7 @@ const Navbar = () => {
                 aria-haspopup="true"
                 aria-controls="menu-lang"
                 className="w-full text-center flex items-center outline-none focus:outline-none">
-                <span className="pr-1 flex-1">Our Partners</span>
+                <span className="pr-1 flex-1">{languageText.getInvolved.c}</span>
               </button>
             </li>
             <li className="rounded-sm relative px-3 py-1 hover:bg-gray-100">
@@ -350,7 +351,7 @@ const Navbar = () => {
                   aria-haspopup="true"
                   aria-controls="menu-lang"
                   className="w-full text-center flex items-center outline-none focus:outline-none">
-                  <span className="pr-1 flex-1">Volunteer With Us</span>
+                  <span className="pr-1 flex-1">{languageText.getInvolved.d}</span>
                 </button>
               </Link>
             </li>
@@ -359,7 +360,7 @@ const Navbar = () => {
                 aria-haspopup="true"
                 aria-controls="menu-lang"
                 className="w-full text-center flex items-center outline-none focus:outline-none">
-                <span className="pr-1 flex-1">Donate To Us</span>
+                <span className="pr-1 flex-1">{languageText.getInvolved.e}</span>
               </button>
             </li>
             <li className="rounded-sm relative px-3 py-1 hover:bg-gray-100">
@@ -367,7 +368,7 @@ const Navbar = () => {
                 aria-haspopup="true"
                 aria-controls="menu-lang"
                 className="w-full text-center flex items-center outline-none focus:outline-none">
-                <span className="pr-1 flex-1">FAQ</span>
+                <span className="pr-1 flex-1">{languageText.getInvolved.f}</span>
               </button>
             </li>
           </ul>

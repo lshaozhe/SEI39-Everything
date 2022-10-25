@@ -25,6 +25,18 @@ let obj = {
       },
       courses: { a: "Financial Education", b: "Improve Your English", c: "Dealing With Stress" },
     },
+    forEmployers: {
+      a: "For Employers",
+      b: "Enrol my Helper",
+    },
+    getInvolved: {
+      a: "Get Involved",
+      b: "Our Reach & Impact",
+      c: "Our Partners",
+      d: "Volunteer With Us",
+      e: "Donate To Us",
+      f: "FAQ",
+    },
   },
   bu: {
     about: {
@@ -54,6 +66,18 @@ let obj = {
         b: "သင်၏အင်္ဂလိပ်စာကိုတိုးတက်စေပါ။",
         c: "စိတ်ဖိစီးမှုနှင့်ဆက်ဆံခြင်း",
       },
+    },
+    forEmployers: {
+      a: "အလုပ်ရှင်များအတွက်",
+      b: "ကျွန်ုပ်၏အကူအညီကို စာရင်းသွင်းပါ။",
+    },
+    getInvolved: {
+      a: "ပါဝင်လိုက်ပါ။",
+      b: "ကျွန်ုပ်တို့၏ လက်လှမ်းမီမှုနှင့် သက်ရောက်မှု",
+      c: "ကျွန်ုပ်တို့၏ မိတ်ဖက်များ",
+      d: "ကျွန်ုပ်တို့နှင့်အတူ စေတနာ့ဝန်ထမ်းလုပ်ပါ။",
+      e: "ကျွန်ုပ်တို့ထံ လှူဒါန်းပါ။",
+      f: "အမြဲမေးလေ့ရှိသောမေးခွန်းများ",
     },
   },
 };
