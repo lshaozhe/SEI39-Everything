@@ -21,6 +21,7 @@ const Navbar = () => {
   const [studentButtonBorder, setStudentButtonBorder] = useState("20px");
   const [studentButtonColor, setStudentButtonColor] = useState("#eee7df");
   const [studentButtonText, setStudentButtonText] = useState("#2C384AF2");
+  const [showLanguageMenu, setShowLanguageMenu] = useState("none");
 
   const [language, setLanguage] = useState("en");
   const [languageText, setLanguageText] = useState(languageObj.en);
@@ -67,9 +68,11 @@ const Navbar = () => {
     });
   };
 
+  //   function changes mobile menu state, which toggles its visibility
   const mobileMenu = () => {
     if (showMobileMenu === "none") {
       setShowMobileMenu("block");
+      setShowLanguageMenu("none");
     } else {
       setShowMobileMenu("none");
       setShowStudentsNestedMenu("none");
@@ -77,9 +80,11 @@ const Navbar = () => {
       setStudentButtonBorder("20px");
       setStudentButtonColor("#eee7df");
       setStudentButtonText("#2C384AF2");
+      setShowLanguageMenu("none");
     }
   };
 
+  //   function changes nested menu state, which toggles its visibility and appearance
   const showStudentsNested = () => {
     if (showStudentsNestedMenu === "none") {
       setShowStudentsNestedMenu("block");
@@ -96,15 +101,14 @@ const Navbar = () => {
     }
   };
 
-  const [showLanguageMenu, setShowLanguageMenu] = useState("none");
-
+  //   function changes language menu state, which toggles its visibility
   const setLanguageMenu = () => {
     if (showLanguageMenu == "none") {
       setShowLanguageMenu("block");
       setShowMobileMenu("none");
     } else {
       setShowLanguageMenu("none");
-      setShowMobileMenu("block");
+      setShowMobileMenu("none");
     }
   };
 
@@ -275,25 +279,19 @@ const Navbar = () => {
           className={styles.languageMenu}
           style={{ display: showLanguageMenu }}
         >
-          <span
-            className={styles.emoji}
-            aria-label="sg-flag"
-            onClick={setLanguageMenu}
-          >
+          <span className={styles.emoji} aria-label="sg-flag">
             {" "}
             🇸🇬
           </span>
-          English
+          {/* change this onClick to toggle English language */}
+          <span onClick={setLanguageMenu}>English</span>
           <br />
-          <span
-            className={styles.emoji}
-            aria-label="sg-flag"
-            onClick={setLanguageMenu}
-          >
+          <span className={styles.emoji} aria-label="sg-flag">
             {" "}
             🇲🇲
           </span>
-          မြန်မာဘာသာ
+          {/* change this onClick to toggle Burmese language */}
+          <span onClick={setLanguageMenu}>မြန်မာဘာသာ</span>
         </div>
 
         {/* students tab */}
@@ -622,7 +620,11 @@ const Navbar = () => {
           >
             search
           </span>
-          <span className={styles.emoji} aria-label="sg-flag">
+          <span
+            className={styles.emoji}
+            aria-label="sg-flag"
+            onClick={setLanguageMenu}
+          >
             {" "}
             🇸🇬
           </span>

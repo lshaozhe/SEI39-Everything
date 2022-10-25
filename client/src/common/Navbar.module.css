@@ -231,4 +231,18 @@
     margin-left: 20vw;
     font-weight: 700;
   }
+
+  .languageMenu {
+    position: relative;
+    width: 100vw;
+    height: 15vh;
+    background-color: #ffffff;
+    margin-top: 44px;
+    margin-left: -22vw;
+    font-weight: 700;
+  }
+
+  .languageMenu span {
+    margin-left: 2.5vw;
+  }
 }
