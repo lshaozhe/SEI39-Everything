@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 
-const db = "mongodb://127.0.0.1:27017/aidha";
+const db =
+  "mongodb+srv://Aidha:ProjectAidha@generalassemblysei39.tmyffvm.mongodb.net/?retryWrites=true&w=majority";
 
 const connectDB = async () => {
   try {
