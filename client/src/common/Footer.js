@@ -18,11 +18,9 @@ const Footer = () => {
   useEffect(() => {
     switch (language) {
       case "bu":
-        console.log(languageObj.bu);
         setLanguageText(languageObj.bu);
         break;
       default:
-        console.log(languageObj.en);
         setLanguageText(languageObj.en);
     }
   }, [language]);
