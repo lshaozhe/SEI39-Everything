@@ -11,6 +11,8 @@ import bannerFive from "../../assets/volunteer_pages/volunteer_05.jpeg";
 import noticeIcon from "../../assets/svg_icons/volunteer_8_notice.svg";
 import detailsImage from "../../assets/volunteer_pages/volunteer_02.png";
 import { Link } from "react-router-dom";
+import SignUpFormReturnButtonBanner from "../../components/volunteer/SignUpFormReturnButtonBanner";
+import RequirementsOverview from "../../components/volunteer/RequirementsOverview";
 
 const VolunteerDetails = () => {
 	// default responsive settings from carousel component
@@ -42,19 +44,21 @@ const VolunteerDetails = () => {
             Get Involved / Volunteer / Available Roles / Mentor (Module 1, 2 or
             3) Details
           </span>
-        </div>
+              </div>
+              <SignUpFormReturnButtonBanner />
       </div>
-      <div className={styles.details_container}>
+          <div className={styles.details_container}>
+              <RequirementsOverview />
         {/* left container consists of image and time commitment etc */}
-        <div className={styles.left_container}>
+        {/* <div className={styles.left_container}> */}
           {/* container for image */}
-          <div className={styles.details_image_container}>
+          {/* <div className={styles.details_image_container}>
             <img className={styles.detailsImage} src={detailsImage} alt="" />
-          </div>
+          </div> */}
           {/* container for time commitment etc */}
-          <div className={styles.leftDescriptionContainer}>
+          {/* <div className={styles.leftDescriptionContainer}> */}
             {/* container keeps icon in line with label */}
-            <div className={styles.description_icons_container}>
+            {/* <div className={styles.description_icons_container}>
               <span className={styles.roles_icons_clock}></span>
               <span className={styles.description_label}>Time Commitment</span>
             </div>
@@ -74,26 +78,26 @@ const VolunteerDetails = () => {
               • Attend a compulsory 2-hour training session (held online on
               Zoom)
               <br />• Observe 2 x 2-hour classes
-            </p>
+            </p> */}
             {/* container keeps icon in line with label */}
-            <div className={styles.description_icons_container}>
+            {/* <div className={styles.description_icons_container}>
               <span className={styles.roles_icons_location}></span>
               <span className={styles.description_label}>Location</span>
             </div>
             <p className={styles.detailsText}>
               • Online on Zoom <b>OR</b>
               <br />• FAST Hub @ 3 Chin Cheng Avenue, S429401
-            </p>
+            </p> */}
             {/* container keeps icon in line with label */}
-            <div className={styles.description_icons_container}>
+            {/* <div className={styles.description_icons_container}>
               <span className={styles.roles_icons_requirements}></span>
               <span className={styles.description_label}>Requirements</span>
             </div>
             <p className={styles.detailsText}>
               • Minimum 3 years of work experience in any field
-            </p>
+            </p> */}
             {/* container keeps icon in line with label */}
-            <div className={styles.description_icons_container}>
+            {/* <div className={styles.description_icons_container}>
               <span className={styles.roles_icons_responsibilities}></span>
               <span className={styles.description_label}>Responsibilities</span>
             </div>
@@ -102,7 +106,7 @@ const VolunteerDetails = () => {
               will build their confidence in themselves and their future
             </p>
           </div>
-        </div>
+        </div> */}
         {/* right container consists of header, volunteer orientation box, description, course dates */}
         <div className={styles.right_container}>
           {/* Header */}
