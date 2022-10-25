@@ -33,28 +33,44 @@ const Homepage = () => {
     <>
       <div className="page_container">
         {/* carousel for banner image, transitions between 3 different images */}
-        <CCarousel indicators className="banner_container" transition="crossfade">
+        <CCarousel
+          indicators
+          className="banner_container"
+          transition="crossfade"
+        >
           {/* first carousel image */}
           <CCarouselItem>
-            <CImage className="d-block w-100 banner" src={bannerOne} alt="slide 1" />
+            <CImage
+              className="d-block w-100 banner"
+              src={bannerOne}
+              alt="slide 1"
+            />
             {/* caption for first image with orange background */}
-            <CCarouselCaption className="d-none d-md-block banner_label">
+            <CCarouselCaption className="d-md-block banner_label">
               <span>{languageText.carousel.a}</span>
             </CCarouselCaption>
           </CCarouselItem>
           {/* second carousel image */}
           <CCarouselItem>
-            <CImage className="d-block w-100 banner" src={bannerTwo} alt="slide 2" />
+            <CImage
+              className="d-block w-100 banner"
+              src={bannerTwo}
+              alt="slide 2"
+            />
             {/* caption for second image */}
-            <CCarouselCaption className="d-none d-md-block banner_label">
+            <CCarouselCaption className="d-md-block banner_label">
               <span>{languageText.carousel.b}</span>
             </CCarouselCaption>
           </CCarouselItem>
           {/* third carousel image */}
           <CCarouselItem>
-            <CImage className="d-block w-100 banner" src={bannerThree} alt="slide 3" />
+            <CImage
+              className="d-block w-100 banner"
+              src={bannerThree}
+              alt="slide 3"
+            />
             {/* caption for third image */}
-            <CCarouselCaption className="d-none d-md-block banner_label">
+            <CCarouselCaption className="d-md-block banner_label">
               <span>{languageText.carousel.c}</span>
             </CCarouselCaption>
           </CCarouselItem>
@@ -71,7 +87,9 @@ const Homepage = () => {
             </div>
             <div className="content_button"></div>
             {/* button_label to become navigation link */}
-            <div className="button_label">{languageText.contentOne.a}</div>
+            <div className="button_label">
+              <span>{languageText.contentOne.a}</span>
+            </div>
             <div className="content_label">
               <span>{languageText.contentOne.b}</span>
             </div>
@@ -83,7 +101,9 @@ const Homepage = () => {
             </div>
             <div className="content_button"></div>
             {/* button_label to become navigation link */}
-            <div className="button_label">{languageText.contentTwo.a}</div>
+            <div className="button_label">
+              <span>{languageText.contentTwo.a}</span>
+            </div>
             <div className="content_label">
               <span>{languageText.contentTwo.b}</span>
             </div>
@@ -134,7 +154,7 @@ const Homepage = () => {
               <span>{languageText.contentFive.b}</span>
             </div>
           </div>
-          <div className="content"></div>
+          <div className="empty_content"></div>
         </div>
       </div>
     </>
