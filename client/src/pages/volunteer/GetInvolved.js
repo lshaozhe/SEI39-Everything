@@ -31,6 +31,7 @@ const GetInvolved = () => {
               className="d-block w-100 banner"
               src={bannerOne}
               alt="slide 1"
+              style={{ objectPosition: "20% 10%" }}
             />
             {/* caption for first image with orange background */}
             <CCarouselCaption className="d-none d-md-block banner_label">
