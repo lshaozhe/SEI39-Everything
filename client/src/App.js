@@ -45,10 +45,6 @@ function App() {
           path="/volunteers/volunteer_with_us/sign_up"
           element={<VolunteerSignUpPage />}
         />
-        <Route
-          path="/volunteers/volunteer_with_us/sign_up/confirmation"
-          element={<SignUpConfirmation />}
-        />
       </Routes>
       <Footer />
     </>
