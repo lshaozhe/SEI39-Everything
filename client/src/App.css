@@ -101,7 +101,7 @@
 }
 
 .content_link {
-    height: 29.5vh;
+  height: 29.5vh;
 }
 
 .content_image {
@@ -177,4 +177,71 @@
   height: 15vw;
   margin-top: 2vw;
   object-fit: cover;
+}
+
+@media only screen and (max-width: 768px) {
+  .banner {
+    object-fit: cover;
+    height: 35vh;
+  }
+
+  .banner_label span {
+    font-size: 1.25em;
+    font-weight: 700;
+    width: 48vw;
+    background-color: #f68121;
+    color: #ffffff;
+    padding: 5px;
+    text-align: left;
+    /* position: absolute;
+    left: -15vw;
+    top: -15vh; */
+  }
+
+  .carousel-indicators li {
+    display: none;
+  }
+
+  .content {
+    width: 90vw;
+  }
+
+  .content_image {
+    width: 45vw;
+  }
+
+  .content_image img {
+    width: 45vw;
+  }
+
+  .content_button {
+    width: 45vw;
+  }
+
+  .button_label {
+    position: relative;
+    display: flex;
+    width: 43vw;
+    height: 8vh;
+    font-size: 20px;
+    font-weight: 700;
+    left: 46vw;
+    top: -18.5vh;
+    text-align: center;
+    justify-content: center;
+    color: #3c3d3c;
+    padding-left: 1vw;
+    padding-right: 1vw;
+  }
+
+  .button_label span {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  .content_label {
+    /* position: absolute; */
+    display: inline-block;
+    margin-top: 0.5vw;
+  }
 }
