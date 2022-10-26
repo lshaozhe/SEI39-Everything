@@ -31,20 +31,14 @@ const StudentStories = () => {
               src="https://www.youtube.com/embed/xsuNrqkzNqI"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
-              title="video"
-            ></iframe>
+              title="video"></iframe>
           </div>
           <div className={styles.banner_caption}>
-            <CCarousel
-              indicators
-              className="banner_container"
-              transition="crossfade"
-            >
+            <CCarousel indicators className="banner_container" transition="crossfade">
               <CCarouselItem>
                 <div className={styles.carousel_item}>
                   <h2>
-                    “I feel that I’m finally on the right path to giving my
-                    daughter a good future.”
+                    “I feel that I’m finally on the right path to giving my daughter a good future.”
                   </h2>
                   <p>
                     <span>🇵🇭</span> @YolandaBermas
@@ -55,8 +49,8 @@ const StudentStories = () => {
               <CCarouselItem>
                 <div className={styles.carousel_item}>
                   <h2>
-                    “Aidha changed my life. It gave me the chance to reach my
-                    dream, not only for myself but also for my family.”
+                    “Aidha changed my life. It gave me the chance to reach my dream, not only for
+                    myself but also for my family.”
                   </h2>
                   <p>
                     <span>🇵🇭</span>@Gleia
@@ -67,8 +61,8 @@ const StudentStories = () => {
               <CCarouselItem>
                 <div className={styles.carousel_item}>
                   <h2>
-                    Thanks to Aidha, I now know how to manage my assets better
-                    and make them work for me.
+                    Thanks to Aidha, I now know how to manage my assets better and make them work
+                    for me.
                   </h2>
                   <p>
                     <span>🇵🇭</span>@ArnolitaCruz
@@ -157,10 +151,7 @@ const StudentStories = () => {
             {/* button_label to become navigation link */}
             <div className={styles.button_label}>
               <span className={styles.quote_icon}>“</span>
-              <span>
-                Aidha provided a platform for me to grow and explore my
-                potential.
-              </span>
+              <span>Aidha provided a platform for me to grow and explore my potential.</span>
             </div>
           </div>
           {/* second content element */}
@@ -175,8 +166,8 @@ const StudentStories = () => {
             <div className={styles.button_label}>
               <span className={styles.quote_icon}>“</span>
               <span>
-                Aidha really helped me change my life. Now I have some savings
-                and income rolling in from my pig business.
+                Aidha really helped me change my life. Now I have some savings and income rolling in
+                from my pig business.
               </span>
             </div>
           </div>
@@ -194,8 +185,8 @@ const StudentStories = () => {
             <div className={styles.button_label}>
               <span className={styles.quote_icon}>“</span>
               <span>
-                Thanks to Aidha, I now know how to manage my assets better and
-                make them work for me.
+                Thanks to Aidha, I now know how to manage my assets better and make them work for
+                me.
               </span>
             </div>
           </div>
@@ -227,9 +218,8 @@ const StudentStories = () => {
             <div className={styles.button_label}>
               <span className={styles.quote_icon}>“</span>
               <span>
-                I was usually shy and now I’ve learned to speak infront of
-                people with confidence and overcome my shyness to express
-                myself.
+                I was usually shy and now I’ve learned to speak infront of people with confidence
+                and overcome my shyness to express myself.
               </span>
             </div>
           </div>
@@ -245,8 +235,8 @@ const StudentStories = () => {
             <div className={styles.button_label}>
               <span className={styles.quote_icon}>“</span>
               <span>
-                Aidha helped me build confidence in pursuing my goals. And I do
-                believe that confidence is companion of success.
+                Aidha helped me build confidence in pursuing my goals. And I do believe that
+                confidence is companion of success.
               </span>
             </div>
           </div>
@@ -261,23 +251,16 @@ const StudentStories = () => {
           </div>
           <div className={styles.signup_label}>
             <p>
-              Join our vibrant community of students and learn a new skill to
-              upgrade your life!
+              Join our vibrant community of students and learn a new skill to upgrade your life!
             </p>
             <div className={styles.button_container}>
               <button className={styles.signup_button}>
-                <Link
-                  to="/students/courses"
-                  style={{ textDecoration: "none", color: "#ffffff" }}
-                >
+                <Link to="/students/courses" style={{ textDecoration: "none", color: "#ffffff" }}>
                   See Courses
                 </Link>
               </button>
             </div>
-            <Link
-              to="/students/courses"
-              style={{ textDecoration: "none", color: "#ffffff" }}
-            >
+            <Link to="/students/courses" style={{ textDecoration: "none", color: "#ffffff" }}>
               <div className={styles.mobile_signup}>
                 <p>Join the Aidha Experience</p>
               </div>
