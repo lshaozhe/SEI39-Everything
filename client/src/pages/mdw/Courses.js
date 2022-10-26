@@ -39,10 +39,11 @@ const Courses = () => {
       </div>
       {/* Banner */}
       <div className="banner_container">
-        <img src={CoursesBanner} alt="courses-banner" className="w-100 banner" />
-      </div>
-      <div className="page_mobile_header">
-        <span>Courses</span>
+        <img
+          src={CoursesBanner}
+          alt="courses-banner"
+          className="w-100 banner"
+        />
       </div>
       <div className="page_mobile_header">
         <span>Courses</span>
@@ -120,9 +121,8 @@ const Courses = () => {
               </div>
               <div className="content_button"></div>
               <div className="button_label">
-                <span>Computer Skills</span>
+                {languageText.computerSkills.a}
               </div>
-              <div className="button_label">{languageText.computerSkills.a}</div>
               <div className="content_label">
                 <span>{languageText.computerSkills.b}</span>
               </div>
@@ -133,9 +133,8 @@ const Courses = () => {
               </div>
               <div className="content_button"></div>
               <div className="button_label">
-                <span>Building Your Resilience</span>
+                <span>{languageText.buildingResilience.a}</span>
               </div>
-              <div className="button_label">{languageText.buildingResilience.a}</div>
               <div className="content_label">
                 <span>{languageText.buildingResilience.b}</span>
               </div>
@@ -146,10 +145,10 @@ const Courses = () => {
               <div className="content_image">
                 <img src={CoursesImg2} alt="improve-english" />
               </div>
+              <div className="content_button"></div>
               <div className="button_label">
-                <span>Improve Your English</span>
+                <span>{languageText.ImproveEnglish.a}</span>
               </div>
-              <div className="button_label">{languageText.ImproveEnglish.a}</div>
               <div className="content_label">
                 <span>{languageText.ImproveEnglish.b}</span>
               </div>
@@ -168,7 +167,10 @@ const Courses = () => {
             </div>
             <div className="content">
               <div className="content_image">
-                <img src={CoursesImg6} alt="module-2-plan-your-financial-future" />
+                <img
+                  src={CoursesImg6}
+                  alt="module-2-plan-your-financial-future"
+                />
               </div>
               <div className="content_button"></div>
               <div className="button_label">
