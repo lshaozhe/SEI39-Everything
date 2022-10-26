@@ -11,7 +11,7 @@ let obj = {
     },
     group2: {
       a: "GET IN TOUCH",
-      b: "Vounteer",
+      b: "Volunteer",
       c: "Donate",
       d: "Partner with Aidha",
       e: "Newsletters",

@@ -30,6 +30,10 @@
 	font-size: 14px;
 }
 
+.page_mobile_header {
+  display: none;
+}
+
 .page_header span {
 	margin-left: 3.5vw;
 }
@@ -213,6 +217,41 @@
     left: -15vw;
     top: -15vh; */
 	}
+  .page_header {
+    display: none;
+  }
+
+  .page_mobile_header {
+    display: block;
+    width: 100vw;
+    height: 10vw;
+    background-color: #f68121;
+    color: #ffffff;
+    line-height: 10vw;
+    font-weight: 700;
+    font-size: 5vw;
+    text-align: center;
+  }
+
+  .banner {
+    object-fit: cover;
+    height: 35vh;
+  }
+
+  .banner_label span {
+    font-size: 4.5vw;
+    font-weight: 700;
+    width: 65vw;
+    height: 35vw;
+    background-color: #f68121;
+    color: #ffffff;
+    padding: 5px;
+    text-align: left;
+    z-index: 2;
+    position: absolute;
+    left: -12.5vw;
+    top: -10vh;
+  }
 
 	.carousel-indicators li {
 		display: none;
@@ -225,6 +264,21 @@
 	.content_image {
 		width: 50vw;
 	}
+  .content_box {
+    margin-top: 0;
+  }
+
+  .content {
+    width: 100vw;
+  }
+
+  .empty_content {
+    display: none;
+  }
+
+  .content_image {
+    width: 50vw;
+  }
 
 	.content_image img {
 		width: 50vw;
@@ -254,6 +308,28 @@
 		display: inline-block;
 		vertical-align: middle;
 	}
+  .button_label {
+    position: relative;
+    display: flex;
+    width: 48vw;
+    height: 8vh;
+    font-size: 5vw;
+    font-weight: 700;
+    left: 53vw;
+    top: -18.5vh;
+    text-align: center;
+    justify-content: center;
+    color: #3c3d3c;
+    padding-left: 1vw;
+    padding-right: 1vw;
+  }
+
+  .button_label span {
+    display: inline-block;
+    vertical-align: middle;
+    width: 90%;
+    margin-left: -10%;
+  }
 
 	.content_label {
 		/* position: absolute; */
@@ -277,4 +353,20 @@
 	.empty_content {
 		display: none;
 	}
+  .content_label span {
+    top: -0.75vw;
+  }
+
+  .banner_label span {
+    font-size: 5vw;
+    font-weight: 700;
+    width: 75vw;
+    background-color: #f68121;
+    color: #ffffff;
+    padding: 10px;
+    text-align: left;
+    position: absolute;
+    left: -13.5vw;
+    top: -12vh;
+  }
 }

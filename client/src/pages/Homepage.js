@@ -1,6 +1,6 @@
 /** @format */
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { CCarousel } from "@coreui/react";
 import { CCarouselItem } from "@coreui/react";
 import { CCarouselCaption } from "@coreui/react";
@@ -14,20 +14,22 @@ import contentImgThree from ".././assets/homepage/0_3_make_a_change.png";
 import contentImgFour from ".././assets/homepage/0_4_ride_for_aidha.png";
 import contentImgFive from ".././assets/homepage/0_5_aidha_photography.png";
 import languageObj from "../assets/languages/pages/homepageLanguages";
+import { Link } from "react-router-dom";
+import ContextStorage from "../context/context";
 
 const Homepage = () => {
-  const [language, setLanguage] = useState("en");
+  const ctx = useContext(ContextStorage);
   const [languageText, setLanguageText] = useState(languageObj.en);
 
   useEffect(() => {
-    switch (language) {
+    switch (ctx.language) {
       case "bu":
         setLanguageText(languageObj.bu);
         break;
       default:
         setLanguageText(languageObj.en);
     }
-  }, [language]);
+  }, [ctx.language]);
 
   return (
     <>
@@ -85,11 +87,16 @@ const Homepage = () => {
             <div className="content_image">
               <img src={contentImgOne} alt="" />
             </div>
-            <div className="content_button"></div>
-            {/* button_label to become navigation link */}
-            <div className="button_label">
-              <span>{languageText.contentOne.a}</span>
-            </div>
+            <Link
+              to="/students/stories"
+              style={{ textDecoration: "none", color: "#ffffff" }}
+            >
+              <div className="content_button"></div>
+              {/* button_label to become navigation link */}
+              <div className="button_label">
+                <span>{languageText.contentOne.a}</span>
+              </div>
+            </Link>
             <div className="content_label">
               <span>{languageText.contentOne.b}</span>
             </div>
@@ -99,11 +106,16 @@ const Homepage = () => {
             <div className="content_image">
               <img src={contentImgTwo} alt="" />
             </div>
-            <div className="content_button"></div>
-            {/* button_label to become navigation link */}
-            <div className="button_label">
-              <span>{languageText.contentTwo.a}</span>
-            </div>
+            <Link
+              to="/students/courses"
+              style={{ textDecoration: "none", color: "#ffffff" }}
+            >
+              <div className="content_button"></div>
+              {/* button_label to become navigation link */}
+              <div className="button_label">
+                <span>{languageText.contentTwo.a}</span>
+              </div>
+            </Link>
             <div className="content_label">
               <span>{languageText.contentTwo.b}</span>
             </div>
@@ -115,11 +127,17 @@ const Homepage = () => {
             <div className="content_image">
               <img src={contentImgThree} alt="" />
             </div>
-            <div className="content_button"></div>
-            {/* button_label to become navigation link */}
-            <div className="button_label">
-              <span>{languageText.contentThree.a}</span>
-            </div>
+            <Link
+              to="/volunteers/volunteer_with_us"
+              style={{ textDecoration: "none", color: "#ffffff" }}
+            >
+              <div className="content_button"></div>
+              {/* button_label to become navigation link */}
+
+              <div className="button_label">
+                <span>{languageText.contentThree.a}</span>
+              </div>
+            </Link>
             <div className="content_label">
               <span>{languageText.contentThree.b}</span>
             </div>
