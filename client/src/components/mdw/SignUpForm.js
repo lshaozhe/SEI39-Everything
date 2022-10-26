@@ -87,8 +87,9 @@ const SignUpForm = (props) => {
 								value={phone}
 								onChange={handlePhoneUpdate}
 								containerStyle={{ height: "42px" }}
-								inputStyle={{ backgroundColor: "#eee7df", border: "none", height: "42px", marginLeft: "2vw" }}
+								inputStyle={{ backgroundColor: "#eee7df", border: "none", height: "42px", marginLeft: "20vw", width: "50%" }}
 								buttonStyle={{ backgroundColor: "#eee7df", border: "none", borderRadius: "10px", width: "50px", display: "flex", justifyContent: "flex-end", marginLeft: "1.3vw" }}
+								dropdownStyle={{ left: 0, top: "3vh" }}
 							/>
 						</div>
 						<div className={styles.formRow}>
