@@ -16,37 +16,33 @@ import contentImgFive from ".././assets/homepage/0_5_aidha_photography.png";
 import languageObj from "../assets/languages/pages/homepageLanguages";
 import { Link } from "react-router-dom";
 import ContextStorage from "../context/context";
+import useFetch from "../hooks/useFetch";
 
 const Homepage = () => {
   const ctx = useContext(ContextStorage);
   const [languageText, setLanguageText] = useState(languageObj.en);
+  const { response } = useFetch("http://127.0.0.1:5001/api/languages/homepage");
 
   useEffect(() => {
-    switch (ctx.language) {
-      case "bu":
-        setLanguageText(languageObj.bu);
-        break;
-      default:
-        setLanguageText(languageObj.en);
+    if (response) {
+      switch (ctx.language) {
+        case "bu":
+          setLanguageText(response.bu);
+          break;
+        default:
+          setLanguageText(response.en);
+      }
     }
-  }, [ctx.language]);
+  }, [ctx.language, response]);
 
   return (
     <>
       <div className="page_container">
         {/* carousel for banner image, transitions between 3 different images */}
-        <CCarousel
-          indicators
-          className="banner_container"
-          transition="crossfade"
-        >
+        <CCarousel indicators className="banner_container" transition="crossfade">
           {/* first carousel image */}
           <CCarouselItem>
-            <CImage
-              className="d-block w-100 banner"
-              src={bannerOne}
-              alt="slide 1"
-            />
+            <CImage className="d-block w-100 banner" src={bannerOne} alt="slide 1" />
             {/* caption for first image with orange background */}
             <CCarouselCaption className="d-md-block banner_label">
               <span>{languageText.carousel.a}</span>
@@ -54,11 +50,7 @@ const Homepage = () => {
           </CCarouselItem>
           {/* second carousel image */}
           <CCarouselItem>
-            <CImage
-              className="d-block w-100 banner"
-              src={bannerTwo}
-              alt="slide 2"
-            />
+            <CImage className="d-block w-100 banner" src={bannerTwo} alt="slide 2" />
             {/* caption for second image */}
             <CCarouselCaption className="d-md-block banner_label">
               <span>{languageText.carousel.b}</span>
@@ -66,11 +58,7 @@ const Homepage = () => {
           </CCarouselItem>
           {/* third carousel image */}
           <CCarouselItem>
-            <CImage
-              className="d-block w-100 banner"
-              src={bannerThree}
-              alt="slide 3"
-            />
+            <CImage className="d-block w-100 banner" src={bannerThree} alt="slide 3" />
             {/* caption for third image */}
             <CCarouselCaption className="d-md-block banner_label">
               <span>{languageText.carousel.c}</span>
@@ -87,10 +75,7 @@ const Homepage = () => {
             <div className="content_image">
               <img src={contentImgOne} alt="" />
             </div>
-            <Link
-              to="/students/stories"
-              style={{ textDecoration: "none", color: "#ffffff" }}
-            >
+            <Link to="/students/stories" style={{ textDecoration: "none", color: "#ffffff" }}>
               <div className="content_button"></div>
               {/* button_label to become navigation link */}
               <div className="button_label">
@@ -106,10 +91,7 @@ const Homepage = () => {
             <div className="content_image">
               <img src={contentImgTwo} alt="" />
             </div>
-            <Link
-              to="/students/courses"
-              style={{ textDecoration: "none", color: "#ffffff" }}
-            >
+            <Link to="/students/courses" style={{ textDecoration: "none", color: "#ffffff" }}>
               <div className="content_button"></div>
               {/* button_label to become navigation link */}
               <div className="button_label">
@@ -129,8 +111,7 @@ const Homepage = () => {
             </div>
             <Link
               to="/volunteers/volunteer_with_us"
-              style={{ textDecoration: "none", color: "#ffffff" }}
-            >
+              style={{ textDecoration: "none", color: "#ffffff" }}>
               <div className="content_button"></div>
               {/* button_label to become navigation link */}
 

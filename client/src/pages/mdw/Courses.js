@@ -16,20 +16,24 @@ import CoursesImg11 from "../../assets/mdw_pages/courses_11_building_resilience.
 import languageObj from "../../assets/languages/pages/coursesLanguages";
 import ContextStorage from "../../context/context";
 import { Link } from "react-router-dom";
+import useFetch from "../../hooks/useFetch";
 
 const Courses = () => {
   const ctx = useContext(ContextStorage);
   const [languageText, setLanguageText] = useState(languageObj.en);
+  const { response } = useFetch("http://127.0.0.1:5001/api/languages/courses");
 
   useEffect(() => {
-    switch (ctx.language) {
-      case "bu":
-        setLanguageText(languageObj.bu);
-        break;
-      default:
-        setLanguageText(languageObj.en);
+    if (response) {
+      switch (ctx.language) {
+        case "bu":
+          setLanguageText(response.bu);
+          break;
+        default:
+          setLanguageText(response.en);
+      }
     }
-  }, [ctx.language]);
+  }, [ctx.language, response]);
 
   return (
     <div className="page_container">
@@ -39,11 +43,7 @@ const Courses = () => {
       </div>
       {/* Banner */}
       <div className="banner_container">
-        <img
-          src={CoursesBanner}
-          alt="courses-banner"
-          className="w-100 banner"
-        />
+        <img src={CoursesBanner} alt="courses-banner" className="w-100 banner" />
       </div>
       <div className="page_mobile_header">
         <span>Courses</span>
@@ -120,9 +120,7 @@ const Courses = () => {
                 <img src={CoursesImg10} alt="computer-skills" />
               </div>
               <div className="content_button"></div>
-              <div className="button_label">
-                {languageText.computerSkills.a}
-              </div>
+              <div className="button_label">{languageText.computerSkills.a}</div>
               <div className="content_label">
                 <span>{languageText.computerSkills.b}</span>
               </div>
@@ -167,10 +165,7 @@ const Courses = () => {
             </div>
             <div className="content">
               <div className="content_image">
-                <img
-                  src={CoursesImg6}
-                  alt="module-2-plan-your-financial-future"
-                />
+                <img src={CoursesImg6} alt="module-2-plan-your-financial-future" />
               </div>
               <div className="content_button"></div>
               <div className="button_label">
