@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../../components/mdw/StudentStories.module.css";
+import styles from "./StudentStories.module.css";
 import eventsIconOne from "../../assets/mdw_pages/stories_02a.jpg";
 import eventsIconTwo from "../../assets/mdw_pages/stories_02b.jpg";
 import eventsIconThree from "../../assets/mdw_pages/stories_02c.jpg";
@@ -77,6 +77,9 @@ const StudentStories = () => {
               </CCarouselItem>
             </CCarousel>
           </div>
+        </div>
+        <div className="page_mobile_header">
+          <span>Student Stories</span>
         </div>
         <div className={styles.events_icons_container}>
           <div className={styles.events_box} style={{ marginTop: "3vh" }}>

@@ -23,7 +23,11 @@ let obj = {
         c: "Reflect on Your Spending",
         d: "One Simple Change",
       },
-      courses: { a: "Financial Education", b: "Improve Your English", c: "Dealing With Stress" },
+      courses: {
+        a: "Financial Education",
+        b: "Improve Your English",
+        c: "Dealing With Stress",
+      },
     },
     forEmployers: {
       a: "For Employers",
@@ -36,6 +40,9 @@ let obj = {
       d: "Volunteer With Us",
       e: "Donate To Us",
       f: "FAQ",
+    },
+    stories: {
+      a: "Stories",
     },
   },
   bu: {
@@ -78,6 +85,9 @@ let obj = {
       d: "ကျွန်ုပ်တို့နှင့်အတူ စေတနာ့ဝန်ထမ်းလုပ်ပါ။",
       e: "ကျွန်ုပ်တို့ထံ လှူဒါန်းပါ။",
       f: "အမြဲမေးလေ့ရှိသောမေးခွန်းများ",
+    },
+    stories: {
+      a: "ပုံပြင်များ",
     },
   },
 };

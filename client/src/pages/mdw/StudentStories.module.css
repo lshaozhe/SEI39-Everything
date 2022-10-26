@@ -359,3 +359,220 @@
   color: #ffffff;
   margin-left: 4vw;
 }
+
+@media only screen and (max-width: 768px) {
+  .banner_video {
+    height: 42vh;
+    width: 100vw;
+    background-color: white;
+  }
+
+  .banner_video iframe {
+    width: 100vw;
+    height: 42vh;
+  }
+
+  .banner_caption {
+    display: none;
+  }
+
+  .events_icons_container {
+    width: 100vw;
+    height: 24vh;
+    background-color: #f2cbab;
+    margin-top: -3vh;
+  }
+
+  .events_box {
+    width: 100vw;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    margin-top: 1vh;
+  }
+
+  .events {
+    position: relative;
+    display: inline-block;
+    width: 4vw;
+    height: 4vw;
+    background-color: transparent;
+    margin-top: 4vh;
+  }
+
+  .events_icons {
+    display: flex;
+    width: 12vw;
+    height: 12vw;
+    justify-content: center;
+    gap: 10px 10px;
+  }
+
+  .events_icons img {
+    position: relative;
+    display: flex;
+    object-fit: fill;
+    height: 12vw;
+    width: 12vw;
+    margin: 0 auto;
+    border-radius: 50%;
+    border: 1px solid black;
+  }
+
+  .events_label {
+    top: 0;
+    display: block;
+    position: relative;
+    left: -5vw;
+    width: 16vw;
+    text-align: center;
+    margin-top: 2vh;
+  }
+
+  .events_label div {
+    display: inline;
+    position: relative;
+    color: #3c3d3c;
+    font-size: 2vh;
+    top: -15px;
+  }
+
+  .content {
+    position: relative;
+    display: inline-block;
+    width: 100vw;
+    height: 27vh;
+    background-color: #eee7df;
+    margin-top: 2.5vh;
+    cursor: pointer;
+  }
+
+  .content_image {
+    display: inline-block;
+    position: relative;
+    width: 40vw;
+    height: 27vh;
+    text-align: center;
+  }
+
+  .content_image img {
+    object-fit: cover;
+    height: 13vh;
+    width: 13vh;
+    border-radius: 50%;
+    margin: 0 auto;
+    border: 2px solid;
+    border-color: #f68121;
+    margin-top: 3vh;
+  }
+
+  .content_image span {
+    position: relative;
+    top: 0.5vh;
+    font-size: 3vw;
+  }
+
+  .content_image p {
+    position: relative;
+    font-size: 4vw;
+    margin-top: 3vh;
+    top: -2.5vh;
+  }
+
+  .content_button {
+    display: inline-block;
+    position: relative;
+    width: 60vw;
+    height: 27vh;
+    font-weight: 700;
+    font-size: 12px;
+    margin: 0;
+  }
+
+  .content_button span {
+    margin-left: 2vw;
+  }
+
+  .button_label {
+    position: relative;
+    display: flex;
+    width: 55%;
+    height: 6vh;
+    font-size: 4vw;
+    font-weight: 700;
+    left: 37vw;
+    top: -20vh;
+    text-align: center;
+    line-height: 8vh;
+    justify-content: center;
+  }
+
+  .button_label span {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 3vh;
+    margin-top: -4vh;
+  }
+
+  .quote_icon {
+    position: relative;
+    font-size: 11vw;
+    font-weight: 700;
+    color: #6f706f;
+    left: -1vw;
+    top: -1vh;
+  }
+
+  .signup_container {
+    position: relative;
+    width: 100vw;
+    height: 40vw;
+    background-color: #f2cbab;
+    margin-top: -7px;
+  }
+
+  .signup_box {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 1vh;
+  }
+
+  .signup_img {
+    display: inline-block;
+    width: 40vw;
+    height: 40vw;
+    justify-content: center;
+    border-radius: none;
+  }
+
+  .signup_img img {
+    position: relative;
+    display: flex;
+    object-fit: fill;
+    height: 40vw;
+    width: 40vw;
+    margin: 0 auto;
+  }
+
+  .signup_label p {
+    width: 60%;
+    margin-left: 5%;
+    margin-top: -1vw;
+    text-align: left;
+  }
+
+  .button_container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .signup_button {
+    padding: 5px 40px;
+    border-radius: 20px;
+    background-color: #f68121;
+    color: #ffffff;
+    margin-left: 4vw;
+  }
+}
