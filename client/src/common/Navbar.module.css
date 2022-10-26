@@ -185,6 +185,7 @@
     height: 100%;
     width: 22vw;
     margin: 0 auto;
+    margin-left: 2vw;
     justify-content: center;
   }
 
@@ -192,7 +193,7 @@
     display: flex;
     position: absolute;
     justify-content: space-between;
-    right: 0vw;
+    right: 2vw;
     width: 37vw;
   }
 
@@ -256,12 +257,12 @@
   }
 
   .languageMenu {
-    position: relative;
+    position: absolute;
     width: 100vw;
     height: 15vh;
     background-color: #ffffff;
     margin-top: 44px;
-    margin-left: -22vw;
+    margin-left: 0vw;
     font-weight: 700;
     font-size: 5vw;
   }

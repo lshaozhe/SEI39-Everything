@@ -1,10 +1,11 @@
 /** @format */
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import logo from "../assets/aidha-logo.png";
 import styles from "./Navbar.module.css";
 import { Link } from "react-router-dom";
 import languageObj from "../assets/languages/common/NavbarLanguages";
+import ContextStorage from "../context/context";
 
 const Navbar = () => {
   // hover states and functions allow the parent navlabel to also be highlighted
@@ -23,18 +24,18 @@ const Navbar = () => {
   const [studentButtonText, setStudentButtonText] = useState("#2C384AF2");
   const [showLanguageMenu, setShowLanguageMenu] = useState("none");
 
-  const [language, setLanguage] = useState("en");
+  const ctx = useContext(ContextStorage);
   const [languageText, setLanguageText] = useState(languageObj.en);
 
   useEffect(() => {
-    switch (language) {
+    switch (ctx.language) {
       case "bu":
         setLanguageText(languageObj.bu);
         break;
       default:
         setLanguageText(languageObj.en);
     }
-  }, [language]);
+  }, [ctx.language]);
 
   const aboutHover = () => {
     setAboutHoverState({
@@ -102,8 +103,13 @@ const Navbar = () => {
   };
 
   //   function changes language menu state, which toggles its visibility
-  const setLanguageMenu = () => {
-    if (showLanguageMenu == "none") {
+  const setLanguageMenu = (e) => {
+    //if statement as only span in the dropdown has id
+    if (e.target.id) {
+      //for language setting
+      ctx.setLanguage(e.target.id);
+    }
+    if (showLanguageMenu === "none") {
       setShowLanguageMenu("block");
       setShowMobileMenu("none");
     } else {
@@ -144,7 +150,7 @@ const Navbar = () => {
             id="menu"
             aria-hidden="true"
             className="bg-white border rounded-sm transform scale-0 group-hover:scale-100 absolute 
-  origin-top min-w-32"
+            origin-top min-w-32"
             onMouseEnter={aboutHover}
             onMouseLeave={() => setAboutHoverState()}
           >
@@ -207,7 +213,7 @@ const Navbar = () => {
 
         {/* mobile menu only appears for width 768px and below */}
         <div className={styles.mobileMenu} style={{ display: showMobileMenu }}>
-          <div className={styles.mobileButton}>About Us</div>
+          <div className={styles.mobileButton}>{languageText.about.a}</div>
           <div
             className={styles.mobileButton}
             onClick={showStudentsNested}
@@ -218,7 +224,7 @@ const Navbar = () => {
             }}
           >
             {" "}
-            For Students
+            {languageText.forStudents.a}
           </div>
           <div
             className={styles.nestedButton}
@@ -229,7 +235,7 @@ const Navbar = () => {
               borderColor: "#f68121",
             }}
           >
-            Free Tips
+            {languageText.forStudents.b}
           </div>
           <Link
             to="/students/courses"
@@ -245,20 +251,26 @@ const Navbar = () => {
               }}
               onClick={mobileMenu}
             >
-              Courses
+              {languageText.forStudents.c}
             </div>
           </Link>
-          <div
-            className={styles.nestedButton}
-            style={{ display: showStudentsNestedMenu }}
+          <Link
+            to="/students/stories"
+            style={{ textDecoration: "none", color: "#2C384AF2" }}
           >
-            Stories
-          </div>
+            <div
+              className={styles.nestedButton}
+              style={{ display: showStudentsNestedMenu }}
+              onClick={mobileMenu}
+            >
+              {languageText.stories.a}
+            </div>
+          </Link>
           <div
             className={styles.mobileButton}
             style={{ display: hideOtherButtons }}
           >
-            For Employers
+            {languageText.forEmployers.a}
           </div>
           <Link
             to="/volunteers"
@@ -269,7 +281,7 @@ const Navbar = () => {
               style={{ display: hideOtherButtons }}
               onClick={mobileMenu}
             >
-              Get Involved
+              {languageText.getInvolved.a}
             </div>
           </Link>
         </div>
@@ -284,14 +296,18 @@ const Navbar = () => {
             🇸🇬
           </span>
           {/* change this onClick to toggle English language */}
-          <span onClick={setLanguageMenu}>English</span>
+          <span id="en" onClick={setLanguageMenu}>
+            English
+          </span>
           <br />
           <span className={styles.emoji} aria-label="my-flag">
             {" "}
             🇲🇲
           </span>
           {/* change this onClick to toggle Burmese language */}
-          <span onClick={setLanguageMenu}>မြန်မာဘာသာ</span>
+          <span id="bu" onClick={setLanguageMenu}>
+            မြန်မာဘာသာ
+          </span>
         </div>
 
         {/* students tab */}
@@ -313,7 +329,7 @@ const Navbar = () => {
             id="menu"
             aria-hidden="true"
             className="bg-white border rounded-sm transform scale-0 group-hover:scale-100 absolute 
- origin-top min-w-32"
+            origin-top min-w-32"
             onMouseEnter={studentHover}
             onMouseLeave={() => setStudentHoverState()}
           >
@@ -331,9 +347,7 @@ const Navbar = () => {
                 id="menu-lang"
                 aria-hidden="true"
                 className="bg-white border rounded-sm absolute top-0 right-0 
-  origin-top-left
-  min-w-32
-  "
+                origin-top-left min-w-32"
               >
                 <li className="rounded-sm relative px-3 py-1 hover:bg-gray-100">
                   <button
@@ -396,9 +410,7 @@ const Navbar = () => {
                 id="menu-lang"
                 aria-hidden="true"
                 className="bg-white border rounded-sm absolute top-0 right-0 
-  origin-top-left
-  min-w-32
-  "
+                origin-top-left min-w-32"
               >
                 <li className="rounded-sm relative px-3 py-1 hover:bg-gray-100">
                   <Link
@@ -500,7 +512,7 @@ const Navbar = () => {
             id="menu"
             aria-hidden="true"
             className="bg-white border rounded-sm transform scale-0 group-hover:scale-100 absolute 
-  origin-top min-w-32"
+            origin-top min-w-32"
             onMouseEnter={employerHover}
             onMouseLeave={() => setEmployerHoverState()}
           >
@@ -537,7 +549,7 @@ const Navbar = () => {
             id="menu-lang"
             aria-hidden="true"
             className="bg-white border rounded-sm transform scale-0 group-hover:scale-100 absolute 
- origin-top min-w-32"
+            origin-top min-w-32"
             onMouseEnter={volunteerHover}
             onMouseLeave={() => setVolunteerHoverState()}
           >
