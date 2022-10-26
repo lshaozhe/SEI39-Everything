@@ -87,12 +87,12 @@ const Homepage = () => {
             <div className="content_image">
               <img src={contentImgOne} alt="" />
             </div>
-            <div className="content_button"></div>
-            {/* button_label to become navigation link */}
             <Link
               to="/students/stories"
               style={{ textDecoration: "none", color: "#ffffff" }}
             >
+              <div className="content_button"></div>
+              {/* button_label to become navigation link */}
               <div className="button_label">
                 <span>{languageText.contentOne.a}</span>
               </div>
@@ -106,12 +106,12 @@ const Homepage = () => {
             <div className="content_image">
               <img src={contentImgTwo} alt="" />
             </div>
-            <div className="content_button"></div>
-            {/* button_label to become navigation link */}
             <Link
               to="/students/courses"
               style={{ textDecoration: "none", color: "#ffffff" }}
             >
+              <div className="content_button"></div>
+              {/* button_label to become navigation link */}
               <div className="button_label">
                 <span>{languageText.contentTwo.a}</span>
               </div>
@@ -127,11 +127,17 @@ const Homepage = () => {
             <div className="content_image">
               <img src={contentImgThree} alt="" />
             </div>
-            <div className="content_button"></div>
-            {/* button_label to become navigation link */}
-            <div className="button_label">
-              <span>{languageText.contentThree.a}</span>
-            </div>
+            <Link
+              to="/volunteers/volunteer_with_us"
+              style={{ textDecoration: "none", color: "#ffffff" }}
+            >
+              <div className="content_button"></div>
+              {/* button_label to become navigation link */}
+
+              <div className="button_label">
+                <span>{languageText.contentThree.a}</span>
+              </div>
+            </Link>
             <div className="content_label">
               <span>{languageText.contentThree.b}</span>
             </div>
