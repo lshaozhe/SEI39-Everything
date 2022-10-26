@@ -59,11 +59,11 @@ const CourseInfo = () => {
               </Link>
             </div>
             <Link
-              to="/students/courses"
+              to="/students/courses/sign_up"
               style={{ textDecoration: "none", color: "#ffffff" }}
             >
               <div className={styles.mobile_signup}>
-                <p>Join the Aidha Experience</p>
+                <p>Sign Up For Course</p>
               </div>
             </Link>
           </div>

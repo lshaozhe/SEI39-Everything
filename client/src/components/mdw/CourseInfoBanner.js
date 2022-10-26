@@ -47,7 +47,7 @@ const CourseInfoBanner = () => {
         </CCarousel>
         {/* mobile header only appears for width 768px and below */}
         <div className="page_mobile_header">
-          <span>Courses</span>
+          <span>Financial Education</span>
         </div>
       </div>
       <div className={styles.coursegoals_container}>
