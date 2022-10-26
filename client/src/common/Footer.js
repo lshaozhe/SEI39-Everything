@@ -29,7 +29,7 @@ const Footer = () => {
 		// Container for entire footer, horizontal margin, bg-color & text color set via tailwind
 		<div className="mx-0 bg-[#eee7df] text-[#3c3d3c]">
 			{/* Grid container for 5 columns, size 4 gap horizontally b/w columns, horizontal margin, top & bottom padding set */}
-			<div className="grid grid-rows-4 lg:grid-cols-5 gap-x-4 mx-16 pt-3 lg:pt-10 pb-16">
+			<div className="grid grid-rows-4 lg:grid-rows-1 lg:grid-cols-5 gap-x-4 mx-16 pt-3 lg:pt-10 pb-16">
 				{/* Container for 1 column out of 5 */}
 				<div>
 					<p className="font-bold">{languageText.group1.a}</p>
