@@ -19,20 +19,24 @@ import { CCarouselItem } from "@coreui/react";
 import { Link } from "react-router-dom";
 import ContextStorage from "../../context/context";
 import languageObj from "../../assets/languages/pages/StudentStoriesLanguages";
+import useFetch from "../../hooks/useFetch";
 
 const StudentStories = () => {
   const ctx = useContext(ContextStorage);
   const [languageText, setLanguageText] = useState(languageObj.en);
+  const { response } = useFetch("http://127.0.0.1:5001/api/languages/stories");
 
   useEffect(() => {
-    switch (ctx.language) {
-      case "bu":
-        setLanguageText(languageObj.bu);
-        break;
-      default:
-        setLanguageText(languageObj.en);
+    if (response) {
+      switch (ctx.language) {
+        case "bu":
+          setLanguageText(response.bu);
+          break;
+        default:
+          setLanguageText(response.en);
+      }
     }
-  }, [ctx.language]);
+  }, [ctx.language, response]);
 
   return (
     <>
