@@ -30,6 +30,9 @@ const Courses = () => {
           className="w-100 banner"
         />
       </div>
+      <div className="page_mobile_header">
+        <span>Courses</span>
+      </div>
       {/* Section below is for the 11 course cards */}
       <div className="content_container">
         <div className="content_box">

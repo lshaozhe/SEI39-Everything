@@ -285,6 +285,10 @@
     margin-top: 1vw;
   }
 
+  .content_label span {
+    top: -0.75vw;
+  }
+
   .banner_label span {
     font-size: 5vw;
     font-weight: 700;
