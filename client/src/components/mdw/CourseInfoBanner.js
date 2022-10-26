@@ -38,7 +38,7 @@ const CourseInfoBanner = () => {
 			</div>
 			<div className={styles.coursegoals_container}>
 				<h2>Course Goals</h2>
-				<div className={styles.goals_box} style={{ marginTop: "3vh" }}>
+				<div className={styles.goals_box}>
 					{/* content contains the image, navigation button & label */}
 					<div className={styles.goals}>
 						<div className={styles.goals_icons}>
