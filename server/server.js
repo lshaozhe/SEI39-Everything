@@ -5,6 +5,7 @@ const { v4: uuidv4 } = require("uuid");
 const connectDB = require("./db/db");
 const Mdw = require("./models/Mdw");
 const Volunteer = require("./models/Volunteer");
+const coursesLanguages = require("./models/coursesLanguages");
 
 const app = express();
 
@@ -13,6 +14,36 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 connectDB();
 
+//////////////////////
+//Push courseLanguage into db
+/////////////////////
+app.post("/api/coursesLanguages", async (req, res) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    return res.status(400).json({ errors: errors.array() });
+  }
+  const createdcoursesLanguages = new coursesLanguages({
+    page: req.body.page,
+    en: req.body.en,
+    bu: req.body.bu,
+  });
+
+  await createdcoursesLanguages.save();
+
+  res.json({ status: "success", message: "information saved" });
+});
+
+///////////////////////////
+//Fetch courseLanguage from db
+///////////////////////////
+app.get("/api/coursesLanguages", async (req, res) => {
+  const allCoursesLanguages = await coursesLanguages.find();
+  res.json(allCoursesLanguages);
+});
+
+///////////////////////////
+//Push mdw data into db
+///////////////////////
 app.post(
   "/api/mdw",
   [
@@ -46,6 +77,9 @@ app.post(
   }
 );
 
+//////////////////////////
+//Push volunteer data into db
+/////////////////////////
 app.post(
   "/api/volunteer",
   [
