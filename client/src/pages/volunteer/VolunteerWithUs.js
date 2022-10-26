@@ -10,7 +10,7 @@ import bannerFour from "../../assets/volunteer_pages/volunteer_04.png";
 import bannerFive from "../../assets/volunteer_pages/volunteer_05.jpeg";
 import Partners from "../../components/volunteer/Partners";
 import ReachImpact from "../../components/volunteer/ReachImpact";
-import styles from "../../components/volunteer/VolunteerWithUs.module.css";
+import styles from "./VolunteerWithUs.module.css";
 import registerImage from "../../assets/volunteer_pages/volunteer_01.jpeg";
 import rolesIconOne from "../../assets/svg_icons/volunteer_1_time.svg";
 import Carousel from "react-multi-carousel";
