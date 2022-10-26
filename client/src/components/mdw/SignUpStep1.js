@@ -32,14 +32,14 @@ const SignUpStep1 = (props) => {
 			{/* Below is the registration type selection */}
 			<div className="mx-0 py-5">
 				<h1 className={styles.sign_up_header}>Sign up for this course using...</h1>
-				<div className="grid grid-cols-3 justify-items-center items-center">
-					<div>
+				<div className={styles.row}>
+                    <div className={styles.column_1}>
 						<img src={MyInfo} alt="retrieve-myinfo-with-singpass" className={styles.myInfo} />
 					</div>
-					<div>
+					<div className={styles.column_2}>
 						<h1 className={styles.or_header}>OR</h1>
 					</div>
-					<div>
+					<div className={styles.column_3}>
 						<button type="button" className={styles.registration_button} onClick={handleClick}>
 							Register manually
 						</button>
