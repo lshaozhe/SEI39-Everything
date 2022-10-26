@@ -22,7 +22,6 @@ function App() {
 
   return (
     <>
-
       <ContextStorage.Provider value={{ language, setLanguage }}>
         <Navbar />
         <Routes>
@@ -53,33 +52,6 @@ function App() {
         </Routes>
         <Footer />
       </ContextStorage.Provider>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Homepage />} />
-        {/* MDW User Flow */}
-        <Route path="/students/stories" element={<StudentStories />} />
-        <Route path="/students/courses" element={<Courses />} />
-        <Route
-          path="/students/courses/financial_education"
-          element={<CourseInfo />}
-        />
-        <Route path="students/courses/sign_up" element={<MDWSignUpPage />} />
-        {/* Volunteers User Flow */}
-        <Route path="/volunteers" element={<GetInvolved />} />
-        <Route
-          path="/volunteers/volunteer_with_us"
-          element={<VolunteerWithUs />}
-        />
-        <Route
-          path="/volunteers/volunteer_with_us/details"
-          element={<VolunteerDetails />}
-        />
-        <Route
-          path="/volunteers/volunteer_with_us/sign_up"
-          element={<VolunteerSignUpPage />}
-        />
-      </Routes>
-      <Footer />
     </>
   );
 }

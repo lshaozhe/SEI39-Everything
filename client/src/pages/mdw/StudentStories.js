@@ -274,6 +274,14 @@ const StudentStories = () => {
                 </Link>
               </button>
             </div>
+            <Link
+              to="/students/courses"
+              style={{ textDecoration: "none", color: "#ffffff" }}
+            >
+              <div className={styles.mobile_signup}>
+                <p>Join the Aidha Experience</p>
+              </div>
+            </Link>
           </div>
         </div>
       </div>

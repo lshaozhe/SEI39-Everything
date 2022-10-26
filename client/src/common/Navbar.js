@@ -254,10 +254,18 @@ const Navbar = () => {
               {languageText.forStudents.c}
             </div>
           </Link>
-          <div
-            className={styles.nestedButton}
-            style={{ display: showStudentsNestedMenu }}
+          <Link
+            to="/students/stories"
+            style={{ textDecoration: "none", color: "#2C384AF2" }}
           >
+            <div
+              className={styles.nestedButton}
+              style={{ display: showStudentsNestedMenu }}
+              onClick={mobileMenu}
+            >
+              {languageText.stories.a}
+            </div>
+          </Link>
             {languageText.stories.a}
           </div>
           <div
