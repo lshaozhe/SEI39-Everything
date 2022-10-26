@@ -57,15 +57,14 @@ const SignUpForm = (props) => {
 			courseDate,
 			aboutYourself,
 			privacyPolicyAgreed,
-        };
-        
-        // Check all form fields have values before proceeding to lift from child to parent
-        if (formSubmitted.name && formSubmitted.phone && formSubmitted.workPermit && formSubmitted.courseDate && formSubmitted.aboutYourself && formSubmitted.privacyPolicyAgreed) {
-            props.handleFormSubmissionInStep1(formSubmitted);  
-        } else {
-            window.alert("Please complete all fields before you proceed to submit the form.");
-        }
-		
+		};
+
+		// Check all form fields have values before proceeding to lift from child to parent
+		if (formSubmitted.name && formSubmitted.phone && formSubmitted.workPermit && formSubmitted.courseDate && formSubmitted.aboutYourself && formSubmitted.privacyPolicyAgreed) {
+			props.handleFormSubmissionInStep1(formSubmitted);
+		} else {
+			window.alert("Please complete all fields before you proceed to submit the form.");
+		}
 	};
 
 	return (
@@ -85,6 +84,7 @@ const SignUpForm = (props) => {
 						<div className={styles.formRow}>
 							<PhoneInput
 								country={"sg"}
+								value={phone}
 								onChange={handlePhoneUpdate}
 								containerStyle={{ height: "42px" }}
 								inputStyle={{ backgroundColor: "#eee7df", border: "none", height: "42px", marginLeft: "2vw" }}
