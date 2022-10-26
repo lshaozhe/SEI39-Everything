@@ -384,8 +384,9 @@
     width: 100vw;
     height: 24vh;
     background-color: #f2cbab;
-    margin-top: -1vh;
-    overflow: scroll;
+    margin-top: 0vh;
+    overflow-x: scroll;
+    overflow-y: hidden;
   }
 
   .events_box {
@@ -431,7 +432,7 @@
     display: block;
     position: relative;
     left: -5vw;
-    width: 16vw;
+    width: 22vw;
     text-align: center;
     margin-top: 2vh;
   }
@@ -442,7 +443,7 @@
     color: #3c3d3c;
     left: 1.75vh;
     font-size: 2vh;
-    top: -5px;
+    top: -10px;
   }
 
   .content {

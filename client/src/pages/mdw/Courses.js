@@ -44,6 +44,9 @@ const Courses = () => {
       <div className="page_mobile_header">
         <span>Courses</span>
       </div>
+      <div className="page_mobile_header">
+        <span>Courses</span>
+      </div>
       {/* Section below is for the 11 course cards */}
       <div className="content_container">
         <div className="content_box">
@@ -116,6 +119,9 @@ const Courses = () => {
                 <img src={CoursesImg10} alt="computer-skills" />
               </div>
               <div className="content_button"></div>
+              <div className="button_label">
+                <span>Computer Skills</span>
+              </div>
               <div className="button_label">{languageText.computerSkills.a}</div>
               <div className="content_label">
                 <span>{languageText.computerSkills.b}</span>
@@ -126,6 +132,9 @@ const Courses = () => {
                 <img src={CoursesImg11} alt="building-your-resilience" />
               </div>
               <div className="content_button"></div>
+              <div className="button_label">
+                <span>Building Your Resilience</span>
+              </div>
               <div className="button_label">{languageText.buildingResilience.a}</div>
               <div className="content_label">
                 <span>{languageText.buildingResilience.b}</span>
@@ -137,7 +146,9 @@ const Courses = () => {
               <div className="content_image">
                 <img src={CoursesImg2} alt="improve-english" />
               </div>
-              <div className="content_button"></div>
+              <div className="button_label">
+                <span>Improve Your English</span>
+              </div>
               <div className="button_label">{languageText.ImproveEnglish.a}</div>
               <div className="content_label">
                 <span>{languageText.ImproveEnglish.b}</span>

@@ -277,6 +277,8 @@
   .button_label span {
     display: inline-block;
     vertical-align: middle;
+    width: 90%;
+    margin-left: -10%;
   }
 
   .content_label {
