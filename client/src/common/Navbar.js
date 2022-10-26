@@ -27,13 +27,17 @@ const Navbar = () => {
   const ctx = useContext(ContextStorage);
   const [languageText, setLanguageText] = useState(languageObj.en);
 
+  const [countryFlag, setCountryFlag] = useState("🇸🇬");
+
   useEffect(() => {
     switch (ctx.language) {
       case "bu":
         setLanguageText(languageObj.bu);
+        setCountryFlag("🇲🇲");
         break;
       default:
         setLanguageText(languageObj.en);
+        setCountryFlag("🇸🇬");
     }
   }, [ctx.language]);
 
@@ -292,7 +296,6 @@ const Navbar = () => {
           style={{ display: showLanguageMenu }}
         >
           <span className={styles.emoji} aria-label="sg-flag">
-            {" "}
             🇸🇬
           </span>
           {/* change this onClick to toggle English language */}
@@ -637,8 +640,7 @@ const Navbar = () => {
             aria-label="sg-flag"
             onClick={setLanguageMenu}
           >
-            {" "}
-            🇸🇬
+            {countryFlag}
           </span>
           <span
             className="material-icons"
