@@ -39,7 +39,6 @@ function App() {
           path="/volunteers/volunteer_with_us/details"
           element={<VolunteerDetails />}
         />
-        {/* To remove below once volunteer pages are up, this is currently for development purpose only */}
         <Route
           path="/volunteers/volunteer_with_us/sign_up"
           element={<VolunteerSignUpPage />}
