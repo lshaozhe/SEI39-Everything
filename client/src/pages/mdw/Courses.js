@@ -1,6 +1,6 @@
 /** @format */
 
-import React from "react";
+import React, { useState, useEffect, useContext } from "react";
 import CoursesBanner from "../../assets/mdw_pages/courses_banner.jpeg";
 import CoursesImg1 from "../../assets/mdw_pages/courses_01_financial_education.png";
 import CoursesImg2 from "../../assets/mdw_pages/courses_02_improve_english.png";
@@ -13,22 +13,33 @@ import CoursesImg8 from "../../assets/mdw_pages/courses_08_start_business.png";
 import CoursesImg9 from "../../assets/mdw_pages/courses_09_open_bank_account.png";
 import CoursesImg10 from "../../assets/mdw_pages/courses_10_computer_skills.png";
 import CoursesImg11 from "../../assets/mdw_pages/courses_11_building_resilience.png";
+import languageObj from "../../assets/languages/pages/coursesLanguages";
+import ContextStorage from "../../context/context";
 import { Link } from "react-router-dom";
 
 const Courses = () => {
+  const ctx = useContext(ContextStorage);
+  const [languageText, setLanguageText] = useState(languageObj.en);
+
+  useEffect(() => {
+    switch (ctx.language) {
+      case "bu":
+        setLanguageText(languageObj.bu);
+        break;
+      default:
+        setLanguageText(languageObj.en);
+    }
+  }, [ctx.language]);
+
   return (
     <div className="page_container">
       {/* Page Header */}
       <div className="page_header">
-        <span>For Students / Courses</span>
+        <span>{languageText.header}</span>
       </div>
       {/* Banner */}
       <div className="banner_container">
-        <img
-          src={CoursesBanner}
-          alt="courses-banner"
-          className="w-100 banner"
-        />
+        <img src={CoursesBanner} alt="courses-banner" className="w-100 banner" />
       </div>
       <div className="page_mobile_header">
         <span>Courses</span>
@@ -44,10 +55,10 @@ const Courses = () => {
                 </div>
                 <div className="content_button"></div>
                 <div className="button_label">
-                  <span>Financial Education</span>
+                  <span>{languageText.financialEducation.a}</span>
                 </div>
                 <div className="content_label">
-                  <span>FREE | Course Mode · Online</span>
+                  <span>{languageText.financialEducation.b}</span>
                 </div>
               </Link>
             </div>
@@ -58,10 +69,10 @@ const Courses = () => {
               </div>
               <div className="content_button"></div>
               <div className="button_label">
-                <span>Dealing With Stress</span>
+                <span>{languageText.dealingWithStress.a}</span>
               </div>
               <div className="content_label">
-                <span>FREE | Course Mode · Online</span>
+                <span>{languageText.dealingWithStress.b}</span>
               </div>
             </div>
             <div className="content">
@@ -70,10 +81,10 @@ const Courses = () => {
               </div>
               <div className="content_button"></div>
               <div className="button_label">
-                <span>Understanding Debt</span>
+                <span>{languageText.understandingDebt.a}</span>
               </div>
               <div className="content_label">
-                <span>FREE | Course Mode · Online</span>
+                <span>{languageText.understandingDebt.b}</span>
               </div>
             </div>
             <div className="content">
@@ -82,10 +93,10 @@ const Courses = () => {
               </div>
               <div className="content_button"></div>
               <div className="button_label">
-                <span>Debt Counselling Explained</span>
+                <span>{languageText.debtCounselling.a}</span>
               </div>
               <div className="content_label">
-                <span>FREE | Course Mode · Online</span>
+                <span>{languageText.debtCounselling.b}</span>
               </div>
             </div>
             <div className="content">
@@ -94,10 +105,10 @@ const Courses = () => {
               </div>
               <div className="content_button"></div>
               <div className="button_label">
-                <span>How to Open a Bank Account</span>
+                <span>{languageText.openBankAccount.a}</span>
               </div>
               <div className="content_label">
-                <span>FREE | Course Mode · Online</span>
+                <span>{languageText.openBankAccount.b}</span>
               </div>
             </div>
             <div className="content">
@@ -105,9 +116,9 @@ const Courses = () => {
                 <img src={CoursesImg10} alt="computer-skills" />
               </div>
               <div className="content_button"></div>
-              <div className="button_label">Computer Skills</div>
+              <div className="button_label">{languageText.computerSkills.a}</div>
               <div className="content_label">
-                <span>FREE | Course Mode · In-person</span>
+                <span>{languageText.computerSkills.b}</span>
               </div>
             </div>
             <div className="content">
@@ -115,9 +126,9 @@ const Courses = () => {
                 <img src={CoursesImg11} alt="building-your-resilience" />
               </div>
               <div className="content_button"></div>
-              <div className="button_label">Building Your Resilience</div>
+              <div className="button_label">{languageText.buildingResilience.a}</div>
               <div className="content_label">
-                <span>FREE | Course Mode · Online</span>
+                <span>{languageText.buildingResilience.b}</span>
               </div>
             </div>
           </div>
@@ -127,9 +138,9 @@ const Courses = () => {
                 <img src={CoursesImg2} alt="improve-english" />
               </div>
               <div className="content_button"></div>
-              <div className="button_label">Improve Your English</div>
+              <div className="button_label">{languageText.ImproveEnglish.a}</div>
               <div className="content_label">
-                <span>SUBSIDISED | Course Mode · Online</span>
+                <span>{languageText.ImproveEnglish.b}</span>
               </div>
             </div>
             <div className="content">
@@ -138,25 +149,22 @@ const Courses = () => {
               </div>
               <div className="content_button"></div>
               <div className="button_label">
-                <span>Module 1: Manage Your Money & Tech</span>
+                <span>{languageText.Module1.a}</span>
               </div>
               <div className="content_label">
-                <span>SUBSIDISED | Course Mode · Hybrid</span>
+                <span>{languageText.Module1.b}</span>
               </div>
             </div>
             <div className="content">
               <div className="content_image">
-                <img
-                  src={CoursesImg6}
-                  alt="module-2-plan-your-financial-future"
-                />
+                <img src={CoursesImg6} alt="module-2-plan-your-financial-future" />
               </div>
               <div className="content_button"></div>
               <div className="button_label">
-                <span>Module 2: Plan Your Financial Future</span>
+                <span>{languageText.Module2.a}</span>
               </div>
               <div className="content_label">
-                <span>SUBSIDISED | Course Mode · Online</span>
+                <span>{languageText.Module2.b}</span>
               </div>
             </div>
             <div className="content">
@@ -165,10 +173,10 @@ const Courses = () => {
               </div>
               <div className="content_button"></div>
               <div className="button_label">
-                <span>Module 3: Start Your Business</span>
+                <span>{languageText.Module3.a}</span>
               </div>
               <div className="content_label">
-                <span>SUBSIDISED | Course Mode · Online</span>
+                <span>{languageText.Module3.b}</span>
               </div>
             </div>
           </div>
