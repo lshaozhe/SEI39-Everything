@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect, useContext } from "react";
 import styles from "./StudentStories.module.css";
 import eventsIconOne from "../../assets/mdw_pages/stories_02a.jpg";
 import eventsIconTwo from "../../assets/mdw_pages/stories_02b.jpg";
@@ -17,13 +17,28 @@ import signupImage from "../../assets/mdw_pages/stories_04.png";
 import { CCarousel } from "@coreui/react";
 import { CCarouselItem } from "@coreui/react";
 import { Link } from "react-router-dom";
+import ContextStorage from "../../context/context";
+import languageObj from "../../assets/languages/pages/StudentStoriesLanguages";
 
 const StudentStories = () => {
+  const ctx = useContext(ContextStorage);
+  const [languageText, setLanguageText] = useState(languageObj.en);
+
+  useEffect(() => {
+    switch (ctx.language) {
+      case "bu":
+        setLanguageText(languageObj.bu);
+        break;
+      default:
+        setLanguageText(languageObj.en);
+    }
+  }, [ctx.language]);
+
   return (
     <>
       <div className="page_container">
         <div className="page_header">
-          <span>For Students / Student Stories</span>
+          <span>{languageText.header}</span>
         </div>
         <div className={styles.banner}>
           <div className={styles.banner_video}>
@@ -31,21 +46,13 @@ const StudentStories = () => {
               src="https://www.youtube.com/embed/xsuNrqkzNqI"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               allowFullScreen
-              title="video"
-            ></iframe>
+              title="video"></iframe>
           </div>
           <div className={styles.banner_caption}>
-            <CCarousel
-              indicators
-              className="banner_container"
-              transition="crossfade"
-            >
+            <CCarousel indicators className="banner_container" transition="crossfade">
               <CCarouselItem>
                 <div className={styles.carousel_item}>
-                  <h2>
-                    “I feel that I’m finally on the right path to giving my
-                    daughter a good future.”
-                  </h2>
+                  <h2>{languageText.carousel1}</h2>
                   <p>
                     <span>🇵🇭</span> @YolandaBermas
                   </p>
@@ -54,10 +61,7 @@ const StudentStories = () => {
               {/* second carousel image */}
               <CCarouselItem>
                 <div className={styles.carousel_item}>
-                  <h2>
-                    “Aidha changed my life. It gave me the chance to reach my
-                    dream, not only for myself but also for my family.”
-                  </h2>
+                  <h2>{languageText.carousel2}</h2>
                   <p>
                     <span>🇵🇭</span>@Gleia
                   </p>
@@ -66,10 +70,7 @@ const StudentStories = () => {
               {/* third carousel image */}
               <CCarouselItem>
                 <div className={styles.carousel_item}>
-                  <h2>
-                    Thanks to Aidha, I now know how to manage my assets better
-                    and make them work for me.
-                  </h2>
+                  <h2>{languageText.carousel3}</h2>
                   <p>
                     <span>🇵🇭</span>@ArnolitaCruz
                   </p>
@@ -79,7 +80,7 @@ const StudentStories = () => {
           </div>
         </div>
         <div className="page_mobile_header">
-          <span>Student Stories</span>
+          <span>{languageText.title}</span>
         </div>
         <div className={styles.events_icons_container}>
           <div className={styles.events_box} style={{ marginTop: "3vh" }}>
@@ -157,10 +158,7 @@ const StudentStories = () => {
             {/* button_label to become navigation link */}
             <div className={styles.button_label}>
               <span className={styles.quote_icon}>“</span>
-              <span>
-                Aidha provided a platform for me to grow and explore my
-                potential.
-              </span>
+              <span>{languageText.story1}</span>
             </div>
           </div>
           {/* second content element */}
@@ -174,10 +172,7 @@ const StudentStories = () => {
             {/* button_label to become navigation link */}
             <div className={styles.button_label}>
               <span className={styles.quote_icon}>“</span>
-              <span>
-                Aidha really helped me change my life. Now I have some savings
-                and income rolling in from my pig business.
-              </span>
+              <span>{languageText.story2}</span>
             </div>
           </div>
         </div>
@@ -193,10 +188,7 @@ const StudentStories = () => {
             {/* button_label to become navigation link */}
             <div className={styles.button_label}>
               <span className={styles.quote_icon}>“</span>
-              <span>
-                Thanks to Aidha, I now know how to manage my assets better and
-                make them work for me.
-              </span>
+              <span>{languageText.story3}</span>
             </div>
           </div>
           {/* fourth content element */}
@@ -210,7 +202,7 @@ const StudentStories = () => {
             {/* button_label to become navigation link */}
             <div className={styles.button_label}>
               <span className={styles.quote_icon}>“</span>
-              <span>I am very lucky to have supportive employers.</span>
+              <span>{languageText.story4}</span>
             </div>
           </div>
         </div>
@@ -226,11 +218,7 @@ const StudentStories = () => {
             {/* button_label to become navigation link */}
             <div className={styles.button_label}>
               <span className={styles.quote_icon}>“</span>
-              <span>
-                I was usually shy and now I’ve learned to speak infront of
-                people with confidence and overcome my shyness to express
-                myself.
-              </span>
+              <span>{languageText.story5}</span>
             </div>
           </div>
           {/* sixth content element */}
@@ -244,10 +232,7 @@ const StudentStories = () => {
             {/* button_label to become navigation link */}
             <div className={styles.button_label}>
               <span className={styles.quote_icon}>“</span>
-              <span>
-                Aidha helped me build confidence in pursuing my goals. And I do
-                believe that confidence is companion of success.
-              </span>
+              <span>{languageText.story6}</span>
             </div>
           </div>
         </div>
@@ -260,26 +245,17 @@ const StudentStories = () => {
             <img src={signupImage} alt="" />
           </div>
           <div className={styles.signup_label}>
-            <p>
-              Join our vibrant community of students and learn a new skill to
-              upgrade your life!
-            </p>
+            <p>{languageText.signup.a}</p>
             <div className={styles.button_container}>
               <button className={styles.signup_button}>
-                <Link
-                  to="/students/courses"
-                  style={{ textDecoration: "none", color: "#ffffff" }}
-                >
-                  See Courses
+                <Link to="/students/courses" style={{ textDecoration: "none", color: "#ffffff" }}>
+                  {languageText.signup.b}
                 </Link>
               </button>
             </div>
-            <Link
-              to="/students/courses"
-              style={{ textDecoration: "none", color: "#ffffff" }}
-            >
+            <Link to="/students/courses" style={{ textDecoration: "none", color: "#ffffff" }}>
               <div className={styles.mobile_signup}>
-                <p>Join the Aidha Experience</p>
+                <p>{languageText.signup.c}</p>
               </div>
             </Link>
           </div>
