@@ -75,6 +75,8 @@ Due to the time limitation for this project (1 week), the following prorities li
 ## Issues yet resolved:
 - Mobile breakpoints were not implemented throughout the entire prototype website
 - A textfield option for the "Languages Spoken" field in the volunteer sign up form
+- Embedding of Instagram stories from Aidha's Instagram account, on the Student Stories page
+- Rolling out language translation to more pages
 
 ## Pull Request Guidelines
 
