@@ -2,6 +2,7 @@ import requests
 import re
 import asyncio
 from bs4 import BeautifulSoup
+from selenium import webdriver
 
 
 def scrap_category_links(url='https://www.fairprice.com.sg/categories'):
@@ -16,7 +17,6 @@ def scrap_category_links(url='https://www.fairprice.com.sg/categories'):
     for url in response:
         url = 'https://www.fairprice.com.sg'+url['href']
         results.append(url)
-        # scrap_product_links(url)
 
     return results
 
@@ -31,8 +31,11 @@ def scrap_product_links(url):
         print('https://www.fairprice.com.sg'+url['href'])
 
 
-async def start_scrap():
-    category_url_list = await scrap_category_links()
-    # scrap_product_links(category_url_list)
+def start_scrap():
+    category_url_list = scrap_category_links()
+    for url in category_url_list:
+        scrap_product_links(url)
 
-start_scrap()
+
+if __name__ == '__main__':
+    start_scrap()
