@@ -1,16 +1,22 @@
 import requests
 import re
-import asyncio
 import time
+from threading import Thread
 from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 
-options = Options()
-options.headless = True
-service = Service(executable_path="./chromedriver")
-driver = webdriver.Chrome(service=service, options=options)
+# Global variables for storing threaded returns
+all_product_url_list = []
+
+
+def create_selenium_driver():
+    options = Options()
+    options.headless = True
+    service = Service(executable_path="./chromedriver")
+    driver = webdriver.Chrome(service=service, options=options)
+    return driver
 
 
 def scrap_category_links(url='https://www.fairprice.com.sg/categories'):
@@ -45,16 +51,22 @@ def scrap_brand_links(url='https://www.fairprice.com.sg/brands'):
     return results
 
 
-def scrap_product_links(url):
-    raw_html_response = selenium_scroll_and_return_html(url)
+def scrap_product_links(url, selenium_driver):
+
+    raw_html_response = selenium_scroll_and_return_html(url, selenium_driver)
 
     soup = BeautifulSoup(raw_html_response, 'html.parser')
     response = soup.find_all('a', href=re.compile("/product/"))
 
-    # for url in response:
-    #     print('https://www.fairprice.com.sg'+url['href'])
-
     print('scrapper returned {} products from {}'.format(len(response), url))
+
+    results = []
+    for url in response:
+        url = 'https://www.fairprice.com.sg'+url['href']
+        results.append(url)
+
+    global all_product_url_list
+    all_product_url_list = all_product_url_list + results
 
 
 def scrap_product_details(url='https://www.fairprice.com.sg/product/fairprice-gold-3-ply-bathtroom-tissues-10-rolls-13095920'):
@@ -69,7 +81,7 @@ def scrap_product_details(url='https://www.fairprice.com.sg/product/fairprice-go
     product_more_images = soup.find_all('img', attrs={'class': 'sc-10zw1uf-11 gyQcYf'})
     uncleaned_product_long_description = soup.find_all('div', attrs={'class': 'sc-3zvnd-0 hOgsAE'})
 
-    print(soup.prettify())
+    # print(soup.prettify())
     print(product_name)
     print(product_price)
     print(product_short_description)
@@ -85,7 +97,7 @@ def scrap_product_details(url='https://www.fairprice.com.sg/product/fairprice-go
     print(product_long_description)
 
 
-def selenium_scroll_and_return_html(url):
+def selenium_scroll_and_return_html(url, driver):
     # SET SCROLL PAUSE TIME FIRST
     selenium_scroll_pause_time = 0.5
     driver.get(url)
@@ -112,13 +124,26 @@ def selenium_scroll_and_return_html(url):
 
 
 def start_scrap():
+    all_category_brand_url_set = set()
+
+    # Below gets all category and brand url
     category_url_list = scrap_category_links()
     brand_url_list = scrap_brand_links()
+    all_category_brand_url_set = set(category_url_list + brand_url_list)
+    print('scrapper returned {} unique category/ brand links'.format(len(all_category_brand_url_set)))
 
-    for url in (category_url_list + brand_url_list):
-        scrap_product_links(url)
+    # Below gets all products url
+    threads = []
+    for url in all_category_brand_url_set:
+        t = Thread(target=scrap_product_links, args=(url, create_selenium_driver()))
+        t.start()
+        threads.append(t)
+    for t in threads:
+        t.join()
+    all_product_url_set = set(all_product_url_list)
+    print('scrapper returned {} unique product links'.format(len(all_product_url_set)))
 
 
 if __name__ == '__main__':
-    # start_scrap()
-    scrap_product_details('https://www.fairprice.com.sg/product/magiclean-bathroom-stain-mold-remover-400ml-12329292')
+    start_scrap()
+    # scrap_product_details('https://www.fairprice.com.sg/product/magiclean-bathroom-stain-mold-remover-400ml-12329292')
