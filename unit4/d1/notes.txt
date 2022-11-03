@@ -1,0 +1,32 @@
+python3 -m venv venv
+module and dirname
+
+>pip
+python3 -m venv venv
+
+./activate
+source venv/bin/activate, replace bin with script for windows
+- to activate the virtual environment
+
+deavtivate
+-to deactivate virtual environment
+
+pip freeze > requirements.txt
+requirements.txt similar to package.json
+to capture whatever py modules you have installed and set it in the "setting file"
+
+install python (vscode extension) if you wanna use vscodes to do python
+
+>pipenv
+sudo pip3 install pipenv (without sudo for windows)
+
+pipenv install (auto creates a "package json" file)
+
+pipenv shell
+exit
+pipenv install <package> or pip
+pipenv unistall <package> or pip
+pipenv lock (update lock file)
+
+pipenv lock -r > requirements.txt
+pipenv install -r > requirements.txt (similar to npm i)

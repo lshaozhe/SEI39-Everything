@@ -1,0 +1,11 @@
+member = Members.objects.get(name='xxx')
+
+member.addresses_set.all()
+member.addresses_set.count()
+member.addresses_set.filter(street_name__starts_with='xxx)
+
+
+Address.Objects.get(id=xxx).member //get id from Address -> then link it to member
+Address.Objects.get(id=xxx).member.id //same as above but return id of member
+
+Addresses.object.filter(member__id=xxx)
