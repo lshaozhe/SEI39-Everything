@@ -6,9 +6,11 @@ from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
+from sample_data_product_links import product_url_set
 
 # Global variables for storing threaded returns
 all_product_url_list = []
+all_product_details_list = []
 
 
 def create_selenium_driver():
@@ -82,19 +84,25 @@ def scrap_product_details(url='https://www.fairprice.com.sg/product/fairprice-go
     product_information = soup.find_all('div', attrs={'class': 'sc-3zvnd-0 hOgsAE'})
     uncleaned_product_categories = soup.find_all('a', attrs={'class': 'sc-scqi9x-1 kWVUbN'})
 
+    # Cleaning url for img found without query modifiers at the end of url
     the_regex = re.compile('^[^?]+')
     for i in range(len(product_images)):
         the_string = product_images[i]['src']
-        found = re.search(the_regex, the_string).group(0)
-        product_images[i] = found
+        found_string = re.search(the_regex, the_string).group(0)
+        product_images[i] = found_string
 
     the_regex = re.compile('(?<=>)[a-zA-Z0-9\ &;!,/]+(?=<)')
     for i in range(len(product_information)):
         the_string = str(product_information[i])
-        found = re.findall(the_regex, the_string)
-        product_information[i] = found
-    # for item in uncleaned_product_long_description:
-    #     product_long_description.append(re.findall('(?<=>)[a-zA-Z0-9\ &;!,/]+(?=<)', str(item)))
+        found_list = re.findall(the_regex, the_string)
+        for j in range(len(found_list)):
+            clean_string = re.sub('(&?am|nbs)p;', '', found_list[j])
+            if j == 0:
+                product_information_key = clean_string
+            else:
+                found_list[j] = clean_string
+        found_list.pop(0)
+        product_information[i] = {product_information_key: found_list}
 
     product_categories = []
     for item in uncleaned_product_categories:
@@ -113,8 +121,11 @@ def scrap_product_details(url='https://www.fairprice.com.sg/product/fairprice-go
         'product_images': product_images,
         'product_information': product_information,
         'product_categories': product_categories,
+        'product_origin_url': url,
     }
-    print(product)
+    # print(product)
+
+    all_product_details_list.append(product)
 
 
 def selenium_scroll_and_return_html(url, driver):
@@ -153,17 +164,44 @@ def start_scrap():
     print('scrapper returned {} unique category/ brand links'.format(len(all_category_brand_url_set)))
 
     # Below gets all products url
-    threads = []
+    threads1 = []
     for url in all_category_brand_url_set:
-        t = Thread(target=scrap_product_links, args=(url, create_selenium_driver()))
-        t.start()
-        threads.append(t)
-    for t in threads:
-        t.join()
+        t1 = Thread(target=scrap_product_links, args=(url, create_selenium_driver()))
+        t1.start()
+        threads1.append(t1)
+    for t1 in threads1:
+        t1.join()
     all_product_url_set = set(all_product_url_list)
+    f = open("product_url.txt", "a")
+    f.write(str(all_product_url_set))
+    f.close()
     print('scrapper returned {} unique product links'.format(len(all_product_url_set)))
+
+    # Below gets all product details
+    threads2 = []
+    counter = 0
+    for url in all_product_url_set:
+        t2 = Thread(target=scrap_product_details, args=(url,))
+        t2.start()
+        threads2.append(t2)
+        counter =+ 1
+        if counter % 25 == 0:
+            print('{0} of {1} product details scrapped'.format(counter, len(all_product_url_set)))
+    for t2 in threads2:
+        t2.join()
 
 
 if __name__ == '__main__':
     # start_scrap()
-    scrap_product_details('https://www.fairprice.com.sg/product/magiclean-bathroom-stain-mold-remover-400ml-12329292')
+
+    threads2 = []
+    for url in product_url_set:
+        t2 = Thread(target=scrap_product_details, args=(url,))
+        t2.start()
+        threads2.append(t2)
+    for t2 in threads2:
+        t2.join()
+    f = open("product_details.txt", "a")
+    f.write(str(all_product_details_list))
+    f.close()
+    print('scrapping completed')
