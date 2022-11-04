@@ -1,0 +1,212 @@
+pipenv install djangorestframework
+
+
+python manage.py startapp restful_api
+
+pipenv install restful_api
+
+urls.py -> path('api/', include(('restful_apis.urls')),
+
+go restful_apis -> url then 
+from django.urls improt path
+from . import views
+
+urlpatterns = []
+
+go restful_api -> models.py (no primary key, program will allocate automateically)
+from django.db import models 
+
+class Task(models.Model):
+	title = models.CharField(max_length=200)
+	completed = models.BooleanField(default=False, blank=True, null=True)
+
+	def __str__(self):
+		return self.title
+
+add new file serializer.py -> convert file structure from db to ide and vice versa
+
+from rest_framework import serializers
+from .models import Task
+
+class TaskSerializer(serializer.ModelSerializer):
+	class Meta:
+		model=Task
+		fields = '__all__'
+		exclude = ['completed',]  # without completed field
+
+	def validate_title(self, value):
+		if len(value) < 5:
+			raise serializer.ValidationError(
+				'Title has to be at least 5 character long'
+			)
+
+		return value
+
+
+go to views.py
+from rest_framework.response import Response
+from rest_framework.views import APIView
+from .serializer import TaskSerializer
+from .models import Task
+
+class Task(APIView):
+	def get(self, request):
+		pass
+
+class TaskList(APIView):
+	def get(self, request):
+		tasks = Task.objects.all()
+		serializer = TaskSerializer(tasks, many=True)  # tells the programe that there is many return hence put it as a list
+		return Response(serializer.data)
+
+class TaskDetails(APIView):
+	def get(self, request, pk):
+		tasks = Task.objects.get(id=pk)
+		serializer = TaskSerializer(task, many=True)
+		return Response(serializer.data)
+
+class TaskCreate(APIView):
+	def put(self, request):
+		serializer = TaskSerializer(data=request.data)
+		
+		if serializer.is_valid():  # required to check if serializer is correct before saving
+			serializer.save()
+			return Response(serializer.data)
+
+		else:
+			return Response(serializer.errors)
+
+class TaskUpdate(APIView):
+	def patch(self, request, pk):
+		task = Task.objects.get(id=pk)
+		serializer = TaskSerializer(instance=task, data=request.data, partial=True)  # allow partial update of data within a row 
+
+		if serializer.is_valid():
+			serializer.save()
+		
+		return Response(serializer.data)
+
+class TaskDelete(APIView):
+	def delete(self, request, pk)
+		task = Task.objects.get(id=pk)
+		task.delete()
+
+		return Response('item deleted')
+
+
+go to urls.py
+from django.url import path
+from . import views
+
+urlpatterns = [
+	path('task-list/', views.TaskList.as_view(), name='task-list'),  # name is optional variable in django for restful api
+	path('task-details/<str:pk>/', views.TaskDetails.as_view(), name='task-details'),
+	path('task-create/', views.TaskCreate.as_view(), name='task-create'),
+	path('task-update/<str:pk>/', views.TaskUpdate.as_view(), name='task-update'),
+	path('task-delete/<str:pk>/', views.TaskDelete.as_view(), name='task-delete'),
+]
+
+
+then makemigration and migrate
+python manage.py makemigration restful_apis  # specify which dir to migrate
+
+pipenv install djangorestframework-simplejet
+
+python manage.py startapp restful_apis_with_JWT
+then add the framework to app 'restful_apis_with_JWT'
+then import from datetime import timedelta
+
+then in setting add
+REST_FRAMEWORK = {
+	'DEFAULT_AUTHENTICATION_CLASSES': [
+		'rest_framework_simplejwt.authentication.JWTAuthentication',
+	]
+}
+
+paste in btm of settings
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=5),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
+    'ROTATE_REFRESH_TOKENS': False,
+    'BLACKLIST_AFTER_ROTATION': True,
+    'UPDATE_LAST_LOGIN': False,
+
+    'ALGORITHM': 'HS256',
+    'SIGNING_KEY': SECRET_KEY,
+    'VERIFYING_KEY': None,
+    'AUDIENCE': None,
+    'ISSUER': None,
+
+    'AUTH_HEADER_TYPES': ('Bearer',),
+    'AUTH_HEADER_NAME': 'HTTP_AUTHORIZATION',
+    'USER_ID_FIELD': 'id',
+    'USER_ID_CLAIM': 'user_id',
+
+    'AUTH_TOKEN_CLASSES': 
+     ('rest_framework_simplejwt.tokens.AccessToken',),
+    'TOKEN_TYPE_CLAIM': 'token_type',
+
+    'JTI_CLAIM': 'jti',
+
+    'SLIDING_TOKEN_REFRESH_EXP_CLAIM': 'refresh_exp',
+    'SLIDING_TOKEN_LIFETIME': timedelta(minutes=5),
+    'SLIDING_TOKEN_REFRESH_LIFETIME': timedelta(days=1),
+}
+
+go to one_project urls.py
+add new path path('jwt_api/', include('restful_apis_with_jwt.urls))
+
+go to restful_api folder urls.py
+from rest_framework_simplejwt.views import (TokenObtainPairView, TokenRefreshView)
+
+urlpatterns = [
+	path('token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+	path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+]
+
+go to restful_api folder views.py
+from rest_framework.persmissions import IsAuthenticated
+
+class TaskList(APIView):
+	permission_classes = (IsAuthenticated, )  # tuple so need ,
+
+
+goto restfulapi folder views.py
+from rest_framework_simplejwt.serializer import TokenObtainPairSerializer
+from rest_framework_simplejwt.views import TokenObtainPairView
+
+class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
+	@classmethod
+	def get_token(cls, user):
+		token = super().get_token(user)
+
+		token['company'] = 'GA'  # extra claims is added here (payload)
+
+		return token
+
+class CustomTokenObtainPairView(TokenObtainPairView):
+	serializer_class = CustomTokenObtainPairSerializer
+
+goto restful_api folder url.py
+from . import views
+
+and change the token path to the custom path that we used in the previous slice
+
+go to restful_api views.py
+from rest_framework_simplejwt.authentication import JWTAuthentication
+
+class JWTDetails(APIView):
+	permission_classes = (IsAuthenticated,)
+	
+	def get(self, request):
+		response = JWTAuthentication().authenticate(request)
+		if response is not None:
+			account, token = response
+			print(account.id)
+	
+			return Response(token.payload)
+		else:
+			return Response('token error')
+
+go to restful_api folder urls.py
+add path path('jwt-details/', views.JWTDetails.as_view(), name='jwt-details')
