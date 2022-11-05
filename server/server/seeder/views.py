@@ -1,11 +1,15 @@
-from django.shortcuts import HttpResponse
-# from .models import Members
+from rest_framework.response import Response
+from rest_framework.views import APIView
+from . import serializer
+from . import models
 
 
-def index(request):
-    return HttpResponse('Route works on index')
+class Index(APIView):
+    def get(self, request):
+        return Response('Route works on index')
 
 
-def seed_products(request):
+class SeedProducts(APIView):
+    def get(self, request):
 
-    return HttpResponse('seeding success')
+        return Response('seed route accessed')
