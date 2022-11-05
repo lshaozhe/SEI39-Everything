@@ -1,6 +1,7 @@
 import requests
 import re
 import time
+import json
 from threading import Thread
 from bs4 import BeautifulSoup
 from selenium import webdriver
@@ -130,9 +131,12 @@ def scrap_product_details(url='https://www.fairprice.com.sg/product/meatlovers-o
         }
         # print(product)
 
-        all_product_details_list.append(product)
-        f = open("product_details.txt", "a")
-        f.write(str(product) + ',\n')
+        # all_product_details_list.append(product)
+
+        with open("product_details.json", "a") as jsonfile:
+            json.dump(product, jsonfile)
+        f = open("product_details.json", "a")
+        f.write(',\n')
         f.close()
 
     except:
