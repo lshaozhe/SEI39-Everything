@@ -4,9 +4,9 @@ from .serializer import TaskSerializer
 from .models import Task
 
 
-class Task(APIView):
-    def get(self, request):
-        pass
+# class Task(APIView):
+#     def get(self, request):
+#         pass
 
 
 class TaskList(APIView):
@@ -38,8 +38,7 @@ class TaskCreate(APIView):
 class TaskUpdate(APIView):
     def patch(self, request, pk):
         task = Task.objects.get(id=pk)
-        serializer = TaskSerializer(instance=task, data=request.data,
-                                    partial=True)  # allow partial update of data within a row
+        serializer = TaskSerializer(instance=task, data=request.data, partial=True)  # allow partial update of data within a row
 
         if serializer.is_valid():
             serializer.save()

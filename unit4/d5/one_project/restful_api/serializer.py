@@ -4,9 +4,9 @@ from .models import Task
 
 class TaskSerializer(serializers.ModelSerializer):
 	class Meta:
-		model=Task
+		model = Task
 		fields = '__all__'
-		exclude = ['completed',]  # without completed field
+		# exclude = ['completed', ]  # without completed field
 
 	def validate_title(self, value):
 		if len(value) < 5:

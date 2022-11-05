@@ -19,5 +19,6 @@ from django.urls import path, include
 urlpatterns = [
     path('routes/', include('main_app.urls')),
     path('api/', include('restful_api.urls')),
+    path('jwt_api/', include('restful_apis_with_JWT.urls')),
     path('admin/', admin.site.urls),
 ]
