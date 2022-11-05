@@ -110,7 +110,7 @@ urlpatterns = [
 then makemigration and migrate
 python manage.py makemigration restful_apis  # specify which dir to migrate
 
-pipenv install djangorestframework-simplejet
+pipenv install djangorestframework-simplejwt
 
 python manage.py startapp restful_apis_with_JWT
 then add the framework to app 'restful_apis_with_JWT'
