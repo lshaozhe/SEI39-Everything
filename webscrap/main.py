@@ -11,6 +11,7 @@ from sample_data_product_links import product_url_set
 # Global variables for storing threaded returns
 all_product_url_list = []
 all_product_details_list = []
+counter = 0
 
 
 def create_selenium_driver():
@@ -71,61 +72,77 @@ def scrap_product_links(url, selenium_driver):
     all_product_url_list = all_product_url_list + results
 
 
-def scrap_product_details(url='https://www.fairprice.com.sg/product/fairprice-gold-3-ply-bathtroom-tissues-10-rolls-13095920'):
+def scrap_product_details(url='https://www.fairprice.com.sg/product/meatlovers-ohmi-yakiniku-chill-250-g-90073727'):
     page = requests.get(url)
-    product = dict()
 
-    soup = BeautifulSoup(page.content, "html.parser")
-    product_name = soup.find('span', attrs={'class': 'sc-1bsd7ul-1 djlKtC'}).text.strip()
-    product_price = soup.find('span', attrs={'class': 'sc-1bsd7ul-1 sc-13n2dsm-5 kxEbZl deQJPo'}).text.strip()
-    product_description = soup.find('span', attrs={'class': 'sc-1bsd7ul-1 LLmwF'}).text.strip()
-    product_brand = soup.find('a', attrs={'class': 'sc-13n2dsm-1 jLtMNk'}).text.strip()
-    product_images = soup.find_all('img', attrs={'class': 'sc-10zw1uf-11 gyQcYf'})
-    product_information = soup.find_all('div', attrs={'class': 'sc-3zvnd-0 hOgsAE'})
-    uncleaned_product_categories = soup.find_all('a', attrs={'class': 'sc-scqi9x-1 kWVUbN'})
+    try:
+        soup = BeautifulSoup(page.content, "html.parser")
+        product_name = soup.find('span', attrs={'class': 'sc-1bsd7ul-1 djlKtC'}).text.strip()
+        product_price = soup.find('span', attrs={'class': 'sc-1bsd7ul-1 sc-13n2dsm-5 kxEbZl deQJPo'}).text.strip()
+        product_description = soup.find('span', attrs={'class': 'sc-1bsd7ul-1 LLmwF'}).text.strip()
+        product_brand = soup.find('a', attrs={'class': 'sc-13n2dsm-1 jLtMNk'}).text.strip()
+        product_images = soup.find_all('img', attrs={'class': 'sc-10zw1uf-11 gyQcYf'})
+        product_information = soup.find_all('div', attrs={'class': 'sc-3zvnd-0 hOgsAE'})
+        uncleaned_product_categories = soup.find_all('a', attrs={'class': 'sc-scqi9x-1 kWVUbN'})
 
-    # Cleaning url for img found without query modifiers at the end of url
-    the_regex = re.compile('^[^?]+')
-    for i in range(len(product_images)):
-        the_string = product_images[i]['src']
-        found_string = re.search(the_regex, the_string).group(0)
-        product_images[i] = found_string
+        # Cleaning url for img found without query modifiers at the end of url
+        the_regex = re.compile('^[^?]+')
+        for i in range(len(product_images)):
+            the_string = product_images[i]['src']
+            found_string = re.search(the_regex, the_string).group(0)
+            product_images[i] = found_string
 
-    the_regex = re.compile('(?<=>)[a-zA-Z0-9\ &;!,/]+(?=<)')
-    for i in range(len(product_information)):
-        the_string = str(product_information[i])
-        found_list = re.findall(the_regex, the_string)
-        for j in range(len(found_list)):
-            clean_string = re.sub('(&?am|nbs)p;', '', found_list[j])
-            if j == 0:
-                product_information_key = clean_string
-            else:
-                found_list[j] = clean_string
-        found_list.pop(0)
-        product_information[i] = {product_information_key: found_list}
+        # Cleaning product information stuff here
+        # the_regex = re.compile('(?<=>)[a-zA-Z0-9\ &;!,/]+(?=<)')
+        the_regex = re.compile('>(.*?)<')
+        for i in range(len(product_information)):
+            the_string = str(product_information[i])
+            found_list_with_null = re.findall(the_regex, the_string)
+            found_list = [i for i in found_list_with_null if i != '']
+            for j in range(len(found_list)):
+                clean_string = re.sub('(&?am|nbs)p;', '', found_list[j])
+                if j == 0:
+                    product_information_key = clean_string
+                else:
+                    found_list[j] = clean_string
+            found_list.pop(0)
+            product_information[i] = {product_information_key: found_list}
 
-    product_categories = []
-    for item in uncleaned_product_categories:
-        if item.text.strip() != 'Home':
-            product_categories.append(item.text.strip())
-    product_categories = set(product_categories)
-    product_categories = list(product_categories)
+        # Cleaning product categories here
+        product_categories = []
+        for item in uncleaned_product_categories:
+            if item.text.strip() != 'Home':
+                product_categories.append(item.text.strip())
+        product_categories = set(product_categories)
+        product_categories = list(product_categories)
 
-    # print(soup.prettify())
+        # print(soup.prettify())
 
-    product = {
-        'product_name': product_name,
-        'product_price': product_price,
-        'product_description': product_description,
-        'product_brand': product_brand,
-        'product_images': product_images,
-        'product_information': product_information,
-        'product_categories': product_categories,
-        'product_origin_url': url,
-    }
-    # print(product)
+        product = {
+            'product_name': product_name,
+            'product_price': product_price,
+            'product_description': product_description,
+            'product_brand': product_brand,
+            'product_images': product_images,
+            'product_information': product_information,
+            'product_categories': product_categories,
+            'product_origin_url': url,
+        }
+        # print(product)
 
-    all_product_details_list.append(product)
+        all_product_details_list.append(product)
+        f = open("product_details.txt", "a")
+        f.write(str(product) + ',\n')
+        f.close()
+
+    except:
+        print('scrapper cannot scrap {}'.format(url))
+
+    finally:
+        global counter
+        counter = counter + 1
+        if counter % 250 == 0:
+            print('scrapper had scrapped {} products'.format(counter))
 
 
 def selenium_scroll_and_return_html(url, driver):
@@ -179,22 +196,6 @@ def start_scrap():
 
     # Below gets all product details
     threads2 = []
-    counter = 0
-    for url in all_product_url_set:
-        t2 = Thread(target=scrap_product_details, args=(url,))
-        t2.start()
-        threads2.append(t2)
-        counter =+ 1
-        if counter % 25 == 0:
-            print('{0} of {1} product details scrapped'.format(counter, len(all_product_url_set)))
-    for t2 in threads2:
-        t2.join()
-
-
-if __name__ == '__main__':
-    # start_scrap()
-
-    threads2 = []
     for url in product_url_set:
         t2 = Thread(target=scrap_product_details, args=(url,))
         t2.start()
@@ -204,4 +205,22 @@ if __name__ == '__main__':
     f = open("product_details.txt", "a")
     f.write(str(all_product_details_list))
     f.close()
+    print('scrapping completed')
+
+
+if __name__ == '__main__':
+    # start_scrap()
+
+    # scrap_product_details('https://www.fairprice.com.sg/product/karihome-goat-milk-growing-up-formula-stage-3-900g-13210795')
+
+    threads2 = []
+    for url in product_url_set:
+        t2 = Thread(target=scrap_product_details, args=(url,))
+        t2.start()
+        threads2.append(t2)
+    for t2 in threads2:
+        t2.join()
+    # f = open("product_details.txt", "a")
+    # f.write(str(all_product_details_list))
+    # f.close()
     print('scrapping completed')
