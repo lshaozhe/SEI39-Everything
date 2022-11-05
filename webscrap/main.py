@@ -2,12 +2,14 @@ import requests
 import re
 import time
 import json
-from threading import Thread
+from threading import Thread, Lock
 from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 from sample_data_product_links import product_url_set
+
+output_lock = Lock()
 
 # Global variables for storing threaded returns
 all_product_url_list = []
@@ -131,13 +133,11 @@ def scrap_product_details(url='https://www.fairprice.com.sg/product/meatlovers-o
         }
         # print(product)
 
-        # all_product_details_list.append(product)
-
-        with open("product_details.json", "a") as jsonfile:
-            json.dump(product, jsonfile)
-        f = open("product_details.json", "a")
-        f.write(',\n')
-        f.close()
+        with output_lock:
+            with open("product_details.json", "a") as jsonfile:
+                json.dump(product, jsonfile)
+            with open("product_details.json", "a") as f:
+                f.write(',\n')
 
     except:
         print('scrapper cannot scrap {}'.format(url))
@@ -199,6 +199,8 @@ def start_scrap():
     print('scrapper returned {} unique product links'.format(len(all_product_url_set)))
 
     # Below gets all product details
+    with open("product_details.json", "w") as f:
+        f.write('[')
     threads2 = []
     for url in product_url_set:
         t2 = Thread(target=scrap_product_details, args=(url,))
@@ -206,25 +208,26 @@ def start_scrap():
         threads2.append(t2)
     for t2 in threads2:
         t2.join()
-    f = open("product_details.txt", "a")
-    f.write(str(all_product_details_list))
-    f.close()
+    with open("product_details.json", "a") as f:
+        f.write(']')
     print('scrapping completed')
 
 
 if __name__ == '__main__':
-    # start_scrap()
+    start_scrap()
 
+    # Below codes for quick run/ troubleshooting
     # scrap_product_details('https://www.fairprice.com.sg/product/karihome-goat-milk-growing-up-formula-stage-3-900g-13210795')
 
-    threads2 = []
-    for url in product_url_set:
-        t2 = Thread(target=scrap_product_details, args=(url,))
-        t2.start()
-        threads2.append(t2)
-    for t2 in threads2:
-        t2.join()
-    # f = open("product_details.txt", "a")
-    # f.write(str(all_product_details_list))
-    # f.close()
-    print('scrapping completed')
+    # with open("product_details.json", "w") as f:
+    #     f.write('[')
+    # threads2 = []
+    # for url in product_url_set:
+    #     t2 = Thread(target=scrap_product_details, args=(url,))
+    #     t2.start()
+    #     threads2.append(t2)
+    # for t2 in threads2:
+    #     t2.join()
+    # with open("product_details.json", "a") as f:
+    #     f.write(']')
+    # print('scrapping completed')
