@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'main_app',
     'account',
+    'restful_api',
 ]
 
 MIDDLEWARE = [
@@ -93,7 +94,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'django',
         'USER': 'postgres',
-        'PASSWORD': '123',
+        'PASSWORD': 'example',
         'HOST': 'localhost',
         'PORT': '5432',
     }
