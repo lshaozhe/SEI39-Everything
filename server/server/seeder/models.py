@@ -41,7 +41,7 @@ class ProductsURLs(models.Model):
 class ProductsInformation(models.Model):
     product_id = models.ForeignKey(Products, on_delete=models.DO_NOTHING)
     information_title = models.CharField(max_length=100)
-    information_details = models.CharField(max_length=255)
+    information_details = models.TextField()
 
     def __str__(self):
         return self.product_id

@@ -15,10 +15,10 @@ class Index(APIView):
 class SeedOneProduct(APIView):
     def put(self, request):
         try:
-            product_foreign_key = populate_single_product_to_db(request)
-        except:
-            return Response({'status': 'failure',
-                             'message': 'product id: {} populated into DB'.format(product_foreign_key['product_id'])})
+            product_foreign_key = populate_single_product_to_db(request.data)
+        except ValueError as err:
+            return Response({'status': 'failed',
+                             'message': '{}'.format(err)})
         else:
             return Response({'status': 'success',
                              'message': 'product id: {} populated into DB'.format(product_foreign_key['product_id'])})
@@ -27,38 +27,42 @@ class SeedOneProduct(APIView):
 class SeedManyProducts(APIView):
 
     def put(self, request):
-        testfunction(self, request)
-
-        return Response('ok')
-
-
-def testfunction(self, request):
-    print("hello")
-    for product in request.data:
-        print(product['product_name'])
+        try:
+            counter = 0
+            for product in request.data:
+                product_foreign_key = populate_single_product_to_db(product)
+                counter = counter + 1
+        except ValueError as err:
+            return Response({'status': 'failed',
+                             'message': '{}'.format(err)})
+        else:
+            # product_foreign_key = {'product_id': 1}
+            return Response({'status': 'success',
+                             'message': '''populated {0} products, with last product of id: {1}'''
+                            .format(counter, product_foreign_key['product_id'])})
 
 
 def populate_single_product_to_db(request):
     # Fill the product table first, then query the PK for population of relational tables
     product_table_data = {
-        'product_name': request.data.get('product_name'),
-        'product_price': request.data.get('product_price'),
-        'product_description': request.data.get('product_description'),
-        'product_brand': request.data.get('product_brand'),
+        'product_name': request.get('product_name'),
+        'product_price': request.get('product_price'),
+        'product_description': request.get('product_description'),
+        'product_brand': request.get('product_brand'),
         'product_stock': random.randint(1, 100),
     }
     product_serializer = serializers.ProductsSerializer(data=product_table_data)
     if product_serializer.is_valid():
         product_serializer.save()
     else:
-        return Response(product_serializer.errors)
+        raise ValueError('Error during population of product table: {}'.format(product_serializer.errors))
 
     product_foreign_key = \
-        models.Products.objects.filter(product_name=request.data.get('product_name')).order_by('-product_id').values(
+        models.Products.objects.filter(product_name=request.get('product_name')).order_by('-product_id').values(
             'product_id')[0]
 
     # Generate dict for ProductsImages table and save to db
-    for item in request.data.get('product_images'):
+    for item in request.get('product_images'):
         product_image_table_data = {
             'product_id': product_foreign_key['product_id'],
             'product_image_url': item
@@ -67,10 +71,10 @@ def populate_single_product_to_db(request):
         if product_image_serializer.is_valid():
             product_image_serializer.save()
         else:
-            return Response(product_image_serializer.errors)
+            raise ValueError('Error during population of product table: {}'.format(product_image_serializer.errors))
 
     # Generate dict for ProductsCategories table and save to db
-    for item in request.data.get('product_categories'):
+    for item in request.get('product_categories'):
         product_categories_table_data = {
             'product_id': product_foreign_key['product_id'],
             'product_category': item
@@ -79,21 +83,21 @@ def populate_single_product_to_db(request):
         if product_categories_serializer.is_valid():
             product_categories_serializer.save()
         else:
-            return Response(product_categories_serializer.errors)
+            raise ValueError('Error during population of product table: {}'.format(product_categories_serializer.errors))
 
     # Generate dict for ProductsURLs table and save to db
     product_url_table_data = {
         'product_id': product_foreign_key['product_id'],
-        'product_origin_url': request.data.get('product_origin_url')
+        'product_origin_url': request.get('product_origin_url')
     }
     product_url_serializer = serializers.ProductsURLsSerializer(data=product_url_table_data)
     if product_url_serializer.is_valid():
         product_url_serializer.save()
     else:
-        return Response(product_url_serializer.errors)
+        raise ValueError('Error during population of product table: {}'.format(product_url_serializer.errors))
 
     # Generate dict for ProductsInformation table and save to db
-    for title_value_pair in request.data.get('product_information'):
+    for title_value_pair in request.get('product_information'):
         for item in title_value_pair.values():
             for value in item:
                 product_information_table_data = {
@@ -106,5 +110,6 @@ def populate_single_product_to_db(request):
                 if product_information_serializer.is_valid():
                     product_information_serializer.save()
                 else:
-                    return Response(product_information_serializer.errors)
+                    raise ValueError('Error during population of product table: {}'.format(product_information_serializer.errors))
+
     return product_foreign_key
