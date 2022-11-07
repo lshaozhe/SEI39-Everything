@@ -210,3 +210,54 @@ class JWTDetails(APIView):
 
 go to restful_api folder urls.py
 add path path('jwt-details/', views.JWTDetails.as_view(), name='jwt-details')
+
+D7 notes (DOCKER)
+docker images
+see all the images
+
+docker ps
+see every instance of docker running
+
+docker ps -a
+every instance of docker running or not runnung
+
+docker stop <container_id> or <name>
+to stop an instance by id or name
+
+docker rm <container_id>
+to remove a docker container (instances)
+
+docker rmi <image_id>
+to remove docker image
+
+install gunicorn
+pipenv install gunicorn
+
+now we need to create requirement.txt
+pip freeze > requirements.txt
+pipenv lock -r > requirements.txt
+try to see it with cmd
+
+go to setting file and change the host
+
+then
+docker build . -t django-project
+
+then (-p is publish)
+docker run -p 10000:8000 django-project
+
+to go into a running container
+docker exec -it  <container_id>
+
+then your usual cmd commands to look around it
+
+another command running with daemon (-d)
+docker run -d -p 10000:8000 django-project
+runs in background and not terminate instnace when you close the command line
+
+to pass docker image to someone thru a docker file
+docker save -o <name>.tar image:version
+docker save -o django-project.tar django-project:latest
+
+on the receiving end, to install
+docker load -i <name>.tar
