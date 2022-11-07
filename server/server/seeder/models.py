@@ -15,7 +15,7 @@ class Products(models.Model):
 
 
 class ProductsImages(models.Model):
-    product_id = models.ForeignKey(Products, on_delete=models.DO_NOTHING)
+    products = models.ForeignKey('Products', on_delete=models.DO_NOTHING)
     product_image_url = models.CharField(max_length=255)
 
     def __str__(self):
@@ -23,7 +23,7 @@ class ProductsImages(models.Model):
 
 
 class ProductsCategories(models.Model):
-    product_id = models.ForeignKey(Products, on_delete=models.DO_NOTHING)
+    products = models.ForeignKey('Products', on_delete=models.DO_NOTHING)
     product_category = models.CharField(max_length=100)
 
     def __str__(self):
@@ -31,7 +31,7 @@ class ProductsCategories(models.Model):
 
 
 class ProductsURLs(models.Model):
-    product_id = models.ForeignKey(Products, on_delete=models.DO_NOTHING)
+    products = models.ForeignKey('Products', on_delete=models.DO_NOTHING)
     product_origin_url = models.CharField(max_length=255)
 
     def __str__(self):
@@ -39,7 +39,7 @@ class ProductsURLs(models.Model):
 
 
 class ProductsInformation(models.Model):
-    product_id = models.ForeignKey(Products, on_delete=models.DO_NOTHING)
+    products = models.ForeignKey('Products', on_delete=models.DO_NOTHING)
     information_title = models.CharField(max_length=100)
     information_details = models.TextField(blank=True)
 
