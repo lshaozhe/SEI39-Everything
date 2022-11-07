@@ -3,12 +3,10 @@ from rest_framework.views import APIView
 from . import serializers
 from . import models
 import random
-import json
 
 
 class Index(APIView):
-    def post(self, request):
-        print(request.data.key)
+    def get(self, request):
         return Response('Route works on index')
 
 
