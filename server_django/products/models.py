@@ -1,4 +1,9 @@
 from django.db import models
+import random
+
+
+def random_int():
+    return random.randint(1, 500)
 
 
 class Products(models.Model):
@@ -7,7 +12,7 @@ class Products(models.Model):
     product_price = models.CharField(max_length=8)
     product_description = models.CharField(max_length=255)
     product_brand = models.CharField(max_length=100)
-    product_stock = models.SmallIntegerField()
+    product_stock = models.SmallIntegerField(default=random_int)
     product_reserved = models.SmallIntegerField(default=0)
     is_active = models.BooleanField(default=True)
 
