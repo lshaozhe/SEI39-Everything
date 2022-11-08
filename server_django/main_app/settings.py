@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'products'
+    'products',
     # 3rd Party Apps
     'rest_framework',
 ]
@@ -79,7 +79,7 @@ WSGI_APPLICATION = 'main_app.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'sei39_project4',
+        'NAME': 'project4',
         'USER': 'postgres',
         'PASSWORD': 'example',
         'HOST': 'localhost',

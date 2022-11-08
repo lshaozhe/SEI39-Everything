@@ -50,7 +50,7 @@ class ProductsInformation(models.Model):
 
 class InformationDetails(models.Model):
     productsinformation = \
-        models.ForeignKey(ProductsInformation, on_delete=models.DO_NOTHING, related_name='information_details')
+        models.ForeignKey(ProductsInformation, on_delete=models.DO_NOTHING, related_name='information_detail')
     information_details = models.TextField(blank=True)
 
     def __str__(self):
