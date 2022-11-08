@@ -26,6 +26,7 @@ class ProductsInformationSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.ProductsInformation
         fields = '__all__'
+        depth: 2
 
 
 class ProductsImagesSerializer(serializers.ModelSerializer):
@@ -44,6 +45,7 @@ class ProductsSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Products
         fields = '__all__'
+        depth = 3
 
 
 

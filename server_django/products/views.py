@@ -23,21 +23,6 @@ class CreateOneProduct(APIView):
             response = {'message': 'created one product with product_id: {}'.format(product_foreign_key['product_id'])}
             return Response(data=response, status=status.HTTP_201_CREATED)
 
-    # def put(self, request):
-    #     data = request.data
-    #     print(data)
-    #     serializer = serializers.ProductsSerializer(data=data)
-    #     # print(serializer)
-    #     if serializer.is_valid():
-    #         serializer.save()
-    #         response = {'message': 'created one product with product_id: {}'.format(serializer.data.get('product_id')),
-    #                     'data': serializer.data}
-    #         return Response(data=response, status=status.HTTP_201_CREATED)
-    #     else:
-    #         response = {'message': 'creation failed',
-    #                     'data': serializer.errors}
-    #         return Response(data=response, status=status.HTTP_400_BAD_REQUEST)
-
 
 class UpdateOneProduct(APIView):
 
@@ -96,6 +81,23 @@ class GetManyProducts(APIView):
         response = {'message': 'success',
                     'data': serializer.data}
         return Response(data=response, status=status.HTTP_200_OK)
+
+
+class SeedManyProducts(APIView):
+    def put(self, request):
+        try:
+            counter = 0
+            for product in request.data:
+                product_foreign_key = populate_single_product_to_db(product)
+                counter = counter + 1
+        except ValueError as err:
+            return Response({'status': 'failed',
+                             'message': '{}'.format(err)})
+        else:
+            # product_foreign_key = {'product_id': 1}
+            return Response({'status': 'success',
+                             'message': '''populated {0} products, with last product of id: {1}'''
+                            .format(counter, product_foreign_key['product_id'])})
 
 
 def populate_single_product_to_db(request):
