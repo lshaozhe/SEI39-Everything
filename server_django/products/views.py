@@ -14,19 +14,29 @@ class Index(APIView):
 class CreateOneProduct(APIView):
 
     def put(self, request):
-        data = request.data
-
-        serializer = serializers.ProductsSerializer(data=data)
-
-        if serializer.is_valid():
-            serializer.save()
-            response = {'message': 'created one product with product_id: {}'.format(serializer.data.get('product_id')),
-                        'data': serializer.data}
-            return Response(data=response, status=status.HTTP_201_CREATED)
-        else:
-            response = {'message': 'creation failed',
-                        'data': serializer.errors}
+        try:
+            product_foreign_key = populate_single_product_to_db(request.data)
+        except ValueError as err:
+            response = {'message': 'creation failed', 'data': '{}'.format(err)}
             return Response(data=response, status=status.HTTP_400_BAD_REQUEST)
+        else:
+            response = {'message': 'created one product with product_id: {}'.format(product_foreign_key['product_id'])}
+            return Response(data=response, status=status.HTTP_201_CREATED)
+
+    # def put(self, request):
+    #     data = request.data
+    #     print(data)
+    #     serializer = serializers.ProductsSerializer(data=data)
+    #     # print(serializer)
+    #     if serializer.is_valid():
+    #         serializer.save()
+    #         response = {'message': 'created one product with product_id: {}'.format(serializer.data.get('product_id')),
+    #                     'data': serializer.data}
+    #         return Response(data=response, status=status.HTTP_201_CREATED)
+    #     else:
+    #         response = {'message': 'creation failed',
+    #                     'data': serializer.errors}
+    #         return Response(data=response, status=status.HTTP_400_BAD_REQUEST)
 
 
 class UpdateOneProduct(APIView):
@@ -35,7 +45,7 @@ class UpdateOneProduct(APIView):
         data = request.data
         results = models.Products.objects.get(pk=pk)
 
-        serializer = serializers.ProductsSerializer(instance=results, data=data)
+        serializer = serializers.ProductsSerializer(instance=results, data=data, partial=True)
 
         if serializer.is_valid():
             serializer.save()
@@ -47,12 +57,28 @@ class UpdateOneProduct(APIView):
                         'data': serializer.errors}
             return Response(data=response, status=status.HTTP_400_BAD_REQUEST)
 
+    def delete(self, request, pk):
+        data = {'is_active': False}
+        results = models.Products.objects.filter(is_active=True).get(pk=pk)
+
+        serializer = serializers.ProductsSerializer(instance=results, data=data, partial=True)
+
+        if serializer.is_valid():
+            serializer.save()
+            response = {'message': 'deleted one product with product_id: {}'.format(serializer.data.get('product_id')),
+                        'data': serializer.data}
+            return Response(data=response, status=status.HTTP_204_NO_CONTENT)
+        else:
+            response = {'message': 'delete failed',
+                        'data': serializer.errors}
+            return Response(data=response, status=status.HTTP_400_BAD_REQUEST)
+
 
 class GetOneProduct(APIView):
     serializer_class = serializers.ProductsSerializer
 
     def get(self, request, pk):
-        results = models.Products.objects.get(pk=pk)
+        results = models.Products.objects.filter(is_active=True).get(pk=pk)
 
         serializer = self.serializer_class(instance=results)
         response = {'message': 'success',
@@ -64,7 +90,7 @@ class GetManyProducts(APIView):
     serializer_class = serializers.ProductsSerializer
 
     def get(self, request):
-        results = models.Products.objects.all()
+        results = models.Products.objects.filter(is_active=True).all()
 
         serializer = self.serializer_class(instance=results, many=True)
         response = {'message': 'success',
@@ -72,35 +98,96 @@ class GetManyProducts(APIView):
         return Response(data=response, status=status.HTTP_200_OK)
 
 
+def populate_single_product_to_db(request):
+    # Fill the product table first, then query the PK for population of relational tables
+    product_table_data = {
+        'product_name': request.get('product_name'),
+        'product_price': request.get('product_price'),
+        'product_description': request.get('product_description'),
+        'product_brand': request.get('product_brand'),
+    }
+    product_serializer = serializers.ProductsSerializer(data=product_table_data)
+    if product_serializer.is_valid():
+        product_serializer.save()
+    else:
+        raise ValueError('Error during population of product table: {}'.format(product_serializer.errors))
 
+    product_foreign_key = \
+        models.Products.objects.filter(product_name=request.get('product_name')).order_by('-product_id').values(
+            'product_id')[0]
 
-# class GetOneProduct(generics.GenericAPIView, mixins.RetrieveModelMixin):
-#     serializer_class = serializers.ProductsSerializer
-#     queryset = models.Products.objects.all()
-#
-#     def get(self, request, *args, **kwargs):
-#         return self.retrieve(request, *args, **kwargs)
+    # Generate dict for ProductsImages table and save to db
+    for item in request.get('product_images'):
+        # print(product_serializer.data)
+        product_image_table_data = {
+            'products': product_serializer.data['product_id'],
+            'product_image_url': item
+        }
+        product_image_serializer = serializers.ProductsImagesSerializer(data=product_image_table_data)
+        if product_image_serializer.is_valid():
+            product_image_serializer.save()
+        else:
+            raise ValueError('Error during population of product image table: {}'.format(product_image_serializer.errors))
 
+    # Generate dict for ProductsCategories table and save to db
+    for item in request.get('product_categories'):
+        product_categories_table_data = {
+            'products': product_serializer.data['product_id'],
+            'product_category': item
+        }
+        product_categories_serializer = serializers.ProductsCategoriesSerializer(data=product_categories_table_data)
+        if product_categories_serializer.is_valid():
+            product_categories_serializer.save()
+        else:
+            raise ValueError('Error during population of product categories table: {}'.format(product_categories_serializer.errors))
 
-# class CreateOneProduct(generics.GenericAPIView, mixins.CreateModelMixin):
-#     serializer_class = serializers.ProductsSerializer
-#     queryset = models.Products.objects.all()
-#
-#     def put(self, request, *args, **kwargs):
-#         return self.create(request, *args, **kwargs)
+    # Generate dict for ProductsURLs table and save to db
+    product_url_table_data = {
+        'products': product_serializer.data['product_id'],
+        'product_origin_url': request.get('product_origin_url')
+    }
+    product_url_serializer = serializers.ProductsURLsSerializer(data=product_url_table_data)
+    if product_url_serializer.is_valid():
+        product_url_serializer.save()
+    else:
+        raise ValueError('Error during population of product URL table: {}'.format(product_url_serializer.errors))
 
+    # Generate dict for ProductsInformation table and save to db
+    for title_value_pair in request.get('product_information'):
+        for item in title_value_pair.values():
+            for value in item:
+                # for product information tab;e
+                product_information_table_data = {
+                    'products': product_serializer.data['product_id'],
+                    'information_title': list(title_value_pair.keys())[0],
+                }
+                product_information_serializer = \
+                    serializers.ProductsInformationSerializer(data=product_information_table_data)
 
-# class GetManyProducts(generics.GenericAPIView, mixins.ListModelMixin):
-#     serializer_class = serializers.ProductsSerializer
-#     queryset = models.Products.objects.all()
-#
-#     def get(self, request):
-#         return self.list(request)
+                if product_information_serializer.is_valid():
+                    product_information_serializer.save()
+                else:
+                    raise ValueError('Error during population of product information table: {}'.format(
+                        product_information_serializer.errors))
 
+    # Generate dict for InformationDetails table and save to db
+    for title_value_pair in request.get('product_information'):
+        for item in title_value_pair.values():
+            for value in item:
+                information_title_foreign_key = models.ProductsInformation.objects.filter(
+                    information_title=list(title_value_pair.keys())[0]).order_by('-id').values(
+                    'id')[0]['id']
+                print(information_title_foreign_key)
+                information_detail_table_data = {
+                    'productsinformation': information_title_foreign_key,
+                    'information_details': value
+                 }
+                information_details_serializer = \
+                    serializers.InformationDetailsSerializer(data=information_detail_table_data)
 
-# class UpdateOneProduct(generics.GenericAPIView, mixins.UpdateModelMixin):
-#     serializer_class = serializers.ProductsSerializer
-#     queryset = models.Products.objects.all()
-#
-#     def patch(self, request):
-#         return Response('ok')
+                if information_details_serializer.is_valid():
+                    information_details_serializer.save()
+                else:
+                    raise ValueError('Error during population of product information 2nd table: {}'.format(
+                        information_details_serializer.errors))
+        return product_foreign_key
