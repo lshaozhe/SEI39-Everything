@@ -177,11 +177,10 @@ def populate_single_product_to_db(request):
                 information_title_foreign_key = models.ProductsInformation.objects.filter(
                     information_title=list(title_value_pair.keys())[0]).order_by('-id').values(
                     'id')[0]['id']
-                print(information_title_foreign_key)
                 information_detail_table_data = {
                     'productsinformation': information_title_foreign_key,
                     'information_details': value
-                 }
+                }
                 information_details_serializer = \
                     serializers.InformationDetailsSerializer(data=information_detail_table_data)
 
@@ -190,4 +189,5 @@ def populate_single_product_to_db(request):
                 else:
                     raise ValueError('Error during population of product information 2nd table: {}'.format(
                         information_details_serializer.errors))
-        return product_foreign_key
+
+    return product_foreign_key
