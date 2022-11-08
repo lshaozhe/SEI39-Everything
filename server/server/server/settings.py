@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'seeder',
     'standardroutes',
+    # 3rd Party Apps
+    'rest_framework',
 ]
 
 MIDDLEWARE = [

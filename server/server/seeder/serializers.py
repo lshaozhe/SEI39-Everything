@@ -30,3 +30,18 @@ class ProductsURLsSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = models.ProductsURLs
 		fields = '__all__'
+
+
+class CombinedSerializer(serializers.ModelSerializer):
+
+	products_images = serializers.StringRelatedField(many=True)
+	# products = ProductsSerializer
+	# images = ProductsImagesSerializer
+	# product_class_serializer = ProductsSerializer
+	# product_image_class_serializer = ProductsImagesSerializer(many=True)
+	# product_information_class_serializer = ProductsInformationSerializer
+	# product_categories_class_serializer = ProductsCategoriesSerializer
+
+	class Meta:
+		model = models.Products
+		fields = '__all__'
