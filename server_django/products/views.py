@@ -3,6 +3,8 @@ from rest_framework.views import APIView
 from rest_framework import status, generics, mixins
 from . import serializers
 from . import models
+from rest_framework.pagination import PageNumberPagination
+from .paginations import PaginationHandlerMixin
 
 
 class Index(APIView):
@@ -71,13 +73,22 @@ class GetOneProduct(APIView):
         return Response(data=response, status=status.HTTP_200_OK)
 
 
-class GetManyProducts(APIView):
+class BasicPagination(PageNumberPagination):
+    page_size_query_param = 'limit'
+
+
+class GetManyProducts(APIView, PaginationHandlerMixin):
     serializer_class = serializers.ProductsSerializer
+    pagination_class = BasicPagination
 
-    def get(self, request):
-        results = models.Products.objects.filter(is_active=True).all()
-
-        serializer = self.serializer_class(instance=results, many=True)
+    def get(self, request, *args, **kwargs):
+        instance = models.Products.objects.filter(is_active=True).all()
+        page = self.paginate_queryset(instance)
+        if page is not None:
+            serializer = self.get_paginated_response(self.serializer_class(page, many=True).data)
+        else:
+            serializer = self.serializer_class(instance, many=True)
+        # serializer = self.serializer_class(instance=instance, many=True)
         response = {'message': 'success',
                     'data': serializer.data}
         return Response(data=response, status=status.HTTP_200_OK)
