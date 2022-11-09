@@ -11,8 +11,8 @@
     height: 64px;
     margin: 8px;
     border-radius: 50%;
-    border: 8px solid red;
-    border-color: red transparent red transparent;
+    border: 8px solid blue;
+    border-color: blue transparent blue transparent;
     animation: spinner 0.5s linear infinite;
   }
   
