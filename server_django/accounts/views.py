@@ -18,15 +18,24 @@ class AccountCreate(APIView):
         )
 
         serializer = AccountSerializer(new_user)
-        return Response(serializer.data)
+        return Response(serializer.data.get('email'))
 
 
 class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
+
+    def get_is_admin(self):
+        pass
+
     @classmethod
     def get_token(cls, user):
         token = super().get_token(user)
 
-        token['company'] = 'GA'  # extra claims is added here (payload)
+        query_set = Account.objects.filter(id=user.id).all()
+        serializer = AccountSerializer(query_set, many=True)
+
+        token['given_name'] = dict(serializer.data[0])['given_name']
+        token['name'] = dict(serializer.data[0])['name']
+        token['is_admin'] = dict(serializer.data[0])['is_admin']
 
         return token
 

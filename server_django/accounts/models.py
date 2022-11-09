@@ -50,7 +50,7 @@ class Account(AbstractBaseUser):
     REQUIRED_FIELDS = ['given_name', 'name']
 
     def __str__(self):
-        return f'{self.given_name}, {self.name}'
+        return f'{self.given_name}, {self.name}, {self.is_admin}'
 
     def has_perm(self, perm, obj=None):
         return self.is_admin

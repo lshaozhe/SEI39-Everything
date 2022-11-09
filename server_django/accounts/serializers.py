@@ -5,6 +5,5 @@ from .models import Account
 class AccountSerializer(serializers.ModelSerializer):
   class Meta:
     model = Account
-    fields = ['email', 'given_name', 'name']
-    # 'all'
-    # exclude = ['id', 'password']
+    fields = '__all__'
+    # fields = ['email', 'given_name', 'name', 'is_admin']
