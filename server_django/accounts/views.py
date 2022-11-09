@@ -9,7 +9,7 @@ class AccountCreate(APIView):
         new_user = Account.objects.create_user(
             email=request.data['email'],
             given_name=request.data['given_name'],
-            other_name=request.data['other_name'],
+            name=request.data['name'],
             password=request.data['password']
         )
 
