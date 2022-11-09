@@ -23,9 +23,6 @@ class AccountCreate(APIView):
 
 class CustomTokenObtainPairSerializer(TokenObtainPairSerializer):
 
-    def get_is_admin(self):
-        pass
-
     @classmethod
     def get_token(cls, user):
         token = super().get_token(user)
