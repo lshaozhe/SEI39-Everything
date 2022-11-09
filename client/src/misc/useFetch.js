@@ -33,8 +33,6 @@ const useFetch = (url, method = "GET", body = null) => {
       setError(err.message);
     }
 
-    localStorage.setItem("JWT from fetch", JSON.stringify(response));
-
     setIsLoading(false);
   }
 
