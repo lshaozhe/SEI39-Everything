@@ -55,7 +55,7 @@ INSTALLED_APPS = [
 
     # 3rd Party Apps
     'rest_framework',
-    # 'restful_apis_with_JWT',
+    'restful_apis_with_JWT',
 ]
 
 MIDDLEWARE = [
