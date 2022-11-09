@@ -14,7 +14,7 @@ const useFetch = (url, method = "GET", body = null) => {
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
-  async function fetchPost(url, method, body) {
+  async function fetchPost(url, method = "GET", body = null) {
     setIsLoading(true);
     setError(null);
 
@@ -24,16 +24,16 @@ const useFetch = (url, method = "GET", body = null) => {
         body,
         headers: { "Content-Type": "application/json" },
       });
-
       if (res.status !== 200) {
         throw new Error("Something went wrong.");
       }
-
       const data = await res.json();
       setResponse(data);
     } catch (err) {
       setError(err.message);
     }
+
+    localStorage.setItem("JWT from fetch", JSON.stringify(response));
 
     setIsLoading(false);
   }

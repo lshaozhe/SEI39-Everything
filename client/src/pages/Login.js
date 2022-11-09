@@ -1,7 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import ContextStorage from "../misc/context";
+import useFetch from "../misc/useFetch";
 
 const Login = () => {
+  const ctxURL = useContext(ContextStorage);
   const [loginInfo, setLoginInfo] = useState({ email: "", password: "" });
+
+  const { response, isLoading, error, fetchPost } = useFetch(
+    ctxURL.current + "/api/products/"
+  );
 
   const onInputChange = (e) => {
     e.preventDefault();
@@ -13,7 +20,15 @@ const Login = () => {
     }
   };
 
-  const handleSubmit = (e) => {};
+  const handleLogin = (e) => {
+    const { response } = fetchPost(
+      ctxURL.current + "/api/accounts/login/",
+      "POST",
+      loginInfo
+    );
+    localStorage.setItem("JWT", JSON.stringify(response));
+    setLoginInfo({ email: "", password: "" });
+  };
 
   return (
     <div className="container">
@@ -46,14 +61,20 @@ const Login = () => {
               />
             </div>
 
-            <div className="mb-3 align-self-end">
-              <button type="submit" className="btn btn-primary">
+            <div className="mb-3">
+              <button
+                type="submit"
+                className="btn btn-primary"
+                onClick={handleLogin}
+              >
                 Login
               </button>
             </div>
-            <button type="submit" classNames="btn btn-primary">
-              Sign Up
-            </button>
+            <div className="mb-3">
+              <button type="button" classNames="btn btn-warning">
+                Sign Up
+              </button>
+            </div>
           </form>
         </div>
       </div>
