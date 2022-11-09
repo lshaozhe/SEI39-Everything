@@ -1,13 +1,17 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import ContextStorage from "../misc/context";
 import useFetch from "../misc/useFetch";
 import SingleProductView from "./SingleProductView";
+import Pagination from "./Pagination";
 
 const MultiProductView = () => {
   const ctxURL = useContext(ContextStorage);
-  const { response } = useFetch(ctxURL.current + "/api/products/getmany/");
+  const [currentPage, setCurrentPage] = useState(1);
+  const { response } = useFetch(
+    ctxURL.current + "/api/products/getmany/?page=" + currentPage
+  );
 
-  const displayToggle = () => {
+  const displayProducts = () => {
     if (response !== null) {
       let productArr = response.data.results;
       return productArr.map((element) => (
@@ -16,7 +20,26 @@ const MultiProductView = () => {
     }
   };
 
-  return <div className="grid-container">{displayToggle()}</div>;
+  const displayPagination = () => {
+    if (response !== null) {
+      return (
+        <Pagination
+          next={response.data.next}
+          previous={response.data.previous}
+          currentPage={currentPage}
+          setCurrentPage={setCurrentPage}
+        />
+      );
+    }
+  };
+
+  return (
+    <>
+      <div className="grid-container">{displayProducts()}</div>
+      <br />
+      <div className="row">{displayPagination()}</div>
+    </>
+  );
 };
 
 export default MultiProductView;

@@ -7,9 +7,9 @@ const SingleProductView = (props) => {
       <img
         class="img-thumbnail card-img-top"
         src={props.product.products_images[0]}
-        alt="Card image cap"
+        alt="product thumbnail"
       ></img>
-      <div className="card-body" style={{ height: "10rem" }}>
+      <div className="card-body" style={{ height: "5rem" }}>
         <h5>{props.product.product_name}</h5>
         <p className="card-text">Price: {props.product.product_price}</p>
       </div>
