@@ -8,7 +8,7 @@ const MultiProductView = () => {
   const ctxURL = useContext(ContextStorage);
   const [currentPage, setCurrentPage] = useState(1);
   const { response } = useFetch(
-    ctxURL.current + "/api/products/getmany/?page=" + currentPage
+    ctxURL.current.APIendpoint + "/api/products/getmany/?page=" + currentPage
   );
 
   const displayProducts = () => {

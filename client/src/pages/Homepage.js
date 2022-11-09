@@ -7,7 +7,7 @@ const homepage = () => {
       <div className="row">
         <div className="col-sm-10">
           <div className="row">
-            <h2>All Products</h2>
+            <h3>All Products</h3>
           </div>
           <MultiProductView />
         </div>

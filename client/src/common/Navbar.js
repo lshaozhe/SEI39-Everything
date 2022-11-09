@@ -7,9 +7,9 @@ const NavBar = () => {
     <>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container-fluid flex">
-          <div className="col-3">
+          <div className="col-2">
             <NavLink to="/home">
-              <button className="navbar-brand">
+              <button className="navbar-brand" style={{ border: "none" }}>
                 <img
                   src={logo}
                   width="30"
@@ -34,7 +34,7 @@ const NavBar = () => {
               </button>
             </form>
           </div>
-          <div className="col-2 ms-auto">
+          <div className="col-2 self-align-end">
             <NavLink to="/login">
               <button className="btn btn-outline-primary">
                 Login / Sign Up

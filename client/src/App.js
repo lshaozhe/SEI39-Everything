@@ -10,11 +10,14 @@ import ContextStorage from "./misc/context";
 import "./App.css";
 
 function App() {
-  const APIendpoint = useRef("http://127.0.0.1:8000");
+  const context = useRef({
+    APIendpoint: "http://127.0.0.1:8000",
+    cart: {},
+  });
 
   return (
     <div className="App">
-      <ContextStorage.Provider value={APIendpoint}>
+      <ContextStorage.Provider value={context}>
         <NavBar />
         <Routes>
           <Route path="/" element={<Navigate replace to="/home" />} />
