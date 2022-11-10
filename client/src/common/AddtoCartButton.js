@@ -2,31 +2,39 @@ import React, { useContext } from "react";
 import ContextStorage from "../misc/context";
 
 const AddtoCartButton = (props) => {
-  const ctx = useContext(ContextStorage);
+  const { cart, setCart } = useContext(ContextStorage);
 
   const addToCartHandler = (e) => {
-    if (ctx.current.cart.length > 0) {
-      for (let element of ctx.current.cart) {
-        if (element.product_id == e.target.id) {
-          element.product_qty++;
+    if (cart.length !== 0) {
+      console.log(props.product_image);
+      for (let i = 0; i < cart.length; i++) {
+        if (cart[i].product_id == e.target.id) {
+          let tempCart = [...cart];
+          tempCart[i].product_qty++;
+          setCart(tempCart);
           break;
         } else {
-          ctx.current.cart.push({
-            product_id: props.product_id,
-            product_name: props.product_name,
-            product_image: props.product_image,
-            product_qty: 1,
-          });
-          break;
+          setCart([
+            ...cart,
+            {
+              product_id: props.product_id,
+              product_name: props.product_name,
+              product_image: props.product_image,
+              product_qty: 1,
+            },
+          ]);
         }
       }
     } else {
-      ctx.current.cart.push({
-        product_id: props.product_id,
-        product_name: props.product_name,
-        product_image: props.product_image,
-        product_qty: 1,
-      });
+      setCart([
+        ...cart,
+        {
+          product_id: props.product_id,
+          product_name: props.product_name,
+          product_image: props.product_image,
+          product_qty: 1,
+        },
+      ]);
     }
   };
 

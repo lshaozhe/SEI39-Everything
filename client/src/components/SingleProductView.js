@@ -5,7 +5,7 @@ const SingleProductView = (props) => {
   return (
     <div className="card border-primary mb-3 col-sm-3">
       <img
-        class="img-thumbnail card-img-top"
+        className="img-thumbnail card-img-top"
         src={props.product.products_images[0]}
         alt="product thumbnail"></img>
       <div className="card-body">

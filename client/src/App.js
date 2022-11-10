@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { Route, Routes, Navigate } from "react-router-dom";
 
 import NavBar from "./common/Navbar";
@@ -15,10 +15,11 @@ function App() {
     cart: [],
     JWT: [],
   });
+  const [cart, setCart] = useState([]);
 
   return (
     <div className="App">
-      <ContextStorage.Provider value={context}>
+      <ContextStorage.Provider value={{ context, cart, setCart }}>
         <NavBar />
         <Routes>
           <Route path="/" element={<Navigate replace to="/home" />} />

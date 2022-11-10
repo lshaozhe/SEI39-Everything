@@ -5,7 +5,7 @@ import SingleProductView from "./SingleProductView";
 import Pagination from "./Pagination";
 
 const MultiProductView = () => {
-  const ctxURL = useContext(ContextStorage);
+  const { context: ctxURL, cart, setCart } = useContext(ContextStorage);
   const [currentPage, setCurrentPage] = useState(1);
   const { response } = useFetch(
     ctxURL.current.APIendpoint + "/api/products/getmany/?page=" + currentPage
