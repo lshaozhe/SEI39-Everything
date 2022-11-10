@@ -1,4 +1,5 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext } from "react";
+import { NavLink } from "react-router-dom";
 import ContextStorage from "../misc/context";
 import useFetch from "../misc/useFetch";
 
@@ -6,9 +7,7 @@ const Login = () => {
   const { context: ctxURL } = useContext(ContextStorage);
   const [loginInfo, setLoginInfo] = useState({ email: "", password: "" });
 
-  const { response, isLoading, error, fetchPost } = useFetch(
-    ctxURL.current.APIendpoint + "/api/products/"
-  );
+  const { fetchPost } = useFetch(ctxURL.current.APIendpoint + "/api/products/");
 
   const onInputChange = (e) => {
     e.preventDefault();
@@ -66,7 +65,9 @@ const Login = () => {
               </button>
             </div>
             <div className="mb-3 col-sm-3">
-              <button className="btn btn-warning">Sign Up</button>
+              <NavLink to="/signup">
+                <button className="btn btn-warning">Sign Up</button>
+              </NavLink>
             </div>
           </form>
         </div>

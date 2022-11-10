@@ -42,6 +42,7 @@ const AddtoCartButton = (props) => {
     <>
       <button
         id={props.product_id}
+        style={{ height: "2.5em" }}
         type="button"
         className="btn btn-danger"
         onClick={addToCartHandler}
