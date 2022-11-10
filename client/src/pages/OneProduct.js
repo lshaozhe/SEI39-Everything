@@ -1,75 +1,61 @@
-import React from "react";
-
+import React, { useContext } from "react";
+import ContextStorage from "../misc/context";
+import useFetch from "../misc/useFetch";
 import AddtoCartButton from "../common/AddtoCartButton";
-import SingleProductInfo from "../components/SingleProductInfo";
-
-let product = {
-  product_name: "BRABANTIA Protective Ironing Cloth",
-  product_price: "$15.00",
-  product_description: "1 pc",
-  product_brand: "Brabantia",
-  product_images: [
-    "https://media.nedigital.sg/fairprice/fpol/media/images/product/XL/90083495_XL1_20220915.jpg",
-    "https://media.nedigital.sg/fairprice/fpol/media/images/product/XL/90083495_LXL1_20220915.jpg",
-    "https://media.nedigital.sg/fairprice/fpol/media/images/product/XL/90083495_RXL1_20220915.jpg",
-    "https://media.nedigital.sg/fairprice/fpol/media/images/product/XL/90083495_BXL1_20220915.jpg",
-  ],
-  product_information: [
-    {
-      "Key Information": [
-        "Brabantia takes the pressure off ironing, starting by stopping shiny ironing marks. The mesh Protective Ironing Cloth, size 40 x 60 cm, provides maximum safety for even the most sensitive fabrics. Its see-through, so you know where youre ironing for better results. So you can shine, and your clothes will not.",
-      ],
-    },
-    { "Country/place of Origin": ["Belgium"] },
-    {
-      Preparation: [
-        "Brabantia takes the pressure off ironing, starting by stopping shiny ironing marks. The mesh Protective Ironing Cloth, size 40 x 60 cm, provides maximum safety for even the most sensitive fabrics. Its see-through, so you know where youre ironing for better results. So you can shine, and your clothes will not.",
-      ],
-    },
-    { Storage: ["Store in a cool and dry place"] },
-  ],
-  product_categories: ["Laundry Accessories", "Household", "Home Needs"],
-  product_origin_url:
-    "https://www.fairprice.com.sg/product/brabantia-protective-ironing-cloth-1-pc-90083495",
-};
 
 const OneProduct = () => {
-  const iterateProductInfo = () => {
-    product.product_information.map((element) => (
-      <SingleProductInfo prodInfo={element} />
-    ));
-  };
-
-  return (
-    <div className="container">
-      <br />
-      <div className="row">
-        <h1>{product.product_name}</h1>
-      </div>
-      <br />
-      <div className="row d-flex justify-content-center align-items-center">
-        <div className="col-6">
-          <img
-            class="img-fluid"
-            src={product.product_images[0]}
-            alt={product.product_name}
-          />
-        </div>
-        <div className="col-4 flex">
-          <h5>Price: {product.product_price}</h5>
-          <h5>Brand: {product.product_brand}</h5>
-          <h5>Description: {product.product_description}</h5>
-          <br />
-          <AddtoCartButton />
-        </div>
-
-        <div className="row">
-          <h2>More Information</h2>
-        </div>
-        {iterateProductInfo}
-      </div>
-    </div>
+  const { context: ctxURL, currentSelection } = useContext(ContextStorage);
+  const { response } = useFetch(
+    ctxURL.current.APIendpoint + "/api/products/get/" + currentSelection
   );
+
+  const displayProduct = () => {
+    if (response !== null) {
+      console.log(response.data.products_images[0]);
+      let product = response.data;
+      let productImage = response.data;
+      return (
+        <div className="container">
+          <br />
+          <div className="row"></div>
+          <div className="row d-flex justify-content-center align-items-center">
+            <div className="col-sm-6">
+              <img
+                class="img-fluid rounded"
+                src={product.products_images[0]}
+                alt={product.product_name}
+              />
+            </div>
+            <div className="col-sm-4 flex">
+              <h1>{product.product_name}</h1>
+              <br />
+              <h5>Price: {product.product_price}</h5>
+              <h5>Brand: {product.product_brand}</h5>
+              <h5>Description: {product.product_description}</h5>
+              <h5>Current Stock: {product.product_stock}</h5>
+              <br />
+              <div className="row">
+                {product.products_images.map((e) => (
+                  <img
+                    className="img-thumbnail"
+                    style={{ height: "100px", width: "100px" }}
+                    src={e}
+                  />
+                ))}
+              </div>
+              <br />
+              <AddtoCartButton
+                product_name={product.product_name}
+                product_id={product.product_id}
+                product_image={response.data.products_images[0]}
+              />
+            </div>
+          </div>
+        </div>
+      );
+    }
+  };
+  return <>{displayProduct()}</>;
 };
 
 export default OneProduct;

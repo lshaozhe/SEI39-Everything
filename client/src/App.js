@@ -16,10 +16,19 @@ function App() {
     JWT: [],
   });
   const [cart, setCart] = useState([]);
+  const [currentSelection, setCurrentSelection] = useState("1");
 
   return (
     <div className="App">
-      <ContextStorage.Provider value={{ context, cart, setCart }}>
+      <ContextStorage.Provider
+        value={{
+          context,
+          cart,
+          setCart,
+          currentSelection,
+          setCurrentSelection,
+        }}
+      >
         <NavBar />
         <Routes>
           <Route path="/" element={<Navigate replace to="/home" />} />

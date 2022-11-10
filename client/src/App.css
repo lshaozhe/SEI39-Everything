@@ -1,6 +1,6 @@
-.product_main_img {
-  height: 400px;
-  width: 400px;
+.img-fluid {
+  max-height: 500px;
+  max-width: 500px;
 }
 
 .grid-container {
