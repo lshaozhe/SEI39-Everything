@@ -1,7 +1,7 @@
 import React from "react";
+import AddtoCartButton from "../common/AddtoCartButton";
 
 const SingleProductView = (props) => {
-  //   console.log(props.product.products_images);
   return (
     <div className="card border-primary mb-3 col-sm-3">
       <img
@@ -13,9 +13,11 @@ const SingleProductView = (props) => {
         <p className="card-text">Price: {props.product.product_price}</p>
       </div>
       <div className="card-body" style={{ alignSelf: "flex-end", display: "flex" }}>
-        <button class="btn btn-danger" style={{ alignSelf: "flex-end" }}>
-          Add to Cart
-        </button>
+        <AddtoCartButton
+          product_name={props.product.product_name}
+          product_id={props.product.product_id}
+          product_image={props.product.products_images[0]}
+        />
       </div>
     </div>
   );

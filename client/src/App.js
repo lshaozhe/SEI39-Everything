@@ -12,7 +12,8 @@ import "./App.css";
 function App() {
   const context = useRef({
     APIendpoint: "http://127.0.0.1:8000",
-    cart: {},
+    cart: [],
+    JWT: [],
   });
 
   return (

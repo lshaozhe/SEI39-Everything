@@ -23,6 +23,8 @@ const Signup = () => {
       case "signupPassword":
         setSignupInfo({ ...signupInfo, password: e.target.value });
         break;
+      default:
+        break;
     }
   };
 
@@ -86,11 +88,7 @@ const Signup = () => {
             </div>
 
             <div className="mb-3">
-              <button
-                type="submit"
-                className="btn btn-primary"
-                onClick={handleSignup}
-              >
+              <button type="submit" className="btn btn-primary" onClick={handleSignup}>
                 Sign Up
               </button>
             </div>
