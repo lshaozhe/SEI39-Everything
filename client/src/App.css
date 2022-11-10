@@ -1,10 +1,19 @@
 .product_main_img {
-    height: 400px;
-    width: 400px;
+  height: 400px;
+  width: 400px;
 }
 
 .grid-container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.scrollit {
+  float: left;
+}
+
+.fixed {
+  position: fixed;
+  right: 0;
+}

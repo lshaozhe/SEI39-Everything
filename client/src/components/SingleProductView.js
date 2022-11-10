@@ -7,14 +7,15 @@ const SingleProductView = (props) => {
       <img
         class="img-thumbnail card-img-top"
         src={props.product.products_images[0]}
-        alt="product thumbnail"
-      ></img>
-      <div className="card-body" style={{ height: "5rem" }}>
+        alt="product thumbnail"></img>
+      <div className="card-body">
         <h5>{props.product.product_name}</h5>
         <p className="card-text">Price: {props.product.product_price}</p>
       </div>
-      <div className="card-body" style={{ alignSelf: "flex-end" }}>
-        <button class="btn btn-danger">Add to Cart</button>
+      <div className="card-body" style={{ alignSelf: "flex-end", display: "flex" }}>
+        <button class="btn btn-danger" style={{ alignSelf: "flex-end" }}>
+          Add to Cart
+        </button>
       </div>
     </div>
   );
