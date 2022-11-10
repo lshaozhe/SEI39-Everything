@@ -6,16 +6,20 @@ const homepage = () => {
   return (
     <div className="container-fluid">
       <div className="row">
-        <div className="col-sm-10 scrollit">
+        <div className="col-sm-1"></div>
+        <div className="col-sm-8 scrollit">
+          <br />
           <div className="row">
             <h3>All Products</h3>
           </div>
           <MultiProductView />
         </div>
         <div className="col-sm-2 fixed">
+          <br />
           <h3>Shopping Cart</h3>
           <Cart />
         </div>
+        <div className="col-sm-1"></div>
       </div>
     </div>
   );

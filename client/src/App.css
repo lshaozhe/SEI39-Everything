@@ -3,6 +3,11 @@
   max-width: 500px;
 }
 
+.img-thumbnail-cart {
+  max-height: 100px;
+  max-width: 100px;
+}
+
 .grid-container {
   display: flex;
   flex-direction: row;
@@ -15,5 +20,9 @@
 
 .fixed {
   position: fixed;
-  right: 0;
+  right: 8%;
+}
+
+.crosssvg {
+  height: 16px;
 }

@@ -11,9 +11,7 @@ const OneProduct = () => {
 
   const displayProduct = () => {
     if (response !== null) {
-      console.log(response.data.products_images[0]);
       let product = response.data;
-      let productImage = response.data;
       return (
         <div className="container">
           <br />
@@ -37,9 +35,11 @@ const OneProduct = () => {
               <div className="row">
                 {product.products_images.map((e) => (
                   <img
+                    key={Math.random()}
                     className="img-thumbnail"
                     style={{ height: "100px", width: "100px" }}
                     src={e}
+                    alt=""
                   />
                 ))}
               </div>
