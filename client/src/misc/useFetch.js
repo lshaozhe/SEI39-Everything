@@ -28,6 +28,14 @@ const useFetch = (url, method = "GET", body = null) => {
         throw new Error("Something went wrong.");
       }
       const data = await res.json();
+
+      // for JWT collection during fetch
+      if (data.access !== undefined) {
+        localStorage.setItem("access_key", JSON.stringify(data.access));
+      }
+      if (data.refresh !== undefined) {
+        localStorage.setItem("refresh_key", JSON.stringify(data.refresh));
+      }
       setResponse(data);
     } catch (err) {
       setError(err.message);
