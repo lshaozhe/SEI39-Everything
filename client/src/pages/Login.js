@@ -3,11 +3,11 @@ import ContextStorage from "../misc/context";
 import useFetch from "../misc/useFetch";
 
 const Login = () => {
-  const ctxURL = useContext(ContextStorage);
+  const { context: ctxURL } = useContext(ContextStorage);
   const [loginInfo, setLoginInfo] = useState({ email: "", password: "" });
 
   const { response, isLoading, error, fetchPost } = useFetch(
-    ctxURL.current + "/api/products/"
+    ctxURL.current.APIendpoint + "/api/products/"
   );
 
   const onInputChange = (e) => {
@@ -21,22 +21,21 @@ const Login = () => {
   };
 
   const handleLogin = (e) => {
-    const { response } = fetchPost(
-      ctxURL.current + "/api/accounts/login/",
+    fetchPost(
+      ctxURL.current.APIendpoint + "/api/accounts/login/",
       "POST",
-      loginInfo
+      JSON.stringify(loginInfo)
     );
-    localStorage.setItem("JWT", JSON.stringify(response));
-    setLoginInfo({ email: "", password: "" });
   };
 
   return (
     <div className="container">
+      <br />
       <div className="row justify-content-center">
         <div className="col-6">
           <form>
             <div className="mb-3">
-              <label htmlfor="inputEmail" className="form-label">
+              <label htmlFor="inputEmail" className="form-label">
                 Email address
               </label>
               <input
@@ -49,7 +48,7 @@ const Login = () => {
               />
             </div>
             <div className="mb-3">
-              <label htmlfor="inputPassword" className="form-label">
+              <label htmlFor="inputPassword" className="form-label">
                 Password
               </label>
               <input
@@ -61,19 +60,13 @@ const Login = () => {
               />
             </div>
 
-            <div className="mb-3">
-              <button
-                type="submit"
-                className="btn btn-primary"
-                onClick={handleLogin}
-              >
+            <div className="mb-3 col-sm-4">
+              <button className="btn btn-primary" onClick={handleLogin}>
                 Login
               </button>
             </div>
-            <div className="mb-3">
-              <button type="button" classNames="btn btn-warning">
-                Sign Up
-              </button>
+            <div className="mb-3 col-sm-3">
+              <button className="btn btn-warning">Sign Up</button>
             </div>
           </form>
         </div>

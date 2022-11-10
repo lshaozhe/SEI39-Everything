@@ -19,7 +19,7 @@ const OneProduct = () => {
           <div className="row d-flex justify-content-center align-items-center">
             <div className="col-sm-6">
               <img
-                class="img-fluid rounded"
+                className="img-fluid rounded"
                 src={product.products_images[0]}
                 alt={product.product_name}
               />

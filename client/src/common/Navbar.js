@@ -9,12 +9,15 @@ const NavBar = () => {
         <div className="container-fluid flex">
           <div className="col-2">
             <NavLink to="/home">
-              <button className="navbar-brand bg-light" style={{ border: "none" }}>
+              <button
+                className="navbar-brand bg-light"
+                style={{ border: "none" }}
+              >
                 <img
                   src={logo}
                   width="35"
                   height="35"
-                  class="d-inline-block align-top"
+                  className="d-inline-block align-top"
                   alt="LOGO"
                 />
                 My Shopping App
@@ -36,7 +39,9 @@ const NavBar = () => {
           </div>
           <div className="col-2 self-align-end">
             <NavLink to="/login">
-              <button className="btn btn-outline-primary">Login / Sign Up</button>
+              <button className="btn btn-outline-primary">
+                Login / Sign Up
+              </button>
             </NavLink>
           </div>
         </div>

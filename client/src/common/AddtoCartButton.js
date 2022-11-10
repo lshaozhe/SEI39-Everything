@@ -40,7 +40,12 @@ const AddtoCartButton = (props) => {
 
   return (
     <>
-      <button id={props.product_id} type="button" class="btn btn-danger" onClick={addToCartHandler}>
+      <button
+        id={props.product_id}
+        type="button"
+        className="btn btn-danger"
+        onClick={addToCartHandler}
+      >
         Add to Cart
       </button>
     </>

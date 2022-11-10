@@ -38,7 +38,7 @@ const Signup = () => {
         <div className="col-6">
           <form>
             <div className="mb-3">
-              <label htmlfor="signupEmail" className="form-label">
+              <label htmlFor="signupEmail" className="form-label">
                 Email address
               </label>
               <input
@@ -63,7 +63,7 @@ const Signup = () => {
               />
             </div>
             <div className="mb-3">
-              <label htmlfor="signupName" className="form-label">
+              <label htmlFor="signupName" className="form-label">
                 Last Name
               </label>
               <input
@@ -75,7 +75,7 @@ const Signup = () => {
               />
             </div>
             <div className="mb-3">
-              <label htmlfor="inputPassword" className="form-label">
+              <label htmlFor="inputPassword" className="form-label">
                 Password
               </label>
               <input
@@ -88,7 +88,11 @@ const Signup = () => {
             </div>
 
             <div className="mb-3">
-              <button type="submit" className="btn btn-primary" onClick={handleSignup}>
+              <button
+                type="submit"
+                className="btn btn-primary"
+                onClick={handleSignup}
+              >
                 Sign Up
               </button>
             </div>
