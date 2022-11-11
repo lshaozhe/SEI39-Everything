@@ -11,7 +11,7 @@ const parseJwt = (token) => {
 };
 
 const AuthVerify = () => {
-  const { context } = useContext(ContextStorage);
+  const { userDetails, setUserDetails } = useContext(ContextStorage);
   let location = useLocation();
 
   useEffect(() => {
@@ -20,22 +20,17 @@ const AuthVerify = () => {
 
     if (access_key) {
       const decodedJwt = parseJwt(access_key);
-      console.log(decodedJwt);
 
       if (decodedJwt.exp * 1000 < Date.now()) {
         localStorage.removeItem("access_key");
       } else {
-        context.current.isAdmin = decodedJwt.is_admin;
-        context.current.isAuthticated = true;
-        context.current.userName = decodedJwt.name;
+        setUserDetails({
+          isAdmin: decodedJwt.is_admin,
+          isAuthenticated: true,
+          userName: decodedJwt.name,
+        });
       }
     }
-
-    console.log(
-      context.current.isAdmin,
-      context.current.isAuthticated,
-      context.current.userName
-    );
   }, [location]);
 
   return;

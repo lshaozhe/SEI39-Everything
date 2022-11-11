@@ -8,17 +8,20 @@ import Signup from "./pages/Signup";
 import OneProduct from "./pages/OneProduct";
 import ContextStorage from "./misc/context";
 import AuthVerify from "./misc/AuthVerify";
+import ShoppingCart from "./pages/ShoppingCart";
 import "./App.css";
 
 function App() {
   const context = useRef({
     APIendpoint: "http://127.0.0.1:8000",
+  });
+  const [cart, setCart] = useState([]);
+  const [currentSelection, setCurrentSelection] = useState("1");
+  const [userDetails, setUserDetails] = useState({
     isAdmin: false,
     isAuthenticated: false,
     userName: "",
   });
-  const [cart, setCart] = useState([]);
-  const [currentSelection, setCurrentSelection] = useState("1");
 
   return (
     <div className="App">
@@ -29,6 +32,8 @@ function App() {
           setCart,
           currentSelection,
           setCurrentSelection,
+          userDetails,
+          setUserDetails,
         }}
       >
         <AuthVerify />
@@ -39,6 +44,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/viewproduct" element={<OneProduct />} />
+          <Route path="/mycart" element={<ShoppingCart />} />
         </Routes>
       </ContextStorage.Provider>
     </div>
