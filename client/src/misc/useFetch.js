@@ -19,11 +19,25 @@ const useFetch = (url, method = "GET", body = null) => {
     setError(null);
 
     try {
+      let access_key = sessionStorage.getItem("access_key");
+      let headers = {};
+      if (access_key) {
+        headers = {
+          "Content-Type": "application/json",
+          Authentication: "Bearer " + access_key,
+        };
+      } else {
+        headers = {
+          "Content-Type": "application/json",
+        };
+      }
+
       const res = await fetch(url, {
         method,
         body,
-        headers: { "Content-Type": "application/json" },
+        headers: headers,
       });
+
       if (res.status !== 200) {
         throw new Error("Something went wrong.");
       }

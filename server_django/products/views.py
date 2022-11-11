@@ -5,6 +5,7 @@ from . import serializers
 from . import models
 from rest_framework.pagination import PageNumberPagination
 from .paginations import PaginationHandlerMixin
+from rest_framework.permissions import AllowAny
 
 
 class Index(APIView):
@@ -80,7 +81,7 @@ class BasicPagination(PageNumberPagination):
 class GetManyProducts(APIView, PaginationHandlerMixin):
     serializer_class = serializers.ProductsSerializer
     pagination_class = BasicPagination
-
+    permission_classes = [AllowAny]
     def get(self, request, *args, **kwargs):
         instance = models.Products.objects.filter(is_active=True).all()
         page = self.paginate_queryset(instance)
