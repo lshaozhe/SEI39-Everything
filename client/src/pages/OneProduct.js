@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import ContextStorage from "../misc/context";
 import useFetch from "../misc/useFetch";
 import AddtoCartButton from "../common/AddtoCartButton";
+import Cart from "../components/Cart";
 
 const OneProduct = () => {
   const { context: ctxURL, currentSelection } = useContext(ContextStorage);
@@ -17,7 +18,7 @@ const OneProduct = () => {
           <br />
           <div className="row"></div>
           <div className="row d-flex justify-content-center align-items-center">
-            <div className="col-sm-6">
+            <div className="col-sm-5">
               <img
                 className="img-fluid rounded"
                 src={product.products_images[0]}
@@ -49,6 +50,12 @@ const OneProduct = () => {
                 product_id={product.product_id}
                 product_image={response.data.products_images[0]}
               />
+            </div>
+            <div className="col-sm-1"></div>
+            <div className="col-sm-2">
+              <br />
+              <h3>Shopping Cart</h3>
+              <Cart />
             </div>
           </div>
         </div>
