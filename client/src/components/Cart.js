@@ -4,7 +4,7 @@ import ContextStorage from "../misc/context";
 import CartCard from "./CartCard";
 
 const Cart = () => {
-  const { context, cart, userDetails } = useContext(ContextStorage);
+  const { cart, userDetails } = useContext(ContextStorage);
 
   const displayCards = () => {
     return cart.map((element) => (
@@ -13,7 +13,6 @@ const Cart = () => {
   };
 
   const displayShoppingCartLink = () => {
-    console.log(userDetails);
     if (userDetails.isAuthenticated == true) {
       return (
         <>

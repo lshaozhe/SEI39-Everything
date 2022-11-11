@@ -1,8 +1,49 @@
-import React from "react";
+import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import logo from "../assets/logo.png";
+import ContextStorage from "../misc/context";
 
 const NavBar = () => {
+  const { userDetails, setUserDetails } = useContext(ContextStorage);
+
+  const LoginButtonToggle = () => {
+    if (userDetails.isAuthenticated == false) {
+      return (
+        <NavLink to="/login">
+          <button className="btn btn-outline-primary">Login / Sign Up</button>
+        </NavLink>
+      );
+    } else {
+      return (
+        <button
+          className="btn btn-outline-primary"
+          onClick={() => {
+            localStorage.clear();
+            setUserDetails({
+              isAdmin: false,
+              isAuthenticated: false,
+              userName: "",
+            });
+          }}
+        >
+          Logout
+        </button>
+      );
+    }
+  };
+
+  const displayUser = () => {
+    if (userDetails.isAuthenticated == false) {
+      return;
+    } else {
+      return (
+        <p className="blockquote text-center">
+          Welcome, {userDetails.userName}
+        </p>
+      );
+    }
+  };
+
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -24,6 +65,7 @@ const NavBar = () => {
               </button>
             </NavLink>
           </div>
+          <div className="col-2" />
           <div className="col-4">
             <form className="d-flex" role="search">
               <input
@@ -37,13 +79,8 @@ const NavBar = () => {
               </button>
             </form>
           </div>
-          <div className="col-2 self-align-end">
-            <NavLink to="/login">
-              <button className="btn btn-outline-primary">
-                Login / Sign Up
-              </button>
-            </NavLink>
-          </div>
+          <div className="col-2 self-align-end flex">{displayUser()}</div>
+          <div className="col-2 self-align-end">{LoginButtonToggle()}</div>
         </div>
       </nav>
     </>
