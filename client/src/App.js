@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Route, Routes, Navigate } from "react-router-dom";
 
 import NavBar from "./common/Navbar";
@@ -7,13 +7,15 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import OneProduct from "./pages/OneProduct";
 import ContextStorage from "./misc/context";
+import AuthVerify from "./misc/AuthVerify";
 import "./App.css";
 
 function App() {
   const context = useRef({
     APIendpoint: "http://127.0.0.1:8000",
-    cart: [],
-    JWT: [],
+    isAdmin: false,
+    isAuthenticated: false,
+    userName: "",
   });
   const [cart, setCart] = useState([]);
   const [currentSelection, setCurrentSelection] = useState("1");
@@ -29,6 +31,7 @@ function App() {
           setCurrentSelection,
         }}
       >
+        <AuthVerify />
         <NavBar />
         <Routes>
           <Route path="/" element={<Navigate replace to="/home" />} />

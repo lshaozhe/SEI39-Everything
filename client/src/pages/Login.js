@@ -20,6 +20,7 @@ const Login = () => {
   };
 
   const handleLogin = (e) => {
+    e.preventDefault();
     fetchPost(
       ctxURL.current.APIendpoint + "/api/accounts/login/",
       "POST",
