@@ -6,7 +6,6 @@ const AddtoCartButton = (props) => {
 
   const addToCartHandler = (e) => {
     if (cart.length !== 0) {
-      console.log(props.product_image);
       for (let i = 0; i < cart.length; i++) {
         if (cart[i].product_id == e.target.id) {
           let tempCart = [...cart];
