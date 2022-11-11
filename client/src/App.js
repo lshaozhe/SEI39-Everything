@@ -9,6 +9,7 @@ import OneProduct from "./pages/OneProduct";
 import ContextStorage from "./misc/context";
 import AuthVerify from "./misc/AuthVerify";
 import ShoppingCart from "./pages/ShoppingCart";
+import AdminPage from "./pages/Admin";
 import "./App.css";
 
 function App() {
@@ -45,6 +46,7 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/viewproduct" element={<OneProduct />} />
           <Route path="/mycart" element={<ShoppingCart />} />
+          <Route path="/admin" element={<AdminPage />} />
         </Routes>
       </ContextStorage.Provider>
     </div>

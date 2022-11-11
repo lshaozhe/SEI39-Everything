@@ -1,12 +1,17 @@
 import React, { useContext } from "react";
 import ContextStorage from "../misc/context";
+import Cart from "../components/Cart";
 
 const ShoppingCart = () => {
   const { cart, setCart } = useContext(ContextStorage);
 
   return (
-    <div>
-      <h1>Hello</h1>
+    <div className="container">
+      <Cart />
+
+      <div className="row">
+        <button> Submit my order</button>
+      </div>
     </div>
   );
 };

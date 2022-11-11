@@ -36,11 +36,21 @@ const NavBar = () => {
     if (userDetails.isAuthenticated == false) {
       return;
     } else {
-      return (
-        <p className="blockquote text-center">
-          Welcome, {userDetails.userName}
-        </p>
-      );
+      if (userDetails.isAdmin == true) {
+        return (
+          <>
+            <NavLink to="/admin">
+              <button className="btn btn-danger">Admin</button>
+            </NavLink>
+          </>
+        );
+      } else {
+        return (
+          <p className="blockquote text-center">
+            Welcome, {userDetails.userName}
+          </p>
+        );
+      }
     }
   };
 
