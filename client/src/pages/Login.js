@@ -1,12 +1,12 @@
 import React, { useState, useContext } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import ContextStorage from "../misc/context";
 import useFetch from "../misc/useFetch";
 
 const Login = () => {
   const { context: ctxURL } = useContext(ContextStorage);
   const [loginInfo, setLoginInfo] = useState({ email: "", password: "" });
-
+  const navigate = useNavigate();
   const { fetchPost } = useFetch(ctxURL.current.APIendpoint + "/api/products/");
 
   const onInputChange = (e) => {
@@ -26,6 +26,9 @@ const Login = () => {
       "POST",
       JSON.stringify(loginInfo)
     );
+    setTimeout(() => {
+      navigate("/home");
+    }, 1000);
   };
 
   return (
