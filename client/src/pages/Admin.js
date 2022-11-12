@@ -2,7 +2,8 @@ import React, { useContext } from "react";
 import ContextStorage from "../misc/context";
 
 const Admin = () => {
-  const { userDetails } = useContext(ContextStorage);
+  const { userDetails, currentSelection, setCurrentSelection } =
+    useContext(ContextStorage);
 
   const toggleAdminView = () => {
     if (userDetails.isAdmin === true) {

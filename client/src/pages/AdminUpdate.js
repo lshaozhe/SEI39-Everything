@@ -17,7 +17,7 @@ const AdminUpdate = () => {
   );
 
   const clickHandler = (e) => {
-    // e.preventdefault();
+    e.preventDefault();
     fetchPost(
       ctxURL.current.APIendpoint + "/api/products/update/" + currentSelection,
       "PATCH",
@@ -29,8 +29,9 @@ const AdminUpdate = () => {
   };
 
   const formHandler = (e) => {
-    e.preventdefault();
+    e.preventDefault();
     setProductDetails(e.target.value);
+    console.log(e.target.value);
   };
 
   const toggleView = () => {
@@ -45,7 +46,8 @@ const AdminUpdate = () => {
             className="form-control json-text"
             type="text"
             style={{ height: "200px" }}
-            value={productDetails}
+            defaultValue={JSON.stringify(response.data)}
+            // value={productDetails}
             onChange={formHandler}
           ></input>
           <button className="btn btn-primary" onClick={clickHandler}>
