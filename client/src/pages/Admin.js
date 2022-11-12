@@ -48,7 +48,9 @@ const Admin = () => {
           </div>
           <br />
           <div className="row">
-            <button className="btn btn-primary">Edit this Product</button>
+            <a href="http://127.0.0.1:8000/admin/login/?next=/admin/">
+              <button className="btn btn-primary">Edit this Product</button>
+            </a>
           </div>
           <div className="row">
             <button className="btn btn-danger" onClick={handleDelete}>
@@ -61,7 +63,14 @@ const Admin = () => {
           </div>
           <br />
           <div className="row">
-            <button className="btn btn-warning">Create a new Product</button>
+            <a href="http://127.0.0.1:8000/admin/login/?next=/admin/">
+              <button
+                className="btn btn-warning"
+                href="http://127.0.0.1:8000/admin/login/?next=/admin/"
+              >
+                Create a new Product
+              </button>
+            </a>
           </div>
         </div>
       );
