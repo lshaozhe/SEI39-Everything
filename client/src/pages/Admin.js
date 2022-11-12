@@ -2,10 +2,10 @@ import React, { useContext } from "react";
 import ContextStorage from "../misc/context";
 
 const Admin = () => {
-  const { userDetails, setUserDetails } = useContext(ContextStorage);
+  const { userDetails } = useContext(ContextStorage);
 
   const toggleAdminView = () => {
-    if (userDetails.isAdmin == true) {
+    if (userDetails.isAdmin === true) {
       return (
         <div className="col-sm-12 d-flex flex-column justify-content-center align-items-center">
           <div className="row d-flex flex-column justify-content-center">

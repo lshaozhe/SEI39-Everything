@@ -16,7 +16,6 @@ const Signup = () => {
   const { fetchPost } = useFetch(ctxURL.current.APIendpoint + "/api/products/");
 
   const onInputChange = (e) => {
-    console.log(signupInfo);
     e.preventDefault();
     switch (e.target.id) {
       case "signupEmail":

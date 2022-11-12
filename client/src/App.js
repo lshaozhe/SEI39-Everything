@@ -10,6 +10,7 @@ import ContextStorage from "./misc/context";
 import AuthVerify from "./misc/AuthVerify";
 import ShoppingCart from "./pages/ShoppingCart";
 import AdminPage from "./pages/Admin";
+import AdminUpdate from "./pages/AdminUpdate";
 import "./App.css";
 
 function App() {
@@ -47,6 +48,7 @@ function App() {
           <Route path="/viewproduct" element={<OneProduct />} />
           <Route path="/mycart" element={<ShoppingCart />} />
           <Route path="/admin" element={<AdminPage />} />
+          <Route path="/adminupdate" element={<AdminUpdate />} />
         </Routes>
       </ContextStorage.Provider>
     </div>
