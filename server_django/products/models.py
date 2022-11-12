@@ -17,7 +17,7 @@ class Products(models.Model):
     is_active = models.BooleanField(default=True)
 
     def __str__(self):
-        return self.product_id
+        return self.product_name
 
 
 class ProductsImages(models.Model):
