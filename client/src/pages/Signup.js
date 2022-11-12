@@ -1,9 +1,11 @@
 import React, { useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import ContextStorage from "../misc/context";
 import useFetch from "../misc/useFetch";
 
 const Signup = () => {
   const { context: ctxURL } = useContext(ContextStorage);
+  const navigate = useNavigate();
   const [signupInfo, setSignupInfo] = useState({
     email: "",
     given_name: "",
@@ -33,12 +35,16 @@ const Signup = () => {
   };
 
   const handleSignup = (e) => {
+    e.preventDefault();
     fetchPost(
       ctxURL.current.APIendpoint + "/api/accounts/create/",
       "PUT",
       JSON.stringify(signupInfo)
     );
-    setSignupInfo({ email: "", given_name: "", name: "", password: "" });
+
+    setTimeout(() => {
+      navigate("/login");
+    }, 1000);
   };
 
   return (
