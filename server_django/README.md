@@ -8,13 +8,13 @@ After creating a shell environment first within the folder directory thru pipenv
 
 Thereafter makemigrations and migrate to create the databases thru the following commands:
 <br> 
-python manage.py makemigrations
+**python manage.py makemigrations**
 <br> 
-python manage.py migrate
+**python manage.py migrate**
 <br><br>
 Once the database tables are created via makemigrations/migrate, run the following command to start the server (It should listen on localhost:8000 by default).
 <br>
-python manage.py runserver
+**python manage.py runserver**
 
 ## Routes within the sever
 
@@ -23,12 +23,12 @@ python manage.py runserver
 <br>
 PUT request to create a normal user requiring a body, for instance,
 <br>
-> {
+```{
     "email": "JohnDoe@123.net",
     "given_name": "John Doe",
     "name": "Johnny",
     "password": "example"
-}
+}```
 
 2. /api/accounts/login/
 <br>
@@ -36,19 +36,20 @@ POST request to login to an account with login detials in the body, for instance
 <br>
 This returns the JWT access and refresh token
 <br>
-> {
+```{
     "email": "JohnDoe@123.net",
     "password": "example"
-}
+}```
+
 3. /api/accounts/refresh/
 <br>
 POST request to provide a new access token with a valid refresh token sent via the body, for instance,
 <br>
 This returns a JWT access token
 <br>
-> {
+```{
     "refresh": "{{refresh_token}}"
-}
+}```
 
 ### Products Routes
 4. /api/products/
