@@ -7,7 +7,7 @@ const NavBar = () => {
   const { userDetails, setUserDetails } = useContext(ContextStorage);
 
   const LoginButtonToggle = () => {
-    if (userDetails.isAuthenticated == false) {
+    if (userDetails.isAuthenticated === false) {
       return (
         <NavLink to="/login">
           <button className="btn btn-outline-primary">Login / Sign Up</button>
@@ -24,8 +24,7 @@ const NavBar = () => {
               isAuthenticated: false,
               userName: "",
             });
-          }}
-        >
+          }}>
           Logout
         </button>
       );
@@ -33,10 +32,10 @@ const NavBar = () => {
   };
 
   const displayUser = () => {
-    if (userDetails.isAuthenticated == false) {
+    if (userDetails.isAuthenticated === false) {
       return;
     } else {
-      if (userDetails.isAdmin == true) {
+      if (userDetails.isAdmin === true) {
         return (
           <>
             <NavLink to="/admin">
@@ -45,11 +44,7 @@ const NavBar = () => {
           </>
         );
       } else {
-        return (
-          <p className="blockquote text-center">
-            Welcome, {userDetails.userName}
-          </p>
-        );
+        return <p className="blockquote text-center">Welcome, {userDetails.userName}</p>;
       }
     }
   };
@@ -60,10 +55,7 @@ const NavBar = () => {
         <div className="container-fluid flex">
           <div className="col-2">
             <NavLink to="/home">
-              <button
-                className="navbar-brand bg-light"
-                style={{ border: "none" }}
-              >
+              <button className="navbar-brand bg-light" style={{ border: "none" }}>
                 <img
                   src={logo}
                   width="35"

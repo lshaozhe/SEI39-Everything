@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import ContextStorage from "./context";
 
@@ -11,12 +11,11 @@ const parseJwt = (token) => {
 };
 
 const AuthVerify = () => {
-  const { userDetails, setUserDetails } = useContext(ContextStorage);
+  const { setUserDetails } = useContext(ContextStorage);
   let location = useLocation();
 
   useEffect(() => {
     const access_key = JSON.parse(localStorage.getItem("access_key"));
-    const refresh_key = JSON.parse(localStorage.getItem("refresh_key"));
 
     if (access_key) {
       const decodedJwt = parseJwt(access_key);

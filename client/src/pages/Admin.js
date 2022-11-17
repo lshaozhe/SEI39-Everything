@@ -11,7 +11,7 @@ const Admin = () => {
     setCurrentSelection,
   } = useContext(ContextStorage);
   const navigate = useNavigate();
-  const { response, fetchPost } = useFetch(
+  const { fetchPost } = useFetch(
     ctxURL.current.APIendpoint + "/api/products/get/" + currentSelection
   );
 
@@ -40,11 +40,7 @@ const Admin = () => {
             <label htmlFor="productID" className="form-label">
               Select a product ID to edit
             </label>
-            <input
-              id="productID"
-              className="form-control"
-              onChange={handleInputChange}
-            ></input>
+            <input id="productID" className="form-control" onChange={handleInputChange}></input>
           </div>
           <br />
           <div className="row">
@@ -66,8 +62,7 @@ const Admin = () => {
             <a href="http://127.0.0.1:8000/admin/login/?next=/admin/">
               <button
                 className="btn btn-warning"
-                href="http://127.0.0.1:8000/admin/login/?next=/admin/"
-              >
+                href="http://127.0.0.1:8000/admin/login/?next=/admin/">
                 Create a new Product
               </button>
             </a>

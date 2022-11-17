@@ -4,11 +4,7 @@ import ContextStorage from "../misc/context";
 import useFetch from "../misc/useFetch";
 
 const AdminUpdate = () => {
-  const {
-    context: ctxURL,
-    userDetails,
-    currentSelection,
-  } = useContext(ContextStorage);
+  const { context: ctxURL, userDetails, currentSelection } = useContext(ContextStorage);
   const navigate = useNavigate();
   const [productDetails, setProductDetails] = useState("");
 
@@ -31,7 +27,6 @@ const AdminUpdate = () => {
   const formHandler = (e) => {
     e.preventDefault();
     setProductDetails(e.target.value);
-    console.log(e.target.value);
   };
 
   const toggleView = () => {
@@ -48,8 +43,7 @@ const AdminUpdate = () => {
             style={{ height: "200px" }}
             defaultValue={JSON.stringify(response.data)}
             // value={productDetails}
-            onChange={formHandler}
-          ></input>
+            onChange={formHandler}></input>
           <button className="btn btn-primary" onClick={clickHandler}>
             Submit
           </button>
