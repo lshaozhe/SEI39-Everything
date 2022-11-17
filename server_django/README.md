@@ -20,15 +20,19 @@ Once the database tables are created via makemigrations/migrate, run the followi
 
 ### Accounts Routes
 1. /api/accounts/create/
-<br>
+<br />
 PUT request to create a normal user requiring a body, for instance,
-<br>
-```{
+<br />
+```
+{
     "email": "JohnDoe@123.net",
     "given_name": "John Doe",
     "name": "Johnny",
     "password": "example"
-}```
+}
+```
+<br />
+<br />
 
 2. /api/accounts/login/
 <br>
@@ -36,10 +40,12 @@ POST request to login to an account with login detials in the body, for instance
 <br>
 This returns the JWT access and refresh token
 <br>
-```{
+```
+{
     "email": "JohnDoe@123.net",
     "password": "example"
-}```
+}
+```
 
 3. /api/accounts/refresh/
 <br>
@@ -47,9 +53,11 @@ POST request to provide a new access token with a valid refresh token sent via t
 <br>
 This returns a JWT access token
 <br>
-```{
+```
+{
     "refresh": "{{refresh_token}}"
-}```
+}
+```
 
 ### Products Routes
 4. /api/products/
