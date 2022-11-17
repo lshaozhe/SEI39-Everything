@@ -4,17 +4,27 @@
 This is the backend server for the project, created with Django Rest Framework and managed by pipenv
 
 ## To run the server
-After creating a shell environment first within the folder directory thru pipenv shell
+After creating a shell environment first within the folder directory thru 
+<br />
+>**pipenv shell**
+<br />
+
+Install requried packages thru:
+<br />
+>**pipenv install**
+<br />
 
 Thereafter makemigrations and migrate to create the databases thru the following commands:
-<br> 
-**python manage.py makemigrations**
-<br> 
-**python manage.py migrate**
-<br><br>
+<br /> 
+>**python manage.py makemigrations**
+<br /> 
+
+>**python manage.py migrate**
+<br />
+
 Once the database tables are created via makemigrations/migrate, run the following command to start the server (It should listen on localhost:8000 by default).
-<br>
-**python manage.py runserver**
+<br />
+>**python manage.py runserver**
 
 ## Routes within the sever
 
