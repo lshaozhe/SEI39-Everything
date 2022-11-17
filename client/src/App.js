@@ -18,7 +18,7 @@ function App() {
     APIendpoint: "http://127.0.0.1:8000",
   });
   const [cart, setCart] = useState([]);
-  const [currentSelection, setCurrentSelection] = useState("1");
+  const [currentSelection, setCurrentSelection] = useState("2");
   const [userDetails, setUserDetails] = useState({
     isAdmin: false,
     isAuthenticated: false,
@@ -36,7 +36,8 @@ function App() {
           setCurrentSelection,
           userDetails,
           setUserDetails,
-        }}>
+        }}
+      >
         <AuthVerify />
         <NavBar />
         <Routes>
