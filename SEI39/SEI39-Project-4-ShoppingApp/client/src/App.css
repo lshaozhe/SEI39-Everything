@@ -1,0 +1,28 @@
+.img-fluid {
+  max-height: 500px;
+  max-width: 500px;
+}
+
+.img-thumbnail-cart {
+  max-height: 100px;
+  max-width: 100px;
+}
+
+.grid-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.scrollit {
+  float: left;
+}
+
+.fixed {
+  position: fixed;
+  right: 8%;
+}
+
+.crosssvg {
+  height: 16px;
+}
