@@ -1,0 +1,225 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url("./assets/doodle_background.jpg");
+  background-color: grey;
+}
+
+#flex-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+#flex-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: rgba(0, 0, 100, 0.3);
+  gap: 8px;
+  padding: 16px;
+  padding-top: 4px;
+  margin: 0px;
+  border-radius: 16px;
+}
+
+#left-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+#main-board {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 0px;
+}
+.gridElement99 {
+  width: 50px;
+  height: 50px;
+  border: 1px solid #000;
+  margin: 0;
+  text-align: center;
+  font-size: 16px;
+  font-family: Impact;
+  transition: transform 0.2s; /* Animation */
+}
+.gridElement99:nth-of-type(3n) {
+  border-right: 3px solid blue;
+}
+.gridElement99:nth-of-type(3n-2) {
+  border-left: 3px solid blue;
+}
+.gridElement99:hover {
+  background-color: #ca9bf2;
+  transform: scale(1.05);
+}
+.top {
+  border-top: 3px solid blue;
+}
+.btm {
+  border-bottom: 3px solid blue;
+}
+
+#console {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#display {
+  width: 220px;
+  height: 493px;
+  margin: 5px;
+  overflow-y: scroll;
+  background-color: aliceblue;
+  text-align: justify;
+}
+#msg {
+  margin: 0px;
+  background-color: #f9b6e2;
+  padding: 4px;
+  font-family: Arial;
+}
+#msg:nth-of-type(2n) {
+  background-color: #b6e8ec;
+}
+
+#btm-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(0, 0, 100, 0.3);
+  gap: 4px;
+  padding: 16px;
+  padding-top: 4px;
+  margin: 0px;
+  border-radius: 16px;
+}
+
+#credits {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 16px;
+  font-size: 8px;
+}
+
+#github {
+  font-size: 16px;
+}
+
+button {
+  padding: 15px;
+  border-color: #fff;
+  font-size: 16px;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  color: rgb(0, 0, 0);
+  background-color: #b6e8ec;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 2px 4px #999;
+}
+
+button:hover {
+  background-color: #ca9bf2;
+}
+
+button:active {
+  background-color: #ca9bf2;
+  box-shadow: 2px 2px #666;
+  transform: translateY(2px) translateX(2px);
+}
+
+h2 {
+  background-color: #f9b6e2;
+  font-family: "Trebuchet MS";
+  margin: 8px;
+  padding: 8px;
+  box-shadow: 2px 2px 2px 2px rgb(175, 159, 159);
+  border-radius: 4px;
+  font-size: 24px;
+}
+
+#menu-button {
+  text-decoration: none;
+  background-color: #f9b6e2;
+
+  margin: 8px;
+  padding: 8px;
+  box-shadow: 2px 2px 2px 2px rgb(175, 159, 159);
+  border-radius: 4px;
+  font-size: 24px;
+  color: black;
+  font-family: "Trebuchet MS";
+  font-weight: bold;
+}
+
+::placeholder {
+  font-weight: lighter;
+  font-family: 'Times New Roman';
+  text-align: center;
+  font-size: 10px;
+  word-wrap: break-all;
+}
+
+/*CSS overrule for 4x4*/
+.gridElement44 {
+  width: 50px;
+  height: 50px;
+  border: 1px solid #000;
+  margin: 0;
+  text-align: center;
+  font-size: 16px;
+  font-family: Impact;
+  transition: transform 0.2s; /* Animation */
+}
+.gridElement44:hover {
+  background-color: #ca9bf2;
+  transform: scale(1.05);
+}
+.top44 {
+  border-top: 3px solid blue;
+}
+.btm44 {
+  border-bottom: 3px solid blue;
+}
+.left44 {
+  border-left: 3px solid blue;
+}
+.right44 {
+  border-right: 3px solid blue;
+}
+
+/*CSS overrule for 16x16*/
+.gridElement16 {
+  width: 25px;
+  height: 25px;
+  border: 1px solid #000;
+  margin: 0;
+  text-align: center;
+  font-size: 12px;
+  font-family: Impact;
+  transition: transform 0.2s; /* Animation */
+}
+.gridElement16:nth-of-type(4n) {
+  border-right: 3px solid blue;
+}
+.gridElement16:nth-of-type(4n-3) {
+  border-left: 3px solid blue;
+}
+.gridElement16:hover {
+  background-color: #ca9bf2;
+  transform: scale(1.05);
+}
+.top {
+  border-top: 3px solid blue;
+}
+.btm {
+  border-bottom: 3px solid blue;
+}
