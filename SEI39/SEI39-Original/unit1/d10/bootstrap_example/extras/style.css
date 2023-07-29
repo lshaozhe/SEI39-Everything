@@ -1,0 +1,210 @@
+/* ======== breakpoints ======== */
+/*
+	Bootstrap's breakpoints
+	xs: 0,
+	sm: 576px,
+	md: 768px,
+	lg: 992px,
+	xl: 1200px,
+	xxl: 1400px
+*/
+.media-query-box {
+	background-color: black;
+	color: white;
+	font-size: 20px;
+	font-weight: bold;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 20px 50px;
+	text-align: center;
+}
+
+@media screen and (max-width: 576px) {
+	.media-query-xs {
+		background-color: maroon;
+	}
+}
+
+@media screen and (min-width: 576px) {
+	.media-query-sm {
+		background-color: orange;
+	}
+}
+
+@media screen and (min-width: 768px) {
+	.media-query-md {
+		background-color: purple;
+	}
+}
+
+@media screen and (min-width: 992px) {
+	.media-query-lg {
+		background-color: blue;
+	}
+}
+
+@media screen and (min-width: 800px) and (max-width: 900px) {
+	.media-query-between {
+		background-color: grey;
+	}
+}
+
+
+
+/* ======== containers ======== */
+.container-box {
+	height: 100px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: white;
+	font-weight: bold;
+}
+
+.container-box-one {
+	background-color: maroon;
+}
+
+.container-box-two {
+	background-color: orange;
+}
+
+.container-box-three {
+	background-color: purple;
+}
+
+.container-box-four {
+	background-color: blue;
+}
+
+/* ======== containers ======== */
+.col-box {
+	background-color: black;
+	color: white;
+	font-weight: bold;
+	text-align: center;
+	padding: 20px;
+}
+
+.row-box {
+	margin: 20px 0;
+}
+
+.first-row-first-col {
+	background-color: maroon !important;
+}
+
+.first-row-second-col {
+	background-color: orange !important;
+}
+
+.first-row-third-col {
+	background-color: purple !important;
+}
+
+.second-row-first-col {
+	background-color: blue !important;
+}
+
+.second-row-second-col {
+	background-color: green !important;
+}
+
+.second-row-third-col {
+	background-color: brown !important;
+}
+
+.third-row-first-col {
+	background-color: cadetblue !important;
+}
+
+.third-row-second-col {
+	background-color: violet !important;
+}
+
+/* ======== modals ======== */
+.modal-body-end {
+	height: 2000px;
+	display: flex;
+	align-items: flex-end;
+}
+
+/* ======== sticky-top ======== */
+.box {
+	height: 800px;
+	display: flex;
+	font-size: 20px;
+	font-weight: bold;
+	justify-content: center;
+	align-items: center;
+	padding: 10px;
+	text-align: center;
+	color: white;
+}
+
+.box-one {
+	background-color: orange;
+}
+
+.box-two {
+	background-color: purple;	
+}
+
+.box-three {
+	background-color: blue;	
+}
+
+.sticky-box {
+	background-color: lightgrey;
+	height: 50px;
+	color: black;
+	top: 20px;
+}
+
+/* ======== vanilla css position ======== */
+.grandparent {
+	width: 600px;
+	height: 600px;
+	background-color: lightgrey;
+	margin: 50px auto;
+}
+
+.parent {
+	width: 500px;
+	height: 500px;
+	background-color: orange;
+	position: relative;
+}
+
+.child {
+	width: 150px;
+	height: 150px;
+	font-weight: bold;
+	font-size: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: white;
+}
+
+.child-one {
+	background-color: cadetblue;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}
+
+.child-two {
+	background-color: forestgreen;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+.child-three {
+	background-color: brown;
+	position: fixed;
+	bottom: 0;
+	right: 0;
+}
