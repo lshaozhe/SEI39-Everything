@@ -1,0 +1,26 @@
+.container {
+    display: flex;
+    padding-top: 5vw;
+    padding-bottom: 7vw;
+}
+
+.thankYouImage {
+    margin-left: 17vw;
+    height: auto;
+    width: 30vw;
+}
+
+.messageContainer {
+    margin-left: 4vw;
+    width: 55vw;
+}
+
+.header {
+    font-size: 1.75vw;
+    font-weight: 700;
+    margin-bottom: 2vw;;
+}
+
+.pSection span {
+    font-weight: bold;
+}

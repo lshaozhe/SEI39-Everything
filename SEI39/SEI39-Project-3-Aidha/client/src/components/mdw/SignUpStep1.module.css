@@ -1,0 +1,55 @@
+.sign_up_header, .or_header {
+    font-size: 2.25vw;
+    font-weight: 700;
+}
+
+.row {
+    width: 100vw;
+    display: flex;
+}
+
+.sign_up_header {
+    padding-bottom: 35px;
+    margin-left: 4vw;
+}
+
+.column_1 {
+    width: 45vw;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.myInfo {
+    height: 80px;
+    width: 350px;
+    object-fit: contain;
+}
+
+.column_2 {
+    width: 10vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.or_header {
+    margin: 0;
+    text-align: center;
+}
+
+.column_3 {
+    width: 30vw;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.registration_button {
+    background-color: #eee7df;
+    color: #3c3d3c;
+    height: 80px;
+    width: 350px;
+    border-radius: 50px;
+    font-size: 1.75vw;
+    font-weight: 700;
+    margin-left: 3vw;
+}

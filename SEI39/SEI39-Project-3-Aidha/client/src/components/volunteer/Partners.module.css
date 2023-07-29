@@ -1,0 +1,42 @@
+.partners_container {
+  width: 100vw;
+  height: 95vh;
+  background-color: white;
+}
+
+.partners_container h2 {
+  position: relative;
+  font-size: 3vw;
+  font-weight: 700;
+  margin-left: 4vw;
+  top: 95px;
+}
+
+.partners_row {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-left: 4vw;
+  margin-right: 4vw;
+  top: 116px;
+}
+
+.partner_extend_text {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  top: 156px;
+}
+
+.partner_extend_text span {
+  font: 32px;
+  font-weight: 700;
+  color: #f68121;
+  font-weight: bold;
+}
+
+img {
+  width: 180px;
+  height: 180px;
+}
