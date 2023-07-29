@@ -1,0 +1,90 @@
+mkdir galaxy_far_far_away
+
+mkdir death_star
+cd death_star
+mkdir darth_vader.txt
+mkdir princess_leia.txt
+mkdir storm_trooper.txt
+
+cd ..
+cd galaxy_far_far_away
+mkdir tatooine
+cd tatooine
+mkdir luke.txt
+mkdir ben_kenobi.txt
+mkdir millenium_falcon
+cd millenium_falcon
+mkdir han_solo.txt
+mkdir chewbaca.txt
+
+cd ..
+mv ben_kenobi.txt obi_wan.txt
+
+cd ~
+cd death_star
+cp .\storm_trooper.txt ..\galaxy_far_far_away\tatooine\
+
+cd ..
+cd galaxy_far_far_away
+cd tatooine
+mv luke.txt millenium_falcon
+mv obi_wan.txt millenium_falcon
+mv millenium_falcon ..  //move out of tatooine into galaxy_far_far_away
+cd ..
+mv millenium_falcon ../death_star
+cd ..
+cd death_star
+mv princess_leia.txt millenium_falcon  //teachers answer: mv .\princess_leia.txt\ millenium_falcon
+
+cd millenium_falcon
+rm obi_wan.txt
+
+cd ~
+cd galaxy_far_far_away
+mkdir yavin_4
+cd ..
+cd death_star
+mv millenium_falcon ..\galaxy_far_far_away\yavin_4
+
+cd ..
+cd galaxy_far_far_away
+cd yavin_4
+mkdir x_wing
+
+cd millenium_falcon
+mv princess_leia.txt ..\yavin_4
+mv luke.txt ..\x_wing
+
+cd ..
+mv millenium_falcon ../galaxy_far_far_away
+cd yavin_4
+mv x_wing ../galaxy_far_far_away
+
+cd ~
+cd death_star
+mkdir tie_fighter_1
+mkdir tie_fighter_2
+mkdir tie_fighter_3
+
+mv darth_vader.txt tie_fighter_1
+
+cp storm_trooper.txt tie_fighter_2
+cp storm_trooper.txt tie_fighter_3
+
+mv tie_fighter_1 ..\galaxy_far_far_away
+mv tie_fighter_2 ..\galaxy_far_far_away
+mv tie_fighter_3 ..\galaxy_far_far_away
+
+cd ..
+cd galaxy_far_far_away
+rm -r tie_fighter_2
+rm -r tie_fighter_3
+
+cd x_wing
+touch the_force.txt x_wing
+
+cd..
+rm -r death_star
+cd galaxy_far_far_away
+mv x_wing ../yanvin_4
+mv millenium_falcon ../yanvin_4

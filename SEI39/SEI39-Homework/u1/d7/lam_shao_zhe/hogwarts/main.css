@@ -1,0 +1,21 @@
+body {
+  background-color: white;
+  text-align: center;
+} /*or any color of your choosing*/
+
+.Owl {
+  font-family: fantasy;
+}
+
+.secret {
+  opacity: 0.5;
+}
+
+ul {
+  list-style: none;
+}
+
+table {
+  border-width: 1px;
+  margin: auto;
+}

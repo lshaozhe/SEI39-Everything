@@ -1,0 +1,12 @@
+.display {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.formandbutton {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  margin-bottom: 10px;
+}

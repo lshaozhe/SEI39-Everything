@@ -1,0 +1,30 @@
+body {
+  background-color: darkkhaki;
+  text-align: center;
+  color: cornflowerblue;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+} /*or any color of your choosing*/
+
+.dog {
+  font-family: fantasy;
+}
+th {
+  border: 1px solid gainsboro;
+  font-size: 50px;
+}
+td {
+  border: 1px solid gainsboro;
+}
+table {
+  margin-left: auto;
+  margin-right: auto;
+}
+.cabbage {
+  color: CHARTREUSE;
+}
+ul {
+  list-style: none;
+  background-color: rgb(80, 72, 64);
+  color: black;
+}

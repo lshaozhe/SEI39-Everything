@@ -1,0 +1,27 @@
+body {
+  background-color: #f8f7ff;
+  text-align: center;
+}
+
+.dog {
+  font-family: fantasy;
+}
+
+.secret {
+  opacity: 0.5;
+}
+
+th,
+td,
+table {
+  border: solid 1px;
+  border-color: gray;
+}
+
+table {
+  margin: 0 auto;
+}
+
+.cabbage {
+  color: CHARTREUSE;
+}

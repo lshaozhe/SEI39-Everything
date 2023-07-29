@@ -1,0 +1,112 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700;800&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-image: url("images/background.jpg");
+  background-repeat: repeat-x;
+  background-color: rgb(215, 215, 215);
+
+  font-family: "Open Sans", sans-serif;
+}
+
+.logo {
+  padding-top: 20px;
+  padding-bottom: 20px;
+
+  display: flex;
+  justify-content: center;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+}
+
+.feed {
+  background-color: white;
+  width: 600px;
+  padding: 30px 20px;
+}
+
+.article-title {
+  font-weight: 800;
+  margin-bottom: 1em;
+}
+
+.feed p {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  line-height: 1.5em;
+}
+
+.article {
+  margin-bottom: 40px;
+}
+
+.download {
+  text-transform: uppercase;
+  font-weight: bold;
+  color: red;
+}
+
+.article-details {
+  padding: 10px;
+  border-top: 1px dotted black;
+  border-bottom: 1px solid black;
+}
+
+.article-details p {
+  margin: 0;
+}
+
+.article-details span {
+  font-weight: bold;
+  color: red;
+}
+
+.side-bar {
+  margin-left: 30px;
+  padding: 30px 20px;
+  background-color: white;
+  height: fit-content;
+}
+
+.side-bar div {
+  margin-bottom: 20px;
+}
+
+.side-bar p {
+  font-weight: bold;
+}
+
+p.title {
+  text-transform: uppercase;
+}
+
+.side-bar img {
+  margin-bottom: 20px;
+  display: block;
+}
+.side-bar img.submit {
+  border: 3px solid black;
+}
+
+footer {
+  margin-top: 20px;
+}
+
+.socials {
+  padding-top: 20px;
+  padding-bottom: 20px;
+
+  display: flex;
+  justify-content: center;
+}
+
+.socials img {
+  margin: 0 5px;
+}

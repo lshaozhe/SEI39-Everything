@@ -1,0 +1,20 @@
+body {
+  background-color: #f8f333;
+  text-align: center;
+} /*or any color of your choosing*/
+
+.toad {
+  font-family: fantasy;
+}
+
+table,
+th,
+td {
+  border: 1px solid;
+  text-align: center;
+  margin: auto;
+}
+
+.cabbage {
+  color: CHARTREUSE;
+}

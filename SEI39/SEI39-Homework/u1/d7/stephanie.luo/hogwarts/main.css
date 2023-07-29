@@ -1,0 +1,66 @@
+html,
+body {
+  background-color: white;
+  max-width: 700px;
+  margin: auto;
+  text-align: center;
+  font-family: "Raleway", Arial, sans-serif;
+}
+
+h1 {
+  background-color: black;
+  color: azure;
+  padding: 20px;
+  letter-spacing: 2px;
+}
+
+h2 {
+  margin-top: 40px;
+  color: palevioletred;
+}
+
+h5 {
+  font-size: 18px;
+  margin: 40px auto 10px;
+}
+
+ul {
+  align-content: center;
+  margin-top: 40px;
+  border: 1px dotted palevioletred;
+  padding: 10px;
+}
+
+li {
+  list-style: none;
+  font-size: 0.9em;
+  margin: auto;
+  padding: 3px;
+}
+
+.secret {
+  opacity: 0.5;
+}
+
+table {
+  /* border: 1px solid gray; */
+  width: 700px;
+  margin: 10px auto 30px auto;
+}
+
+th {
+  border: 1px solid gray;
+  background-color: indianred;
+  color: azure;
+  text-align: center;
+  padding: 5px;
+}
+
+td {
+  border: 1px solid gray;
+  padding: 5px;
+}
+
+.cabbage {
+  color: CHARTREUSE;
+}

@@ -1,0 +1,62 @@
+body {
+    background: #d6d6d6 url(images/background.jpg) repeat-x;
+    font-family: Helvetica;
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+.header {
+    padding: 20px;
+}
+
+.header img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+a {
+   text-decoration: none; 
+   color: red;
+
+   font-weight: bold;
+}
+
+.right-menu, .new-post-feed {
+    background-color: white;
+}
+
+.dotted-horizontal-line {
+    border-top: 1px dotted;
+}
+
+.new-post-feed {
+    width: 50%;
+    padding: 1.5em;
+    margin-left: 3em;
+}
+
+.post img {
+    width: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.right-menu {
+    position: relative;
+    float: right;
+    width: 30%;
+    padding: 2em;
+    margin-right: 3em;
+}
+
+.right-menu img {
+    padding: 1em;
+}
+
+footer {
+    text-align: center;
+    padding: 2.5em;
+    
+}

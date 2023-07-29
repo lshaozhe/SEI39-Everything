@@ -1,0 +1,37 @@
+body {
+  background-color: #f9d29d;
+  text-align: center;
+}
+
+.dog {
+  font-family: fantasy, sans-serif;
+}
+
+.secret {
+  opacity: 0.5;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+table,
+th,
+td {
+  border: gray 1px solid;
+  margin: auto;
+  background-color: aliceblue;
+}
+
+.cabbage {
+  color: CHARTREUSE;
+}
+
+#container {
+  border: black solid;
+}
+
+h5 {
+  font-size: 20px;
+}

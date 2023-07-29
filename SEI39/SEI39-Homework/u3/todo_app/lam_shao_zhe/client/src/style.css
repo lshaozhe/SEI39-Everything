@@ -1,0 +1,19 @@
+p {
+    margin: 2px;
+}
+
+.form-container {
+    display: flex;
+    justify-content: center;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    margin: 16px 4px;
+    min-width: 300px;
+}
+
+label {
+    font-size: large;
+}

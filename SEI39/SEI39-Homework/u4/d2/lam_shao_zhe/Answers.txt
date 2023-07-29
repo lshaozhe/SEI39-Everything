@@ -1,0 +1,19 @@
+What is a nested loop?
+nested loop is one where there is one or more loops within a main loop
+
+Which kind of loop is based on a conditional statement: while loops or for loops?
+both while loop and for loop run would only run when the conditional statement is ran
+
+When you want to iterate a specific number of times, would you typically use a while loop or a for loop?
+for loop, as you can control the start and end, while while loop only specifies the end condition (so for loop cannot control number of times ran)
+
+Is it possible to loop through a string one letter at a time? What is the example given in the article?
+yes, the string can be treated as a list as follows:
+
+sammy = 'Sammy'
+
+for letter in sammy:
+   print(letter)
+
+Extrapolate from what you learned in the articles: Do you think a for loop can be nested inside a while loop? Why or why not?
+yes, an example would be instead of nesting for loops for multi dimensional datasets, one can switch the outer for loop into a while loop

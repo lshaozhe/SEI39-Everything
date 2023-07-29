@@ -1,0 +1,89 @@
+* {
+  font-family: Tahoma;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f8f7ff;
+  text-align: center;
+} /*or any color of your choosing*/
+
+h1 {
+  position: center;
+  padding: 10px;
+  background-image: linear-gradient(
+    30deg,
+    rgb(70, 20, 300, 0.5),
+    rgb(220, 81, 81, 0.5)
+  );
+  color: rgb(250, 250, 250, 0.8);
+  width: 30%;
+  margin: 10px auto;
+}
+
+h2 {
+  width: 30%;
+  margin: 5px auto;
+  padding: 5px;
+  border-bottom: 5px solid rgb(70, 20, 300, 0.5);
+}
+
+h3 {
+  width: 30%;
+  margin: 5px auto;
+  padding: 5px;
+  border-bottom: 5px solid rgb(70, 20, 300, 0.5);
+}
+
+h4 {
+  width: 30%;
+  margin: 5px auto;
+  padding: 5px;
+  border-bottom: 5px solid rgb(70, 20, 300, 0.5);
+}
+
+li {
+  list-style: none;
+  font-size: 0.75em;
+  margin: 5px auto;
+  text-align: left;
+  width: 30%;
+  padding-left: 0px;
+}
+
+.my-pet {
+  font-family: fantasy;
+}
+
+.secret {
+  opacity: 0.5;
+}
+
+table,
+th,
+td {
+  border: 1px solid gray;
+  font-family: "Times New Roman";
+}
+
+table {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+th {
+  background-color: rgb(200, 200, 200);
+}
+
+.cabbage {
+  color: CHARTREUSE;
+}
+
+h5 {
+  font-size: 1.25em;
+  margin: 5px;
+  padding: 5px;
+  border-top: 5px solid rgb(70, 20, 300, 0.5);
+  width: 30%;
+  margin: 5px auto;
+}

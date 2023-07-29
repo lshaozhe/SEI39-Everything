@@ -1,0 +1,58 @@
+body {
+  background-color: #F8F7FF;
+  text-align: center;
+
+}
+
+.cat {
+  font-family: fantasy;
+}
+
+.secret {
+  opacity: 0.5;
+}
+
+li {
+  list-style: none;
+}
+
+table,
+th,
+td {
+  border: 1px solid black;
+}
+
+table {
+  margin: auto;
+}
+
+.cabbage {
+  color: chartreuse;
+}
+
+h1 {
+  background-color: rgb(171, 170, 170);
+  font-style: Garamond;
+  font-size: 2em;
+}
+
+h3 {
+  color: rgb(197, 197, 5);
+}
+
+ul {
+  display: inline-block;
+  padding: 10px;
+  margin: 0 100;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 10px;
+}
+
+h5 {
+  margin: 1em 2em 0 2em;
+  ;
+  font-size: 1.2em;
+}
+
+/*or any color of your choosing*/

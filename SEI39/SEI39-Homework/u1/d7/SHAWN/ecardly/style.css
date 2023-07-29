@@ -1,0 +1,117 @@
+/* Three image containers (use 25% for four, and 50% for two, etc) */
+.column {
+  float: left;
+  width: 25%;
+  padding: 0px;
+  position: relative;
+}
+
+/* Clear floats after image containers */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+body {
+  background-color: #d6d6d6;
+}
+
+.imageStack {
+  margin: 0px;
+  position: absolute;
+  left: 45%;
+  top: 2%;
+  width: 15%;
+}
+#body1 {
+  position: absolute;
+  background-color: white;
+  top: 35%;
+  left: 20%;
+  width: 38%;
+}
+#body1font {
+  font-family: Arial, Helvetica, sans-serif;
+  position: relative;
+  text-align: left;
+  font-size: 20px;
+  padding: 40px 20px 10px 20px;
+  /* margin-top: 2%;
+  margin-left: 2%;
+  margin-bottom: 2%; */
+}
+#bodyImage {
+  padding: 0px 20px 0px 20px;
+  /* margin-top: 1%;
+  margin-bottom: 2%;
+  margin-right: 2%;
+  margin-left: auto;
+  margin-right: auto; */
+  /* width: 90%; */
+}
+#body1font2 {
+  padding: 10px 20px 10px 20px;
+  font-size: 12px;
+  line-height: 1.7;
+  font-family: Arial, Helvetica, sans-serif;
+}
+a {
+  color: #ff3300;
+  text-decoration: none;
+}
+#body1table {
+  padding: 5px 0px 5px 0px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  border-color: black;
+  border-width: 0.75px;
+  border-left: 0px;
+  border-right: 0px;
+  border-style: solid;
+  font-size: 12px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+#body1font3 {
+  font-family: Arial, Helvetica, sans-serif;
+  position: relative;
+  text-align: left;
+  font-size: 20px;
+  padding: 40px 20px 10px 20px;
+}
+
+#body2 {
+  position: absolute;
+  background-color: white;
+  width: 15%;
+  top: 35%;
+  left: 60%;
+}
+#bodyfont2 {
+  padding: 20px 0px 5px 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10px;
+}
+ol {
+  list-style: none;
+  margin-top: 0px;
+  margin-left: 0px;
+  padding-left: 0px;
+  padding-top: 5px;
+  line-height: 1.5;
+}
+#bodyImage2 {
+  padding: 5px 10px 5px 10px;
+}
+
+/* Clear floats after image containers */
+ul {
+  width: 50%;
+  list-style: none;
+  display: flex;
+}
+.row1 {
+  position: absolute;
+  top: 1450px;
+  left: 45%;
+}

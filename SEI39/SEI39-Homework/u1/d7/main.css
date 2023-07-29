@@ -1,0 +1,44 @@
+body {
+  background-color: hotpink;
+  padding: 0;
+  margin: 0;
+  height: 100%;
+}
+
+* {
+  text-align: center;
+}
+
+.cat {
+  font-family: fantasy;
+}
+
+.secret {
+  opacity: 0.5;
+}
+
+ul {
+  list-style-type: none;
+}
+
+table,
+th,
+td {
+  border: 1px solid gray;
+}
+
+table {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cabbage {
+  color: chartreuse;
+}
+
+h1,
+ul,
+li {
+  padding: 0;
+  margin: 0;
+}

@@ -1,0 +1,62 @@
+/* resets */
+
+body {
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  height: 100%;
+}
+
+h1,
+/* h2,
+h3,
+h4,
+h5,
+h6, */
+ul,
+li {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: #f8f7ff;
+}
+
+.owl {
+  font-family: fantasy;
+}
+
+ul {
+  list-style: none;
+  padding: 20px 0;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+  color: #f8f7ff;
+  background: #333;
+}
+
+table {
+  margin: 0 auto;
+}
+
+table,
+th,
+td {
+  border: 1px solid gray;
+}
+
+th,
+td {
+  padding: 5px 20px;
+}
+
+.cabbage {
+  color: CHARTREUSE;
+}
+
+h1 {
+  background: #333;
+  color: #f8f7ff;
+  padding: 1em;
+}

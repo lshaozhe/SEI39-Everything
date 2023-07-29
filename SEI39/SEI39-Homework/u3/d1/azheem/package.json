@@ -1,0 +1,20 @@
+{
+  "name": "d1",
+  "version": "1.0.0",
+  "description": "1. On your local computer, create a directory with your name inside the unit and day (`/uX/dX`) of the homework you want to submit. e.g. on my local `/GitHub/sei-39-homework/u1/d1/desmond_lim` 1. Create all your work in the directory created above. 1. Commit your changes frequently. 1. Push your changes to your remote github (your GA git) at least once a day.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server",
+    "dev": "nodemon server"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}

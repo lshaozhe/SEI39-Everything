@@ -1,0 +1,44 @@
+body {
+  background-color: #f8f7ff;
+  /* In your main.css file, add a css rule where all text will align center inside the body */
+  text-align: center;
+} /*or any color of your choosing*/
+
+/* In your main.css add an attribute of font-family: fantasy; to all elements that have a class that matches your pet's class */
+.Cat {
+  font-family: fantasy;
+}
+
+/* In your main.css file, give the items with a class of secret an attribute of opacity: 0.5; */
+.secret {
+  opacity: 0.5;
+}
+
+/* In your main.css file, remove the bullet points from the list items */
+ul {
+  list-style-type: none;
+}
+
+/* In your main.css file, add a gray 1px solid border around your table, th elements and td elements */
+table, th, td {
+    border: 1px solid gray;
+}
+
+table {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* add an attribute of color:CHARTREUSE; in your main.css for all elements that have a class of cabbage */
+.cabbage {
+    color: chartreuse;
+}
+
+th {
+    background-color: gray;
+    color: white;
+}
+
+li {
+    color: hotpink;
+}

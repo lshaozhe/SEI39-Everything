@@ -1,0 +1,35 @@
+body {
+  background-color: cornflowerblue;
+  text-align: center;
+  color: khaki;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+} /*or any color of your choosing*/
+
+.dog {
+  font-family: fantasy;
+}
+
+th {
+  border: 1px solid greenyellow;
+  font-size: 50px;
+}
+
+td {
+  border: 1px solid lightcoral;
+}
+
+table {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cabbage {
+  color: CHARTREUSE;
+}
+
+ul {
+  list-style: none;
+  background-color: rgb(32, 32, 82);
+  color: aquamarine;
+}

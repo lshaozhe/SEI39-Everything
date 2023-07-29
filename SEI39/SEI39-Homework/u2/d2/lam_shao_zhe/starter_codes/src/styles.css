@@ -1,0 +1,14 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.thumb {
+  border: 3px solid green;
+}
+
+.thumb1 {
+  border: none;
+  width: 120px;
+  height: 150px;
+}

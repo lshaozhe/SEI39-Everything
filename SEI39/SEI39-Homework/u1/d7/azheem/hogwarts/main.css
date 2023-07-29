@@ -1,0 +1,34 @@
+body {
+  background-color: #3d6cbc;
+  /* In your main.css file, add a css rule where all text will align center inside the body */
+  text-align: center;
+}
+
+/* In your main.css file, give the items with a class of secret an attribute of opacity: 0.5; */
+.secret {
+  opacity: 0.5;
+}
+
+/* In your main.css file, remove the bullet points from the list items */
+ul {
+  list-style: none;
+}
+
+/* In your main.css file, add a gray 1px solid border around your table, th elements and td elements */
+table,
+th,
+td {
+  border: 1px solid;
+  border-color: grey;
+}
+
+/* In your main.css file, add a rule that will center your table on the page */
+table {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* add an attribute of color:CHARTREUSE; in your main.css for all elements that have a class of cabbage */
+.cabbage {
+  color: CHARTREUSE;
+}

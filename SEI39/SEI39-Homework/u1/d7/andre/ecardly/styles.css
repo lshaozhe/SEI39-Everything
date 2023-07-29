@@ -1,0 +1,71 @@
+header {
+  background-image: url(images/background.jpg);
+  height: 10em;
+}
+.header {
+  display: block;
+  margin: auto;
+}
+
+body {
+  background-color: #d6d6d6;
+  font-family: Helvetica;
+  line-height: 1.7;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 5em;
+}
+
+section {
+  background-color: whitesmoke;
+  height: 100em;
+  width: 40em;
+  margin: 1em;
+}
+
+article {
+  margin: 1em;
+}
+
+article p {
+  text-align: left;
+}
+
+hr.dotted {
+  border-top: 3px dotted #bbb;
+}
+
+hr.solid {
+  border-top: 3px solid #bbb;
+}
+
+aside {
+  background-color: whitesmoke;
+  height: 70em;
+  width: 16em;
+  margin: 1em;
+}
+
+.aside {
+  display: block;
+  text-align: left;
+  margin-left: 1em;
+}
+
+.advert {
+  display: block;
+  margin: 1em auto;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+}
+
+a {
+  color: red;
+}

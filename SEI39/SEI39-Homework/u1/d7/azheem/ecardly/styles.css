@@ -1,0 +1,113 @@
+body {
+  background-color: #d6d6d6;
+  font-family: Helvetica;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+/* content {
+  width: 70%;
+  background-color: blue;
+} */
+
+header {
+  background-image: url(./images/background.jpg);
+  height: 25em;
+  background-repeat: repeat-x;
+}
+
+#logo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 15%;
+}
+
+.mainContent {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 60%;
+}
+
+section {
+  height: fit-content;
+  width: 68%;
+  background-color: white;
+  float: left;
+  padding-bottom: 10%;
+}
+
+#left-top,
+#left-bottom {
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+h1 {
+  padding-top: 5%;
+}
+
+#nycStartups,
+#courage {
+  width: 100%;
+}
+
+article {
+  padding-bottom: 1%;
+  width: 100%;
+}
+
+.postedBy {
+  border-top-style: dotted;
+  border-bottom-style: solid;
+}
+
+aside {
+  height: fit-content;
+  width: 30%;
+  background-color: white;
+  float: right;
+}
+
+.rightList {
+  list-style: none;
+  font-weight: bold;
+  padding-left: 10%;
+  padding-top: 10%;
+}
+
+.rightImages {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 10%;
+  width: 80%;
+}
+
+.download,
+.steveSmith,
+.three {
+  color: #ff3300;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+footer {
+  display: inline-block;
+
+  width: 100%;
+}
+
+.footerIcons {
+  display: block;
+  width: 3%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#footerList li {
+  list-style: none;
+  display: inline;
+  text-align: center;
+}
